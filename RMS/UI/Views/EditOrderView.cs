@@ -253,10 +253,38 @@ public class EditOrderView : BaseView
             Padding = new Padding(8, 0, 8, 0)
         };
 
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColItem", HeaderText = "Item Name", FillWeight = 38, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColPrice", HeaderText = "Unit Price", FillWeight = 18, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColQty", HeaderText = "Quantity", FillWeight = 16, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColSubtotal", HeaderText = "Subtotal", FillWeight = 18, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColItem", 
+            HeaderText = "Item Name", 
+            FillWeight = 28,
+            MinimumWidth = 150, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColPrice", 
+            HeaderText = "Unit Price", 
+            FillWeight = 20,
+            MinimumWidth = 110, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColQty", 
+            HeaderText = "Quantity", 
+            FillWeight = 16,
+            MinimumWidth = 100, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColSubtotal", 
+            HeaderText = "Subtotal", 
+            FillWeight = 20,
+            MinimumWidth = 110, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
 
         var colAction = new DataGridViewLinkColumn
         {
@@ -267,7 +295,9 @@ public class EditOrderView : BaseView
             LinkColor = AppTheme.DangerButton,
             ActiveLinkColor = AppTheme.DangerButtonHover,
             TrackVisitedState = false,
-            Width = 90
+            FillWeight = 16,
+            MinimumWidth = 110,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         };
         _gridItems.Columns.Add(colAction);
         _gridItems.CellContentClick += GridItems_CellContentClick;

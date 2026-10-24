@@ -264,7 +264,18 @@ public class MenuManagementView : BaseView, INavigationAware
 
         SetupGridColumns();
         _gridMenuItems.CellPainting += OnGridCellPainting;
-        _gridMenuItems.CellContentClick += OnGridCellContentClick;
+        _gridMenuItems.CellMouseClick += OnGridCellMouseClick;
+        _gridMenuItems.CellMouseMove += (s, e) =>
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == _gridMenuItems.Columns["ColActions"]?.Index)
+            {
+                _gridMenuItems.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                _gridMenuItems.Cursor = Cursors.Default;
+            }
+        };
 
         pnlTableCard.Controls.Add(_gridMenuItems);
 
@@ -289,7 +300,9 @@ public class MenuManagementView : BaseView, INavigationAware
         {
             Name = "ColId",
             HeaderText = "ID",
-            Width = 65,
+            FillWeight = 8,
+            MinimumWidth = 45,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -297,7 +310,9 @@ public class MenuManagementView : BaseView, INavigationAware
         {
             Name = "ColName",
             HeaderText = "Item Name",
-            Width = 220,
+            FillWeight = 26,
+            MinimumWidth = 140,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -305,7 +320,9 @@ public class MenuManagementView : BaseView, INavigationAware
         {
             Name = "ColCategory",
             HeaderText = "Category",
-            Width = 150,
+            FillWeight = 18,
+            MinimumWidth = 100,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -313,7 +330,9 @@ public class MenuManagementView : BaseView, INavigationAware
         {
             Name = "ColPrice",
             HeaderText = "Price (ETB)",
-            Width = 130,
+            FillWeight = 14,
+            MinimumWidth = 85,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -321,26 +340,20 @@ public class MenuManagementView : BaseView, INavigationAware
         {
             Name = "ColStatus",
             HeaderText = "Status",
-            Width = 150,
+            FillWeight = 16,
+            MinimumWidth = 115,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
-        _gridMenuItems.Columns.Add(new DataGridViewButtonColumn
+        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
         {
-            Name = "ColEdit",
+            Name = "ColActions",
             HeaderText = "Actions",
-            Text = "Edit",
-            UseColumnTextForButtonValue = true,
-            Width = 90
-        });
-
-        _gridMenuItems.Columns.Add(new DataGridViewButtonColumn
-        {
-            Name = "ColToggle",
-            HeaderText = "",
-            Text = "Toggle Status",
-            UseColumnTextForButtonValue = true,
-            Width = 120
+            FillWeight = 18,
+            MinimumWidth = 140,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+            SortMode = DataGridViewColumnSortMode.NotSortable
         });
     }
 
@@ -412,8 +425,7 @@ public class MenuManagementView : BaseView, INavigationAware
                 item.Category,
                 $"{item.Price:N0} ETB",
                 item.IsAvailable ? "Available" : "Unavailable",
-                "Edit",
-                item.IsAvailable ? "Make Unavailable" : "Make Available"
+                "Edit  •  Toggle Status"
             );
             _gridMenuItems.Rows[rowIndex].Tag = item;
         }
@@ -435,10 +447,10 @@ public class MenuManagementView : BaseView, INavigationAware
 
             Color badgeBg = isAvail ? AppTheme.StatusReadyBg : AppTheme.StatusCancelledBg;
             Color badgeFg = isAvail ? AppTheme.StatusReadyText : AppTheme.StatusCancelledText;
-            string displayLabel = isAvail ? "● Available" : "○ Unavailable";
+            string displayLabel = isAvail ? "Available" : "Unavailable";
 
-            int badgeWidth = 110;
-            int badgeHeight = 26;
+            int badgeWidth = 96;
+            int badgeHeight = 24;
             int badgeX = e.CellBounds.X + 8;
             int badgeY = e.CellBounds.Y + (e.CellBounds.Height - badgeHeight) / 2;
 
@@ -454,35 +466,53 @@ public class MenuManagementView : BaseView, INavigationAware
             e.Graphics.DrawString(displayLabel, AppTheme.SmallBold, brushFg, badgeRect, sf);
 
             e.Handled = true;
+            return;
+        }
+
+        int actionsColIdx = _gridMenuItems.Columns["ColActions"]?.Index ?? -1;
+        if (actionsColIdx >= 0 && e.ColumnIndex == actionsColIdx)
+        {
+            e.Paint(e.ClipBounds, DataGridViewPaintParts.Background | DataGridViewPaintParts.Border);
+            TextRenderer.DrawText(
+                e.Graphics,
+                "Edit  •  Toggle Status",
+                AppTheme.SmallBold,
+                e.CellBounds,
+                AppTheme.PrimaryButton,
+                TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.LeftAndRightPadding
+            );
+            e.Handled = true;
         }
     }
 
-    private void OnGridCellContentClick(object? sender, DataGridViewCellEventArgs e)
+    private void OnGridCellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
     {
         if (e.RowIndex < 0) return;
 
         if (_gridMenuItems.Rows[e.RowIndex].Tag is not MenuItem item)
             return;
 
-        int editColIdx = _gridMenuItems.Columns["ColEdit"]?.Index ?? -1;
-        int toggleColIdx = _gridMenuItems.Columns["ColToggle"]?.Index ?? -1;
-
-        if (e.ColumnIndex == editColIdx)
+        int actionsColIdx = _gridMenuItems.Columns["ColActions"]?.Index ?? -1;
+        if (e.ColumnIndex == actionsColIdx)
         {
-            // Edit item
-            using var dialog = new MenuItemDialog(item);
-            if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultItem != null)
+            // First ~50px is "Edit", remainder is "Toggle Status"
+            if (e.X < 50)
             {
-                _store.UpdateMenuItem(dialog.ResultItem);
-                PopulateCategoryFilter();
+                // Edit item
+                using var dialog = new MenuItemDialog(item);
+                if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultItem != null)
+                {
+                    _store.UpdateMenuItem(dialog.ResultItem);
+                    PopulateCategoryFilter();
+                    RefreshGrid();
+                }
+            }
+            else
+            {
+                // Toggle availability
+                _store.SetMenuItemAvailability(item.Id, !item.IsAvailable);
                 RefreshGrid();
             }
-        }
-        else if (e.ColumnIndex == toggleColIdx)
-        {
-            // Toggle availability
-            _store.SetMenuItemAvailability(item.Id, !item.IsAvailable);
-            RefreshGrid();
         }
     }
 

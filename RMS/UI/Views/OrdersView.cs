@@ -264,13 +264,13 @@ public class OrdersView : BaseView
             Padding = new Padding(10, 0, 10, 0)
         };
 
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColOrderNum", HeaderText = "Order #", FillWeight = 14, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColCustomer", HeaderText = "Customer", FillWeight = 20, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColTable", HeaderText = "Table", FillWeight = 14, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColCreated", HeaderText = "Created", FillWeight = 14, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColTotal", HeaderText = "Total", FillWeight = 16, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColStatus", HeaderText = "Status", FillWeight = 16, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColActions", HeaderText = "Actions", FillWeight = 26, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColOrderNum", HeaderText = "Order #", FillWeight = 9, MinimumWidth = 90, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColCustomer", HeaderText = "Customer", FillWeight = 18, MinimumWidth = 140, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColTable", HeaderText = "Table", FillWeight = 10, MinimumWidth = 95, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColCreated", HeaderText = "Created", FillWeight = 11, MinimumWidth = 95, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColTotal", HeaderText = "Total", FillWeight = 11, MinimumWidth = 95, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColStatus", HeaderText = "Status", FillWeight = 13, MinimumWidth = 115, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridOrders.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColActions", HeaderText = "Actions", FillWeight = 28, MinimumWidth = 270, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
 
         _gridOrders.CellPainting += GridOrders_CellPainting;
         _gridOrders.CellMouseClick += GridOrders_CellMouseClick;
@@ -555,7 +555,7 @@ public class OrdersView : BaseView
                     break;
             }
 
-            int badgeWidth = 84;
+            int badgeWidth = 92;
             int badgeHeight = 24;
             int x = e.CellBounds.X + 8;
             int y = e.CellBounds.Y + (e.CellBounds.Height - badgeHeight) / 2;

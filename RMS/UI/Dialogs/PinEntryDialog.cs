@@ -21,8 +21,7 @@ public class PinEntryDialog : Form
     public PinEntryDialog()
     {
         Text = "Admin Verification";
-        Width = 380;
-        Height = 260;
+        ClientSize = new Size(400, 260);
         FormBorderStyle = FormBorderStyle.FixedDialog;
         StartPosition = FormStartPosition.CenterParent;
         MaximizeBox = false;
@@ -33,9 +32,9 @@ public class PinEntryDialog : Form
         var pnlHeader = new Panel
         {
             Dock = DockStyle.Top,
-            Height = 70,
+            Height = 65,
             BackColor = AppTheme.SidebarBackground,
-            Padding = new Padding(20, 15, 20, 10)
+            Padding = new Padding(24, 12, 24, 10)
         };
 
         var lblTitle = new Label
@@ -44,7 +43,7 @@ public class PinEntryDialog : Form
             Font = AppTheme.HeaderMedium,
             ForeColor = Color.White,
             AutoSize = true,
-            Location = new Point(20, 14)
+            Location = new Point(24, 12)
         };
 
         var lblSubtitle = new Label
@@ -53,7 +52,7 @@ public class PinEntryDialog : Form
             Font = AppTheme.SmallRegular,
             ForeColor = AppTheme.SidebarMutedText,
             AutoSize = true,
-            Location = new Point(20, 40)
+            Location = new Point(24, 38)
         };
 
         pnlHeader.Controls.Add(lblTitle);
@@ -62,7 +61,7 @@ public class PinEntryDialog : Form
         var pnlBody = new Panel
         {
             Dock = DockStyle.Fill,
-            Padding = new Padding(30, 20, 30, 20),
+            Padding = new Padding(24, 16, 24, 16),
             BackColor = Color.White
         };
 
@@ -72,14 +71,14 @@ public class PinEntryDialog : Form
             Font = AppTheme.BodyBold,
             ForeColor = AppTheme.TextPrimary,
             AutoSize = true,
-            Location = new Point(30, 20)
+            Location = new Point(24, 16)
         };
 
         _txtPin = new TextBox
         {
-            Font = new Font("Segoe UI", 14f, FontStyle.Bold),
-            Location = new Point(30, 46),
-            Width = 300,
+            Font = new Font("Segoe UI", 13f, FontStyle.Bold),
+            Location = new Point(24, 42),
+            Width = 352,
             PasswordChar = '•',
             MaxLength = 8,
             TextAlign = HorizontalAlignment.Center
@@ -100,7 +99,7 @@ public class PinEntryDialog : Form
             Font = AppTheme.SmallBold,
             ForeColor = AppTheme.DangerButton,
             AutoSize = true,
-            Location = new Point(30, 84),
+            Location = new Point(24, 84),
             Visible = false
         };
 
@@ -112,7 +111,7 @@ public class PinEntryDialog : Form
             BackColor = AppTheme.PrimaryButton,
             FlatStyle = FlatStyle.Flat,
             Size = new Size(110, 36),
-            Location = new Point(110, 150),
+            Location = new Point(170, 10),
             Cursor = Cursors.Hand
         };
         _btnConfirm.FlatAppearance.BorderSize = 0;
@@ -123,10 +122,10 @@ public class PinEntryDialog : Form
             Text = "Cancel",
             Font = AppTheme.BodyRegular,
             ForeColor = AppTheme.TextPrimary,
-            BackColor = Color.FromArgb(243, 244, 246),
+            BackColor = Color.White,
             FlatStyle = FlatStyle.Flat,
             Size = new Size(90, 36),
-            Location = new Point(230, 150),
+            Location = new Point(286, 10),
             Cursor = Cursors.Hand
         };
         _btnCancel.FlatAppearance.BorderColor = AppTheme.CardBorder;
@@ -139,11 +138,17 @@ public class PinEntryDialog : Form
         var pnlBottom = new Panel
         {
             Dock = DockStyle.Bottom,
-            Height = 60,
+            Height = 56,
             BackColor = AppTheme.ContentBackground
         };
         pnlBottom.Controls.Add(_btnConfirm);
         pnlBottom.Controls.Add(_btnCancel);
+
+        pnlBottom.Resize += (s, e) =>
+        {
+            _btnCancel.Location = new Point(pnlBottom.Width - 104, 10);
+            _btnConfirm.Location = new Point(_btnCancel.Left - 120, 10);
+        };
 
         pnlBody.Controls.Add(lblPrompt);
         pnlBody.Controls.Add(_txtPin);

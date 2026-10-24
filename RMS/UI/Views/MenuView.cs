@@ -232,32 +232,32 @@ public class MenuView : BaseView
         {
             Name = "ColName",
             HeaderText = "Item Name",
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            FillWeight = 35
+            MinimumWidth = 200,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         });
 
         _gridMenu.Columns.Add(new DataGridViewTextBoxColumn
         {
             Name = "ColCategory",
             HeaderText = "Category",
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            FillWeight = 25
+            Width = 150,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.None
         });
 
         _gridMenu.Columns.Add(new DataGridViewTextBoxColumn
         {
             Name = "ColPrice",
             HeaderText = "Price",
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            FillWeight = 20
+            Width = 120,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.None
         });
 
         _gridMenu.Columns.Add(new DataGridViewTextBoxColumn
         {
             Name = "ColAvailability",
             HeaderText = "Availability",
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            FillWeight = 20
+            Width = 140,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.None
         });
 
         var colAction = new DataGridViewLinkColumn
@@ -269,7 +269,8 @@ public class MenuView : BaseView
             LinkColor = AppTheme.PrimaryButton,
             ActiveLinkColor = AppTheme.PrimaryButtonHover,
             TrackVisitedState = false,
-            Width = 80
+            Width = 90,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.None
         };
         _gridMenu.Columns.Add(colAction);
 
@@ -562,7 +563,7 @@ public class MenuView : BaseView
             Color bg = isAvailable ? AppTheme.StatusReadyBg : AppTheme.StatusPreparingBg;
             Color text = isAvailable ? AppTheme.StatusReadyText : AppTheme.StatusPreparingText;
 
-            int badgeWidth = 90;
+            int badgeWidth = 96;
             int badgeHeight = 24;
             int x = e.CellBounds.X + 8;
             int y = e.CellBounds.Y + (e.CellBounds.Height - badgeHeight) / 2;

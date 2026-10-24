@@ -428,7 +428,9 @@ public class ReportsView : BaseView, INavigationAware
         {
             Name = "ColNumber",
             HeaderText = "Order #",
-            Width = 90,
+            FillWeight = 12,
+            MinimumWidth = 90,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -436,7 +438,9 @@ public class ReportsView : BaseView, INavigationAware
         {
             Name = "ColCustomer",
             HeaderText = "Customer",
-            Width = 180,
+            FillWeight = 26,
+            MinimumWidth = 150,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -444,7 +448,9 @@ public class ReportsView : BaseView, INavigationAware
         {
             Name = "ColTable",
             HeaderText = "Table",
-            Width = 110,
+            FillWeight = 14,
+            MinimumWidth = 95,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -452,7 +458,9 @@ public class ReportsView : BaseView, INavigationAware
         {
             Name = "ColCreated",
             HeaderText = "Created",
-            Width = 120,
+            FillWeight = 16,
+            MinimumWidth = 110,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -460,7 +468,9 @@ public class ReportsView : BaseView, INavigationAware
         {
             Name = "ColTotal",
             HeaderText = "Total",
-            Width = 120,
+            FillWeight = 16,
+            MinimumWidth = 110,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
 
@@ -468,7 +478,9 @@ public class ReportsView : BaseView, INavigationAware
         {
             Name = "ColStatus",
             HeaderText = "Status",
-            Width = 145,
+            FillWeight = 16,
+            MinimumWidth = 125,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             SortMode = DataGridViewColumnSortMode.NotSortable
         });
     }

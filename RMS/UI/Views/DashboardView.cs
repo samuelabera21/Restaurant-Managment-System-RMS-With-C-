@@ -138,12 +138,12 @@ public class DashboardView : BaseView
             AutoScroll = true,
             BackColor = Color.White
         };
-        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14f)); // Order #
-        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22f)); // Customer
-        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18f)); // Table
+        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13f)); // Order #
+        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25f)); // Customer
+        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14f)); // Table
         _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16f)); // Created
         _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16f)); // Total
-        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14f)); // Status
+        _recentOrdersTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16f)); // Status
 
         pnlRecentOrders.Controls.Add(_recentOrdersTable);
         pnlRecentOrders.Controls.Add(pnlRecentHeader);
@@ -309,7 +309,7 @@ public class DashboardView : BaseView
             ForeColor = text,
             BackColor = bg,
             AutoSize = false,
-            Size = new Size(82, 24),
+            Size = new Size(92, 24),
             TextAlign = ContentAlignment.MiddleCenter,
             Anchor = AnchorStyles.Left
         };

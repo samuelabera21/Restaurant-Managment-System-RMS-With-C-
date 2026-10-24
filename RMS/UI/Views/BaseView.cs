@@ -28,9 +28,9 @@ public abstract class BaseView : UserControl, INavigationAware
         HeaderPanel = new Panel
         {
             Dock = DockStyle.Top,
-            Height = 76,
+            Height = 78,
             BackColor = AppTheme.ContentBackground,
-            Padding = new Padding(28, 12, 28, 8)
+            Padding = new Padding(28, 10, 28, 8)
         };
 
         TitleLabel = new Label
@@ -39,7 +39,7 @@ public abstract class BaseView : UserControl, INavigationAware
             Font = AppTheme.HeaderLarge,
             ForeColor = AppTheme.TextPrimary,
             AutoSize = true,
-            Location = new Point(28, 12)
+            Location = new Point(28, 10)
         };
 
         SubtitleLabel = new Label
@@ -48,7 +48,7 @@ public abstract class BaseView : UserControl, INavigationAware
             Font = AppTheme.Subtitle,
             ForeColor = AppTheme.TextSecondary,
             AutoSize = true,
-            Location = new Point(28, 46)
+            Location = new Point(28, 48)
         };
 
         HeaderPanel.Controls.Add(TitleLabel);

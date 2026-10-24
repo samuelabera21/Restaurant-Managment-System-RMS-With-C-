@@ -353,10 +353,38 @@ public class NewOrderView : BaseView
             Padding = new Padding(8, 0, 8, 0)
         };
 
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColItem", HeaderText = "Item Name", FillWeight = 38, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColPrice", HeaderText = "Unit Price", FillWeight = 20, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColQty", HeaderText = "Quantity", FillWeight = 16, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColSubtotal", HeaderText = "Subtotal", FillWeight = 20, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColItem", 
+            HeaderText = "Item Name", 
+            FillWeight = 28,
+            MinimumWidth = 150, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColPrice", 
+            HeaderText = "Unit Price", 
+            FillWeight = 20,
+            MinimumWidth = 110, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColQty", 
+            HeaderText = "Quantity", 
+            FillWeight = 16,
+            MinimumWidth = 100, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColSubtotal", 
+            HeaderText = "Subtotal", 
+            FillWeight = 20,
+            MinimumWidth = 110, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
 
         var colRemove = new DataGridViewLinkColumn
         {
@@ -367,7 +395,9 @@ public class NewOrderView : BaseView
             LinkColor = AppTheme.DangerButton,
             ActiveLinkColor = AppTheme.DangerButtonHover,
             TrackVisitedState = false,
-            Width = 90
+            FillWeight = 16,
+            MinimumWidth = 110,
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         };
         _gridItems.Columns.Add(colRemove);
         _gridItems.CellContentClick += GridItems_CellContentClick;
@@ -482,8 +512,6 @@ public class NewOrderView : BaseView
             Text = "Order number is generated automatically.",
             Font = AppTheme.SmallRegular,
             ForeColor = AppTheme.TextMuted,
-            Anchor = AnchorStyles.Top | AnchorStyles.Right,
-            Location = new Point(pnlActions.Width - 360, 20),
             AutoSize = true
         };
 
@@ -495,8 +523,6 @@ public class NewOrderView : BaseView
             BackColor = Color.White,
             FlatStyle = FlatStyle.Flat,
             Size = new Size(90, 40),
-            Anchor = AnchorStyles.Top | AnchorStyles.Right,
-            Location = new Point(pnlActions.Width - 100, 10),
             Cursor = Cursors.Hand
         };
         _btnCancel.FlatAppearance.BorderColor = AppTheme.CardBorder;
@@ -508,11 +534,13 @@ public class NewOrderView : BaseView
         pnlActions.Controls.Add(lblAutoNumberNote);
         pnlActions.Controls.Add(_btnCancel);
 
-        pnlActions.Resize += (s, e) =>
+        void LayoutActionControls()
         {
-            lblAutoNumberNote.Location = new Point(pnlActions.Width - 360, 20);
             _btnCancel.Location = new Point(pnlActions.Width - 100, 10);
-        };
+            lblAutoNumberNote.Location = new Point(_btnCancel.Left - lblAutoNumberNote.PreferredWidth - 20, 20);
+        }
+        LayoutActionControls();
+        pnlActions.Resize += (s, e) => LayoutActionControls();
 
         // Stack Cards into Scroll Canvas
         var pnlStack = new Panel

@@ -189,10 +189,38 @@ public class OrderDetailsView : BaseView
             Padding = new Padding(8, 0, 8, 0)
         };
 
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColItem", HeaderText = "Item Name", FillWeight = 42, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColPrice", HeaderText = "Unit Price", FillWeight = 20, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColQty", HeaderText = "Quantity", FillWeight = 16, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-        _gridItems.Columns.Add(new DataGridViewTextBoxColumn { Name = "ColSubtotal", HeaderText = "Subtotal", FillWeight = 22, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColItem", 
+            HeaderText = "Item Name", 
+            FillWeight = 36,
+            MinimumWidth = 160, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColPrice", 
+            HeaderText = "Unit Price", 
+            FillWeight = 22,
+            MinimumWidth = 110, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColQty", 
+            HeaderText = "Quantity", 
+            FillWeight = 20,
+            MinimumWidth = 100, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
+        _gridItems.Columns.Add(new DataGridViewTextBoxColumn 
+        { 
+            Name = "ColSubtotal", 
+            HeaderText = "Subtotal", 
+            FillWeight = 22,
+            MinimumWidth = 110, 
+            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill 
+        });
 
         _lblSummaryQty = new Label
         {
