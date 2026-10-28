@@ -17,7 +17,7 @@ public partial class ReportsView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
 
-    public ReportsView() : base("Reports", "Review order activity and completed order value")
+    public ReportsView() : base()
     {
         InitializeComponent();
 
@@ -90,11 +90,10 @@ public partial class ReportsView : BaseView, INavigationAware
         lblCompletedOrders.Text = completedCount.ToString();
         lblCompletedValue.Text = $"{completedRevenue:N0} ETB";
 
-        // 5. Update Breakdown Subtitle & Footer
+        // 5. Update Breakdown Subtitle
         string dateText = isTodayOnly ? "Today" : "All dates";
         string statusText = selectedStatus.HasValue ? selectedStatus.Value.ToString() : "All Statuses";
         lblBreakdownSubtitle.Text = $"{filteredList.Count} orders listed • {dateText} • {statusText}";
-        lblSummaryFooter.Text = $"Summary cards cover all {totalCount} orders; completed order value totals the {completedCount} completed orders.";
 
         // 6. Populate Breakdown Table
         dgvSummary.Rows.Clear();
@@ -111,18 +110,6 @@ public partial class ReportsView : BaseView, INavigationAware
 
             var row = dgvSummary.Rows[rowIndex];
             row.Tag = order;
-
-            // Apply status-specific text color
-            var statusCell = row.Cells["colStatus"];
-            statusCell.Style.ForeColor = order.Status switch
-            {
-                OrderStatus.Pending => AppTheme.StatusPendingText,
-                OrderStatus.Preparing => AppTheme.StatusPreparingText,
-                OrderStatus.Ready => AppTheme.StatusReadyText,
-                OrderStatus.Completed => AppTheme.StatusCompletedText,
-                _ => AppTheme.StatusCancelledText
-            };
-            statusCell.Style.Font = AppTheme.BodyBold;
         }
     }
 
@@ -149,9 +136,5 @@ public partial class ReportsView : BaseView, INavigationAware
         {
             Navigate(ViewType.OrderDetails, order.OrderNumber);
         }
-    }
-
-    private void lblFilterNote_Click(object? sender, EventArgs e)
-    {
     }
 }
