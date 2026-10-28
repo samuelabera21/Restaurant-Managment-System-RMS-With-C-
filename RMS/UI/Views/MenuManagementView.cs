@@ -1,4 +1,6 @@
+using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using RMS.Common;
 using RMS.Models;
@@ -11,357 +13,37 @@ namespace RMS.UI.Views;
 
 /// <summary>
 /// Admin Menu Management screen view protected by PIN.
-/// Allows adding new items, editing name/category/price, toggling availability,
-/// and persisting immediately to menu.json.
+/// Allows adding new items, editing name/category/price, and toggling availability.
 /// </summary>
-public class MenuManagementView : BaseView, INavigationAware
+public partial class MenuManagementView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
 
-    // Filters & Controls
-    private readonly TextBox _txtSearch;
-    private readonly Button _btnClearSearch;
-    private readonly ComboBox _cboCategoryFilter;
-    private readonly ComboBox _cboAvailabilityFilter;
-    private readonly Button _btnAddItem;
-    private readonly Label _lblItemsSummary;
-
-    // Grid
-    private readonly DataGridView _gridMenuItems;
-
     public MenuManagementView() : base("Menu Management", "Administer menu items, prices, and availability")
     {
-        // ----------------------------------------------------
-        // 1. Info Banner
-        // ----------------------------------------------------
-        var pnlNoticeBanner = new Panel
-        {
-            Dock = DockStyle.Top,
-            Height = 44,
-            BackColor = Color.FromArgb(238, 242, 255),
-            Padding = new Padding(16, 10, 16, 10)
-        };
-        pnlNoticeBanner.Paint += (s, e) =>
-        {
-            using var pen = new Pen(Color.FromArgb(199, 210, 254));
-            e.Graphics.DrawRectangle(pen, 0, 0, pnlNoticeBanner.Width - 1, pnlNoticeBanner.Height - 1);
-        };
+        InitializeComponent();
 
-        var lblNotice = new Label
+        if (!DesignMode)
         {
-            Text = "🔒 Admin Mode · Menu items are saved locally to menu.json. Price changes apply to new orders; past orders preserve historical price snapshots.",
-            Font = AppTheme.SmallRegular,
-            ForeColor = Color.FromArgb(67, 56, 202),
-            Dock = DockStyle.Fill,
-            TextAlign = ContentAlignment.MiddleLeft
-        };
-        pnlNoticeBanner.Controls.Add(lblNotice);
+            cboAvailabilityFilter.SelectedIndex = 0;
+        }
+    }
 
-        var pnlNoticeGap = new Panel
-        {
-            Dock = DockStyle.Top,
-            Height = 10,
-            BackColor = AppTheme.ContentBackground
-        };
+    public override void OnNavigatedTo(object? parameter = null)
+    {
+        base.OnNavigatedTo(parameter);
 
-        // ----------------------------------------------------
-        // 2. Toolbar & Filter Bar
-        // ----------------------------------------------------
-        var pnlToolbar = new Panel
-        {
-            Dock = DockStyle.Top,
-            Height = 54,
-            BackColor = AppTheme.ContentBackground,
-            Padding = new Padding(0, 10, 0, 8)
-        };
+        if (DesignMode) return;
 
-        // Search Box
-        var pnlSearch = new Panel
-        {
-            Size = new Size(260, 36),
-            Location = new Point(0, 9),
-            BackColor = Color.White
-        };
-        pnlSearch.Paint += (s, e) =>
-        {
-            using var pen = new Pen(AppTheme.CardBorder);
-            e.Graphics.DrawRectangle(pen, 0, 0, pnlSearch.Width - 1, pnlSearch.Height - 1);
-        };
-
-        var lblSearchIcon = new Label
-        {
-            Text = "🔍",
-            Font = AppTheme.SmallRegular,
-            ForeColor = AppTheme.TextMuted,
-            Size = new Size(24, 24),
-            Location = new Point(6, 6),
-            TextAlign = ContentAlignment.MiddleCenter
-        };
-
-        _btnClearSearch = new Button
-        {
-            Text = "✕",
-            Font = AppTheme.SmallBold,
-            ForeColor = AppTheme.TextMuted,
-            BackColor = Color.Transparent,
-            FlatStyle = FlatStyle.Flat,
-            Size = new Size(22, 22),
-            Location = new Point(234, 7),
-            Cursor = Cursors.Hand,
-            Visible = false
-        };
-        _btnClearSearch.FlatAppearance.BorderSize = 0;
-
-        _txtSearch = new TextBox
-        {
-            BorderStyle = BorderStyle.None,
-            Font = AppTheme.BodyRegular,
-            ForeColor = AppTheme.TextPrimary,
-            Location = new Point(32, 8),
-            Size = new Size(198, 20),
-            PlaceholderText = "Search menu items..."
-        };
-        _txtSearch.TextChanged += (s, e) =>
-        {
-            _btnClearSearch.Visible = !string.IsNullOrEmpty(_txtSearch.Text);
-            RefreshGrid();
-        };
-
-        _btnClearSearch.Click += (s, e) =>
-        {
-            _txtSearch.Text = string.Empty;
-            _txtSearch.Focus();
-        };
-
-        pnlSearch.Controls.Add(lblSearchIcon);
-        pnlSearch.Controls.Add(_txtSearch);
-        pnlSearch.Controls.Add(_btnClearSearch);
-        pnlToolbar.Controls.Add(pnlSearch);
-
-        // Category Filter
-        _cboCategoryFilter = new ComboBox
-        {
-            Font = AppTheme.BodyRegular,
-            Location = new Point(275, 11),
-            Size = new Size(160, 32),
-            DropDownStyle = ComboBoxStyle.DropDownList
-        };
-        _cboCategoryFilter.Items.Add("All Categories");
-        _cboCategoryFilter.SelectedIndex = 0;
-        _cboCategoryFilter.SelectedIndexChanged += (s, e) => RefreshGrid();
-        pnlToolbar.Controls.Add(_cboCategoryFilter);
-
-        // Availability Filter
-        _cboAvailabilityFilter = new ComboBox
-        {
-            Font = AppTheme.BodyRegular,
-            Location = new Point(445, 11),
-            Size = new Size(150, 32),
-            DropDownStyle = ComboBoxStyle.DropDownList
-        };
-        _cboAvailabilityFilter.Items.AddRange(new object[] { "All Items", "Available Only", "Unavailable Only" });
-        _cboAvailabilityFilter.SelectedIndex = 0;
-        _cboAvailabilityFilter.SelectedIndexChanged += (s, e) => RefreshGrid();
-        pnlToolbar.Controls.Add(_cboAvailabilityFilter);
-
-        // "+ Add Menu Item" Button on the right
-        _btnAddItem = new Button
-        {
-            Text = "+ Add Menu Item",
-            Font = AppTheme.BodyBold,
-            ForeColor = Color.White,
-            BackColor = AppTheme.PrimaryButton,
-            FlatStyle = FlatStyle.Flat,
-            Size = new Size(160, 36),
-            Anchor = AnchorStyles.Top | AnchorStyles.Right,
-            Cursor = Cursors.Hand
-        };
-        _btnAddItem.FlatAppearance.BorderSize = 0;
-        _btnAddItem.Location = new Point(ContentPanel.Width - 170, 9);
-        _btnAddItem.Click += OnAddNewItemClicked;
-        pnlToolbar.Controls.Add(_btnAddItem);
-        pnlToolbar.Resize += (s, e) =>
-        {
-            _btnAddItem.Location = new Point(pnlToolbar.Width - 170, 9);
-        };
-
-        // ----------------------------------------------------
-        // 3. Sub-bar Summary Label
-        // ----------------------------------------------------
-        var pnlSubBar = new Panel
-        {
-            Dock = DockStyle.Top,
-            Height = 26,
-            BackColor = AppTheme.ContentBackground
-        };
-
-        _lblItemsSummary = new Label
-        {
-            Text = "Showing all items",
-            Font = AppTheme.SmallBold,
-            ForeColor = AppTheme.TextSecondary,
-            Dock = DockStyle.Fill,
-            TextAlign = ContentAlignment.MiddleLeft
-        };
-        pnlSubBar.Controls.Add(_lblItemsSummary);
-
-        // ----------------------------------------------------
-        // 4. DataGridView Table Card
-        // ----------------------------------------------------
-        var pnlTableCard = new Panel
-        {
-            Dock = DockStyle.Fill,
-            BackColor = AppTheme.CardBackground,
-            Padding = new Padding(1)
-        };
-        pnlTableCard.Paint += (s, e) =>
-        {
-            using var pen = new Pen(AppTheme.CardBorder);
-            e.Graphics.DrawRectangle(pen, 0, 0, pnlTableCard.Width - 1, pnlTableCard.Height - 1);
-        };
-
-        _gridMenuItems = new DataGridView
-        {
-            Dock = DockStyle.Fill,
-            BackgroundColor = Color.White,
-            BorderStyle = BorderStyle.None,
-            CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
-            GridColor = Color.FromArgb(243, 244, 246),
-            RowHeadersVisible = false,
-            AllowUserToAddRows = false,
-            AllowUserToDeleteRows = false,
-            AllowUserToResizeRows = false,
-            MultiSelect = false,
-            ReadOnly = true,
-            SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-            EnableHeadersVisualStyles = false,
-            RowTemplate = { Height = 48 }
-        };
-
-        _gridMenuItems.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
-        {
-            BackColor = Color.White,
-            ForeColor = AppTheme.TextSecondary,
-            Font = AppTheme.SmallBold,
-            SelectionBackColor = Color.White,
-            SelectionForeColor = AppTheme.TextSecondary,
-            Padding = new Padding(12, 10, 12, 10),
-            Alignment = DataGridViewContentAlignment.MiddleLeft
-        };
-        _gridMenuItems.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-        _gridMenuItems.ColumnHeadersHeight = 44;
-
-        _gridMenuItems.DefaultCellStyle = new DataGridViewCellStyle
-        {
-            BackColor = Color.White,
-            ForeColor = AppTheme.TextPrimary,
-            Font = AppTheme.BodyRegular,
-            SelectionBackColor = Color.FromArgb(248, 250, 252),
-            SelectionForeColor = AppTheme.TextPrimary,
-            Padding = new Padding(12, 0, 12, 0),
-            Alignment = DataGridViewContentAlignment.MiddleLeft
-        };
-
-        SetupGridColumns();
-        _gridMenuItems.CellPainting += OnGridCellPainting;
-        _gridMenuItems.CellMouseClick += OnGridCellMouseClick;
-        _gridMenuItems.CellMouseMove += (s, e) =>
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == _gridMenuItems.Columns["ColActions"]?.Index)
-            {
-                _gridMenuItems.Cursor = Cursors.Hand;
-            }
-            else
-            {
-                _gridMenuItems.Cursor = Cursors.Default;
-            }
-        };
-
-        pnlTableCard.Controls.Add(_gridMenuItems);
-
-        // Add controls in reverse docking priority:
-        // Fill docks last, then SubBar, Toolbar, Gap, NoticeBanner at the very top.
-        ContentPanel.Controls.Add(pnlTableCard);
-        ContentPanel.Controls.Add(pnlSubBar);
-        ContentPanel.Controls.Add(pnlToolbar);
-        ContentPanel.Controls.Add(pnlNoticeGap);
-        ContentPanel.Controls.Add(pnlNoticeBanner);
-
-        // Load Categories into dropdown and populate grid
         PopulateCategoryFilter();
         RefreshGrid();
     }
 
-    private void SetupGridColumns()
-    {
-        _gridMenuItems.Columns.Clear();
-
-        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
-        {
-            Name = "ColId",
-            HeaderText = "ID",
-            FillWeight = 8,
-            MinimumWidth = 45,
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            SortMode = DataGridViewColumnSortMode.NotSortable
-        });
-
-        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
-        {
-            Name = "ColName",
-            HeaderText = "Item Name",
-            FillWeight = 26,
-            MinimumWidth = 140,
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            SortMode = DataGridViewColumnSortMode.NotSortable
-        });
-
-        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
-        {
-            Name = "ColCategory",
-            HeaderText = "Category",
-            FillWeight = 18,
-            MinimumWidth = 100,
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            SortMode = DataGridViewColumnSortMode.NotSortable
-        });
-
-        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
-        {
-            Name = "ColPrice",
-            HeaderText = "Price (ETB)",
-            FillWeight = 14,
-            MinimumWidth = 85,
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            SortMode = DataGridViewColumnSortMode.NotSortable
-        });
-
-        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
-        {
-            Name = "ColStatus",
-            HeaderText = "Status",
-            FillWeight = 16,
-            MinimumWidth = 115,
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            SortMode = DataGridViewColumnSortMode.NotSortable
-        });
-
-        _gridMenuItems.Columns.Add(new DataGridViewTextBoxColumn
-        {
-            Name = "ColActions",
-            HeaderText = "Actions",
-            FillWeight = 18,
-            MinimumWidth = 140,
-            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-            SortMode = DataGridViewColumnSortMode.NotSortable
-        });
-    }
-
     private void PopulateCategoryFilter()
     {
-        string? currentSelection = _cboCategoryFilter.SelectedItem?.ToString();
-        _cboCategoryFilter.Items.Clear();
-        _cboCategoryFilter.Items.Add("All Categories");
+        string? currentSelection = cboCategoryFilter.SelectedItem?.ToString();
+        cboCategoryFilter.Items.Clear();
+        cboCategoryFilter.Items.Add("All Categories");
 
         var categories = _store.MenuItems
             .Select(m => m.Category)
@@ -371,24 +53,26 @@ public class MenuManagementView : BaseView, INavigationAware
 
         foreach (var category in categories)
         {
-            _cboCategoryFilter.Items.Add(category);
+            cboCategoryFilter.Items.Add(category);
         }
 
-        if (currentSelection != null && _cboCategoryFilter.Items.Contains(currentSelection))
+        if (currentSelection != null && cboCategoryFilter.Items.Contains(currentSelection))
         {
-            _cboCategoryFilter.SelectedItem = currentSelection;
+            cboCategoryFilter.SelectedItem = currentSelection;
         }
         else
         {
-            _cboCategoryFilter.SelectedIndex = 0;
+            cboCategoryFilter.SelectedIndex = 0;
         }
     }
 
     public void RefreshGrid()
     {
-        string searchQuery = _txtSearch.Text.Trim().ToLowerInvariant();
-        string selectedCategory = _cboCategoryFilter.SelectedItem?.ToString() ?? "All Categories";
-        int availIndex = _cboAvailabilityFilter.SelectedIndex;
+        if (DesignMode) return;
+
+        string searchQuery = txtSearch.Text.Trim().ToLowerInvariant();
+        string selectedCategory = cboCategoryFilter.SelectedItem?.ToString() ?? "All Categories";
+        int availIndex = cboAvailabilityFilter.SelectedIndex;
 
         var items = _store.MenuItems.AsEnumerable();
 
@@ -416,107 +100,59 @@ public class MenuManagementView : BaseView, INavigationAware
 
         var filteredList = items.OrderBy(m => m.Id).ToList();
 
-        _gridMenuItems.Rows.Clear();
+        dgvMenuItems.Rows.Clear();
         foreach (var item in filteredList)
         {
-            int rowIndex = _gridMenuItems.Rows.Add(
+            int rowIndex = dgvMenuItems.Rows.Add(
                 $"#{item.Id}",
                 item.Name,
                 item.Category,
                 $"{item.Price:N0} ETB",
-                item.IsAvailable ? "Available" : "Unavailable",
-                "Edit  •  Toggle Status"
+                item.IsAvailable ? "Available" : "Unavailable"
             );
-            _gridMenuItems.Rows[rowIndex].Tag = item;
+
+            var row = dgvMenuItems.Rows[rowIndex];
+            row.Tag = item;
+
+            var statusCell = row.Cells["colStatus"];
+            statusCell.Style.ForeColor = item.IsAvailable ? AppTheme.StatusReadyText : AppTheme.StatusCancelledText;
+            statusCell.Style.Font = AppTheme.BodyBold;
         }
 
-        _lblItemsSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";
+        lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";
+        UpdateActionButtons();
     }
 
-    private void OnGridCellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
+    private MenuItem? GetSelectedMenuItem()
     {
-        if (e.RowIndex < 0 || e.Graphics == null) return;
-
-        int statusColIdx = _gridMenuItems.Columns["ColStatus"]?.Index ?? -1;
-        if (e.ColumnIndex == statusColIdx && e.Value != null)
+        if (dgvMenuItems.SelectedRows.Count > 0 && dgvMenuItems.SelectedRows[0].Tag is MenuItem item)
         {
-            e.PaintBackground(e.CellBounds, true);
-
-            string statusText = e.Value.ToString() ?? "";
-            bool isAvail = statusText.Equals("Available", StringComparison.OrdinalIgnoreCase);
-
-            Color badgeBg = isAvail ? AppTheme.StatusReadyBg : AppTheme.StatusCancelledBg;
-            Color badgeFg = isAvail ? AppTheme.StatusReadyText : AppTheme.StatusCancelledText;
-            string displayLabel = isAvail ? "Available" : "Unavailable";
-
-            int badgeWidth = 96;
-            int badgeHeight = 24;
-            int badgeX = e.CellBounds.X + 8;
-            int badgeY = e.CellBounds.Y + (e.CellBounds.Height - badgeHeight) / 2;
-
-            var badgeRect = new Rectangle(badgeX, badgeY, badgeWidth, badgeHeight);
-            using var brushBg = new SolidBrush(badgeBg);
-            using var brushFg = new SolidBrush(badgeFg);
-            using var sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-
-            // Draw rounded pill
-            using var path = GetRoundedPath(badgeRect, 6);
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            e.Graphics.FillPath(brushBg, path);
-            e.Graphics.DrawString(displayLabel, AppTheme.SmallBold, brushFg, badgeRect, sf);
-
-            e.Handled = true;
-            return;
+            return item;
         }
-
-        int actionsColIdx = _gridMenuItems.Columns["ColActions"]?.Index ?? -1;
-        if (actionsColIdx >= 0 && e.ColumnIndex == actionsColIdx)
-        {
-            e.Paint(e.ClipBounds, DataGridViewPaintParts.Background | DataGridViewPaintParts.Border);
-            TextRenderer.DrawText(
-                e.Graphics,
-                "Edit  •  Toggle Status",
-                AppTheme.SmallBold,
-                e.CellBounds,
-                AppTheme.PrimaryButton,
-                TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.LeftAndRightPadding
-            );
-            e.Handled = true;
-        }
+        return null;
     }
 
-    private void OnGridCellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+    private void UpdateActionButtons()
     {
-        if (e.RowIndex < 0) return;
+        bool hasSelection = GetSelectedMenuItem() != null;
+        btnEditItem.Enabled = hasSelection;
+        btnToggleStatus.Enabled = hasSelection;
+    }
 
-        if (_gridMenuItems.Rows[e.RowIndex].Tag is not MenuItem item)
-            return;
+    private void dgvMenuItems_SelectionChanged(object? sender, EventArgs e)
+    {
+        UpdateActionButtons();
+    }
 
-        int actionsColIdx = _gridMenuItems.Columns["ColActions"]?.Index ?? -1;
-        if (e.ColumnIndex == actionsColIdx)
+    private void dgvMenuItems_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex >= 0)
         {
-            // First ~50px is "Edit", remainder is "Toggle Status"
-            if (e.X < 50)
-            {
-                // Edit item
-                using var dialog = new MenuItemDialog(item);
-                if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultItem != null)
-                {
-                    _store.UpdateMenuItem(dialog.ResultItem);
-                    PopulateCategoryFilter();
-                    RefreshGrid();
-                }
-            }
-            else
-            {
-                // Toggle availability
-                _store.SetMenuItemAvailability(item.Id, !item.IsAvailable);
-                RefreshGrid();
-            }
+            EditSelectedItem();
         }
     }
 
-    private void OnAddNewItemClicked(object? sender, EventArgs e)
+    private void btnAddItem_Click(object? sender, EventArgs e)
     {
         using var dialog = new MenuItemDialog();
         if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultItem != null)
@@ -527,21 +163,49 @@ public class MenuManagementView : BaseView, INavigationAware
         }
     }
 
-    private static System.Drawing.Drawing2D.GraphicsPath GetRoundedPath(Rectangle rect, int radius)
+    private void btnEditItem_Click(object? sender, EventArgs e)
     {
-        var path = new System.Drawing.Drawing2D.GraphicsPath();
-        int d = radius * 2;
-        path.AddArc(rect.X, rect.Y, d, d, 180, 90);
-        path.AddArc(rect.Right - d, rect.Y, d, d, 270, 90);
-        path.AddArc(rect.Right - d, rect.Bottom - d, d, d, 0, 90);
-        path.AddArc(rect.X, rect.Bottom - d, d, d, 90, 90);
-        path.CloseFigure();
-        return path;
+        EditSelectedItem();
     }
 
-    public override void OnNavigatedTo(object? parameter = null)
+    private void EditSelectedItem()
     {
-        PopulateCategoryFilter();
+        var item = GetSelectedMenuItem();
+        if (item == null) return;
+
+        using var dialog = new MenuItemDialog(item);
+        if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultItem != null)
+        {
+            _store.UpdateMenuItem(dialog.ResultItem);
+            PopulateCategoryFilter();
+            RefreshGrid();
+        }
+    }
+
+    private void btnToggleStatus_Click(object? sender, EventArgs e)
+    {
+        var item = GetSelectedMenuItem();
+        if (item == null) return;
+
+        _store.SetMenuItemAvailability(item.Id, !item.IsAvailable);
+        RefreshGrid();
+    }
+
+    private void txtSearch_TextChanged(object? sender, EventArgs e)
+    {
+        RefreshGrid();
+    }
+
+    private void Filter_Changed(object? sender, EventArgs e)
+    {
+        RefreshGrid();
+    }
+
+    private void btnClearSearch_Click(object? sender, EventArgs e)
+    {
+        txtSearch.Text = string.Empty;
+        cboCategoryFilter.SelectedIndex = 0;
+        cboAvailabilityFilter.SelectedIndex = 0;
         RefreshGrid();
     }
 }
