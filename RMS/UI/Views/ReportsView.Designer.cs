@@ -54,6 +54,7 @@ partial class ReportsView
         colCreated = new DataGridViewTextBoxColumn();
         colTotal = new DataGridViewTextBoxColumn();
         colStatus = new DataGridViewTextBoxColumn();
+        lblSummaryFooter = new Label();
         pnlBreakdownHeader = new Panel();
         lblBreakdownSubtitle = new Label();
         pnlHeader.SuspendLayout();
@@ -536,6 +537,10 @@ partial class ReportsView
         colStatus.Name = "colStatus";
         colStatus.ReadOnly = true;
         // 
+        // lblSummaryFooter
+        // 
+        lblSummaryFooter.Visible = false;
+        // 
         // pnlBreakdownHeader
         // 
         pnlBreakdownHeader.Controls.Add(lblBreakdownSubtitle);
@@ -631,4 +636,5 @@ partial class ReportsView
     private System.Windows.Forms.DataGridViewTextBoxColumn colCreated;
     private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
     private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+    private System.Windows.Forms.Label lblSummaryFooter;
 }
