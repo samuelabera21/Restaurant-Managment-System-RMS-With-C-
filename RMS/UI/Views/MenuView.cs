@@ -80,8 +80,7 @@ public partial class MenuView : BaseView
         var results = filtered.ToList();
 
         // Update count summary label
-        int availableCount = allItems.Count(i => i.IsAvailable);
-        lblCountSummary.Text = $"Showing {results.Count} of {allItems.Count} items ({availableCount} available)";
+        lblCountSummary.Text = $"Showing {results.Count} of {allItems.Count} items";
 
         // Populate DataGridView
         dgvMenu.Rows.Clear();
@@ -92,18 +91,11 @@ public partial class MenuView : BaseView
                 item.Category,
                 $"{item.Price:N0} ETB",
                 item.IsAvailable ? "Available" : "Unavailable",
-                "View Details"
+                "View"
             );
 
             var row = dgvMenu.Rows[rowIndex];
             row.Tag = item;
-
-            // Clean status styling
-            var availCell = row.Cells[colAvailability.Index];
-            availCell.Style.ForeColor = item.IsAvailable
-                ? Color.FromArgb(16, 149, 93)   // Green
-                : Color.FromArgb(194, 65, 12);  // Dark orange
-            availCell.Style.Font = AppTheme.BodyBold;
         }
 
         dgvMenu.ClearSelection();
