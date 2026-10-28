@@ -68,7 +68,7 @@ public partial class OrdersView : BaseView
         var filteredList = _orderService.FilterOrders(query, statusFilter).ToList();
         int totalOrders = _store.Orders.Count;
 
-        lblOrdersSummary.Text = $"Showing {filteredList.Count} of {totalOrders} orders today";
+        lblOrdersSummary.Text = $"Showing {filteredList.Count} of {totalOrders} orders";
 
         dgvOrders.Rows.Clear();
         foreach (var order in filteredList)
@@ -84,11 +84,6 @@ public partial class OrdersView : BaseView
 
             var row = dgvOrders.Rows[rowIndex];
             row.Tag = order;
-
-            // Clean status color
-            var statusCell = row.Cells[colStatus.Index];
-            statusCell.Style.ForeColor = GetStatusColor(order.Status);
-            statusCell.Style.Font = AppTheme.BodyBold;
         }
 
         UpdateActionButtonsState();
@@ -111,16 +106,6 @@ public partial class OrdersView : BaseView
             btnCancelOrder.Enabled = false;
         }
     }
-
-    private static Color GetStatusColor(OrderStatus status) => status switch
-    {
-        OrderStatus.Pending => Color.FromArgb(180, 83, 9),      // Amber
-        OrderStatus.Preparing => Color.FromArgb(194, 65, 12),   // Orange
-        OrderStatus.Ready => Color.FromArgb(16, 149, 93),       // Green
-        OrderStatus.Completed => Color.FromArgb(71, 85, 105),   // Slate
-        OrderStatus.Cancelled => Color.FromArgb(220, 38, 38),   // Red
-        _ => Color.FromArgb(15, 23, 42)
-    };
 
     private Order? GetSelectedOrder()
     {
