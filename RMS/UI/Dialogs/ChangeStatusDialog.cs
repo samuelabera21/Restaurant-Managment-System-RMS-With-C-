@@ -87,7 +87,7 @@ public class ChangeStatusDialog : Form
 
         var lblArrow = new Label
         {
-            Text = "➔",
+            Text = "→",
             Font = new Font("Segoe UI", 12f, FontStyle.Bold),
             ForeColor = AppTheme.TextSecondary,
             AutoSize = true,

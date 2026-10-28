@@ -78,7 +78,7 @@ partial class NewOrderView
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
         lblTitle.Location = new Point(0, 0);
         lblTitle.Name = "lblTitle";
-        lblTitle.Size = new Size(158, 37);
+        lblTitle.Size = new Size(184, 45);
         lblTitle.TabIndex = 0;
         lblTitle.Text = "New Order";
         // 
@@ -126,7 +126,7 @@ partial class NewOrderView
         txtOrderDateTime.Location = new Point(630, 46);
         txtOrderDateTime.Name = "txtOrderDateTime";
         txtOrderDateTime.ReadOnly = true;
-        txtOrderDateTime.Size = new Size(200, 29);
+        txtOrderDateTime.Size = new Size(200, 33);
         txtOrderDateTime.TabIndex = 7;
         // 
         // lblOrderDateTime
@@ -136,7 +136,7 @@ partial class NewOrderView
         lblOrderDateTime.ForeColor = Color.FromArgb(71, 85, 105);
         lblOrderDateTime.Location = new Point(626, 24);
         lblOrderDateTime.Name = "lblOrderDateTime";
-        lblOrderDateTime.Size = new Size(91, 20);
+        lblOrderDateTime.Size = new Size(97, 23);
         lblOrderDateTime.TabIndex = 6;
         lblOrderDateTime.Text = "Date & Time:";
         // 
@@ -147,7 +147,7 @@ partial class NewOrderView
         numTableNumber.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
         numTableNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numTableNumber.Name = "numTableNumber";
-        numTableNumber.Size = new Size(120, 29);
+        numTableNumber.Size = new Size(120, 33);
         numTableNumber.TabIndex = 5;
         numTableNumber.Value = new decimal(new int[] { 4, 0, 0, 0 });
         // 
@@ -158,7 +158,7 @@ partial class NewOrderView
         lblTableNumber.ForeColor = Color.FromArgb(71, 85, 105);
         lblTableNumber.Location = new Point(471, 24);
         lblTableNumber.Name = "lblTableNumber";
-        lblTableNumber.Size = new Size(117, 20);
+        lblTableNumber.Size = new Size(133, 23);
         lblTableNumber.TabIndex = 4;
         lblTableNumber.Text = "Table Number: *";
         // 
@@ -168,7 +168,7 @@ partial class NewOrderView
         txtCustomerName.Location = new Point(170, 46);
         txtCustomerName.Name = "txtCustomerName";
         txtCustomerName.PlaceholderText = "Enter customer name";
-        txtCustomerName.Size = new Size(275, 29);
+        txtCustomerName.Size = new Size(275, 33);
         txtCustomerName.TabIndex = 3;
         txtCustomerName.TextChanged += txtCustomerName_TextChanged;
         // 
@@ -179,7 +179,7 @@ partial class NewOrderView
         lblCustomerName.ForeColor = Color.FromArgb(71, 85, 105);
         lblCustomerName.Location = new Point(166, 24);
         lblCustomerName.Name = "lblCustomerName";
-        lblCustomerName.Size = new Size(130, 20);
+        lblCustomerName.Size = new Size(151, 23);
         lblCustomerName.TabIndex = 2;
         lblCustomerName.Text = "Customer Name: *";
         // 
@@ -190,7 +190,7 @@ partial class NewOrderView
         txtOrderNumber.Location = new Point(18, 46);
         txtOrderNumber.Name = "txtOrderNumber";
         txtOrderNumber.ReadOnly = true;
-        txtOrderNumber.Size = new Size(120, 29);
+        txtOrderNumber.Size = new Size(120, 33);
         txtOrderNumber.TabIndex = 1;
         txtOrderNumber.Text = "#116";
         txtOrderNumber.TextAlign = HorizontalAlignment.Center;
@@ -202,7 +202,7 @@ partial class NewOrderView
         lblOrderNumber.ForeColor = Color.FromArgb(71, 85, 105);
         lblOrderNumber.Location = new Point(14, 24);
         lblOrderNumber.Name = "lblOrderNumber";
-        lblOrderNumber.Size = new Size(65, 20);
+        lblOrderNumber.Size = new Size(73, 23);
         lblOrderNumber.TabIndex = 0;
         lblOrderNumber.Text = "Order #:";
         // 
@@ -246,7 +246,7 @@ partial class NewOrderView
         numQuantity.Location = new Point(415, 43);
         numQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numQuantity.Name = "numQuantity";
-        numQuantity.Size = new Size(90, 29);
+        numQuantity.Size = new Size(90, 33);
         numQuantity.TabIndex = 3;
         numQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
         // 
@@ -257,7 +257,7 @@ partial class NewOrderView
         lblQuantity.ForeColor = Color.FromArgb(71, 85, 105);
         lblQuantity.Location = new Point(411, 22);
         lblQuantity.Name = "lblQuantity";
-        lblQuantity.Size = new Size(68, 20);
+        lblQuantity.Size = new Size(80, 23);
         lblQuantity.TabIndex = 2;
         lblQuantity.Text = "Quantity:";
         // 
@@ -268,7 +268,7 @@ partial class NewOrderView
         cboMenuItems.FormattingEnabled = true;
         cboMenuItems.Location = new Point(18, 43);
         cboMenuItems.Name = "cboMenuItems";
-        cboMenuItems.Size = new Size(370, 29);
+        cboMenuItems.Size = new Size(370, 33);
         cboMenuItems.TabIndex = 1;
         // 
         // lblMenuItem
@@ -278,7 +278,7 @@ partial class NewOrderView
         lblMenuItem.ForeColor = Color.FromArgb(71, 85, 105);
         lblMenuItem.Location = new Point(14, 22);
         lblMenuItem.Name = "lblMenuItem";
-        lblMenuItem.Size = new Size(86, 20);
+        lblMenuItem.Size = new Size(99, 23);
         lblMenuItem.TabIndex = 0;
         lblMenuItem.Text = "Select Item:";
         // 
@@ -332,7 +332,7 @@ partial class NewOrderView
         dgvOrderItems.Dock = DockStyle.Fill;
         dgvOrderItems.EnableHeadersVisualStyles = false;
         dgvOrderItems.GridColor = Color.FromArgb(226, 232, 240);
-        dgvOrderItems.Location = new Point(12, 33);
+        dgvOrderItems.Location = new Point(12, 37);
         dgvOrderItems.MultiSelect = false;
         dgvOrderItems.Name = "dgvOrderItems";
         dgvOrderItems.ReadOnly = true;
@@ -340,7 +340,7 @@ partial class NewOrderView
         dgvOrderItems.RowHeadersWidth = 51;
         dgvOrderItems.RowTemplate.Height = 36;
         dgvOrderItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvOrderItems.Size = new Size(1048, 135);
+        dgvOrderItems.Size = new Size(1048, 131);
         dgvOrderItems.TabIndex = 0;
         dgvOrderItems.CellContentClick += dgvOrderItems_CellContentClick;
         // 
@@ -450,7 +450,7 @@ partial class NewOrderView
         btnViewOrders.Name = "btnViewOrders";
         btnViewOrders.Size = new Size(140, 36);
         btnViewOrders.TabIndex = 2;
-        btnViewOrders.Text = "📋 View Orders";
+        btnViewOrders.Text = "View Orders";
         btnViewOrders.UseVisualStyleBackColor = false;
         btnViewOrders.Visible = false;
         btnViewOrders.Click += btnViewOrders_Click;
@@ -481,12 +481,13 @@ partial class NewOrderView
         btnSaveOrder.Name = "btnSaveOrder";
         btnSaveOrder.Size = new Size(135, 36);
         btnSaveOrder.TabIndex = 0;
-        btnSaveOrder.Text = "💾 Save Order";
+        btnSaveOrder.Text = "Save Order";
         btnSaveOrder.UseVisualStyleBackColor = false;
         btnSaveOrder.Click += btnSaveOrder_Click;
         // 
         // NewOrderView
         // 
+        AutoScaleDimensions = new SizeF(144F, 144F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.FromArgb(243, 244, 246);
         Controls.Add(grpOrderItems);
@@ -495,7 +496,6 @@ partial class NewOrderView
         Controls.Add(lblAlertMessage);
         Controls.Add(pnlActions);
         Controls.Add(pnlHeader);
-        Font = new Font("Segoe UI", 9.5F);
         Name = "NewOrderView";
         Padding = new Padding(24, 16, 24, 20);
         Size = new Size(1120, 553);

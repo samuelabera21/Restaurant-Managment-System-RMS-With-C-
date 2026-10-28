@@ -26,7 +26,7 @@ public partial class EditOrderView : BaseView, INavigationAware
     private bool _hasUnsavedChanges = false;
     private bool _isOrderCompleted = false;
 
-    public EditOrderView() : base("Edit Order", "Update an existing restaurant order")
+    public EditOrderView() : base()
     {
         InitializeComponent();
     }
@@ -70,7 +70,7 @@ public partial class EditOrderView : BaseView, INavigationAware
         _hasUnsavedChanges = false;
         _isOrderCompleted = order.Status == OrderStatus.Completed || order.Status == OrderStatus.Cancelled;
 
-        lblOrderNumberBadge.Text = $"#{order.OrderNumber}   🔒";
+        lblOrderNumberBadge.Text = order.CanEdit ? $"#{order.OrderNumber}" : $"#{order.OrderNumber} (Locked)";
         txtCustomerName.Text = order.CustomerName;
         numTableNumber.Value = order.TableNumber;
         lblSubheaderContext.Text = $"#{order.OrderNumber} • {order.CustomerName} • Table {order.TableNumber} • {(order.CanEdit ? "Existing order" : "Read-only order")}";
@@ -98,7 +98,7 @@ public partial class EditOrderView : BaseView, INavigationAware
             btnCancelChanges.Enabled = false;
             btnBackToDetails.Visible = true;
 
-            ShowAlert("🔒 Completed orders cannot be edited.", isError: true);
+            ShowAlert("Completed orders cannot be edited.", isError: true);
         }
         else
         {
@@ -111,7 +111,7 @@ public partial class EditOrderView : BaseView, INavigationAware
             btnCancelChanges.Enabled = true;
             btnBackToDetails.Visible = false;
 
-            ShowAlert("ⓘ Update customer details, add items or change quantities, then save.", isError: false);
+            ShowAlert("Update customer details, add items or change quantities, then save.", isError: false);
         }
     }
 
@@ -124,12 +124,21 @@ public partial class EditOrderView : BaseView, INavigationAware
         {
             lblSubheaderContext.Text = $"#{_originalOrder.OrderNumber} • {txtCustomerName.Text.Trim()} • Table {numTableNumber.Value} • Unsaved changes";
         }
-        ShowAlert($"ⓘ You have unsaved changes to Order #{_originalOrder?.OrderNumber}. Save Changes to apply them.", isError: false);
+        ShowAlert($"You have unsaved changes to Order #{_originalOrder?.OrderNumber}. Save Changes to apply them.", isError: false);
     }
 
     private void AddSelectedItem()
     {
         if (_isOrderCompleted) return;
+
+        string custName = txtCustomerName.Text.Trim();
+        if (string.IsNullOrWhiteSpace(custName))
+        {
+            txtCustomerName.BackColor = Color.FromArgb(254, 242, 242);
+            ShowAlert("Please enter customer name before adding items.", isError: true);
+            txtCustomerName.Focus();
+            return;
+        }
 
         if (cboMenuItems.SelectedItem is not MenuItem selectedMenu) return;
 
@@ -203,14 +212,14 @@ public partial class EditOrderView : BaseView, INavigationAware
         {
             lblCustomerNameError.Visible = string.IsNullOrWhiteSpace(custName);
             lblTableNumberError.Visible = tableNum <= 0;
-            ShowAlert($"⚠️ Please correct the highlighted fields before saving Order #{_originalOrder.OrderNumber}.", isError: true);
+            ShowAlert($"Please correct the required fields before saving Order #{_originalOrder.OrderNumber}.", isError: true);
             return;
         }
 
         _orderService.UpdateOrder(_originalOrder.OrderNumber, custName, tableNum, _editItems);
         _hasUnsavedChanges = false;
 
-        ShowAlert($"✓ Order #{_originalOrder.OrderNumber} updated successfully.", isError: false, isSuccess: true);
+        ShowAlert($"Order #{_originalOrder.OrderNumber} updated successfully.", isError: false, isSuccess: true);
         lblSubheaderContext.Text = $"#{_originalOrder.OrderNumber} • {custName} • Table {tableNum} • All changes saved";
         btnBackToDetails.Visible = true;
     }

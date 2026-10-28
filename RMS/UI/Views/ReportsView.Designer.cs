@@ -54,9 +54,9 @@ partial class ReportsView
         colCreated = new DataGridViewTextBoxColumn();
         colTotal = new DataGridViewTextBoxColumn();
         colStatus = new DataGridViewTextBoxColumn();
-        lblSummaryFooter = new Label();
         pnlBreakdownHeader = new Panel();
         lblBreakdownSubtitle = new Label();
+        lblSummaryFooter = new Label();
         pnlHeader.SuspendLayout();
         grpFilters.SuspendLayout();
         grpSummaryCards.SuspendLayout();
@@ -165,7 +165,7 @@ partial class ReportsView
         lblDateFilter.Font = new Font("Segoe UI", 9.5F);
         lblDateFilter.Location = new Point(16, 28);
         lblDateFilter.Name = "lblDateFilter";
-        lblDateFilter.Size = new Size(97, 25);
+        lblDateFilter.Size = new Size(113, 25);
         lblDateFilter.TabIndex = 0;
         lblDateFilter.Text = "Date Range:";
         // 
@@ -213,7 +213,6 @@ partial class ReportsView
         pnlKpiTotal.Controls.Add(lblKpiTotalTitle);
         pnlKpiTotal.Dock = DockStyle.Fill;
         pnlKpiTotal.Location = new Point(3, 3);
-        pnlKpiTotal.Margin = new Padding(3);
         pnlKpiTotal.Name = "pnlKpiTotal";
         pnlKpiTotal.Padding = new Padding(8, 4, 8, 4);
         pnlKpiTotal.Size = new Size(343, 41);
@@ -250,7 +249,6 @@ partial class ReportsView
         pnlKpiPending.Controls.Add(lblKpiPendingTitle);
         pnlKpiPending.Dock = DockStyle.Fill;
         pnlKpiPending.Location = new Point(352, 3);
-        pnlKpiPending.Margin = new Padding(3);
         pnlKpiPending.Name = "pnlKpiPending";
         pnlKpiPending.Padding = new Padding(8, 4, 8, 4);
         pnlKpiPending.Size = new Size(343, 41);
@@ -275,7 +273,7 @@ partial class ReportsView
         lblKpiPendingTitle.ForeColor = Color.FromArgb(71, 85, 105);
         lblKpiPendingTitle.Location = new Point(8, 8);
         lblKpiPendingTitle.Name = "lblKpiPendingTitle";
-        lblKpiPendingTitle.Size = new Size(77, 25);
+        lblKpiPendingTitle.Size = new Size(76, 25);
         lblKpiPendingTitle.TabIndex = 0;
         lblKpiPendingTitle.Text = "Pending";
         // 
@@ -287,7 +285,6 @@ partial class ReportsView
         pnlKpiPreparing.Controls.Add(lblKpiPrepTitle);
         pnlKpiPreparing.Dock = DockStyle.Fill;
         pnlKpiPreparing.Location = new Point(701, 3);
-        pnlKpiPreparing.Margin = new Padding(3);
         pnlKpiPreparing.Name = "pnlKpiPreparing";
         pnlKpiPreparing.Padding = new Padding(8, 4, 8, 4);
         pnlKpiPreparing.Size = new Size(344, 41);
@@ -312,7 +309,7 @@ partial class ReportsView
         lblKpiPrepTitle.ForeColor = Color.FromArgb(71, 85, 105);
         lblKpiPrepTitle.Location = new Point(8, 8);
         lblKpiPrepTitle.Name = "lblKpiPrepTitle";
-        lblKpiPrepTitle.Size = new Size(87, 25);
+        lblKpiPrepTitle.Size = new Size(88, 25);
         lblKpiPrepTitle.TabIndex = 0;
         lblKpiPrepTitle.Text = "Preparing";
         // 
@@ -324,7 +321,6 @@ partial class ReportsView
         pnlKpiReady.Controls.Add(lblKpiReadyTitle);
         pnlKpiReady.Dock = DockStyle.Fill;
         pnlKpiReady.Location = new Point(3, 50);
-        pnlKpiReady.Margin = new Padding(3);
         pnlKpiReady.Name = "pnlKpiReady";
         pnlKpiReady.Padding = new Padding(8, 4, 8, 4);
         pnlKpiReady.Size = new Size(343, 42);
@@ -349,7 +345,7 @@ partial class ReportsView
         lblKpiReadyTitle.ForeColor = Color.FromArgb(71, 85, 105);
         lblKpiReadyTitle.Location = new Point(8, 8);
         lblKpiReadyTitle.Name = "lblKpiReadyTitle";
-        lblKpiReadyTitle.Size = new Size(61, 25);
+        lblKpiReadyTitle.Size = new Size(60, 25);
         lblKpiReadyTitle.TabIndex = 0;
         lblKpiReadyTitle.Text = "Ready";
         // 
@@ -361,7 +357,6 @@ partial class ReportsView
         pnlKpiCompleted.Controls.Add(lblKpiCompTitle);
         pnlKpiCompleted.Dock = DockStyle.Fill;
         pnlKpiCompleted.Location = new Point(352, 50);
-        pnlKpiCompleted.Margin = new Padding(3);
         pnlKpiCompleted.Name = "pnlKpiCompleted";
         pnlKpiCompleted.Padding = new Padding(8, 4, 8, 4);
         pnlKpiCompleted.Size = new Size(343, 42);
@@ -398,7 +393,6 @@ partial class ReportsView
         pnlKpiValue.Controls.Add(lblKpiValTitle);
         pnlKpiValue.Dock = DockStyle.Fill;
         pnlKpiValue.Location = new Point(701, 50);
-        pnlKpiValue.Margin = new Padding(3);
         pnlKpiValue.Name = "pnlKpiValue";
         pnlKpiValue.Padding = new Padding(8, 4, 8, 4);
         pnlKpiValue.Size = new Size(344, 42);
@@ -412,7 +406,7 @@ partial class ReportsView
         lblCompletedValue.ForeColor = Color.FromArgb(15, 23, 42);
         lblCompletedValue.Location = new Point(190, 5);
         lblCompletedValue.Name = "lblCompletedValue";
-        lblCompletedValue.Size = new Size(125, 32);
+        lblCompletedValue.Size = new Size(126, 32);
         lblCompletedValue.TabIndex = 1;
         lblCompletedValue.Text = "1,850 ETB";
         // 
@@ -537,10 +531,6 @@ partial class ReportsView
         colStatus.Name = "colStatus";
         colStatus.ReadOnly = true;
         // 
-        // lblSummaryFooter
-        // 
-        lblSummaryFooter.Visible = false;
-        // 
         // pnlBreakdownHeader
         // 
         pnlBreakdownHeader.Controls.Add(lblBreakdownSubtitle);
@@ -560,6 +550,14 @@ partial class ReportsView
         lblBreakdownSubtitle.Size = new Size(247, 25);
         lblBreakdownSubtitle.TabIndex = 0;
         lblBreakdownSubtitle.Text = "Filtered orders list breakdown";
+        // 
+        // lblSummaryFooter
+        // 
+        lblSummaryFooter.Location = new Point(0, 0);
+        lblSummaryFooter.Name = "lblSummaryFooter";
+        lblSummaryFooter.Size = new Size(100, 23);
+        lblSummaryFooter.TabIndex = 0;
+        lblSummaryFooter.Visible = false;
         // 
         // ReportsView
         // 

@@ -78,7 +78,7 @@ partial class OrderDetailsView
         btnBack.Name = "btnBack";
         btnBack.Size = new Size(160, 36);
         btnBack.TabIndex = 2;
-        btnBack.Text = "← Back to Orders";
+        btnBack.Text = "Back to Orders";
         btnBack.UseVisualStyleBackColor = false;
         btnBack.Click += btnBack_Click;
         // 
@@ -397,7 +397,7 @@ partial class OrderDetailsView
         lblLockedNotice.Name = "lblLockedNotice";
         lblLockedNotice.Size = new Size(566, 23);
         lblLockedNotice.TabIndex = 2;
-        lblLockedNotice.Text = "ⓘ Completed orders cannot be edited or cancelled, but remain viewable.";
+        lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
         lblLockedNotice.Visible = false;
         // 
         // btnCancelOrder
@@ -411,7 +411,7 @@ partial class OrderDetailsView
         btnCancelOrder.Name = "btnCancelOrder";
         btnCancelOrder.Size = new Size(130, 34);
         btnCancelOrder.TabIndex = 1;
-        btnCancelOrder.Text = "✕ Cancel Order";
+        btnCancelOrder.Text = "Cancel Order";
         btnCancelOrder.UseVisualStyleBackColor = false;
         btnCancelOrder.Click += btnCancelOrder_Click;
         // 
@@ -426,7 +426,7 @@ partial class OrderDetailsView
         btnEditOrder.Name = "btnEditOrder";
         btnEditOrder.Size = new Size(140, 34);
         btnEditOrder.TabIndex = 0;
-        btnEditOrder.Text = "✏ Edit Order";
+        btnEditOrder.Text = "Edit Order";
         btnEditOrder.UseVisualStyleBackColor = false;
         btnEditOrder.Click += btnEditOrder_Click;
         // 

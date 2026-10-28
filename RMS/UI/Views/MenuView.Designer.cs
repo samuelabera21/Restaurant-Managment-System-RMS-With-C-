@@ -208,6 +208,7 @@ partial class MenuView
         dgvMenu.Size = new Size(1048, 352);
         dgvMenu.TabIndex = 0;
         dgvMenu.CellContentClick += dgvMenu_CellContentClick;
+        dgvMenu.CellDoubleClick += dgvMenu_CellDoubleClick;
         // 
         // colName
         // 
@@ -235,7 +236,6 @@ partial class MenuView
         // 
         // colAvailability
         // 
-        colAvailability.FillWeight = 100F;
         colAvailability.HeaderText = "Availability";
         colAvailability.MinimumWidth = 6;
         colAvailability.Name = "colAvailability";

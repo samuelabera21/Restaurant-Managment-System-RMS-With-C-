@@ -137,4 +137,18 @@ public partial class MenuView : BaseView
             );
         }
     }
+
+    private void dgvMenu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex >= 0 && dgvMenu.Rows[e.RowIndex].Tag is MenuItem item)
+        {
+            string status = item.IsAvailable ? "Available" : "Currently Unavailable";
+            MessageBox.Show(
+                $"Menu Item: {item.Name}\nCategory: {item.Category}\nPrice: {item.Price:N0} ETB\nStatus: {status}",
+                $"Item Details — {item.Name}",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+    }
 }

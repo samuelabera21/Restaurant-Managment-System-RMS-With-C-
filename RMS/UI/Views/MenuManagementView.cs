@@ -19,7 +19,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
 
-    public MenuManagementView() : base("Menu Management", "Administer menu items, prices, and availability")
+    public MenuManagementView() : base()
     {
         InitializeComponent();
 
@@ -115,8 +115,8 @@ public partial class MenuManagementView : BaseView, INavigationAware
             row.Tag = item;
 
             var statusCell = row.Cells["colStatus"];
-            statusCell.Style.ForeColor = item.IsAvailable ? AppTheme.StatusReadyText : AppTheme.StatusCancelledText;
-            statusCell.Style.Font = AppTheme.BodyBold;
+            statusCell.Style.ForeColor = Color.FromArgb(15, 23, 42);
+            statusCell.Style.Font = AppTheme.BodyRegular;
         }
 
         lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";

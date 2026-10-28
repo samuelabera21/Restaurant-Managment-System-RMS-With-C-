@@ -20,7 +20,7 @@ public partial class OrderDetailsView : BaseView, INavigationAware
     private readonly OrderService _orderService = new();
     private Order? _currentOrder;
 
-    public OrderDetailsView() : base("Order Details", "Review order information and items")
+    public OrderDetailsView() : base()
     {
         InitializeComponent();
     }
@@ -81,14 +81,14 @@ public partial class OrderDetailsView : BaseView, INavigationAware
         // Handle locked states
         if (order.Status == OrderStatus.Completed)
         {
-            lblLockedNotice.Text = "ⓘ Completed orders cannot be edited or cancelled, but remain viewable.";
+            lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
             lblLockedNotice.Visible = true;
             btnEditOrder.Enabled = false;
             btnCancelOrder.Enabled = false;
         }
         else if (order.Status == OrderStatus.Cancelled)
         {
-            lblLockedNotice.Text = "ⓘ This order has been cancelled and cannot be edited.";
+            lblLockedNotice.Text = "This order has been cancelled and cannot be edited.";
             lblLockedNotice.Visible = true;
             btnEditOrder.Enabled = false;
             btnCancelOrder.Enabled = false;

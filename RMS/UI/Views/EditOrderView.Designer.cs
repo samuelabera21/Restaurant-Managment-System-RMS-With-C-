@@ -134,7 +134,7 @@ partial class EditOrderView
         lblAlertMessage.Name = "lblAlertMessage";
         lblAlertMessage.Size = new Size(1046, 24);
         lblAlertMessage.TabIndex = 0;
-        lblAlertMessage.Text = "ⓘ Update customer details, add items or change quantities, then save.";
+        lblAlertMessage.Text = "Update customer details, add items or change quantities, then save.";
         lblAlertMessage.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // grpOrderInfo
@@ -166,7 +166,7 @@ partial class EditOrderView
         lblCurrentStatusBadge.AutoSize = true;
         lblCurrentStatusBadge.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
         lblCurrentStatusBadge.ForeColor = Color.FromArgb(180, 83, 9);
-        lblCurrentStatusBadge.Location = new Point(540, 56);
+        lblCurrentStatusBadge.Location = new Point(863, 63);
         lblCurrentStatusBadge.Name = "lblCurrentStatusBadge";
         lblCurrentStatusBadge.Size = new Size(94, 30);
         lblCurrentStatusBadge.TabIndex = 9;
@@ -177,7 +177,7 @@ partial class EditOrderView
         lblStatusTitle.AutoSize = true;
         lblStatusTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblStatusTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblStatusTitle.Location = new Point(540, 31);
+        lblStatusTitle.Location = new Point(863, 22);
         lblStatusTitle.Name = "lblStatusTitle";
         lblStatusTitle.Size = new Size(60, 23);
         lblStatusTitle.TabIndex = 8;
@@ -188,7 +188,7 @@ partial class EditOrderView
         lblTableNumberError.AutoSize = true;
         lblTableNumberError.Font = new Font("Segoe UI", 8F);
         lblTableNumberError.ForeColor = Color.FromArgb(220, 38, 38);
-        lblTableNumberError.Location = new Point(405, 84);
+        lblTableNumberError.Location = new Point(661, 70);
         lblTableNumberError.Name = "lblTableNumberError";
         lblTableNumberError.Size = new Size(111, 21);
         lblTableNumberError.TabIndex = 7;
@@ -198,7 +198,7 @@ partial class EditOrderView
         // numTableNumber
         // 
         numTableNumber.Font = new Font("Segoe UI", 9.5F);
-        numTableNumber.Location = new Point(405, 54);
+        numTableNumber.Location = new Point(661, 22);
         numTableNumber.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
         numTableNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numTableNumber.Name = "numTableNumber";
@@ -212,7 +212,7 @@ partial class EditOrderView
         lblTableTitle.AutoSize = true;
         lblTableTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblTableTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblTableTitle.Location = new Point(405, 31);
+        lblTableTitle.Location = new Point(507, 26);
         lblTableTitle.Name = "lblTableTitle";
         lblTableTitle.Size = new Size(137, 23);
         lblTableTitle.TabIndex = 5;
@@ -233,7 +233,7 @@ partial class EditOrderView
         // txtCustomerName
         // 
         txtCustomerName.Font = new Font("Segoe UI", 9.5F);
-        txtCustomerName.Location = new Point(145, 54);
+        txtCustomerName.Location = new Point(148, 55);
         txtCustomerName.Name = "txtCustomerName";
         txtCustomerName.Size = new Size(235, 33);
         txtCustomerName.TabIndex = 3;
@@ -259,7 +259,7 @@ partial class EditOrderView
         lblOrderNumberBadge.Name = "lblOrderNumberBadge";
         lblOrderNumberBadge.Size = new Size(114, 30);
         lblOrderNumberBadge.TabIndex = 1;
-        lblOrderNumberBadge.Text = "#104   🔒";
+        lblOrderNumberBadge.Text = "#104";
         // 
         // lblOrderNumTitle
         // 
@@ -297,7 +297,7 @@ partial class EditOrderView
         btnAddItem.Cursor = Cursors.Hand;
         btnAddItem.FlatStyle = FlatStyle.System;
         btnAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnAddItem.Location = new Point(520, 50);
+        btnAddItem.Location = new Point(732, 58);
         btnAddItem.Name = "btnAddItem";
         btnAddItem.Size = new Size(120, 31);
         btnAddItem.TabIndex = 4;
@@ -308,7 +308,7 @@ partial class EditOrderView
         // numQuantity
         // 
         numQuantity.Font = new Font("Segoe UI", 9.5F);
-        numQuantity.Location = new Point(405, 51);
+        numQuantity.Location = new Point(529, 51);
         numQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numQuantity.Name = "numQuantity";
         numQuantity.Size = new Size(95, 33);
@@ -320,7 +320,7 @@ partial class EditOrderView
         lblQuantity.AutoSize = true;
         lblQuantity.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblQuantity.ForeColor = Color.FromArgb(71, 85, 105);
-        lblQuantity.Location = new Point(405, 28);
+        lblQuantity.Location = new Point(529, 25);
         lblQuantity.Name = "lblQuantity";
         lblQuantity.Size = new Size(80, 23);
         lblQuantity.TabIndex = 2;
@@ -358,7 +358,7 @@ partial class EditOrderView
         grpOrderItems.Location = new Point(24, 310);
         grpOrderItems.Name = "grpOrderItems";
         grpOrderItems.Padding = new Padding(16, 10, 16, 12);
-        grpOrderItems.Size = new Size(1072, 163);
+        grpOrderItems.Size = new Size(1072, 401);
         grpOrderItems.TabIndex = 4;
         grpOrderItems.TabStop = false;
         grpOrderItems.Text = "Order Items";
@@ -405,7 +405,7 @@ partial class EditOrderView
         dgvItems.RowHeadersWidth = 51;
         dgvItems.RowTemplate.Height = 36;
         dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvItems.Size = new Size(1040, 69);
+        dgvItems.Size = new Size(1040, 307);
         dgvItems.TabIndex = 0;
         dgvItems.CellContentClick += dgvItems_CellContentClick;
         // 
@@ -456,7 +456,7 @@ partial class EditOrderView
         pnlItemsFooter.Controls.Add(lblTotalAmount);
         pnlItemsFooter.Controls.Add(lblSummaryQty);
         pnlItemsFooter.Dock = DockStyle.Bottom;
-        pnlItemsFooter.Location = new Point(16, 106);
+        pnlItemsFooter.Location = new Point(16, 344);
         pnlItemsFooter.Name = "pnlItemsFooter";
         pnlItemsFooter.Size = new Size(1040, 45);
         pnlItemsFooter.TabIndex = 1;
@@ -491,7 +491,7 @@ partial class EditOrderView
         pnlActions.Controls.Add(btnCancelChanges);
         pnlActions.Controls.Add(btnSaveChanges);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(24, 473);
+        pnlActions.Location = new Point(24, 711);
         pnlActions.Name = "pnlActions";
         pnlActions.Size = new Size(1072, 60);
         pnlActions.TabIndex = 5;
@@ -503,9 +503,9 @@ partial class EditOrderView
         btnBackToDetails.Cursor = Cursors.Hand;
         btnBackToDetails.FlatStyle = FlatStyle.System;
         btnBackToDetails.Font = new Font("Segoe UI", 9.5F);
-        btnBackToDetails.Location = new Point(882, 12);
+        btnBackToDetails.Location = new Point(832, 12);
         btnBackToDetails.Name = "btnBackToDetails";
-        btnBackToDetails.Size = new Size(190, 36);
+        btnBackToDetails.Size = new Size(240, 36);
         btnBackToDetails.TabIndex = 2;
         btnBackToDetails.Text = "← Back to Order Details";
         btnBackToDetails.UseVisualStyleBackColor = false;
@@ -520,7 +520,7 @@ partial class EditOrderView
         btnCancelChanges.Font = new Font("Segoe UI", 9.5F);
         btnCancelChanges.Location = new Point(165, 12);
         btnCancelChanges.Name = "btnCancelChanges";
-        btnCancelChanges.Size = new Size(140, 36);
+        btnCancelChanges.Size = new Size(190, 36);
         btnCancelChanges.TabIndex = 1;
         btnCancelChanges.Text = "Cancel Changes";
         btnCancelChanges.UseVisualStyleBackColor = false;
@@ -536,7 +536,7 @@ partial class EditOrderView
         btnSaveChanges.Name = "btnSaveChanges";
         btnSaveChanges.Size = new Size(155, 36);
         btnSaveChanges.TabIndex = 0;
-        btnSaveChanges.Text = "💾 Save Changes";
+        btnSaveChanges.Text = "Save Changes";
         btnSaveChanges.UseVisualStyleBackColor = false;
         btnSaveChanges.Click += btnSaveChanges_Click;
         // 
@@ -553,7 +553,7 @@ partial class EditOrderView
         Controls.Add(pnlHeader);
         Name = "EditOrderView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Size = new Size(1120, 791);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         pnlAlertBanner.ResumeLayout(false);

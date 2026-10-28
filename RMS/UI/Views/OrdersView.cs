@@ -143,6 +143,14 @@ public partial class OrdersView : BaseView
         UpdateActionButtonsState();
     }
 
+    private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex >= 0)
+        {
+            btnViewDetails_Click(sender, EventArgs.Empty);
+        }
+    }
+
     private void btnViewDetails_Click(object sender, EventArgs e)
     {
         var order = GetSelectedOrder();

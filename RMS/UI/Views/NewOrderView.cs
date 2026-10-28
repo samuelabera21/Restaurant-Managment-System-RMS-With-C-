@@ -109,7 +109,7 @@ public partial class NewOrderView : BaseView
         numQuantity.Value = 1;
         btnAddItem.Enabled = true;
 
-        btnSaveOrder.Text = "💾 Save Order";
+        btnSaveOrder.Text = "Save Order";
         btnSaveOrder.Enabled = true;
         btnViewOrders.Visible = false;
         btnClearForm.Text = "Clear Form";
@@ -128,16 +128,16 @@ public partial class NewOrderView : BaseView
         numQuantity.Enabled = false;
         btnAddItem.Enabled = false;
 
-        btnSaveOrder.Text = "✓ Order Saved";
+        btnSaveOrder.Text = "Order Saved";
         btnSaveOrder.Enabled = false;
         btnViewOrders.Visible = true;
-        btnClearForm.Text = "+ New Order";
+        btnClearForm.Text = "New Order";
     }
 
     private void ShowAlert(string message, bool isSuccess)
     {
         lblAlertMessage.Visible = true;
-        lblAlertMessage.Text = (isSuccess ? "✓ " : "⚠ ") + message;
+        lblAlertMessage.Text = message;
 
         if (isSuccess)
         {
@@ -164,16 +164,37 @@ public partial class NewOrderView : BaseView
     {
         if (_isOrderSaved) return;
 
+        // 1. Validate Customer Name
+        string custName = txtCustomerName.Text.Trim();
+        if (string.IsNullOrWhiteSpace(custName))
+        {
+            txtCustomerName.BackColor = Color.FromArgb(254, 242, 242);
+            ShowAlert("Please enter customer name before adding items.", isSuccess: false);
+            txtCustomerName.Focus();
+            return;
+        }
+
+        // 2. Validate Table Number
+        if (numTableNumber.Value <= 0)
+        {
+            ShowAlert("Please enter a valid table number.", isSuccess: false);
+            numTableNumber.Focus();
+            return;
+        }
+
+        // 3. Validate Item Selection
         if (cboMenuItems.SelectedItem is not MenuItem selectedMenu)
         {
             ShowAlert("Please select an available menu item.", isSuccess: false);
             return;
         }
 
+        // 4. Validate Quantity
         int qty = (int)numQuantity.Value;
         if (qty <= 0)
         {
             ShowAlert("Quantity must be greater than zero.", isSuccess: false);
+            numQuantity.Focus();
             return;
         }
 
@@ -212,20 +233,24 @@ public partial class NewOrderView : BaseView
         int tableNum = (int)numTableNumber.Value;
 
         // Validation
-        if (!_orderService.ValidateOrder(custName, tableNum, _lineItems, out var errors))
+        if (string.IsNullOrWhiteSpace(custName))
         {
-            if (string.IsNullOrWhiteSpace(custName))
-            {
-                ShowAlert("Please enter a customer name.", isSuccess: false);
-            }
-            else if (_lineItems.Count == 0)
-            {
-                ShowAlert("Add at least one menu item before saving the order.", isSuccess: false);
-            }
-            else
-            {
-                ShowAlert("Please correct the required fields above.", isSuccess: false);
-            }
+            txtCustomerName.BackColor = Color.FromArgb(254, 242, 242);
+            ShowAlert("Please enter customer name before saving the order.", isSuccess: false);
+            txtCustomerName.Focus();
+            return;
+        }
+
+        if (tableNum <= 0)
+        {
+            ShowAlert("Please enter a valid table number.", isSuccess: false);
+            numTableNumber.Focus();
+            return;
+        }
+
+        if (_lineItems.Count == 0)
+        {
+            ShowAlert("Add at least one menu item before saving the order.", isSuccess: false);
             return;
         }
 
@@ -285,6 +310,7 @@ public partial class NewOrderView : BaseView
 
     private void txtCustomerName_TextChanged(object sender, EventArgs e)
     {
+        txtCustomerName.BackColor = Color.White;
         if (!_isOrderSaved && lblAlertMessage.Visible)
         {
             lblAlertMessage.Visible = false;
