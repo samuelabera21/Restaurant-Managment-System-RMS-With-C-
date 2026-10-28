@@ -19,7 +19,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
 
-    public MenuManagementView() : base("Menu Management", "Administer menu items, prices, and availability")
+    public MenuManagementView() : base()
     {
         InitializeComponent();
 
@@ -113,13 +113,9 @@ public partial class MenuManagementView : BaseView, INavigationAware
 
             var row = dgvMenuItems.Rows[rowIndex];
             row.Tag = item;
-
-            var statusCell = row.Cells["colStatus"];
-            statusCell.Style.ForeColor = item.IsAvailable ? AppTheme.StatusReadyText : AppTheme.StatusCancelledText;
-            statusCell.Style.Font = AppTheme.BodyBold;
         }
 
-        lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";
+        lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} items";
         UpdateActionButtons();
     }
 

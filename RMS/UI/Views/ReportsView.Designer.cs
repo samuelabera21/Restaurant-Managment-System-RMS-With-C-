@@ -116,7 +116,7 @@ partial class ReportsView
         btnClearFilters.Cursor = Cursors.Hand;
         btnClearFilters.FlatStyle = FlatStyle.System;
         btnClearFilters.Font = new Font("Segoe UI", 9F);
-        btnClearFilters.Location = new Point(480, 24);
+        btnClearFilters.Location = new Point(500, 24);
         btnClearFilters.Name = "btnClearFilters";
         btnClearFilters.Size = new Size(75, 31);
         btnClearFilters.TabIndex = 4;
@@ -130,7 +130,7 @@ partial class ReportsView
         cboStatusFilter.Font = new Font("Segoe UI", 9.5F);
         cboStatusFilter.FormattingEnabled = true;
         cboStatusFilter.Items.AddRange(new object[] { "All Statuses", "Pending", "Preparing", "Ready", "Completed" });
-        cboStatusFilter.Location = new Point(325, 25);
+        cboStatusFilter.Location = new Point(345, 25);
         cboStatusFilter.Name = "cboStatusFilter";
         cboStatusFilter.Size = new Size(135, 33);
         cboStatusFilter.TabIndex = 3;
@@ -140,7 +140,7 @@ partial class ReportsView
         // 
         lblStatusFilter.AutoSize = true;
         lblStatusFilter.Font = new Font("Segoe UI", 9.5F);
-        lblStatusFilter.Location = new Point(265, 28);
+        lblStatusFilter.Location = new Point(280, 28);
         lblStatusFilter.Name = "lblStatusFilter";
         lblStatusFilter.Size = new Size(66, 25);
         lblStatusFilter.TabIndex = 2;
@@ -152,7 +152,7 @@ partial class ReportsView
         cboDateFilter.Font = new Font("Segoe UI", 9.5F);
         cboDateFilter.FormattingEnabled = true;
         cboDateFilter.Items.AddRange(new object[] { "All dates", "Today" });
-        cboDateFilter.Location = new Point(110, 25);
+        cboDateFilter.Location = new Point(125, 25);
         cboDateFilter.Name = "cboDateFilter";
         cboDateFilter.Size = new Size(135, 33);
         cboDateFilter.TabIndex = 1;

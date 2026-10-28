@@ -158,7 +158,7 @@ partial class DashboardView
         // 
         this.lblTotalCount.AutoSize = true;
         this.lblTotalCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblTotalCount.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
+        this.lblTotalCount.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
         this.lblTotalCount.Location = new System.Drawing.Point(122, 6);
         this.lblTotalCount.Name = "lblTotalCount";
         this.lblTotalCount.Size = new System.Drawing.Size(43, 35);
@@ -194,7 +194,7 @@ partial class DashboardView
         // 
         this.lblPendingCount.AutoSize = true;
         this.lblPendingCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblPendingCount.ForeColor = System.Drawing.Color.FromArgb(180, 83, 9);
+        this.lblPendingCount.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
         this.lblPendingCount.Location = new System.Drawing.Point(109, 6);
         this.lblPendingCount.Name = "lblPendingCount";
         this.lblPendingCount.Size = new System.Drawing.Size(29, 35);
@@ -230,7 +230,7 @@ partial class DashboardView
         // 
         this.lblPreparingCount.AutoSize = true;
         this.lblPreparingCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblPreparingCount.ForeColor = System.Drawing.Color.FromArgb(194, 65, 12);
+        this.lblPreparingCount.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
         this.lblPreparingCount.Location = new System.Drawing.Point(120, 6);
         this.lblPreparingCount.Name = "lblPreparingCount";
         this.lblPreparingCount.Size = new System.Drawing.Size(29, 35);
@@ -266,8 +266,8 @@ partial class DashboardView
         // 
         this.lblReadyCount.AutoSize = true;
         this.lblReadyCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblReadyCount.ForeColor = System.Drawing.Color.FromArgb(16, 149, 93);
-        this.lblReadyCount.Location = new Point(98, 6);
+        this.lblReadyCount.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
+        this.lblReadyCount.Location = new System.Drawing.Point(98, 6);
         this.lblReadyCount.Name = "lblReadyCount";
         this.lblReadyCount.Size = new System.Drawing.Size(29, 35);
         this.lblReadyCount.TabIndex = 1;
@@ -302,8 +302,8 @@ partial class DashboardView
         // 
         this.lblCompletedCount.AutoSize = true;
         this.lblCompletedCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblCompletedCount.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblCompletedCount.Location = new Point(134, 6);
+        this.lblCompletedCount.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
+        this.lblCompletedCount.Location = new System.Drawing.Point(134, 6);
         this.lblCompletedCount.Name = "lblCompletedCount";
         this.lblCompletedCount.Size = new System.Drawing.Size(29, 35);
         this.lblCompletedCount.TabIndex = 1;
@@ -338,7 +338,7 @@ partial class DashboardView
         // 
         this.lblCompletedValue.AutoSize = true;
         this.lblCompletedValue.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblCompletedValue.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
+        this.lblCompletedValue.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
         this.lblCompletedValue.Location = new Point(148, 4);
         this.lblCompletedValue.Name = "lblCompletedValue";
         this.lblCompletedValue.Size = new System.Drawing.Size(130, 35);

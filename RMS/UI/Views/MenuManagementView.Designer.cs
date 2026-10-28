@@ -20,7 +20,6 @@ partial class MenuManagementView
         DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
         pnlHeader = new Panel();
         lblAdminBadge = new Label();
-        lblSubtitle = new Label();
         lblTitle = new Label();
         grpFilter = new GroupBox();
         btnClearSearch = new Button();
@@ -56,12 +55,11 @@ partial class MenuManagementView
         // 
         pnlHeader.BackColor = Color.Transparent;
         pnlHeader.Controls.Add(lblAdminBadge);
-        pnlHeader.Controls.Add(lblSubtitle);
         pnlHeader.Controls.Add(lblTitle);
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 56);
+        pnlHeader.Size = new Size(1072, 44);
         pnlHeader.TabIndex = 0;
         // 
         // lblAdminBadge
@@ -69,30 +67,19 @@ partial class MenuManagementView
         lblAdminBadge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblAdminBadge.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         lblAdminBadge.ForeColor = Color.FromArgb(67, 56, 202);
-        lblAdminBadge.Location = new Point(822, 16);
+        lblAdminBadge.Location = new Point(822, 10);
         lblAdminBadge.Name = "lblAdminBadge";
         lblAdminBadge.Size = new Size(250, 24);
-        lblAdminBadge.TabIndex = 2;
-        lblAdminBadge.Text = "🔒 Admin Mode Active";
+        lblAdminBadge.TabIndex = 1;
+        lblAdminBadge.Text = "Admin Mode Active";
         lblAdminBadge.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // lblSubtitle
-        // 
-        lblSubtitle.AutoSize = true;
-        lblSubtitle.Font = new Font("Segoe UI", 9F);
-        lblSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblSubtitle.Location = new Point(0, 32);
-        lblSubtitle.Name = "lblSubtitle";
-        lblSubtitle.Size = new Size(377, 25);
-        lblSubtitle.TabIndex = 1;
-        lblSubtitle.Text = "Administer menu items, prices, and availability";
         // 
         // lblTitle
         // 
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(10, -13);
+        lblTitle.Location = new Point(0, 0);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(313, 45);
         lblTitle.TabIndex = 0;
@@ -111,12 +98,12 @@ partial class MenuManagementView
         grpFilter.Dock = DockStyle.Top;
         grpFilter.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
-        grpFilter.Location = new Point(24, 72);
+        grpFilter.Location = new Point(24, 60);
         grpFilter.Name = "grpFilter";
-        grpFilter.Size = new Size(1072, 75);
+        grpFilter.Size = new Size(1072, 72);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
-        grpFilter.Text = "Search & Filter Items";
+        grpFilter.Text = "Search & Filter";
         // 
         // btnClearSearch
         // 
@@ -124,11 +111,11 @@ partial class MenuManagementView
         btnClearSearch.Cursor = Cursors.Hand;
         btnClearSearch.FlatStyle = FlatStyle.System;
         btnClearSearch.Font = new Font("Segoe UI", 9F);
-        btnClearSearch.Location = new Point(780, 27);
+        btnClearSearch.Location = new Point(750, 24);
         btnClearSearch.Name = "btnClearSearch";
-        btnClearSearch.Size = new Size(80, 31);
+        btnClearSearch.Size = new Size(75, 31);
         btnClearSearch.TabIndex = 6;
-        btnClearSearch.Text = "Reset";
+        btnClearSearch.Text = "Clear";
         btnClearSearch.UseVisualStyleBackColor = false;
         btnClearSearch.Click += btnClearSearch_Click;
         // 
@@ -138,9 +125,9 @@ partial class MenuManagementView
         cboAvailabilityFilter.Font = new Font("Segoe UI", 9.5F);
         cboAvailabilityFilter.FormattingEnabled = true;
         cboAvailabilityFilter.Items.AddRange(new object[] { "All Items", "Available Only", "Unavailable Only" });
-        cboAvailabilityFilter.Location = new Point(620, 28);
+        cboAvailabilityFilter.Location = new Point(595, 25);
         cboAvailabilityFilter.Name = "cboAvailabilityFilter";
-        cboAvailabilityFilter.Size = new Size(145, 33);
+        cboAvailabilityFilter.Size = new Size(140, 33);
         cboAvailabilityFilter.TabIndex = 5;
         cboAvailabilityFilter.SelectedIndexChanged += Filter_Changed;
         // 
@@ -148,7 +135,7 @@ partial class MenuManagementView
         // 
         lblAvailability.AutoSize = true;
         lblAvailability.Font = new Font("Segoe UI", 9.5F);
-        lblAvailability.Location = new Point(535, 31);
+        lblAvailability.Location = new Point(510, 28);
         lblAvailability.Name = "lblAvailability";
         lblAvailability.Size = new Size(108, 25);
         lblAvailability.TabIndex = 4;
@@ -159,9 +146,9 @@ partial class MenuManagementView
         cboCategoryFilter.DropDownStyle = ComboBoxStyle.DropDownList;
         cboCategoryFilter.Font = new Font("Segoe UI", 9.5F);
         cboCategoryFilter.FormattingEnabled = true;
-        cboCategoryFilter.Location = new Point(365, 28);
+        cboCategoryFilter.Location = new Point(355, 25);
         cboCategoryFilter.Name = "cboCategoryFilter";
-        cboCategoryFilter.Size = new Size(150, 33);
+        cboCategoryFilter.Size = new Size(140, 33);
         cboCategoryFilter.TabIndex = 3;
         cboCategoryFilter.SelectedIndexChanged += Filter_Changed;
         // 
@@ -169,7 +156,7 @@ partial class MenuManagementView
         // 
         lblCategory.AutoSize = true;
         lblCategory.Font = new Font("Segoe UI", 9.5F);
-        lblCategory.Location = new Point(290, 31);
+        lblCategory.Location = new Point(280, 28);
         lblCategory.Name = "lblCategory";
         lblCategory.Size = new Size(92, 25);
         lblCategory.TabIndex = 2;
@@ -178,10 +165,10 @@ partial class MenuManagementView
         // txtSearch
         // 
         txtSearch.Font = new Font("Segoe UI", 9.5F);
-        txtSearch.Location = new Point(65, 28);
+        txtSearch.Location = new Point(75, 25);
         txtSearch.Name = "txtSearch";
         txtSearch.PlaceholderText = "Search item name...";
-        txtSearch.Size = new Size(205, 33);
+        txtSearch.Size = new Size(190, 33);
         txtSearch.TabIndex = 1;
         txtSearch.TextChanged += txtSearch_TextChanged;
         // 
@@ -189,7 +176,7 @@ partial class MenuManagementView
         // 
         lblSearch.AutoSize = true;
         lblSearch.Font = new Font("Segoe UI", 9.5F);
-        lblSearch.Location = new Point(10, 31);
+        lblSearch.Location = new Point(16, 28);
         lblSearch.Name = "lblSearch";
         lblSearch.Size = new Size(73, 25);
         lblSearch.TabIndex = 0;
@@ -204,10 +191,10 @@ partial class MenuManagementView
         grpMenuItems.Dock = DockStyle.Fill;
         grpMenuItems.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpMenuItems.ForeColor = Color.FromArgb(15, 23, 42);
-        grpMenuItems.Location = new Point(24, 147);
+        grpMenuItems.Location = new Point(24, 132);
         grpMenuItems.Name = "grpMenuItems";
         grpMenuItems.Padding = new Padding(12, 8, 12, 10);
-        grpMenuItems.Size = new Size(1072, 386);
+        grpMenuItems.Size = new Size(1072, 401);
         grpMenuItems.TabIndex = 2;
         grpMenuItems.TabStop = false;
         grpMenuItems.Text = "Menu Items List";
@@ -254,7 +241,7 @@ partial class MenuManagementView
         dgvMenuItems.RowHeadersWidth = 51;
         dgvMenuItems.RowTemplate.Height = 36;
         dgvMenuItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvMenuItems.Size = new Size(1048, 265);
+        dgvMenuItems.Size = new Size(1048, 280);
         dgvMenuItems.TabIndex = 1;
         dgvMenuItems.CellDoubleClick += dgvMenuItems_CellDoubleClick;
         dgvMenuItems.SelectionChanged += dgvMenuItems_SelectionChanged;
@@ -306,7 +293,7 @@ partial class MenuManagementView
         pnlActions.Controls.Add(btnEditItem);
         pnlActions.Controls.Add(btnAddItem);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(12, 326);
+        pnlActions.Location = new Point(12, 341);
         pnlActions.Name = "pnlActions";
         pnlActions.Size = new Size(1048, 50);
         pnlActions.TabIndex = 2;
@@ -320,7 +307,7 @@ partial class MenuManagementView
         lblHint.Name = "lblHint";
         lblHint.Size = new Size(350, 24);
         lblHint.TabIndex = 3;
-        lblHint.Text = "💡 Double-click any row to edit item details";
+        lblHint.Text = "Double-click any row to edit item details";
         lblHint.TextAlign = ContentAlignment.MiddleRight;
         // 
         // btnToggleStatus
@@ -330,11 +317,11 @@ partial class MenuManagementView
         btnToggleStatus.Enabled = false;
         btnToggleStatus.FlatStyle = FlatStyle.System;
         btnToggleStatus.Font = new Font("Segoe UI", 9F);
-        btnToggleStatus.Location = new Point(300, 10);
+        btnToggleStatus.Location = new Point(255, 8);
         btnToggleStatus.Name = "btnToggleStatus";
-        btnToggleStatus.Size = new Size(165, 34);
+        btnToggleStatus.Size = new Size(150, 34);
         btnToggleStatus.TabIndex = 2;
-        btnToggleStatus.Text = "🔄 Toggle Availability";
+        btnToggleStatus.Text = "Toggle Availability";
         btnToggleStatus.UseVisualStyleBackColor = false;
         btnToggleStatus.Click += btnToggleStatus_Click;
         // 
@@ -345,26 +332,25 @@ partial class MenuManagementView
         btnEditItem.Enabled = false;
         btnEditItem.FlatStyle = FlatStyle.System;
         btnEditItem.Font = new Font("Segoe UI", 9F);
-        btnEditItem.Location = new Point(175, 10);
+        btnEditItem.Location = new Point(135, 8);
         btnEditItem.Name = "btnEditItem";
-        btnEditItem.Size = new Size(115, 34);
+        btnEditItem.Size = new Size(110, 34);
         btnEditItem.TabIndex = 1;
-        btnEditItem.Text = "✏ Edit Item";
+        btnEditItem.Text = "Edit Item";
         btnEditItem.UseVisualStyleBackColor = false;
         btnEditItem.Click += btnEditItem_Click;
         // 
         // btnAddItem
         // 
-        btnAddItem.BackColor = Color.FromArgb(30, 58, 95);
+        btnAddItem.BackColor = Color.White;
         btnAddItem.Cursor = Cursors.Hand;
         btnAddItem.FlatStyle = FlatStyle.System;
-        btnAddItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-        btnAddItem.ForeColor = Color.White;
-        btnAddItem.Location = new Point(0, 10);
+        btnAddItem.Font = new Font("Segoe UI", 9F);
+        btnAddItem.Location = new Point(0, 8);
         btnAddItem.Name = "btnAddItem";
-        btnAddItem.Size = new Size(165, 34);
+        btnAddItem.Size = new Size(125, 34);
         btnAddItem.TabIndex = 0;
-        btnAddItem.Text = "+ Add Menu Item";
+        btnAddItem.Text = "+ Add Item";
         btnAddItem.UseVisualStyleBackColor = false;
         btnAddItem.Click += btnAddItem_Click;
         // 
@@ -413,7 +399,6 @@ partial class MenuManagementView
 
     private System.Windows.Forms.Panel pnlHeader;
     private System.Windows.Forms.Label lblTitle;
-    private System.Windows.Forms.Label lblSubtitle;
     private System.Windows.Forms.Label lblAdminBadge;
     private System.Windows.Forms.GroupBox grpFilter;
     private System.Windows.Forms.Label lblSearch;
@@ -438,4 +423,3 @@ partial class MenuManagementView
     private System.Windows.Forms.Button btnToggleStatus;
     private System.Windows.Forms.Label lblHint;
 }
-
