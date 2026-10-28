@@ -15,337 +15,335 @@ partial class MainForm
 
     private void InitializeComponent()
     {
-        this.pnlSidebar = new System.Windows.Forms.Panel();
-        this.pnlBrand = new System.Windows.Forms.Panel();
-        this.lblBrandBadge = new System.Windows.Forms.Label();
-        this.lblBrandTitle = new System.Windows.Forms.Label();
-        this.lblWorkspace = new System.Windows.Forms.Label();
-        this.btnNavDashboard = new System.Windows.Forms.Button();
-        this.btnNavMenu = new System.Windows.Forms.Button();
-        this.btnNavNewOrder = new System.Windows.Forms.Button();
-        this.btnNavOrders = new System.Windows.Forms.Button();
-        this.btnNavReports = new System.Windows.Forms.Button();
-        this.lblAdmin = new System.Windows.Forms.Label();
-        this.btnNavManageMenu = new System.Windows.Forms.Button();
-        this.btnExit = new System.Windows.Forms.Button();
-        this.pnlHeader = new System.Windows.Forms.Panel();
-        this.lblHeaderTitle = new System.Windows.Forms.Label();
-        this.lblUserInfo = new System.Windows.Forms.Label();
-        this.statusStrip = new System.Windows.Forms.StatusStrip();
-        this.lblStatusLeft = new System.Windows.Forms.ToolStripStatusLabel();
-        this.lblStatusRight = new System.Windows.Forms.ToolStripStatusLabel();
-        this.pnlContentHost = new System.Windows.Forms.Panel();
-        this.pnlSidebar.SuspendLayout();
-        this.pnlBrand.SuspendLayout();
-        this.pnlHeader.SuspendLayout();
-        this.statusStrip.SuspendLayout();
-        this.SuspendLayout();
+        pnlSidebar = new Panel();
+        btnExit = new Button();
+        btnNavManageMenu = new Button();
+        lblAdmin = new Label();
+        btnNavReports = new Button();
+        btnNavOrders = new Button();
+        btnNavNewOrder = new Button();
+        btnNavMenu = new Button();
+        btnNavDashboard = new Button();
+        lblWorkspace = new Label();
+        pnlBrand = new Panel();
+        lblBrandBadge = new Label();
+        lblBrandTitle = new Label();
+        pnlHeader = new Panel();
+        lblUserInfo = new Label();
+        lblHeaderTitle = new Label();
+        statusStrip = new StatusStrip();
+        lblStatusLeft = new ToolStripStatusLabel();
+        lblStatusRight = new ToolStripStatusLabel();
+        pnlContentHost = new Panel();
+        pnlSidebar.SuspendLayout();
+        pnlBrand.SuspendLayout();
+        pnlHeader.SuspendLayout();
+        statusStrip.SuspendLayout();
+        SuspendLayout();
         // 
         // pnlSidebar
         // 
-        this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        this.pnlSidebar.Controls.Add(this.btnExit);
-        this.pnlSidebar.Controls.Add(this.btnNavManageMenu);
-        this.pnlSidebar.Controls.Add(this.lblAdmin);
-        this.pnlSidebar.Controls.Add(this.btnNavReports);
-        this.pnlSidebar.Controls.Add(this.btnNavOrders);
-        this.pnlSidebar.Controls.Add(this.btnNavNewOrder);
-        this.pnlSidebar.Controls.Add(this.btnNavMenu);
-        this.pnlSidebar.Controls.Add(this.btnNavDashboard);
-        this.pnlSidebar.Controls.Add(this.lblWorkspace);
-        this.pnlSidebar.Controls.Add(this.pnlBrand);
-        this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-        this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-        this.pnlSidebar.Name = "pnlSidebar";
-        this.pnlSidebar.Padding = new System.Windows.Forms.Padding(12, 14, 12, 14);
-        this.pnlSidebar.Size = new System.Drawing.Size(220, 759);
-        this.pnlSidebar.TabIndex = 0;
-        // 
-        // pnlBrand
-        // 
-        this.pnlBrand.BackColor = System.Drawing.Color.Transparent;
-        this.pnlBrand.Controls.Add(this.lblBrandBadge);
-        this.pnlBrand.Controls.Add(this.lblBrandTitle);
-        this.pnlBrand.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlBrand.Location = new System.Drawing.Point(12, 14);
-        this.pnlBrand.Name = "pnlBrand";
-        this.pnlBrand.Size = new System.Drawing.Size(196, 68);
-        this.pnlBrand.TabIndex = 0;
-        // 
-        // lblBrandBadge
-        // 
-        this.lblBrandBadge.BackColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.lblBrandBadge.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblBrandBadge.ForeColor = System.Drawing.Color.FromArgb(96, 165, 250);
-        this.lblBrandBadge.Location = new System.Drawing.Point(4, 4);
-        this.lblBrandBadge.Name = "lblBrandBadge";
-        this.lblBrandBadge.Size = new System.Drawing.Size(46, 22);
-        this.lblBrandBadge.TabIndex = 0;
-        this.lblBrandBadge.Text = "RMS";
-        this.lblBrandBadge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        // 
-        // lblBrandTitle
-        // 
-        this.lblBrandTitle.AutoSize = true;
-        this.lblBrandTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-        this.lblBrandTitle.ForeColor = System.Drawing.Color.White;
-        this.lblBrandTitle.Location = new System.Drawing.Point(4, 32);
-        this.lblBrandTitle.Name = "lblBrandTitle";
-        this.lblBrandTitle.Size = new System.Drawing.Size(139, 28);
-        this.lblBrandTitle.TabIndex = 1;
-        this.lblBrandTitle.Text = "ዉለታ Restaurant";
-        // 
-        // lblWorkspace
-        // 
-        this.lblWorkspace.Dock = System.Windows.Forms.DockStyle.Top;
-        this.lblWorkspace.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-        this.lblWorkspace.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
-        this.lblWorkspace.Location = new System.Drawing.Point(12, 82);
-        this.lblWorkspace.Name = "lblWorkspace";
-        this.lblWorkspace.Padding = new System.Windows.Forms.Padding(6, 12, 0, 4);
-        this.lblWorkspace.Size = new System.Drawing.Size(196, 34);
-        this.lblWorkspace.TabIndex = 1;
-        this.lblWorkspace.Text = "WORKSPACE";
-        // 
-        // btnNavDashboard
-        // 
-        this.btnNavDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnNavDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-        this.btnNavDashboard.FlatAppearance.BorderSize = 0;
-        this.btnNavDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnNavDashboard.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnNavDashboard.ForeColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.btnNavDashboard.Location = new System.Drawing.Point(12, 116);
-        this.btnNavDashboard.Name = "btnNavDashboard";
-        this.btnNavDashboard.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnNavDashboard.Size = new System.Drawing.Size(196, 40);
-        this.btnNavDashboard.TabIndex = 2;
-        this.btnNavDashboard.Text = "⊞  Dashboard";
-        this.btnNavDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnNavDashboard.UseVisualStyleBackColor = true;
-        this.btnNavDashboard.Click += new System.EventHandler(this.btnNavDashboard_Click);
-        // 
-        // btnNavMenu
-        // 
-        this.btnNavMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnNavMenu.Dock = System.Windows.Forms.DockStyle.Top;
-        this.btnNavMenu.FlatAppearance.BorderSize = 0;
-        this.btnNavMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnNavMenu.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnNavMenu.ForeColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.btnNavMenu.Location = new System.Drawing.Point(12, 156);
-        this.btnNavMenu.Name = "btnNavMenu";
-        this.btnNavMenu.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnNavMenu.Size = new System.Drawing.Size(196, 40);
-        this.btnNavMenu.TabIndex = 3;
-        this.btnNavMenu.Text = "📖  Menu";
-        this.btnNavMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnNavMenu.UseVisualStyleBackColor = true;
-        this.btnNavMenu.Click += new System.EventHandler(this.btnNavMenu_Click);
-        // 
-        // btnNavNewOrder
-        // 
-        this.btnNavNewOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnNavNewOrder.Dock = System.Windows.Forms.DockStyle.Top;
-        this.btnNavNewOrder.FlatAppearance.BorderSize = 0;
-        this.btnNavNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnNavNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnNavNewOrder.ForeColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.btnNavNewOrder.Location = new System.Drawing.Point(12, 196);
-        this.btnNavNewOrder.Name = "btnNavNewOrder";
-        this.btnNavNewOrder.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnNavNewOrder.Size = new System.Drawing.Size(196, 40);
-        this.btnNavNewOrder.TabIndex = 4;
-        this.btnNavNewOrder.Text = "⊕  New Order";
-        this.btnNavNewOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnNavNewOrder.UseVisualStyleBackColor = true;
-        this.btnNavNewOrder.Click += new System.EventHandler(this.btnNavNewOrder_Click);
-        // 
-        // btnNavOrders
-        // 
-        this.btnNavOrders.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnNavOrders.Dock = System.Windows.Forms.DockStyle.Top;
-        this.btnNavOrders.FlatAppearance.BorderSize = 0;
-        this.btnNavOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnNavOrders.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnNavOrders.ForeColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.btnNavOrders.Location = new System.Drawing.Point(12, 236);
-        this.btnNavOrders.Name = "btnNavOrders";
-        this.btnNavOrders.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnNavOrders.Size = new System.Drawing.Size(196, 40);
-        this.btnNavOrders.TabIndex = 5;
-        this.btnNavOrders.Text = "📋  Orders";
-        this.btnNavOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnNavOrders.UseVisualStyleBackColor = true;
-        this.btnNavOrders.Click += new System.EventHandler(this.btnNavOrders_Click);
-        // 
-        // btnNavReports
-        // 
-        this.btnNavReports.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnNavReports.Dock = System.Windows.Forms.DockStyle.Top;
-        this.btnNavReports.FlatAppearance.BorderSize = 0;
-        this.btnNavReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnNavReports.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnNavReports.ForeColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.btnNavReports.Location = new System.Drawing.Point(12, 276);
-        this.btnNavReports.Name = "btnNavReports";
-        this.btnNavReports.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnNavReports.Size = new System.Drawing.Size(196, 40);
-        this.btnNavReports.TabIndex = 6;
-        this.btnNavReports.Text = "📊  Reports";
-        this.btnNavReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnNavReports.UseVisualStyleBackColor = true;
-        this.btnNavReports.Click += new System.EventHandler(this.btnNavReports_Click);
-        // 
-        // lblAdmin
-        // 
-        this.lblAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-        this.lblAdmin.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-        this.lblAdmin.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
-        this.lblAdmin.Location = new System.Drawing.Point(12, 316);
-        this.lblAdmin.Name = "lblAdmin";
-        this.lblAdmin.Padding = new System.Windows.Forms.Padding(6, 14, 0, 4);
-        this.lblAdmin.Size = new System.Drawing.Size(196, 36);
-        this.lblAdmin.TabIndex = 7;
-        this.lblAdmin.Text = "ADMINISTRATION";
-        // 
-        // btnNavManageMenu
-        // 
-        this.btnNavManageMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnNavManageMenu.Dock = System.Windows.Forms.DockStyle.Top;
-        this.btnNavManageMenu.FlatAppearance.BorderSize = 0;
-        this.btnNavManageMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnNavManageMenu.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnNavManageMenu.ForeColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.btnNavManageMenu.Location = new System.Drawing.Point(12, 352);
-        this.btnNavManageMenu.Name = "btnNavManageMenu";
-        this.btnNavManageMenu.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnNavManageMenu.Size = new System.Drawing.Size(196, 40);
-        this.btnNavManageMenu.TabIndex = 8;
-        this.btnNavManageMenu.Text = "⚙  Manage Menu";
-        this.btnNavManageMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnNavManageMenu.UseVisualStyleBackColor = true;
-        this.btnNavManageMenu.Click += new System.EventHandler(this.btnNavManageMenu_Click);
+        pnlSidebar.BackColor = Color.FromArgb(30, 41, 59);
+        pnlSidebar.Controls.Add(btnExit);
+        pnlSidebar.Controls.Add(btnNavManageMenu);
+        pnlSidebar.Controls.Add(lblAdmin);
+        pnlSidebar.Controls.Add(btnNavReports);
+        pnlSidebar.Controls.Add(btnNavOrders);
+        pnlSidebar.Controls.Add(btnNavNewOrder);
+        pnlSidebar.Controls.Add(btnNavMenu);
+        pnlSidebar.Controls.Add(btnNavDashboard);
+        pnlSidebar.Controls.Add(lblWorkspace);
+        pnlSidebar.Controls.Add(pnlBrand);
+        pnlSidebar.Dock = DockStyle.Left;
+        pnlSidebar.Location = new Point(0, 0);
+        pnlSidebar.Name = "pnlSidebar";
+        pnlSidebar.Padding = new Padding(12, 14, 12, 14);
+        pnlSidebar.Size = new Size(276, 781);
+        pnlSidebar.TabIndex = 0;
         // 
         // btnExit
         // 
-        this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
-        this.btnExit.FlatAppearance.BorderSize = 0;
-        this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnExit.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
-        this.btnExit.Location = new System.Drawing.Point(12, 705);
-        this.btnExit.Name = "btnExit";
-        this.btnExit.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.btnExit.Size = new System.Drawing.Size(196, 40);
-        this.btnExit.TabIndex = 9;
-        this.btnExit.Text = "↪  Exit";
-        this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnExit.UseVisualStyleBackColor = true;
-        this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+        btnExit.Cursor = Cursors.Hand;
+        btnExit.Dock = DockStyle.Bottom;
+        btnExit.FlatAppearance.BorderSize = 0;
+        btnExit.FlatStyle = FlatStyle.Flat;
+        btnExit.Font = new Font("Segoe UI", 9.5F);
+        btnExit.ForeColor = Color.FromArgb(148, 163, 184);
+        btnExit.Location = new Point(12, 727);
+        btnExit.Name = "btnExit";
+        btnExit.Padding = new Padding(8, 0, 0, 0);
+        btnExit.Size = new Size(252, 40);
+        btnExit.TabIndex = 9;
+        btnExit.Text = "↪  Exit";
+        btnExit.TextAlign = ContentAlignment.MiddleLeft;
+        btnExit.UseVisualStyleBackColor = true;
+        btnExit.Click += btnExit_Click;
+        // 
+        // btnNavManageMenu
+        // 
+        btnNavManageMenu.Cursor = Cursors.Hand;
+        btnNavManageMenu.Dock = DockStyle.Top;
+        btnNavManageMenu.FlatAppearance.BorderSize = 0;
+        btnNavManageMenu.FlatStyle = FlatStyle.Flat;
+        btnNavManageMenu.Font = new Font("Segoe UI", 9.5F);
+        btnNavManageMenu.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavManageMenu.Location = new Point(12, 352);
+        btnNavManageMenu.Name = "btnNavManageMenu";
+        btnNavManageMenu.Padding = new Padding(8, 0, 0, 0);
+        btnNavManageMenu.Size = new Size(252, 40);
+        btnNavManageMenu.TabIndex = 8;
+        btnNavManageMenu.Text = "⚙  Manage Menu";
+        btnNavManageMenu.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavManageMenu.UseVisualStyleBackColor = true;
+        btnNavManageMenu.Click += btnNavManageMenu_Click;
+        // 
+        // lblAdmin
+        // 
+        lblAdmin.Dock = DockStyle.Top;
+        lblAdmin.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+        lblAdmin.ForeColor = Color.FromArgb(148, 163, 184);
+        lblAdmin.Location = new Point(12, 316);
+        lblAdmin.Name = "lblAdmin";
+        lblAdmin.Padding = new Padding(6, 14, 0, 4);
+        lblAdmin.Size = new Size(252, 36);
+        lblAdmin.TabIndex = 7;
+        lblAdmin.Text = "ADMINISTRATION";
+        // 
+        // btnNavReports
+        // 
+        btnNavReports.Cursor = Cursors.Hand;
+        btnNavReports.Dock = DockStyle.Top;
+        btnNavReports.FlatAppearance.BorderSize = 0;
+        btnNavReports.FlatStyle = FlatStyle.Flat;
+        btnNavReports.Font = new Font("Segoe UI", 9.5F);
+        btnNavReports.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavReports.Location = new Point(12, 276);
+        btnNavReports.Name = "btnNavReports";
+        btnNavReports.Padding = new Padding(8, 0, 0, 0);
+        btnNavReports.Size = new Size(252, 40);
+        btnNavReports.TabIndex = 6;
+        btnNavReports.Text = "📊  Reports";
+        btnNavReports.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavReports.UseVisualStyleBackColor = true;
+        btnNavReports.Click += btnNavReports_Click;
+        // 
+        // btnNavOrders
+        // 
+        btnNavOrders.Cursor = Cursors.Hand;
+        btnNavOrders.Dock = DockStyle.Top;
+        btnNavOrders.FlatAppearance.BorderSize = 0;
+        btnNavOrders.FlatStyle = FlatStyle.Flat;
+        btnNavOrders.Font = new Font("Segoe UI", 9.5F);
+        btnNavOrders.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavOrders.Location = new Point(12, 236);
+        btnNavOrders.Name = "btnNavOrders";
+        btnNavOrders.Padding = new Padding(8, 0, 0, 0);
+        btnNavOrders.Size = new Size(252, 40);
+        btnNavOrders.TabIndex = 5;
+        btnNavOrders.Text = "📋  Orders";
+        btnNavOrders.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavOrders.UseVisualStyleBackColor = true;
+        btnNavOrders.Click += btnNavOrders_Click;
+        // 
+        // btnNavNewOrder
+        // 
+        btnNavNewOrder.Cursor = Cursors.Hand;
+        btnNavNewOrder.Dock = DockStyle.Top;
+        btnNavNewOrder.FlatAppearance.BorderSize = 0;
+        btnNavNewOrder.FlatStyle = FlatStyle.Flat;
+        btnNavNewOrder.Font = new Font("Segoe UI", 9.5F);
+        btnNavNewOrder.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavNewOrder.Location = new Point(12, 196);
+        btnNavNewOrder.Name = "btnNavNewOrder";
+        btnNavNewOrder.Padding = new Padding(8, 0, 0, 0);
+        btnNavNewOrder.Size = new Size(252, 40);
+        btnNavNewOrder.TabIndex = 4;
+        btnNavNewOrder.Text = "⊕  New Order";
+        btnNavNewOrder.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavNewOrder.UseVisualStyleBackColor = true;
+        btnNavNewOrder.Click += btnNavNewOrder_Click;
+        // 
+        // btnNavMenu
+        // 
+        btnNavMenu.Cursor = Cursors.Hand;
+        btnNavMenu.Dock = DockStyle.Top;
+        btnNavMenu.FlatAppearance.BorderSize = 0;
+        btnNavMenu.FlatStyle = FlatStyle.Flat;
+        btnNavMenu.Font = new Font("Segoe UI", 9.5F);
+        btnNavMenu.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavMenu.Location = new Point(12, 156);
+        btnNavMenu.Name = "btnNavMenu";
+        btnNavMenu.Padding = new Padding(8, 0, 0, 0);
+        btnNavMenu.Size = new Size(252, 40);
+        btnNavMenu.TabIndex = 3;
+        btnNavMenu.Text = "📖  Menu";
+        btnNavMenu.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavMenu.UseVisualStyleBackColor = true;
+        btnNavMenu.Click += btnNavMenu_Click;
+        // 
+        // btnNavDashboard
+        // 
+        btnNavDashboard.Cursor = Cursors.Hand;
+        btnNavDashboard.Dock = DockStyle.Top;
+        btnNavDashboard.FlatAppearance.BorderSize = 0;
+        btnNavDashboard.FlatStyle = FlatStyle.Flat;
+        btnNavDashboard.Font = new Font("Segoe UI", 9.5F);
+        btnNavDashboard.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavDashboard.Location = new Point(12, 116);
+        btnNavDashboard.Name = "btnNavDashboard";
+        btnNavDashboard.Padding = new Padding(8, 0, 0, 0);
+        btnNavDashboard.Size = new Size(252, 40);
+        btnNavDashboard.TabIndex = 2;
+        btnNavDashboard.Text = "⊞  Dashboard";
+        btnNavDashboard.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavDashboard.UseVisualStyleBackColor = true;
+        btnNavDashboard.Click += btnNavDashboard_Click;
+        // 
+        // lblWorkspace
+        // 
+        lblWorkspace.Dock = DockStyle.Top;
+        lblWorkspace.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+        lblWorkspace.ForeColor = Color.FromArgb(148, 163, 184);
+        lblWorkspace.Location = new Point(12, 82);
+        lblWorkspace.Name = "lblWorkspace";
+        lblWorkspace.Padding = new Padding(6, 12, 0, 4);
+        lblWorkspace.Size = new Size(252, 34);
+        lblWorkspace.TabIndex = 1;
+        lblWorkspace.Text = "WORKSPACE";
+        // 
+        // pnlBrand
+        // 
+        pnlBrand.BackColor = Color.Transparent;
+        pnlBrand.Controls.Add(lblBrandBadge);
+        pnlBrand.Controls.Add(lblBrandTitle);
+        pnlBrand.Dock = DockStyle.Top;
+        pnlBrand.Location = new Point(12, 14);
+        pnlBrand.Name = "pnlBrand";
+        pnlBrand.Size = new Size(252, 68);
+        pnlBrand.TabIndex = 0;
+        // 
+        // lblBrandBadge
+        // 
+        lblBrandBadge.BackColor = Color.FromArgb(30, 58, 95);
+        lblBrandBadge.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblBrandBadge.ForeColor = Color.FromArgb(96, 165, 250);
+        lblBrandBadge.Location = new Point(4, 4);
+        lblBrandBadge.Name = "lblBrandBadge";
+        lblBrandBadge.Size = new Size(46, 22);
+        lblBrandBadge.TabIndex = 0;
+        lblBrandBadge.Text = "RMS";
+        lblBrandBadge.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // lblBrandTitle
+        // 
+        lblBrandTitle.AutoSize = true;
+        lblBrandTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+        lblBrandTitle.ForeColor = Color.White;
+        lblBrandTitle.Location = new Point(4, 32);
+        lblBrandTitle.Name = "lblBrandTitle";
+        lblBrandTitle.Size = new Size(206, 32);
+        lblBrandTitle.TabIndex = 1;
+        lblBrandTitle.Text = "ዉለታ Restaurant";
         // 
         // pnlHeader
         // 
-        this.pnlHeader.BackColor = System.Drawing.Color.White;
-        this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlHeader.Controls.Add(this.lblUserInfo);
-        this.pnlHeader.Controls.Add(this.lblHeaderTitle);
-        this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlHeader.Location = new System.Drawing.Point(220, 0);
-        this.pnlHeader.Name = "pnlHeader";
-        this.pnlHeader.Size = new System.Drawing.Size(1044, 56);
-        this.pnlHeader.TabIndex = 1;
-        // 
-        // lblHeaderTitle
-        // 
-        this.lblHeaderTitle.AutoSize = true;
-        this.lblHeaderTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-        this.lblHeaderTitle.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.lblHeaderTitle.Location = new System.Drawing.Point(20, 15);
-        this.lblHeaderTitle.Name = "lblHeaderTitle";
-        this.lblHeaderTitle.Size = new System.Drawing.Size(355, 25);
-        this.lblHeaderTitle.TabIndex = 0;
-        this.lblHeaderTitle.Text = "Restaurant Order Management System";
+        pnlHeader.BackColor = Color.White;
+        pnlHeader.BorderStyle = BorderStyle.FixedSingle;
+        pnlHeader.Controls.Add(lblUserInfo);
+        pnlHeader.Controls.Add(lblHeaderTitle);
+        pnlHeader.Dock = DockStyle.Top;
+        pnlHeader.Location = new Point(276, 0);
+        pnlHeader.Name = "pnlHeader";
+        pnlHeader.Size = new Size(988, 56);
+        pnlHeader.TabIndex = 1;
         // 
         // lblUserInfo
         // 
-        this.lblUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.lblUserInfo.AutoSize = true;
-        this.lblUserInfo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.lblUserInfo.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblUserInfo.Location = new System.Drawing.Point(850, 17);
-        this.lblUserInfo.Name = "lblUserInfo";
-        this.lblUserInfo.Size = new System.Drawing.Size(176, 21);
-        this.lblUserInfo.TabIndex = 1;
-        this.lblUserInfo.Text = "👤 Waiter: Abebe (Staff)";
+        lblUserInfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblUserInfo.AutoSize = true;
+        lblUserInfo.Font = new Font("Segoe UI", 9.5F);
+        lblUserInfo.ForeColor = Color.FromArgb(71, 85, 105);
+        lblUserInfo.Location = new Point(794, 17);
+        lblUserInfo.Name = "lblUserInfo";
+        lblUserInfo.Size = new Size(210, 25);
+        lblUserInfo.TabIndex = 1;
+        lblUserInfo.Text = "👤 Waiter: Abebe (Staff)";
+        // 
+        // lblHeaderTitle
+        // 
+        lblHeaderTitle.AutoSize = true;
+        lblHeaderTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+        lblHeaderTitle.ForeColor = Color.FromArgb(15, 23, 42);
+        lblHeaderTitle.Location = new Point(20, 15);
+        lblHeaderTitle.Name = "lblHeaderTitle";
+        lblHeaderTitle.Size = new Size(416, 30);
+        lblHeaderTitle.TabIndex = 0;
+        lblHeaderTitle.Text = "Restaurant Order Management System";
         // 
         // statusStrip
         // 
-        this.statusStrip.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-        this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatusLeft,
-            this.lblStatusRight});
-        this.statusStrip.Location = new System.Drawing.Point(220, 755);
-        this.statusStrip.Name = "statusStrip";
-        this.statusStrip.Size = new System.Drawing.Size(1044, 26);
-        this.statusStrip.TabIndex = 2;
-        this.statusStrip.Text = "statusStrip1";
+        statusStrip.BackColor = Color.FromArgb(241, 245, 249);
+        statusStrip.ImageScalingSize = new Size(20, 20);
+        statusStrip.Items.AddRange(new ToolStripItem[] { lblStatusLeft, lblStatusRight });
+        statusStrip.Location = new Point(276, 749);
+        statusStrip.Name = "statusStrip";
+        statusStrip.Size = new Size(988, 32);
+        statusStrip.TabIndex = 2;
+        statusStrip.Text = "statusStrip1";
         // 
         // lblStatusLeft
         // 
-        this.lblStatusLeft.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblStatusLeft.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblStatusLeft.Name = "lblStatusLeft";
-        this.lblStatusLeft.Size = new System.Drawing.Size(514, 20);
-        this.lblStatusLeft.Spring = true;
-        this.lblStatusLeft.Text = "● Ready • Viewing Dashboard";
-        this.lblStatusLeft.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        lblStatusLeft.Font = new Font("Segoe UI", 9F);
+        lblStatusLeft.ForeColor = Color.FromArgb(71, 85, 105);
+        lblStatusLeft.Name = "lblStatusLeft";
+        lblStatusLeft.Size = new Size(780, 25);
+        lblStatusLeft.Spring = true;
+        lblStatusLeft.Text = "● Ready • Viewing Dashboard";
+        lblStatusLeft.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // lblStatusRight
         // 
-        this.lblStatusRight.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblStatusRight.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
-        this.lblStatusRight.Name = "lblStatusRight";
-        this.lblStatusRight.Size = new System.Drawing.Size(514, 20);
-        this.lblStatusRight.Spring = true;
-        this.lblStatusRight.Text = "ዉለታ Restaurant · RMS";
-        this.lblStatusRight.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        lblStatusRight.Font = new Font("Segoe UI", 9F);
+        lblStatusRight.ForeColor = Color.FromArgb(148, 163, 184);
+        lblStatusRight.Name = "lblStatusRight";
+        lblStatusRight.Size = new Size(193, 25);
+        lblStatusRight.Spring = true;
+        lblStatusRight.Text = "ዉለታ Restaurant · RMS";
+        lblStatusRight.TextAlign = ContentAlignment.MiddleRight;
         // 
         // pnlContentHost
         // 
-        this.pnlContentHost.BackColor = System.Drawing.Color.FromArgb(243, 244, 246);
-        this.pnlContentHost.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlContentHost.Location = new System.Drawing.Point(220, 56);
-        this.pnlContentHost.Name = "pnlContentHost";
-        this.pnlContentHost.Size = new System.Drawing.Size(1044, 699);
-        this.pnlContentHost.TabIndex = 3;
+        pnlContentHost.BackColor = Color.FromArgb(243, 244, 246);
+        pnlContentHost.Dock = DockStyle.Fill;
+        pnlContentHost.Location = new Point(276, 56);
+        pnlContentHost.Name = "pnlContentHost";
+        pnlContentHost.Size = new Size(988, 693);
+        pnlContentHost.TabIndex = 3;
         // 
         // MainForm
         // 
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-        this.BackColor = System.Drawing.Color.FromArgb(243, 244, 246);
-        this.ClientSize = new System.Drawing.Size(1264, 781);
-        this.Controls.Add(this.pnlContentHost);
-        this.Controls.Add(this.statusStrip);
-        this.Controls.Add(this.pnlHeader);
-        this.Controls.Add(this.pnlSidebar);
-        this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.MinimumSize = new System.Drawing.Size(1080, 700);
-        this.Name = "MainForm";
-        this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.Text = "RMS — Restaurant Order Management System";
-        this.pnlSidebar.ResumeLayout(false);
-        this.pnlSidebar.PerformLayout();
-        this.pnlBrand.ResumeLayout(false);
-        this.pnlBrand.PerformLayout();
-        this.pnlHeader.ResumeLayout(false);
-        this.pnlHeader.PerformLayout();
-        this.statusStrip.ResumeLayout(false);
-        this.statusStrip.PerformLayout();
-        this.ResumeLayout(false);
-        this.PerformLayout();
+        AutoScaleDimensions = new SizeF(144F, 144F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.FromArgb(243, 244, 246);
+        ClientSize = new Size(1264, 781);
+        Controls.Add(pnlContentHost);
+        Controls.Add(statusStrip);
+        Controls.Add(pnlHeader);
+        Controls.Add(pnlSidebar);
+        Font = new Font("Segoe UI", 9.5F);
+        MinimumSize = new Size(1080, 700);
+        Name = "MainForm";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "RMS — Restaurant Order Management System";
+        pnlSidebar.ResumeLayout(false);
+        pnlBrand.ResumeLayout(false);
+        pnlBrand.PerformLayout();
+        pnlHeader.ResumeLayout(false);
+        pnlHeader.PerformLayout();
+        statusStrip.ResumeLayout(false);
+        statusStrip.PerformLayout();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     private System.Windows.Forms.Panel pnlSidebar;

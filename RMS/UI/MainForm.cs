@@ -30,6 +30,12 @@ public partial class MainForm : Form
         _navButtons[ViewType.Reports] = btnNavReports;
         _navButtons[ViewType.MenuManagement] = btnNavManageMenu;
 
+        // In design mode, stop here so Visual Studio Designer loads cleanly
+        if (DesignMode || System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
+        {
+            return;
+        }
+
         // Register application views
         RegisterViews();
 
