@@ -100,4 +100,9 @@ public partial class DashboardView : BaseView
     {
         Navigate(ViewType.Orders);
     }
+
+    private void lblCompletedCount_Click(object sender, EventArgs e)
+    {
+
+    }
 }
