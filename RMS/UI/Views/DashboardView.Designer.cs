@@ -19,6 +19,7 @@ partial class DashboardView
         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
         this.pnlHeader = new System.Windows.Forms.Panel();
+        this.btnNewOrder = new System.Windows.Forms.Button();
         this.lblTitle = new System.Windows.Forms.Label();
         this.grpOverview = new System.Windows.Forms.GroupBox();
         this.tlpKpis = new System.Windows.Forms.TableLayoutPanel();
@@ -48,6 +49,8 @@ partial class DashboardView
         this.colCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.pnlRecentHeader = new System.Windows.Forms.Panel();
+        this.lnkViewAll = new System.Windows.Forms.LinkLabel();
         this.pnlHeader.SuspendLayout();
         this.grpOverview.SuspendLayout();
         this.tlpKpis.SuspendLayout();
@@ -59,24 +62,43 @@ partial class DashboardView
         this.pnlKpiValue.SuspendLayout();
         this.grpRecentOrders.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)(this.dgvRecentOrders)).BeginInit();
+        this.pnlRecentHeader.SuspendLayout();
         this.SuspendLayout();
         // 
         // pnlHeader
         // 
         this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
+        this.pnlHeader.Controls.Add(this.btnNewOrder);
         this.pnlHeader.Controls.Add(this.lblTitle);
         this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
         this.pnlHeader.Location = new System.Drawing.Point(24, 16);
         this.pnlHeader.Name = "pnlHeader";
-        this.pnlHeader.Size = new System.Drawing.Size(1072, 45);
+        this.pnlHeader.Size = new System.Drawing.Size(1072, 48);
         this.pnlHeader.TabIndex = 0;
+        // 
+        // btnNewOrder
+        // 
+        this.btnNewOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+        this.btnNewOrder.BackColor = System.Drawing.Color.FromArgb(30, 58, 95);
+        this.btnNewOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+        this.btnNewOrder.FlatAppearance.BorderSize = 0;
+        this.btnNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        this.btnNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+        this.btnNewOrder.ForeColor = System.Drawing.Color.White;
+        this.btnNewOrder.Location = new System.Drawing.Point(942, 6);
+        this.btnNewOrder.Name = "btnNewOrder";
+        this.btnNewOrder.Size = new System.Drawing.Size(130, 36);
+        this.btnNewOrder.TabIndex = 1;
+        this.btnNewOrder.Text = "+ New Order";
+        this.btnNewOrder.UseVisualStyleBackColor = false;
+        this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
         // 
         // lblTitle
         // 
         this.lblTitle.AutoSize = true;
         this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
         this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.lblTitle.Location = new System.Drawing.Point(0, 0);
+        this.lblTitle.Location = new System.Drawing.Point(0, 4);
         this.lblTitle.Name = "lblTitle";
         this.lblTitle.Size = new System.Drawing.Size(157, 37);
         this.lblTitle.TabIndex = 0;
@@ -89,13 +111,13 @@ partial class DashboardView
         this.grpOverview.Dock = System.Windows.Forms.DockStyle.Top;
         this.grpOverview.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
         this.grpOverview.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpOverview.Location = new System.Drawing.Point(24, 61);
+        this.grpOverview.Location = new System.Drawing.Point(24, 64);
         this.grpOverview.Name = "grpOverview";
         this.grpOverview.Padding = new System.Windows.Forms.Padding(12, 10, 12, 12);
         this.grpOverview.Size = new System.Drawing.Size(1072, 175);
         this.grpOverview.TabIndex = 1;
         this.grpOverview.TabStop = false;
-        this.grpOverview.Text = "Today's Overview";
+        this.grpOverview.Text = "Today\'s Overview";
         // 
         // tlpKpis
         // 
@@ -137,7 +159,7 @@ partial class DashboardView
         this.lblTotalCount.AutoSize = true;
         this.lblTotalCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
         this.lblTotalCount.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.lblTotalCount.Location = new Point(122, 6);
+        this.lblTotalCount.Location = new System.Drawing.Point(122, 6);
         this.lblTotalCount.Name = "lblTotalCount";
         this.lblTotalCount.Size = new System.Drawing.Size(43, 35);
         this.lblTotalCount.TabIndex = 1;
@@ -173,7 +195,7 @@ partial class DashboardView
         this.lblPendingCount.AutoSize = true;
         this.lblPendingCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
         this.lblPendingCount.ForeColor = System.Drawing.Color.FromArgb(180, 83, 9);
-        this.lblPendingCount.Location = new Point(109, 6);
+        this.lblPendingCount.Location = new System.Drawing.Point(109, 6);
         this.lblPendingCount.Name = "lblPendingCount";
         this.lblPendingCount.Size = new System.Drawing.Size(29, 35);
         this.lblPendingCount.TabIndex = 1;
@@ -209,7 +231,7 @@ partial class DashboardView
         this.lblPreparingCount.AutoSize = true;
         this.lblPreparingCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
         this.lblPreparingCount.ForeColor = System.Drawing.Color.FromArgb(194, 65, 12);
-        this.lblPreparingCount.Location = new Point(120, 6);
+        this.lblPreparingCount.Location = new System.Drawing.Point(120, 6);
         this.lblPreparingCount.Name = "lblPreparingCount";
         this.lblPreparingCount.Size = new System.Drawing.Size(29, 35);
         this.lblPreparingCount.TabIndex = 1;
@@ -332,19 +354,20 @@ partial class DashboardView
         this.lblKpiValTitle.Name = "lblKpiValTitle";
         this.lblKpiValTitle.Size = new System.Drawing.Size(100, 20);
         this.lblKpiValTitle.TabIndex = 0;
-        this.lblKpiValTitle.Text = "Today's Sales";
+        this.lblKpiValTitle.Text = "Today\'s Sales";
         // 
         // grpRecentOrders
         // 
         this.grpRecentOrders.BackColor = System.Drawing.Color.Transparent;
         this.grpRecentOrders.Controls.Add(this.dgvRecentOrders);
+        this.grpRecentOrders.Controls.Add(this.pnlRecentHeader);
         this.grpRecentOrders.Dock = System.Windows.Forms.DockStyle.Fill;
         this.grpRecentOrders.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
         this.grpRecentOrders.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpRecentOrders.Location = new System.Drawing.Point(24, 236);
+        this.grpRecentOrders.Location = new System.Drawing.Point(24, 239);
         this.grpRecentOrders.Name = "grpRecentOrders";
         this.grpRecentOrders.Padding = new System.Windows.Forms.Padding(12, 10, 12, 12);
-        this.grpRecentOrders.Size = new System.Drawing.Size(1072, 297);
+        this.grpRecentOrders.Size = new System.Drawing.Size(1072, 294);
         this.grpRecentOrders.TabIndex = 2;
         this.grpRecentOrders.TabStop = false;
         this.grpRecentOrders.Text = "Recent Orders";
@@ -389,7 +412,7 @@ partial class DashboardView
         this.dgvRecentOrders.Dock = System.Windows.Forms.DockStyle.Fill;
         this.dgvRecentOrders.EnableHeadersVisualStyles = false;
         this.dgvRecentOrders.GridColor = System.Drawing.Color.FromArgb(226, 232, 240);
-        this.dgvRecentOrders.Location = new System.Drawing.Point(12, 33);
+        this.dgvRecentOrders.Location = new System.Drawing.Point(12, 63);
         this.dgvRecentOrders.MultiSelect = false;
         this.dgvRecentOrders.Name = "dgvRecentOrders";
         this.dgvRecentOrders.ReadOnly = true;
@@ -397,8 +420,8 @@ partial class DashboardView
         this.dgvRecentOrders.RowHeadersWidth = 51;
         this.dgvRecentOrders.RowTemplate.Height = 36;
         this.dgvRecentOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        this.dgvRecentOrders.Size = new System.Drawing.Size(1048, 252);
-        this.dgvRecentOrders.TabIndex = 0;
+        this.dgvRecentOrders.Size = new System.Drawing.Size(1048, 219);
+        this.dgvRecentOrders.TabIndex = 1;
         // 
         // colOrderNum
         // 
@@ -427,7 +450,7 @@ partial class DashboardView
         // colCreated
         // 
         this.colCreated.FillWeight = 90F;
-        this.colCreated.HeaderText = "Time";
+        this.colCreated.HeaderText = "Created Time";
         this.colCreated.MinimumWidth = 6;
         this.colCreated.Name = "colCreated";
         this.colCreated.ReadOnly = true;
@@ -435,7 +458,7 @@ partial class DashboardView
         // colTotal
         // 
         this.colTotal.FillWeight = 90F;
-        this.colTotal.HeaderText = "Total";
+        this.colTotal.HeaderText = "Total (ETB)";
         this.colTotal.MinimumWidth = 6;
         this.colTotal.Name = "colTotal";
         this.colTotal.ReadOnly = true;
@@ -447,6 +470,31 @@ partial class DashboardView
         this.colStatus.MinimumWidth = 6;
         this.colStatus.Name = "colStatus";
         this.colStatus.ReadOnly = true;
+        // 
+        // pnlRecentHeader
+        // 
+        this.pnlRecentHeader.Controls.Add(this.lnkViewAll);
+        this.pnlRecentHeader.Dock = System.Windows.Forms.DockStyle.Top;
+        this.pnlRecentHeader.Location = new System.Drawing.Point(12, 33);
+        this.pnlRecentHeader.Name = "pnlRecentHeader";
+        this.pnlRecentHeader.Size = new System.Drawing.Size(1048, 30);
+        this.pnlRecentHeader.TabIndex = 0;
+        // 
+        // lnkViewAll
+        // 
+        this.lnkViewAll.ActiveLinkColor = System.Drawing.Color.FromArgb(22, 44, 71);
+        this.lnkViewAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+        this.lnkViewAll.AutoSize = true;
+        this.lnkViewAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+        this.lnkViewAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+        this.lnkViewAll.LinkColor = System.Drawing.Color.FromArgb(30, 58, 95);
+        this.lnkViewAll.Location = new System.Drawing.Point(918, 4);
+        this.lnkViewAll.Name = "lnkViewAll";
+        this.lnkViewAll.Size = new System.Drawing.Size(130, 20);
+        this.lnkViewAll.TabIndex = 0;
+        this.lnkViewAll.TabStop = true;
+        this.lnkViewAll.Text = "View all orders →";
+        this.lnkViewAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkViewAll_LinkClicked);
         // 
         // DashboardView
         // 
@@ -477,11 +525,14 @@ partial class DashboardView
         this.pnlKpiValue.PerformLayout();
         this.grpRecentOrders.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)(this.dgvRecentOrders)).EndInit();
+        this.pnlRecentHeader.ResumeLayout(false);
+        this.pnlRecentHeader.PerformLayout();
         this.ResumeLayout(false);
     }
 
     private System.Windows.Forms.Panel pnlHeader;
     private System.Windows.Forms.Label lblTitle;
+    private System.Windows.Forms.Button btnNewOrder;
     private System.Windows.Forms.GroupBox grpOverview;
     private System.Windows.Forms.TableLayoutPanel tlpKpis;
     private System.Windows.Forms.Panel pnlKpiTotal;
@@ -503,6 +554,8 @@ partial class DashboardView
     private System.Windows.Forms.Label lblCompletedValue;
     private System.Windows.Forms.Label lblKpiValTitle;
     private System.Windows.Forms.GroupBox grpRecentOrders;
+    private System.Windows.Forms.Panel pnlRecentHeader;
+    private System.Windows.Forms.LinkLabel lnkViewAll;
     private System.Windows.Forms.DataGridView dgvRecentOrders;
     private System.Windows.Forms.DataGridViewTextBoxColumn colOrderNum;
     private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;

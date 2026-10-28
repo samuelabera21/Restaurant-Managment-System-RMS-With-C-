@@ -17,7 +17,7 @@ public partial class DashboardView : BaseView
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
 
-    public DashboardView() : base("Dashboard", "")
+    public DashboardView()
     {
         InitializeComponent();
 
@@ -70,5 +70,15 @@ public partial class DashboardView : BaseView
         }
 
         dgvRecentOrders.ClearSelection();
+    }
+
+    private void btnNewOrder_Click(object? sender, EventArgs e)
+    {
+        Navigate(ViewType.NewOrder);
+    }
+
+    private void lnkViewAll_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
+    {
+        Navigate(ViewType.Orders);
     }
 }
