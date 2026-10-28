@@ -150,4 +150,8 @@ public partial class ReportsView : BaseView, INavigationAware
             Navigate(ViewType.OrderDetails, order.OrderNumber);
         }
     }
+
+    private void lblFilterNote_Click(object? sender, EventArgs e)
+    {
+    }
 }

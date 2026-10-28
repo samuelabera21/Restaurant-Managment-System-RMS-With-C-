@@ -17,7 +17,7 @@ public partial class DashboardView : BaseView
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
 
-    public DashboardView()
+    public DashboardView() : base("Dashboard", "")
     {
         InitializeComponent();
 
@@ -53,13 +53,13 @@ public partial class DashboardView : BaseView
         lblCompletedCount.Text = _store.CompletedOrdersCount.ToString();
         lblCompletedValue.Text = $"{_store.CompletedOrdersValue:N0} ETB";
 
-        // 2. Populate recent orders into DataGridView
+        // 2. Populate recent orders into DataGridView with clean, uniform plain text (no colors)
         dgvRecentOrders.Rows.Clear();
         var recentOrders = _store.Orders.Take(5);
 
         foreach (var order in recentOrders)
         {
-            int rowIndex = dgvRecentOrders.Rows.Add(
+            dgvRecentOrders.Rows.Add(
                 $"#{order.OrderNumber}",
                 order.CustomerName,
                 $"Table {order.TableNumber}",
@@ -67,42 +67,8 @@ public partial class DashboardView : BaseView
                 $"{order.Total:N0} ETB",
                 order.Status.ToString()
             );
-
-            // Subtle color for the status text
-            var row = dgvRecentOrders.Rows[rowIndex];
-            row.Cells[colStatus.Index].Style.ForeColor = GetStatusColor(order.Status);
-            row.Cells[colStatus.Index].Style.Font = AppTheme.BodyBold;
         }
 
         dgvRecentOrders.ClearSelection();
-    }
-
-    private static Color GetStatusColor(OrderStatus status) => status switch
-    {
-        OrderStatus.Pending => Color.FromArgb(180, 83, 9),      // Amber
-        OrderStatus.Preparing => Color.FromArgb(194, 65, 12),   // Orange
-        OrderStatus.Ready => Color.FromArgb(16, 149, 93),       // Green
-        OrderStatus.Completed => Color.FromArgb(71, 85, 105),   // Slate
-        OrderStatus.Cancelled => Color.FromArgb(220, 38, 38),   // Red
-        _ => Color.FromArgb(15, 23, 42)
-    };
-
-    // =========================================================================
-    // Event Handlers (Visual Studio Designer)
-    // =========================================================================
-
-    private void btnNewOrder_Click(object sender, EventArgs e)
-    {
-        Navigate(ViewType.NewOrder);
-    }
-
-    private void lnkViewAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-        Navigate(ViewType.Orders);
-    }
-
-    private void lblCompletedCount_Click(object sender, EventArgs e)
-    {
-
     }
 }

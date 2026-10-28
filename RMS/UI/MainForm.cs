@@ -30,6 +30,15 @@ public partial class MainForm : Form
         _navButtons[ViewType.Reports] = btnNavReports;
         _navButtons[ViewType.MenuManagement] = btnNavManageMenu;
 
+        // Configure clean dark slate hover states
+        foreach (var btn in new[] { btnNavDashboard, btnNavMenu, btnNavNewOrder, btnNavOrders, btnNavReports, btnNavManageMenu, btnExit })
+        {
+            btn.UseVisualStyleBackColor = false;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.FlatAppearance.MouseOverBackColor = AppTheme.SidebarHover;
+            btn.FlatAppearance.MouseDownBackColor = AppTheme.SidebarActive;
+        }
+
         // In design mode, stop here so Visual Studio Designer loads cleanly
         if (DesignMode || System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
         {
@@ -86,6 +95,7 @@ public partial class MainForm : Form
             bool isActive = (type == targetView);
             btn.BackColor = isActive ? AppTheme.SidebarActive : Color.Transparent;
             btn.Font = isActive ? AppTheme.NavItemActiveFont : AppTheme.NavItemFont;
+            btn.FlatAppearance.MouseOverBackColor = isActive ? AppTheme.SidebarActive : AppTheme.SidebarHover;
         }
 
         // Swap View inside Content Host panel

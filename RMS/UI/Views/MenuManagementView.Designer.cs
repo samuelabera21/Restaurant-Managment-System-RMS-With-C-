@@ -15,408 +15,400 @@ partial class MenuManagementView
 
     private void InitializeComponent()
     {
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-        this.pnlHeader = new System.Windows.Forms.Panel();
-        this.lblAdminBadge = new System.Windows.Forms.Label();
-        this.lblSubtitle = new System.Windows.Forms.Label();
-        this.lblTitle = new System.Windows.Forms.Label();
-        this.grpFilter = new System.Windows.Forms.GroupBox();
-        this.btnClearSearch = new System.Windows.Forms.Button();
-        this.cboAvailabilityFilter = new System.Windows.Forms.ComboBox();
-        this.lblAvailability = new System.Windows.Forms.Label();
-        this.cboCategoryFilter = new System.Windows.Forms.ComboBox();
-        this.lblCategory = new System.Windows.Forms.Label();
-        this.txtSearch = new System.Windows.Forms.TextBox();
-        this.lblSearch = new System.Windows.Forms.Label();
-        this.grpMenuItems = new System.Windows.Forms.GroupBox();
-        this.dgvMenuItems = new System.Windows.Forms.DataGridView();
-        this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.pnlActions = new System.Windows.Forms.Panel();
-        this.lblHint = new System.Windows.Forms.Label();
-        this.btnToggleStatus = new System.Windows.Forms.Button();
-        this.btnEditItem = new System.Windows.Forms.Button();
-        this.btnAddItem = new System.Windows.Forms.Button();
-        this.pnlGridHeader = new System.Windows.Forms.Panel();
-        this.lblSummary = new System.Windows.Forms.Label();
-        this.pnlHeader.SuspendLayout();
-        this.grpFilter.SuspendLayout();
-        this.grpMenuItems.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).BeginInit();
-        this.pnlActions.SuspendLayout();
-        this.pnlGridHeader.SuspendLayout();
-        this.SuspendLayout();
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+        pnlHeader = new Panel();
+        lblAdminBadge = new Label();
+        lblSubtitle = new Label();
+        lblTitle = new Label();
+        grpFilter = new GroupBox();
+        btnClearSearch = new Button();
+        cboAvailabilityFilter = new ComboBox();
+        lblAvailability = new Label();
+        cboCategoryFilter = new ComboBox();
+        lblCategory = new Label();
+        txtSearch = new TextBox();
+        lblSearch = new Label();
+        grpMenuItems = new GroupBox();
+        dgvMenuItems = new DataGridView();
+        colId = new DataGridViewTextBoxColumn();
+        colName = new DataGridViewTextBoxColumn();
+        colCategory = new DataGridViewTextBoxColumn();
+        colPrice = new DataGridViewTextBoxColumn();
+        colStatus = new DataGridViewTextBoxColumn();
+        pnlActions = new Panel();
+        lblHint = new Label();
+        btnToggleStatus = new Button();
+        btnEditItem = new Button();
+        btnAddItem = new Button();
+        pnlGridHeader = new Panel();
+        lblSummary = new Label();
+        pnlHeader.SuspendLayout();
+        grpFilter.SuspendLayout();
+        grpMenuItems.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)dgvMenuItems).BeginInit();
+        pnlActions.SuspendLayout();
+        pnlGridHeader.SuspendLayout();
+        SuspendLayout();
         // 
         // pnlHeader
         // 
-        this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-        this.pnlHeader.Controls.Add(this.lblAdminBadge);
-        this.pnlHeader.Controls.Add(this.lblSubtitle);
-        this.pnlHeader.Controls.Add(this.lblTitle);
-        this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlHeader.Location = new System.Drawing.Point(24, 16);
-        this.pnlHeader.Name = "pnlHeader";
-        this.pnlHeader.Size = new System.Drawing.Size(996, 56);
-        this.pnlHeader.TabIndex = 0;
+        pnlHeader.BackColor = Color.Transparent;
+        pnlHeader.Controls.Add(lblAdminBadge);
+        pnlHeader.Controls.Add(lblSubtitle);
+        pnlHeader.Controls.Add(lblTitle);
+        pnlHeader.Dock = DockStyle.Top;
+        pnlHeader.Location = new Point(24, 16);
+        pnlHeader.Name = "pnlHeader";
+        pnlHeader.Size = new Size(1072, 56);
+        pnlHeader.TabIndex = 0;
         // 
         // lblAdminBadge
         // 
-        this.lblAdminBadge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.lblAdminBadge.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.lblAdminBadge.ForeColor = System.Drawing.Color.FromArgb(67, 56, 202);
-        this.lblAdminBadge.Location = new System.Drawing.Point(746, 16);
-        this.lblAdminBadge.Name = "lblAdminBadge";
-        this.lblAdminBadge.Size = new System.Drawing.Size(250, 24);
-        this.lblAdminBadge.TabIndex = 2;
-        this.lblAdminBadge.Text = "🔒 Admin Mode Active";
-        this.lblAdminBadge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        lblAdminBadge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblAdminBadge.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        lblAdminBadge.ForeColor = Color.FromArgb(67, 56, 202);
+        lblAdminBadge.Location = new Point(822, 16);
+        lblAdminBadge.Name = "lblAdminBadge";
+        lblAdminBadge.Size = new Size(250, 24);
+        lblAdminBadge.TabIndex = 2;
+        lblAdminBadge.Text = "🔒 Admin Mode Active";
+        lblAdminBadge.TextAlign = ContentAlignment.MiddleRight;
         // 
         // lblSubtitle
         // 
-        this.lblSubtitle.AutoSize = true;
-        this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblSubtitle.Location = new System.Drawing.Point(0, 32);
-        this.lblSubtitle.Name = "lblSubtitle";
-        this.lblSubtitle.Size = new System.Drawing.Size(306, 20);
-        this.lblSubtitle.TabIndex = 1;
-        this.lblSubtitle.Text = "Administer menu items, prices, and availability";
+        lblSubtitle.AutoSize = true;
+        lblSubtitle.Font = new Font("Segoe UI", 9F);
+        lblSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblSubtitle.Location = new Point(0, 32);
+        lblSubtitle.Name = "lblSubtitle";
+        lblSubtitle.Size = new Size(377, 25);
+        lblSubtitle.TabIndex = 1;
+        lblSubtitle.Text = "Administer menu items, prices, and availability";
         // 
         // lblTitle
         // 
-        this.lblTitle.AutoSize = true;
-        this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-        this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.lblTitle.Location = new System.Drawing.Point(-2, 0);
-        this.lblTitle.Name = "lblTitle";
-        this.lblTitle.Size = new System.Drawing.Size(262, 37);
-        this.lblTitle.TabIndex = 0;
-        this.lblTitle.Text = "Menu Management";
+        lblTitle.AutoSize = true;
+        lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+        lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
+        lblTitle.Location = new Point(10, -13);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(313, 45);
+        lblTitle.TabIndex = 0;
+        lblTitle.Text = "Menu Management";
         // 
         // grpFilter
         // 
-        this.grpFilter.BackColor = System.Drawing.Color.Transparent;
-        this.grpFilter.Controls.Add(this.btnClearSearch);
-        this.grpFilter.Controls.Add(this.cboAvailabilityFilter);
-        this.grpFilter.Controls.Add(this.lblAvailability);
-        this.grpFilter.Controls.Add(this.cboCategoryFilter);
-        this.grpFilter.Controls.Add(this.lblCategory);
-        this.grpFilter.Controls.Add(this.txtSearch);
-        this.grpFilter.Controls.Add(this.lblSearch);
-        this.grpFilter.Dock = System.Windows.Forms.DockStyle.Top;
-        this.grpFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.grpFilter.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpFilter.Location = new System.Drawing.Point(24, 72);
-        this.grpFilter.Name = "grpFilter";
-        this.grpFilter.Size = new System.Drawing.Size(996, 75);
-        this.grpFilter.TabIndex = 1;
-        this.grpFilter.TabStop = false;
-        this.grpFilter.Text = "Search & Filter Items";
+        grpFilter.BackColor = Color.Transparent;
+        grpFilter.Controls.Add(btnClearSearch);
+        grpFilter.Controls.Add(cboAvailabilityFilter);
+        grpFilter.Controls.Add(lblAvailability);
+        grpFilter.Controls.Add(cboCategoryFilter);
+        grpFilter.Controls.Add(lblCategory);
+        grpFilter.Controls.Add(txtSearch);
+        grpFilter.Controls.Add(lblSearch);
+        grpFilter.Dock = DockStyle.Top;
+        grpFilter.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
+        grpFilter.Location = new Point(24, 72);
+        grpFilter.Name = "grpFilter";
+        grpFilter.Size = new Size(1072, 75);
+        grpFilter.TabIndex = 1;
+        grpFilter.TabStop = false;
+        grpFilter.Text = "Search & Filter Items";
         // 
         // btnClearSearch
         // 
-        this.btnClearSearch.BackColor = System.Drawing.Color.White;
-        this.btnClearSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnClearSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.btnClearSearch.Location = new System.Drawing.Point(780, 27);
-        this.btnClearSearch.Name = "btnClearSearch";
-        this.btnClearSearch.Size = new System.Drawing.Size(80, 31);
-        this.btnClearSearch.TabIndex = 6;
-        this.btnClearSearch.Text = "Reset";
-        this.btnClearSearch.UseVisualStyleBackColor = false;
-        this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
+        btnClearSearch.BackColor = Color.White;
+        btnClearSearch.Cursor = Cursors.Hand;
+        btnClearSearch.FlatStyle = FlatStyle.System;
+        btnClearSearch.Font = new Font("Segoe UI", 9F);
+        btnClearSearch.Location = new Point(780, 27);
+        btnClearSearch.Name = "btnClearSearch";
+        btnClearSearch.Size = new Size(80, 31);
+        btnClearSearch.TabIndex = 6;
+        btnClearSearch.Text = "Reset";
+        btnClearSearch.UseVisualStyleBackColor = false;
+        btnClearSearch.Click += btnClearSearch_Click;
         // 
         // cboAvailabilityFilter
         // 
-        this.cboAvailabilityFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.cboAvailabilityFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.cboAvailabilityFilter.FormattingEnabled = true;
-        this.cboAvailabilityFilter.Items.AddRange(new object[] {
-            "All Items",
-            "Available Only",
-            "Unavailable Only"});
-        this.cboAvailabilityFilter.Location = new System.Drawing.Point(620, 28);
-        this.cboAvailabilityFilter.Name = "cboAvailabilityFilter";
-        this.cboAvailabilityFilter.Size = new System.Drawing.Size(145, 29);
-        this.cboAvailabilityFilter.TabIndex = 5;
-        this.cboAvailabilityFilter.SelectedIndexChanged += new System.EventHandler(this.Filter_Changed);
+        cboAvailabilityFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboAvailabilityFilter.Font = new Font("Segoe UI", 9.5F);
+        cboAvailabilityFilter.FormattingEnabled = true;
+        cboAvailabilityFilter.Items.AddRange(new object[] { "All Items", "Available Only", "Unavailable Only" });
+        cboAvailabilityFilter.Location = new Point(620, 28);
+        cboAvailabilityFilter.Name = "cboAvailabilityFilter";
+        cboAvailabilityFilter.Size = new Size(145, 33);
+        cboAvailabilityFilter.TabIndex = 5;
+        cboAvailabilityFilter.SelectedIndexChanged += Filter_Changed;
         // 
         // lblAvailability
         // 
-        this.lblAvailability.AutoSize = true;
-        this.lblAvailability.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.lblAvailability.Location = new System.Drawing.Point(535, 31);
-        this.lblAvailability.Name = "lblAvailability";
-        this.lblAvailability.Size = new System.Drawing.Size(78, 21);
-        this.lblAvailability.TabIndex = 4;
-        this.lblAvailability.Text = "Availability:";
+        lblAvailability.AutoSize = true;
+        lblAvailability.Font = new Font("Segoe UI", 9.5F);
+        lblAvailability.Location = new Point(535, 31);
+        lblAvailability.Name = "lblAvailability";
+        lblAvailability.Size = new Size(108, 25);
+        lblAvailability.TabIndex = 4;
+        lblAvailability.Text = "Availability:";
         // 
         // cboCategoryFilter
         // 
-        this.cboCategoryFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.cboCategoryFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.cboCategoryFilter.FormattingEnabled = true;
-        this.cboCategoryFilter.Location = new System.Drawing.Point(365, 28);
-        this.cboCategoryFilter.Name = "cboCategoryFilter";
-        this.cboCategoryFilter.Size = new System.Drawing.Size(150, 29);
-        this.cboCategoryFilter.TabIndex = 3;
-        this.cboCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.Filter_Changed);
+        cboCategoryFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboCategoryFilter.Font = new Font("Segoe UI", 9.5F);
+        cboCategoryFilter.FormattingEnabled = true;
+        cboCategoryFilter.Location = new Point(365, 28);
+        cboCategoryFilter.Name = "cboCategoryFilter";
+        cboCategoryFilter.Size = new Size(150, 33);
+        cboCategoryFilter.TabIndex = 3;
+        cboCategoryFilter.SelectedIndexChanged += Filter_Changed;
         // 
         // lblCategory
         // 
-        this.lblCategory.AutoSize = true;
-        this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.lblCategory.Location = new System.Drawing.Point(290, 31);
-        this.lblCategory.Name = "lblCategory";
-        this.lblCategory.Size = new System.Drawing.Size(71, 21);
-        this.lblCategory.TabIndex = 2;
-        this.lblCategory.Text = "Category:";
+        lblCategory.AutoSize = true;
+        lblCategory.Font = new Font("Segoe UI", 9.5F);
+        lblCategory.Location = new Point(290, 31);
+        lblCategory.Name = "lblCategory";
+        lblCategory.Size = new Size(92, 25);
+        lblCategory.TabIndex = 2;
+        lblCategory.Text = "Category:";
         // 
         // txtSearch
         // 
-        this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.txtSearch.Location = new System.Drawing.Point(65, 28);
-        this.txtSearch.Name = "txtSearch";
-        this.txtSearch.PlaceholderText = "Search item name...";
-        this.txtSearch.Size = new System.Drawing.Size(205, 29);
-        this.txtSearch.TabIndex = 1;
-        this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+        txtSearch.Font = new Font("Segoe UI", 9.5F);
+        txtSearch.Location = new Point(65, 28);
+        txtSearch.Name = "txtSearch";
+        txtSearch.PlaceholderText = "Search item name...";
+        txtSearch.Size = new Size(205, 33);
+        txtSearch.TabIndex = 1;
+        txtSearch.TextChanged += txtSearch_TextChanged;
         // 
         // lblSearch
         // 
-        this.lblSearch.AutoSize = true;
-        this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.lblSearch.Location = new System.Drawing.Point(10, 31);
-        this.lblSearch.Name = "lblSearch";
-        this.lblSearch.Size = new System.Drawing.Size(51, 21);
-        this.lblSearch.TabIndex = 0;
-        this.lblSearch.Text = "Search:";
+        lblSearch.AutoSize = true;
+        lblSearch.Font = new Font("Segoe UI", 9.5F);
+        lblSearch.Location = new Point(10, 31);
+        lblSearch.Name = "lblSearch";
+        lblSearch.Size = new Size(73, 25);
+        lblSearch.TabIndex = 0;
+        lblSearch.Text = "Search:";
         // 
         // grpMenuItems
         // 
-        this.grpMenuItems.BackColor = System.Drawing.Color.Transparent;
-        this.grpMenuItems.Controls.Add(this.dgvMenuItems);
-        this.grpMenuItems.Controls.Add(this.pnlActions);
-        this.grpMenuItems.Controls.Add(this.pnlGridHeader);
-        this.grpMenuItems.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.grpMenuItems.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-        this.grpMenuItems.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpMenuItems.Location = new System.Drawing.Point(24, 147);
-        this.grpMenuItems.Name = "grpMenuItems";
-        this.grpMenuItems.Padding = new System.Windows.Forms.Padding(12, 8, 12, 10);
-        this.grpMenuItems.Size = new System.Drawing.Size(996, 513);
-        this.grpMenuItems.TabIndex = 2;
-        this.grpMenuItems.TabStop = false;
-        this.grpMenuItems.Text = "Menu Items List";
+        grpMenuItems.BackColor = Color.Transparent;
+        grpMenuItems.Controls.Add(dgvMenuItems);
+        grpMenuItems.Controls.Add(pnlActions);
+        grpMenuItems.Controls.Add(pnlGridHeader);
+        grpMenuItems.Dock = DockStyle.Fill;
+        grpMenuItems.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        grpMenuItems.ForeColor = Color.FromArgb(15, 23, 42);
+        grpMenuItems.Location = new Point(24, 147);
+        grpMenuItems.Name = "grpMenuItems";
+        grpMenuItems.Padding = new Padding(12, 8, 12, 10);
+        grpMenuItems.Size = new Size(1072, 386);
+        grpMenuItems.TabIndex = 2;
+        grpMenuItems.TabStop = false;
+        grpMenuItems.Text = "Menu Items List";
         // 
         // dgvMenuItems
         // 
-        this.dgvMenuItems.AllowUserToAddRows = false;
-        this.dgvMenuItems.AllowUserToDeleteRows = false;
-        this.dgvMenuItems.AllowUserToResizeRows = false;
-        dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.dgvMenuItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-        this.dgvMenuItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        this.dgvMenuItems.BackgroundColor = System.Drawing.Color.White;
-        this.dgvMenuItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-        this.dgvMenuItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-        dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-        dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-        this.dgvMenuItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-        this.dgvMenuItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dgvMenuItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
-            this.colName,
-            this.colCategory,
-            this.colPrice,
-            this.colStatus});
-        dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-        dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-        dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(219, 234, 254);
-        dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-        this.dgvMenuItems.DefaultCellStyle = dataGridViewCellStyle3;
-        this.dgvMenuItems.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.dgvMenuItems.EnableHeadersVisualStyles = false;
-        this.dgvMenuItems.GridColor = System.Drawing.Color.FromArgb(226, 232, 240);
-        this.dgvMenuItems.Location = new System.Drawing.Point(12, 57);
-        this.dgvMenuItems.MultiSelect = false;
-        this.dgvMenuItems.Name = "dgvMenuItems";
-        this.dgvMenuItems.ReadOnly = true;
-        this.dgvMenuItems.RowHeadersVisible = false;
-        this.dgvMenuItems.RowHeadersWidth = 51;
-        this.dgvMenuItems.RowTemplate.Height = 36;
-        this.dgvMenuItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        this.dgvMenuItems.Size = new System.Drawing.Size(972, 396);
-        this.dgvMenuItems.TabIndex = 1;
-        this.dgvMenuItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenuItems_CellDoubleClick);
-        this.dgvMenuItems.SelectionChanged += new System.EventHandler(this.dgvMenuItems_SelectionChanged);
+        dgvMenuItems.AllowUserToAddRows = false;
+        dgvMenuItems.AllowUserToDeleteRows = false;
+        dgvMenuItems.AllowUserToResizeRows = false;
+        dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
+        dgvMenuItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+        dgvMenuItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvMenuItems.BackgroundColor = Color.White;
+        dgvMenuItems.BorderStyle = BorderStyle.Fixed3D;
+        dgvMenuItems.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle2.BackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        dataGridViewCellStyle2.ForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle2.Padding = new Padding(4, 6, 4, 6);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+        dgvMenuItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+        dgvMenuItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvMenuItems.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colCategory, colPrice, colStatus });
+        dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle3.BackColor = Color.White;
+        dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
+        dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle3.Padding = new Padding(4);
+        dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(219, 234, 254);
+        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+        dgvMenuItems.DefaultCellStyle = dataGridViewCellStyle3;
+        dgvMenuItems.Dock = DockStyle.Fill;
+        dgvMenuItems.EnableHeadersVisualStyles = false;
+        dgvMenuItems.GridColor = Color.FromArgb(226, 232, 240);
+        dgvMenuItems.Location = new Point(12, 61);
+        dgvMenuItems.MultiSelect = false;
+        dgvMenuItems.Name = "dgvMenuItems";
+        dgvMenuItems.ReadOnly = true;
+        dgvMenuItems.RowHeadersVisible = false;
+        dgvMenuItems.RowHeadersWidth = 51;
+        dgvMenuItems.RowTemplate.Height = 36;
+        dgvMenuItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvMenuItems.Size = new Size(1048, 265);
+        dgvMenuItems.TabIndex = 1;
+        dgvMenuItems.CellDoubleClick += dgvMenuItems_CellDoubleClick;
+        dgvMenuItems.SelectionChanged += dgvMenuItems_SelectionChanged;
         // 
         // colId
         // 
-        this.colId.FillWeight = 10F;
-        this.colId.HeaderText = "ID";
-        this.colId.MinimumWidth = 6;
-        this.colId.Name = "colId";
-        this.colId.ReadOnly = true;
+        colId.FillWeight = 10F;
+        colId.HeaderText = "ID";
+        colId.MinimumWidth = 6;
+        colId.Name = "colId";
+        colId.ReadOnly = true;
         // 
         // colName
         // 
-        this.colName.FillWeight = 38F;
-        this.colName.HeaderText = "Item Name";
-        this.colName.MinimumWidth = 6;
-        this.colName.Name = "colName";
-        this.colName.ReadOnly = true;
+        colName.FillWeight = 38F;
+        colName.HeaderText = "Item Name";
+        colName.MinimumWidth = 6;
+        colName.Name = "colName";
+        colName.ReadOnly = true;
         // 
         // colCategory
         // 
-        this.colCategory.FillWeight = 22F;
-        this.colCategory.HeaderText = "Category";
-        this.colCategory.MinimumWidth = 6;
-        this.colCategory.Name = "colCategory";
-        this.colCategory.ReadOnly = true;
+        colCategory.FillWeight = 22F;
+        colCategory.HeaderText = "Category";
+        colCategory.MinimumWidth = 6;
+        colCategory.Name = "colCategory";
+        colCategory.ReadOnly = true;
         // 
         // colPrice
         // 
-        this.colPrice.FillWeight = 16F;
-        this.colPrice.HeaderText = "Price (ETB)";
-        this.colPrice.MinimumWidth = 6;
-        this.colPrice.Name = "colPrice";
-        this.colPrice.ReadOnly = true;
+        colPrice.FillWeight = 16F;
+        colPrice.HeaderText = "Price (ETB)";
+        colPrice.MinimumWidth = 6;
+        colPrice.Name = "colPrice";
+        colPrice.ReadOnly = true;
         // 
         // colStatus
         // 
-        this.colStatus.FillWeight = 14F;
-        this.colStatus.HeaderText = "Status";
-        this.colStatus.MinimumWidth = 6;
-        this.colStatus.Name = "colStatus";
-        this.colStatus.ReadOnly = true;
+        colStatus.FillWeight = 14F;
+        colStatus.HeaderText = "Status";
+        colStatus.MinimumWidth = 6;
+        colStatus.Name = "colStatus";
+        colStatus.ReadOnly = true;
         // 
         // pnlActions
         // 
-        this.pnlActions.Controls.Add(this.lblHint);
-        this.pnlActions.Controls.Add(this.btnToggleStatus);
-        this.pnlActions.Controls.Add(this.btnEditItem);
-        this.pnlActions.Controls.Add(this.btnAddItem);
-        this.pnlActions.Dock = System.Windows.Forms.DockStyle.Bottom;
-        this.pnlActions.Location = new System.Drawing.Point(12, 453);
-        this.pnlActions.Name = "pnlActions";
-        this.pnlActions.Size = new System.Drawing.Size(972, 50);
-        this.pnlActions.TabIndex = 2;
+        pnlActions.Controls.Add(lblHint);
+        pnlActions.Controls.Add(btnToggleStatus);
+        pnlActions.Controls.Add(btnEditItem);
+        pnlActions.Controls.Add(btnAddItem);
+        pnlActions.Dock = DockStyle.Bottom;
+        pnlActions.Location = new Point(12, 326);
+        pnlActions.Name = "pnlActions";
+        pnlActions.Size = new Size(1048, 50);
+        pnlActions.TabIndex = 2;
         // 
         // lblHint
         // 
-        this.lblHint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.lblHint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblHint.ForeColor = System.Drawing.Color.FromArgb(107, 114, 128);
-        this.lblHint.Location = new System.Drawing.Point(620, 15);
-        this.lblHint.Name = "lblHint";
-        this.lblHint.Size = new System.Drawing.Size(350, 24);
-        this.lblHint.TabIndex = 3;
-        this.lblHint.Text = "💡 Double-click any row to edit item details";
-        this.lblHint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        lblHint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblHint.Font = new Font("Segoe UI", 8.5F);
+        lblHint.ForeColor = Color.FromArgb(107, 114, 128);
+        lblHint.Location = new Point(696, 15);
+        lblHint.Name = "lblHint";
+        lblHint.Size = new Size(350, 24);
+        lblHint.TabIndex = 3;
+        lblHint.Text = "💡 Double-click any row to edit item details";
+        lblHint.TextAlign = ContentAlignment.MiddleRight;
         // 
         // btnToggleStatus
         // 
-        this.btnToggleStatus.BackColor = System.Drawing.Color.White;
-        this.btnToggleStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnToggleStatus.Enabled = false;
-        this.btnToggleStatus.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnToggleStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.btnToggleStatus.Location = new System.Drawing.Point(300, 10);
-        this.btnToggleStatus.Name = "btnToggleStatus";
-        this.btnToggleStatus.Size = new System.Drawing.Size(165, 34);
-        this.btnToggleStatus.TabIndex = 2;
-        this.btnToggleStatus.Text = "🔄 Toggle Availability";
-        this.btnToggleStatus.UseVisualStyleBackColor = false;
-        this.btnToggleStatus.Click += new System.EventHandler(this.btnToggleStatus_Click);
+        btnToggleStatus.BackColor = Color.White;
+        btnToggleStatus.Cursor = Cursors.Hand;
+        btnToggleStatus.Enabled = false;
+        btnToggleStatus.FlatStyle = FlatStyle.System;
+        btnToggleStatus.Font = new Font("Segoe UI", 9F);
+        btnToggleStatus.Location = new Point(300, 10);
+        btnToggleStatus.Name = "btnToggleStatus";
+        btnToggleStatus.Size = new Size(165, 34);
+        btnToggleStatus.TabIndex = 2;
+        btnToggleStatus.Text = "🔄 Toggle Availability";
+        btnToggleStatus.UseVisualStyleBackColor = false;
+        btnToggleStatus.Click += btnToggleStatus_Click;
         // 
         // btnEditItem
         // 
-        this.btnEditItem.BackColor = System.Drawing.Color.White;
-        this.btnEditItem.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnEditItem.Enabled = false;
-        this.btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnEditItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.btnEditItem.Location = new System.Drawing.Point(175, 10);
-        this.btnEditItem.Name = "btnEditItem";
-        this.btnEditItem.Size = new System.Drawing.Size(115, 34);
-        this.btnEditItem.TabIndex = 1;
-        this.btnEditItem.Text = "✏ Edit Item";
-        this.btnEditItem.UseVisualStyleBackColor = false;
-        this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
+        btnEditItem.BackColor = Color.White;
+        btnEditItem.Cursor = Cursors.Hand;
+        btnEditItem.Enabled = false;
+        btnEditItem.FlatStyle = FlatStyle.System;
+        btnEditItem.Font = new Font("Segoe UI", 9F);
+        btnEditItem.Location = new Point(175, 10);
+        btnEditItem.Name = "btnEditItem";
+        btnEditItem.Size = new Size(115, 34);
+        btnEditItem.TabIndex = 1;
+        btnEditItem.Text = "✏ Edit Item";
+        btnEditItem.UseVisualStyleBackColor = false;
+        btnEditItem.Click += btnEditItem_Click;
         // 
         // btnAddItem
         // 
-        this.btnAddItem.BackColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnAddItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-        this.btnAddItem.ForeColor = System.Drawing.Color.White;
-        this.btnAddItem.Location = new System.Drawing.Point(0, 10);
-        this.btnAddItem.Name = "btnAddItem";
-        this.btnAddItem.Size = new System.Drawing.Size(165, 34);
-        this.btnAddItem.TabIndex = 0;
-        this.btnAddItem.Text = "+ Add Menu Item";
-        this.btnAddItem.UseVisualStyleBackColor = false;
-        this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+        btnAddItem.BackColor = Color.FromArgb(30, 58, 95);
+        btnAddItem.Cursor = Cursors.Hand;
+        btnAddItem.FlatStyle = FlatStyle.System;
+        btnAddItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        btnAddItem.ForeColor = Color.White;
+        btnAddItem.Location = new Point(0, 10);
+        btnAddItem.Name = "btnAddItem";
+        btnAddItem.Size = new Size(165, 34);
+        btnAddItem.TabIndex = 0;
+        btnAddItem.Text = "+ Add Menu Item";
+        btnAddItem.UseVisualStyleBackColor = false;
+        btnAddItem.Click += btnAddItem_Click;
         // 
         // pnlGridHeader
         // 
-        this.pnlGridHeader.Controls.Add(this.lblSummary);
-        this.pnlGridHeader.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlGridHeader.Location = new System.Drawing.Point(12, 31);
-        this.pnlGridHeader.Name = "pnlGridHeader";
-        this.pnlGridHeader.Size = new System.Drawing.Size(972, 26);
-        this.pnlGridHeader.TabIndex = 0;
+        pnlGridHeader.Controls.Add(lblSummary);
+        pnlGridHeader.Dock = DockStyle.Top;
+        pnlGridHeader.Location = new Point(12, 35);
+        pnlGridHeader.Name = "pnlGridHeader";
+        pnlGridHeader.Size = new Size(1048, 26);
+        pnlGridHeader.TabIndex = 0;
         // 
         // lblSummary
         // 
-        this.lblSummary.AutoSize = true;
-        this.lblSummary.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblSummary.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblSummary.Location = new System.Drawing.Point(0, 3);
-        this.lblSummary.Name = "lblSummary";
-        this.lblSummary.Size = new System.Drawing.Size(126, 20);
-        this.lblSummary.TabIndex = 0;
-        this.lblSummary.Text = "Showing all items";
+        lblSummary.AutoSize = true;
+        lblSummary.Font = new Font("Segoe UI", 9F);
+        lblSummary.ForeColor = Color.FromArgb(71, 85, 105);
+        lblSummary.Location = new Point(0, 3);
+        lblSummary.Name = "lblSummary";
+        lblSummary.Size = new Size(151, 25);
+        lblSummary.TabIndex = 0;
+        lblSummary.Text = "Showing all items";
         // 
         // MenuManagementView
         // 
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-        this.BackColor = System.Drawing.Color.FromArgb(243, 244, 246);
-        this.Controls.Add(this.grpMenuItems);
-        this.Controls.Add(this.grpFilter);
-        this.Controls.Add(this.pnlHeader);
-        this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.Name = "MenuManagementView";
-        this.Padding = new System.Windows.Forms.Padding(24, 16, 24, 20);
-        this.Size = new System.Drawing.Size(1044, 680);
-        this.pnlHeader.ResumeLayout(false);
-        this.pnlHeader.PerformLayout();
-        this.grpFilter.ResumeLayout(false);
-        this.grpFilter.PerformLayout();
-        this.grpMenuItems.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).EndInit();
-        this.pnlActions.ResumeLayout(false);
-        this.pnlGridHeader.ResumeLayout(false);
-        this.pnlGridHeader.PerformLayout();
-        this.ResumeLayout(false);
+        AutoScaleDimensions = new SizeF(144F, 144F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.FromArgb(243, 244, 246);
+        Controls.Add(grpMenuItems);
+        Controls.Add(grpFilter);
+        Controls.Add(pnlHeader);
+        Name = "MenuManagementView";
+        Padding = new Padding(24, 16, 24, 20);
+        Size = new Size(1120, 553);
+        pnlHeader.ResumeLayout(false);
+        pnlHeader.PerformLayout();
+        grpFilter.ResumeLayout(false);
+        grpFilter.PerformLayout();
+        grpMenuItems.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)dgvMenuItems).EndInit();
+        pnlActions.ResumeLayout(false);
+        pnlGridHeader.ResumeLayout(false);
+        pnlGridHeader.PerformLayout();
+        ResumeLayout(false);
     }
 
     private System.Windows.Forms.Panel pnlHeader;
@@ -446,3 +438,4 @@ partial class MenuManagementView
     private System.Windows.Forms.Button btnToggleStatus;
     private System.Windows.Forms.Label lblHint;
 }
+

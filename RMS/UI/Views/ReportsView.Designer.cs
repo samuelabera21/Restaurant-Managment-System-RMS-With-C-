@@ -15,644 +15,632 @@ partial class ReportsView
 
     private void InitializeComponent()
     {
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-        this.pnlHeader = new System.Windows.Forms.Panel();
-        this.lblSubtitle = new System.Windows.Forms.Label();
-        this.lblTitle = new System.Windows.Forms.Label();
-        this.grpFilters = new System.Windows.Forms.GroupBox();
-        this.lblFilterNote = new System.Windows.Forms.Label();
-        this.btnClearFilters = new System.Windows.Forms.Button();
-        this.cboStatusFilter = new System.Windows.Forms.ComboBox();
-        this.lblStatusFilter = new System.Windows.Forms.Label();
-        this.cboDateFilter = new System.Windows.Forms.ComboBox();
-        this.lblDateFilter = new System.Windows.Forms.Label();
-        this.grpSummaryCards = new System.Windows.Forms.GroupBox();
-        this.tlpKpi = new System.Windows.Forms.TableLayoutPanel();
-        this.pnlKpiTotal = new System.Windows.Forms.Panel();
-        this.lblTotalOrders = new System.Windows.Forms.Label();
-        this.lblKpiTotalTitle = new System.Windows.Forms.Label();
-        this.pnlKpiPending = new System.Windows.Forms.Panel();
-        this.lblPendingOrders = new System.Windows.Forms.Label();
-        this.lblKpiPendingTitle = new System.Windows.Forms.Label();
-        this.pnlKpiPreparing = new System.Windows.Forms.Panel();
-        this.lblPreparingOrders = new System.Windows.Forms.Label();
-        this.lblKpiPrepTitle = new System.Windows.Forms.Label();
-        this.pnlKpiReady = new System.Windows.Forms.Panel();
-        this.lblReadyOrders = new System.Windows.Forms.Label();
-        this.lblKpiReadyTitle = new System.Windows.Forms.Label();
-        this.pnlKpiCompleted = new System.Windows.Forms.Panel();
-        this.lblCompletedOrders = new System.Windows.Forms.Label();
-        this.lblKpiCompTitle = new System.Windows.Forms.Label();
-        this.pnlKpiValue = new System.Windows.Forms.Panel();
-        this.lblCompletedValue = new System.Windows.Forms.Label();
-        this.lblKpiValTitle = new System.Windows.Forms.Label();
-        this.grpOrderSummary = new System.Windows.Forms.GroupBox();
-        this.dgvSummary = new System.Windows.Forms.DataGridView();
-        this.colOrderNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.lblSummaryFooter = new System.Windows.Forms.Label();
-        this.pnlBreakdownHeader = new System.Windows.Forms.Panel();
-        this.lblTimesNote = new System.Windows.Forms.Label();
-        this.lblBreakdownSubtitle = new System.Windows.Forms.Label();
-        this.pnlHeader.SuspendLayout();
-        this.grpFilters.SuspendLayout();
-        this.grpSummaryCards.SuspendLayout();
-        this.tlpKpi.SuspendLayout();
-        this.pnlKpiTotal.SuspendLayout();
-        this.pnlKpiPending.SuspendLayout();
-        this.pnlKpiPreparing.SuspendLayout();
-        this.pnlKpiReady.SuspendLayout();
-        this.pnlKpiCompleted.SuspendLayout();
-        this.pnlKpiValue.SuspendLayout();
-        this.grpOrderSummary.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
-        this.pnlBreakdownHeader.SuspendLayout();
-        this.SuspendLayout();
+        DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+        pnlHeader = new Panel();
+        lblSubtitle = new Label();
+        lblTitle = new Label();
+        grpFilters = new GroupBox();
+        lblFilterNote = new Label();
+        btnClearFilters = new Button();
+        cboStatusFilter = new ComboBox();
+        lblStatusFilter = new Label();
+        cboDateFilter = new ComboBox();
+        lblDateFilter = new Label();
+        grpSummaryCards = new GroupBox();
+        tlpKpi = new TableLayoutPanel();
+        pnlKpiTotal = new Panel();
+        lblTotalOrders = new Label();
+        lblKpiTotalTitle = new Label();
+        pnlKpiPending = new Panel();
+        lblPendingOrders = new Label();
+        lblKpiPendingTitle = new Label();
+        pnlKpiPreparing = new Panel();
+        lblPreparingOrders = new Label();
+        lblKpiPrepTitle = new Label();
+        pnlKpiReady = new Panel();
+        lblReadyOrders = new Label();
+        lblKpiReadyTitle = new Label();
+        pnlKpiCompleted = new Panel();
+        lblCompletedOrders = new Label();
+        lblKpiCompTitle = new Label();
+        pnlKpiValue = new Panel();
+        lblCompletedValue = new Label();
+        lblKpiValTitle = new Label();
+        grpOrderSummary = new GroupBox();
+        dgvSummary = new DataGridView();
+        colOrderNum = new DataGridViewTextBoxColumn();
+        colCustomer = new DataGridViewTextBoxColumn();
+        colTable = new DataGridViewTextBoxColumn();
+        colCreated = new DataGridViewTextBoxColumn();
+        colTotal = new DataGridViewTextBoxColumn();
+        colStatus = new DataGridViewTextBoxColumn();
+        lblSummaryFooter = new Label();
+        pnlBreakdownHeader = new Panel();
+        lblTimesNote = new Label();
+        lblBreakdownSubtitle = new Label();
+        pnlHeader.SuspendLayout();
+        grpFilters.SuspendLayout();
+        grpSummaryCards.SuspendLayout();
+        tlpKpi.SuspendLayout();
+        pnlKpiTotal.SuspendLayout();
+        pnlKpiPending.SuspendLayout();
+        pnlKpiPreparing.SuspendLayout();
+        pnlKpiReady.SuspendLayout();
+        pnlKpiCompleted.SuspendLayout();
+        pnlKpiValue.SuspendLayout();
+        grpOrderSummary.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)dgvSummary).BeginInit();
+        pnlBreakdownHeader.SuspendLayout();
+        SuspendLayout();
         // 
         // pnlHeader
         // 
-        this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-        this.pnlHeader.Controls.Add(this.lblSubtitle);
-        this.pnlHeader.Controls.Add(this.lblTitle);
-        this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlHeader.Location = new System.Drawing.Point(24, 16);
-        this.pnlHeader.Name = "pnlHeader";
-        this.pnlHeader.Size = new System.Drawing.Size(996, 56);
-        this.pnlHeader.TabIndex = 0;
+        pnlHeader.BackColor = Color.Transparent;
+        pnlHeader.Controls.Add(lblSubtitle);
+        pnlHeader.Controls.Add(lblTitle);
+        pnlHeader.Dock = DockStyle.Top;
+        pnlHeader.Location = new Point(24, 16);
+        pnlHeader.Name = "pnlHeader";
+        pnlHeader.Size = new Size(1072, 56);
+        pnlHeader.TabIndex = 0;
         // 
         // lblSubtitle
         // 
-        this.lblSubtitle.AutoSize = true;
-        this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblSubtitle.Location = new System.Drawing.Point(0, 32);
-        this.lblSubtitle.Name = "lblSubtitle";
-        this.lblSubtitle.Size = new System.Drawing.Size(325, 20);
-        this.lblSubtitle.TabIndex = 1;
-        this.lblSubtitle.Text = "Review order activity and completed order value";
+        lblSubtitle.AutoSize = true;
+        lblSubtitle.Font = new Font("Segoe UI", 9F);
+        lblSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblSubtitle.Location = new Point(218, 17);
+        lblSubtitle.Name = "lblSubtitle";
+        lblSubtitle.Size = new Size(393, 25);
+        lblSubtitle.TabIndex = 1;
+        lblSubtitle.Text = "Review order activity and completed order value";
         // 
         // lblTitle
         // 
-        this.lblTitle.AutoSize = true;
-        this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-        this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.lblTitle.Location = new System.Drawing.Point(-2, 0);
-        this.lblTitle.Name = "lblTitle";
-        this.lblTitle.Size = new System.Drawing.Size(117, 37);
-        this.lblTitle.TabIndex = 0;
-        this.lblTitle.Text = "Reports";
+        lblTitle.AutoSize = true;
+        lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+        lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
+        lblTitle.Location = new Point(12, -3);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(137, 45);
+        lblTitle.TabIndex = 0;
+        lblTitle.Text = "Reports";
         // 
         // grpFilters
         // 
-        this.grpFilters.BackColor = System.Drawing.Color.Transparent;
-        this.grpFilters.Controls.Add(this.lblFilterNote);
-        this.grpFilters.Controls.Add(this.btnClearFilters);
-        this.grpFilters.Controls.Add(this.cboStatusFilter);
-        this.grpFilters.Controls.Add(this.lblStatusFilter);
-        this.grpFilters.Controls.Add(this.cboDateFilter);
-        this.grpFilters.Controls.Add(this.lblDateFilter);
-        this.grpFilters.Dock = System.Windows.Forms.DockStyle.Top;
-        this.grpFilters.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.grpFilters.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpFilters.Location = new System.Drawing.Point(24, 72);
-        this.grpFilters.Name = "grpFilters";
-        this.grpFilters.Size = new System.Drawing.Size(996, 75);
-        this.grpFilters.TabIndex = 1;
-        this.grpFilters.TabStop = false;
-        this.grpFilters.Text = "Report Filters";
+        grpFilters.BackColor = Color.Transparent;
+        grpFilters.Controls.Add(lblFilterNote);
+        grpFilters.Controls.Add(btnClearFilters);
+        grpFilters.Controls.Add(cboStatusFilter);
+        grpFilters.Controls.Add(lblStatusFilter);
+        grpFilters.Controls.Add(cboDateFilter);
+        grpFilters.Controls.Add(lblDateFilter);
+        grpFilters.Dock = DockStyle.Top;
+        grpFilters.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        grpFilters.ForeColor = Color.FromArgb(15, 23, 42);
+        grpFilters.Location = new Point(24, 72);
+        grpFilters.Name = "grpFilters";
+        grpFilters.Size = new Size(1072, 75);
+        grpFilters.TabIndex = 1;
+        grpFilters.TabStop = false;
+        grpFilters.Text = "Report Filters";
         // 
         // lblFilterNote
         // 
-        this.lblFilterNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.lblFilterNote.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblFilterNote.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblFilterNote.Location = new System.Drawing.Point(620, 30);
-        this.lblFilterNote.Name = "lblFilterNote";
-        this.lblFilterNote.Size = new System.Drawing.Size(364, 25);
-        this.lblFilterNote.TabIndex = 5;
-        this.lblFilterNote.Text = "Filters apply to summary cards and order breakdown";
-        this.lblFilterNote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        lblFilterNote.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblFilterNote.Font = new Font("Segoe UI", 8.5F);
+        lblFilterNote.ForeColor = Color.FromArgb(71, 85, 105);
+        lblFilterNote.Location = new Point(696, 30);
+        lblFilterNote.Name = "lblFilterNote";
+        lblFilterNote.Size = new Size(364, 25);
+        lblFilterNote.TabIndex = 5;
+        lblFilterNote.Text = "Filters apply to summary cards and order breakdown";
+        lblFilterNote.TextAlign = ContentAlignment.MiddleRight;
+        lblFilterNote.Click += lblFilterNote_Click;
         // 
         // btnClearFilters
         // 
-        this.btnClearFilters.BackColor = System.Drawing.Color.White;
-        this.btnClearFilters.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnClearFilters.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnClearFilters.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.btnClearFilters.Location = new System.Drawing.Point(495, 27);
-        this.btnClearFilters.Name = "btnClearFilters";
-        this.btnClearFilters.Size = new System.Drawing.Size(95, 31);
-        this.btnClearFilters.TabIndex = 4;
-        this.btnClearFilters.Text = "Reset Filters";
-        this.btnClearFilters.UseVisualStyleBackColor = false;
-        this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
+        btnClearFilters.BackColor = Color.White;
+        btnClearFilters.Cursor = Cursors.Hand;
+        btnClearFilters.FlatStyle = FlatStyle.System;
+        btnClearFilters.Font = new Font("Segoe UI", 9F);
+        btnClearFilters.Location = new Point(495, 27);
+        btnClearFilters.Name = "btnClearFilters";
+        btnClearFilters.Size = new Size(124, 31);
+        btnClearFilters.TabIndex = 4;
+        btnClearFilters.Text = "Reset Filters";
+        btnClearFilters.UseVisualStyleBackColor = false;
+        btnClearFilters.Click += btnClearFilters_Click;
         // 
         // cboStatusFilter
         // 
-        this.cboStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.cboStatusFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.cboStatusFilter.FormattingEnabled = true;
-        this.cboStatusFilter.Items.AddRange(new object[] {
-            "All Statuses",
-            "Pending",
-            "Preparing",
-            "Ready",
-            "Completed"});
-        this.cboStatusFilter.Location = new System.Drawing.Point(340, 28);
-        this.cboStatusFilter.Name = "cboStatusFilter";
-        this.cboStatusFilter.Size = new System.Drawing.Size(140, 29);
-        this.cboStatusFilter.TabIndex = 3;
-        this.cboStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cboStatusFilter_SelectedIndexChanged);
+        cboStatusFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboStatusFilter.Font = new Font("Segoe UI", 9.5F);
+        cboStatusFilter.FormattingEnabled = true;
+        cboStatusFilter.Items.AddRange(new object[] { "All Statuses", "Pending", "Preparing", "Ready", "Completed" });
+        cboStatusFilter.Location = new Point(340, 28);
+        cboStatusFilter.Name = "cboStatusFilter";
+        cboStatusFilter.Size = new Size(140, 33);
+        cboStatusFilter.TabIndex = 3;
+        cboStatusFilter.SelectedIndexChanged += cboStatusFilter_SelectedIndexChanged;
         // 
         // lblStatusFilter
         // 
-        this.lblStatusFilter.AutoSize = true;
-        this.lblStatusFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.lblStatusFilter.Location = new System.Drawing.Point(280, 31);
-        this.lblStatusFilter.Name = "lblStatusFilter";
-        this.lblStatusFilter.Size = new System.Drawing.Size(55, 21);
-        this.lblStatusFilter.TabIndex = 2;
-        this.lblStatusFilter.Text = "Status:";
+        lblStatusFilter.AutoSize = true;
+        lblStatusFilter.Font = new Font("Segoe UI", 9.5F);
+        lblStatusFilter.Location = new Point(280, 31);
+        lblStatusFilter.Name = "lblStatusFilter";
+        lblStatusFilter.Size = new Size(66, 25);
+        lblStatusFilter.TabIndex = 2;
+        lblStatusFilter.Text = "Status:";
         // 
         // cboDateFilter
         // 
-        this.cboDateFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.cboDateFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.cboDateFilter.FormattingEnabled = true;
-        this.cboDateFilter.Items.AddRange(new object[] {
-            "All dates",
-            "Today"});
-        this.cboDateFilter.Location = new System.Drawing.Point(105, 28);
-        this.cboDateFilter.Name = "cboDateFilter";
-        this.cboDateFilter.Size = new System.Drawing.Size(150, 29);
-        this.cboDateFilter.TabIndex = 1;
-        this.cboDateFilter.SelectedIndexChanged += new System.EventHandler(this.cboDateFilter_SelectedIndexChanged);
+        cboDateFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboDateFilter.Font = new Font("Segoe UI", 9.5F);
+        cboDateFilter.FormattingEnabled = true;
+        cboDateFilter.Items.AddRange(new object[] { "All dates", "Today" });
+        cboDateFilter.Location = new Point(105, 28);
+        cboDateFilter.Name = "cboDateFilter";
+        cboDateFilter.Size = new Size(150, 33);
+        cboDateFilter.TabIndex = 1;
+        cboDateFilter.SelectedIndexChanged += cboDateFilter_SelectedIndexChanged;
         // 
         // lblDateFilter
         // 
-        this.lblDateFilter.AutoSize = true;
-        this.lblDateFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.lblDateFilter.Location = new System.Drawing.Point(14, 31);
-        this.lblDateFilter.Name = "lblDateFilter";
-        this.lblDateFilter.Size = new System.Drawing.Size(87, 21);
-        this.lblDateFilter.TabIndex = 0;
-        this.lblDateFilter.Text = "Date Range:";
+        lblDateFilter.AutoSize = true;
+        lblDateFilter.Font = new Font("Segoe UI", 9.5F);
+        lblDateFilter.Location = new Point(14, 31);
+        lblDateFilter.Name = "lblDateFilter";
+        lblDateFilter.Size = new Size(113, 25);
+        lblDateFilter.TabIndex = 0;
+        lblDateFilter.Text = "Date Range:";
         // 
         // grpSummaryCards
         // 
-        this.grpSummaryCards.BackColor = System.Drawing.Color.Transparent;
-        this.grpSummaryCards.Controls.Add(this.tlpKpi);
-        this.grpSummaryCards.Dock = System.Windows.Forms.DockStyle.Top;
-        this.grpSummaryCards.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-        this.grpSummaryCards.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpSummaryCards.Location = new System.Drawing.Point(24, 147);
-        this.grpSummaryCards.Name = "grpSummaryCards";
-        this.grpSummaryCards.Padding = new System.Windows.Forms.Padding(12, 10, 12, 12);
-        this.grpSummaryCards.Size = new System.Drawing.Size(996, 175);
-        this.grpSummaryCards.TabIndex = 2;
-        this.grpSummaryCards.TabStop = false;
-        this.grpSummaryCards.Text = "Performance Summary";
+        grpSummaryCards.BackColor = Color.Transparent;
+        grpSummaryCards.Controls.Add(tlpKpi);
+        grpSummaryCards.Dock = DockStyle.Top;
+        grpSummaryCards.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        grpSummaryCards.ForeColor = Color.FromArgb(15, 23, 42);
+        grpSummaryCards.Location = new Point(24, 147);
+        grpSummaryCards.Name = "grpSummaryCards";
+        grpSummaryCards.Padding = new Padding(12, 10, 12, 12);
+        grpSummaryCards.Size = new Size(1072, 175);
+        grpSummaryCards.TabIndex = 2;
+        grpSummaryCards.TabStop = false;
+        grpSummaryCards.Text = "Performance Summary";
         // 
         // tlpKpi
         // 
-        this.tlpKpi.ColumnCount = 3;
-        this.tlpKpi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-        this.tlpKpi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-        this.tlpKpi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-        this.tlpKpi.Controls.Add(this.pnlKpiTotal, 0, 0);
-        this.tlpKpi.Controls.Add(this.pnlKpiPending, 1, 0);
-        this.tlpKpi.Controls.Add(this.pnlKpiPreparing, 2, 0);
-        this.tlpKpi.Controls.Add(this.pnlKpiReady, 0, 1);
-        this.tlpKpi.Controls.Add(this.pnlKpiCompleted, 1, 1);
-        this.tlpKpi.Controls.Add(this.pnlKpiValue, 2, 1);
-        this.tlpKpi.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.tlpKpi.Location = new System.Drawing.Point(12, 33);
-        this.tlpKpi.Name = "tlpKpi";
-        this.tlpKpi.RowCount = 2;
-        this.tlpKpi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        this.tlpKpi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        this.tlpKpi.Size = new System.Drawing.Size(972, 130);
-        this.tlpKpi.TabIndex = 0;
+        tlpKpi.ColumnCount = 3;
+        tlpKpi.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+        tlpKpi.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+        tlpKpi.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33334F));
+        tlpKpi.Controls.Add(pnlKpiTotal, 0, 0);
+        tlpKpi.Controls.Add(pnlKpiPending, 1, 0);
+        tlpKpi.Controls.Add(pnlKpiPreparing, 2, 0);
+        tlpKpi.Controls.Add(pnlKpiReady, 0, 1);
+        tlpKpi.Controls.Add(pnlKpiCompleted, 1, 1);
+        tlpKpi.Controls.Add(pnlKpiValue, 2, 1);
+        tlpKpi.Dock = DockStyle.Fill;
+        tlpKpi.Location = new Point(12, 37);
+        tlpKpi.Name = "tlpKpi";
+        tlpKpi.RowCount = 2;
+        tlpKpi.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        tlpKpi.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        tlpKpi.Size = new Size(1048, 126);
+        tlpKpi.TabIndex = 0;
         // 
         // pnlKpiTotal
         // 
-        this.pnlKpiTotal.BackColor = System.Drawing.Color.White;
-        this.pnlKpiTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlKpiTotal.Controls.Add(this.lblTotalOrders);
-        this.pnlKpiTotal.Controls.Add(this.lblKpiTotalTitle);
-        this.pnlKpiTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlKpiTotal.Location = new System.Drawing.Point(4, 4);
-        this.pnlKpiTotal.Margin = new System.Windows.Forms.Padding(4);
-        this.pnlKpiTotal.Name = "pnlKpiTotal";
-        this.pnlKpiTotal.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-        this.pnlKpiTotal.Size = new System.Drawing.Size(315, 57);
-        this.pnlKpiTotal.TabIndex = 0;
+        pnlKpiTotal.BackColor = Color.White;
+        pnlKpiTotal.BorderStyle = BorderStyle.FixedSingle;
+        pnlKpiTotal.Controls.Add(lblTotalOrders);
+        pnlKpiTotal.Controls.Add(lblKpiTotalTitle);
+        pnlKpiTotal.Dock = DockStyle.Fill;
+        pnlKpiTotal.Location = new Point(4, 4);
+        pnlKpiTotal.Margin = new Padding(4);
+        pnlKpiTotal.Name = "pnlKpiTotal";
+        pnlKpiTotal.Padding = new Padding(10, 6, 10, 6);
+        pnlKpiTotal.Size = new Size(341, 55);
+        pnlKpiTotal.TabIndex = 0;
         // 
         // lblTotalOrders
         // 
-        this.lblTotalOrders.AutoSize = true;
-        this.lblTotalOrders.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblTotalOrders.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.lblTotalOrders.Location = new System.Drawing.Point(8, 22);
-        this.lblTotalOrders.Name = "lblTotalOrders";
-        this.lblTotalOrders.Size = new System.Drawing.Size(43, 35);
-        this.lblTotalOrders.TabIndex = 1;
-        this.lblTotalOrders.Text = "12";
+        lblTotalOrders.AutoSize = true;
+        lblTotalOrders.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblTotalOrders.ForeColor = Color.FromArgb(30, 58, 95);
+        lblTotalOrders.Location = new Point(8, 22);
+        lblTotalOrders.Name = "lblTotalOrders";
+        lblTotalOrders.Size = new Size(52, 41);
+        lblTotalOrders.TabIndex = 1;
+        lblTotalOrders.Text = "12";
         // 
         // lblKpiTotalTitle
         // 
-        this.lblKpiTotalTitle.AutoSize = true;
-        this.lblKpiTotalTitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblKpiTotalTitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblKpiTotalTitle.Location = new System.Drawing.Point(8, 4);
-        this.lblKpiTotalTitle.Name = "lblKpiTotalTitle";
-        this.lblKpiTotalTitle.Size = new System.Drawing.Size(95, 20);
-        this.lblKpiTotalTitle.TabIndex = 0;
-        this.lblKpiTotalTitle.Text = "Total Orders";
+        lblKpiTotalTitle.AutoSize = true;
+        lblKpiTotalTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblKpiTotalTitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblKpiTotalTitle.Location = new Point(8, 4);
+        lblKpiTotalTitle.Name = "lblKpiTotalTitle";
+        lblKpiTotalTitle.Size = new Size(108, 23);
+        lblKpiTotalTitle.TabIndex = 0;
+        lblKpiTotalTitle.Text = "Total Orders";
         // 
         // pnlKpiPending
         // 
-        this.pnlKpiPending.BackColor = System.Drawing.Color.White;
-        this.pnlKpiPending.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlKpiPending.Controls.Add(this.lblPendingOrders);
-        this.pnlKpiPending.Controls.Add(this.lblKpiPendingTitle);
-        this.pnlKpiPending.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlKpiPending.Location = new System.Drawing.Point(327, 4);
-        this.pnlKpiPending.Margin = new System.Windows.Forms.Padding(4);
-        this.pnlKpiPending.Name = "pnlKpiPending";
-        this.pnlKpiPending.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-        this.pnlKpiPending.Size = new System.Drawing.Size(315, 57);
-        this.pnlKpiPending.TabIndex = 1;
+        pnlKpiPending.BackColor = Color.White;
+        pnlKpiPending.BorderStyle = BorderStyle.FixedSingle;
+        pnlKpiPending.Controls.Add(lblPendingOrders);
+        pnlKpiPending.Controls.Add(lblKpiPendingTitle);
+        pnlKpiPending.Dock = DockStyle.Fill;
+        pnlKpiPending.Location = new Point(353, 4);
+        pnlKpiPending.Margin = new Padding(4);
+        pnlKpiPending.Name = "pnlKpiPending";
+        pnlKpiPending.Padding = new Padding(10, 6, 10, 6);
+        pnlKpiPending.Size = new Size(341, 55);
+        pnlKpiPending.TabIndex = 1;
         // 
         // lblPendingOrders
         // 
-        this.lblPendingOrders.AutoSize = true;
-        this.lblPendingOrders.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblPendingOrders.ForeColor = System.Drawing.Color.FromArgb(180, 83, 9);
-        this.lblPendingOrders.Location = new System.Drawing.Point(8, 22);
-        this.lblPendingOrders.Name = "lblPendingOrders";
-        this.lblPendingOrders.Size = new System.Drawing.Size(29, 35);
-        this.lblPendingOrders.TabIndex = 1;
-        this.lblPendingOrders.Text = "2";
+        lblPendingOrders.AutoSize = true;
+        lblPendingOrders.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblPendingOrders.ForeColor = Color.FromArgb(180, 83, 9);
+        lblPendingOrders.Location = new Point(8, 22);
+        lblPendingOrders.Name = "lblPendingOrders";
+        lblPendingOrders.Size = new Size(35, 41);
+        lblPendingOrders.TabIndex = 1;
+        lblPendingOrders.Text = "2";
         // 
         // lblKpiPendingTitle
         // 
-        this.lblKpiPendingTitle.AutoSize = true;
-        this.lblKpiPendingTitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblKpiPendingTitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblKpiPendingTitle.Location = new System.Drawing.Point(8, 4);
-        this.lblKpiPendingTitle.Name = "lblKpiPendingTitle";
-        this.lblKpiPendingTitle.Size = new System.Drawing.Size(117, 20);
-        this.lblKpiPendingTitle.TabIndex = 0;
-        this.lblKpiPendingTitle.Text = "Pending Orders";
+        lblKpiPendingTitle.AutoSize = true;
+        lblKpiPendingTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblKpiPendingTitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblKpiPendingTitle.Location = new Point(8, 4);
+        lblKpiPendingTitle.Name = "lblKpiPendingTitle";
+        lblKpiPendingTitle.Size = new Size(134, 23);
+        lblKpiPendingTitle.TabIndex = 0;
+        lblKpiPendingTitle.Text = "Pending Orders";
         // 
         // pnlKpiPreparing
         // 
-        this.pnlKpiPreparing.BackColor = System.Drawing.Color.White;
-        this.pnlKpiPreparing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlKpiPreparing.Controls.Add(this.lblPreparingOrders);
-        this.pnlKpiPreparing.Controls.Add(this.lblKpiPrepTitle);
-        this.pnlKpiPreparing.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlKpiPreparing.Location = new System.Drawing.Point(650, 4);
-        this.pnlKpiPreparing.Margin = new System.Windows.Forms.Padding(4);
-        this.pnlKpiPreparing.Name = "pnlKpiPreparing";
-        this.pnlKpiPreparing.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-        this.pnlKpiPreparing.Size = new System.Drawing.Size(318, 57);
-        this.pnlKpiPreparing.TabIndex = 2;
+        pnlKpiPreparing.BackColor = Color.White;
+        pnlKpiPreparing.BorderStyle = BorderStyle.FixedSingle;
+        pnlKpiPreparing.Controls.Add(lblPreparingOrders);
+        pnlKpiPreparing.Controls.Add(lblKpiPrepTitle);
+        pnlKpiPreparing.Dock = DockStyle.Fill;
+        pnlKpiPreparing.Location = new Point(702, 4);
+        pnlKpiPreparing.Margin = new Padding(4);
+        pnlKpiPreparing.Name = "pnlKpiPreparing";
+        pnlKpiPreparing.Padding = new Padding(10, 6, 10, 6);
+        pnlKpiPreparing.Size = new Size(342, 55);
+        pnlKpiPreparing.TabIndex = 2;
         // 
         // lblPreparingOrders
         // 
-        this.lblPreparingOrders.AutoSize = true;
-        this.lblPreparingOrders.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblPreparingOrders.ForeColor = System.Drawing.Color.FromArgb(194, 65, 12);
-        this.lblPreparingOrders.Location = new System.Drawing.Point(8, 22);
-        this.lblPreparingOrders.Name = "lblPreparingOrders";
-        this.lblPreparingOrders.Size = new System.Drawing.Size(29, 35);
-        this.lblPreparingOrders.TabIndex = 1;
-        this.lblPreparingOrders.Text = "3";
+        lblPreparingOrders.AutoSize = true;
+        lblPreparingOrders.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblPreparingOrders.ForeColor = Color.FromArgb(194, 65, 12);
+        lblPreparingOrders.Location = new Point(8, 22);
+        lblPreparingOrders.Name = "lblPreparingOrders";
+        lblPreparingOrders.Size = new Size(35, 41);
+        lblPreparingOrders.TabIndex = 1;
+        lblPreparingOrders.Text = "3";
         // 
         // lblKpiPrepTitle
         // 
-        this.lblKpiPrepTitle.AutoSize = true;
-        this.lblKpiPrepTitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblKpiPrepTitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblKpiPrepTitle.Location = new System.Drawing.Point(8, 4);
-        this.lblKpiPrepTitle.Name = "lblKpiPrepTitle";
-        this.lblKpiPrepTitle.Size = new System.Drawing.Size(127, 20);
-        this.lblKpiPrepTitle.TabIndex = 0;
-        this.lblKpiPrepTitle.Text = "Preparing Orders";
+        lblKpiPrepTitle.AutoSize = true;
+        lblKpiPrepTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblKpiPrepTitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblKpiPrepTitle.Location = new Point(8, 4);
+        lblKpiPrepTitle.Name = "lblKpiPrepTitle";
+        lblKpiPrepTitle.Size = new Size(148, 23);
+        lblKpiPrepTitle.TabIndex = 0;
+        lblKpiPrepTitle.Text = "Preparing Orders";
         // 
         // pnlKpiReady
         // 
-        this.pnlKpiReady.BackColor = System.Drawing.Color.White;
-        this.pnlKpiReady.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlKpiReady.Controls.Add(this.lblReadyOrders);
-        this.pnlKpiReady.Controls.Add(this.lblKpiReadyTitle);
-        this.pnlKpiReady.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlKpiReady.Location = new System.Drawing.Point(4, 69);
-        this.pnlKpiReady.Margin = new System.Windows.Forms.Padding(4);
-        this.pnlKpiReady.Name = "pnlKpiReady";
-        this.pnlKpiReady.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-        this.pnlKpiReady.Size = new System.Drawing.Size(315, 57);
-        this.pnlKpiReady.TabIndex = 3;
+        pnlKpiReady.BackColor = Color.White;
+        pnlKpiReady.BorderStyle = BorderStyle.FixedSingle;
+        pnlKpiReady.Controls.Add(lblReadyOrders);
+        pnlKpiReady.Controls.Add(lblKpiReadyTitle);
+        pnlKpiReady.Dock = DockStyle.Fill;
+        pnlKpiReady.Location = new Point(4, 67);
+        pnlKpiReady.Margin = new Padding(4);
+        pnlKpiReady.Name = "pnlKpiReady";
+        pnlKpiReady.Padding = new Padding(10, 6, 10, 6);
+        pnlKpiReady.Size = new Size(341, 55);
+        pnlKpiReady.TabIndex = 3;
         // 
         // lblReadyOrders
         // 
-        this.lblReadyOrders.AutoSize = true;
-        this.lblReadyOrders.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblReadyOrders.ForeColor = System.Drawing.Color.FromArgb(16, 149, 93);
-        this.lblReadyOrders.Location = new System.Drawing.Point(8, 22);
-        this.lblReadyOrders.Name = "lblReadyOrders";
-        this.lblReadyOrders.Size = new System.Drawing.Size(29, 35);
-        this.lblReadyOrders.TabIndex = 1;
-        this.lblReadyOrders.Text = "2";
+        lblReadyOrders.AutoSize = true;
+        lblReadyOrders.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblReadyOrders.ForeColor = Color.FromArgb(16, 149, 93);
+        lblReadyOrders.Location = new Point(8, 22);
+        lblReadyOrders.Name = "lblReadyOrders";
+        lblReadyOrders.Size = new Size(35, 41);
+        lblReadyOrders.TabIndex = 1;
+        lblReadyOrders.Text = "2";
         // 
         // lblKpiReadyTitle
         // 
-        this.lblKpiReadyTitle.AutoSize = true;
-        this.lblKpiReadyTitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblKpiReadyTitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblKpiReadyTitle.Location = new System.Drawing.Point(8, 4);
-        this.lblKpiReadyTitle.Name = "lblKpiReadyTitle";
-        this.lblKpiReadyTitle.Size = new System.Drawing.Size(102, 20);
-        this.lblKpiReadyTitle.TabIndex = 0;
-        this.lblKpiReadyTitle.Text = "Ready Orders";
+        lblKpiReadyTitle.AutoSize = true;
+        lblKpiReadyTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblKpiReadyTitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblKpiReadyTitle.Location = new Point(8, 4);
+        lblKpiReadyTitle.Name = "lblKpiReadyTitle";
+        lblKpiReadyTitle.Size = new Size(118, 23);
+        lblKpiReadyTitle.TabIndex = 0;
+        lblKpiReadyTitle.Text = "Ready Orders";
         // 
         // pnlKpiCompleted
         // 
-        this.pnlKpiCompleted.BackColor = System.Drawing.Color.White;
-        this.pnlKpiCompleted.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlKpiCompleted.Controls.Add(this.lblCompletedOrders);
-        this.pnlKpiCompleted.Controls.Add(this.lblKpiCompTitle);
-        this.pnlKpiCompleted.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlKpiCompleted.Location = new System.Drawing.Point(327, 69);
-        this.pnlKpiCompleted.Margin = new System.Windows.Forms.Padding(4);
-        this.pnlKpiCompleted.Name = "pnlKpiCompleted";
-        this.pnlKpiCompleted.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-        this.pnlKpiCompleted.Size = new System.Drawing.Size(315, 57);
-        this.pnlKpiCompleted.TabIndex = 4;
+        pnlKpiCompleted.BackColor = Color.White;
+        pnlKpiCompleted.BorderStyle = BorderStyle.FixedSingle;
+        pnlKpiCompleted.Controls.Add(lblCompletedOrders);
+        pnlKpiCompleted.Controls.Add(lblKpiCompTitle);
+        pnlKpiCompleted.Dock = DockStyle.Fill;
+        pnlKpiCompleted.Location = new Point(353, 67);
+        pnlKpiCompleted.Margin = new Padding(4);
+        pnlKpiCompleted.Name = "pnlKpiCompleted";
+        pnlKpiCompleted.Padding = new Padding(10, 6, 10, 6);
+        pnlKpiCompleted.Size = new Size(341, 55);
+        pnlKpiCompleted.TabIndex = 4;
         // 
         // lblCompletedOrders
         // 
-        this.lblCompletedOrders.AutoSize = true;
-        this.lblCompletedOrders.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblCompletedOrders.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblCompletedOrders.Location = new System.Drawing.Point(8, 22);
-        this.lblCompletedOrders.Name = "lblCompletedOrders";
-        this.lblCompletedOrders.Size = new System.Drawing.Size(29, 35);
-        this.lblCompletedOrders.TabIndex = 1;
-        this.lblCompletedOrders.Text = "5";
+        lblCompletedOrders.AutoSize = true;
+        lblCompletedOrders.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblCompletedOrders.ForeColor = Color.FromArgb(71, 85, 105);
+        lblCompletedOrders.Location = new Point(8, 22);
+        lblCompletedOrders.Name = "lblCompletedOrders";
+        lblCompletedOrders.Size = new Size(35, 41);
+        lblCompletedOrders.TabIndex = 1;
+        lblCompletedOrders.Text = "5";
         // 
         // lblKpiCompTitle
         // 
-        this.lblKpiCompTitle.AutoSize = true;
-        this.lblKpiCompTitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblKpiCompTitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblKpiCompTitle.Location = new System.Drawing.Point(8, 4);
-        this.lblKpiCompTitle.Name = "lblKpiCompTitle";
-        this.lblKpiCompTitle.Size = new System.Drawing.Size(137, 20);
-        this.lblKpiCompTitle.TabIndex = 0;
-        this.lblKpiCompTitle.Text = "Completed Orders";
+        lblKpiCompTitle.AutoSize = true;
+        lblKpiCompTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblKpiCompTitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblKpiCompTitle.Location = new Point(8, 4);
+        lblKpiCompTitle.Name = "lblKpiCompTitle";
+        lblKpiCompTitle.Size = new Size(158, 23);
+        lblKpiCompTitle.TabIndex = 0;
+        lblKpiCompTitle.Text = "Completed Orders";
         // 
         // pnlKpiValue
         // 
-        this.pnlKpiValue.BackColor = System.Drawing.Color.White;
-        this.pnlKpiValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.pnlKpiValue.Controls.Add(this.lblCompletedValue);
-        this.pnlKpiValue.Controls.Add(this.lblKpiValTitle);
-        this.pnlKpiValue.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.pnlKpiValue.Location = new System.Drawing.Point(650, 69);
-        this.pnlKpiValue.Margin = new System.Windows.Forms.Padding(4);
-        this.pnlKpiValue.Name = "pnlKpiValue";
-        this.pnlKpiValue.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-        this.pnlKpiValue.Size = new System.Drawing.Size(318, 57);
-        this.pnlKpiValue.TabIndex = 5;
+        pnlKpiValue.BackColor = Color.White;
+        pnlKpiValue.BorderStyle = BorderStyle.FixedSingle;
+        pnlKpiValue.Controls.Add(lblCompletedValue);
+        pnlKpiValue.Controls.Add(lblKpiValTitle);
+        pnlKpiValue.Dock = DockStyle.Fill;
+        pnlKpiValue.Location = new Point(702, 67);
+        pnlKpiValue.Margin = new Padding(4);
+        pnlKpiValue.Name = "pnlKpiValue";
+        pnlKpiValue.Padding = new Padding(10, 6, 10, 6);
+        pnlKpiValue.Size = new Size(342, 55);
+        pnlKpiValue.TabIndex = 5;
         // 
         // lblCompletedValue
         // 
-        this.lblCompletedValue.AutoSize = true;
-        this.lblCompletedValue.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-        this.lblCompletedValue.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.lblCompletedValue.Location = new System.Drawing.Point(8, 22);
-        this.lblCompletedValue.Name = "lblCompletedValue";
-        this.lblCompletedValue.Size = new System.Drawing.Size(130, 35);
-        this.lblCompletedValue.TabIndex = 1;
-        this.lblCompletedValue.Text = "1,850 ETB";
+        lblCompletedValue.AutoSize = true;
+        lblCompletedValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblCompletedValue.ForeColor = Color.FromArgb(30, 58, 95);
+        lblCompletedValue.Location = new Point(8, 22);
+        lblCompletedValue.Name = "lblCompletedValue";
+        lblCompletedValue.Size = new Size(155, 41);
+        lblCompletedValue.TabIndex = 1;
+        lblCompletedValue.Text = "1,850 ETB";
         // 
         // lblKpiValTitle
         // 
-        this.lblKpiValTitle.AutoSize = true;
-        this.lblKpiValTitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
-        this.lblKpiValTitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblKpiValTitle.Location = new System.Drawing.Point(8, 4);
-        this.lblKpiValTitle.Name = "lblKpiValTitle";
-        this.lblKpiValTitle.Size = new System.Drawing.Size(127, 20);
-        this.lblKpiValTitle.TabIndex = 0;
-        this.lblKpiValTitle.Text = "Completed Value";
+        lblKpiValTitle.AutoSize = true;
+        lblKpiValTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblKpiValTitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblKpiValTitle.Location = new Point(8, 4);
+        lblKpiValTitle.Name = "lblKpiValTitle";
+        lblKpiValTitle.Size = new Size(147, 23);
+        lblKpiValTitle.TabIndex = 0;
+        lblKpiValTitle.Text = "Completed Value";
         // 
         // grpOrderSummary
         // 
-        this.grpOrderSummary.BackColor = System.Drawing.Color.Transparent;
-        this.grpOrderSummary.Controls.Add(this.dgvSummary);
-        this.grpOrderSummary.Controls.Add(this.lblSummaryFooter);
-        this.grpOrderSummary.Controls.Add(this.pnlBreakdownHeader);
-        this.grpOrderSummary.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.grpOrderSummary.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-        this.grpOrderSummary.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpOrderSummary.Location = new System.Drawing.Point(24, 322);
-        this.grpOrderSummary.Name = "grpOrderSummary";
-        this.grpOrderSummary.Padding = new System.Windows.Forms.Padding(12, 10, 12, 12);
-        this.grpOrderSummary.Size = new System.Drawing.Size(996, 338);
-        this.grpOrderSummary.TabIndex = 3;
-        this.grpOrderSummary.TabStop = false;
-        this.grpOrderSummary.Text = "Order Breakdown";
+        grpOrderSummary.BackColor = Color.Transparent;
+        grpOrderSummary.Controls.Add(dgvSummary);
+        grpOrderSummary.Controls.Add(lblSummaryFooter);
+        grpOrderSummary.Controls.Add(pnlBreakdownHeader);
+        grpOrderSummary.Dock = DockStyle.Fill;
+        grpOrderSummary.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        grpOrderSummary.ForeColor = Color.FromArgb(15, 23, 42);
+        grpOrderSummary.Location = new Point(24, 322);
+        grpOrderSummary.Name = "grpOrderSummary";
+        grpOrderSummary.Padding = new Padding(12, 10, 12, 12);
+        grpOrderSummary.Size = new Size(1072, 211);
+        grpOrderSummary.TabIndex = 3;
+        grpOrderSummary.TabStop = false;
+        grpOrderSummary.Text = "Order Breakdown";
         // 
         // dgvSummary
         // 
-        this.dgvSummary.AllowUserToAddRows = false;
-        this.dgvSummary.AllowUserToDeleteRows = false;
-        this.dgvSummary.AllowUserToResizeRows = false;
-        dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.dgvSummary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-        this.dgvSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        this.dgvSummary.BackgroundColor = System.Drawing.Color.White;
-        this.dgvSummary.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-        this.dgvSummary.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-        dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-        dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-        this.dgvSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-        this.dgvSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dgvSummary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colOrderNum,
-            this.colCustomer,
-            this.colTable,
-            this.colCreated,
-            this.colTotal,
-            this.colStatus});
-        dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-        dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-        dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(219, 234, 254);
-        dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-        this.dgvSummary.DefaultCellStyle = dataGridViewCellStyle3;
-        this.dgvSummary.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.dgvSummary.EnableHeadersVisualStyles = false;
-        this.dgvSummary.GridColor = System.Drawing.Color.FromArgb(226, 232, 240);
-        this.dgvSummary.Location = new System.Drawing.Point(12, 59);
-        this.dgvSummary.MultiSelect = false;
-        this.dgvSummary.Name = "dgvSummary";
-        this.dgvSummary.ReadOnly = true;
-        this.dgvSummary.RowHeadersVisible = false;
-        this.dgvSummary.RowHeadersWidth = 51;
-        this.dgvSummary.RowTemplate.Height = 36;
-        this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        this.dgvSummary.Size = new System.Drawing.Size(972, 241);
-        this.dgvSummary.TabIndex = 1;
-        this.dgvSummary.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSummary_CellDoubleClick);
+        dgvSummary.AllowUserToAddRows = false;
+        dgvSummary.AllowUserToDeleteRows = false;
+        dgvSummary.AllowUserToResizeRows = false;
+        dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 250, 252);
+        dgvSummary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+        dgvSummary.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvSummary.BackgroundColor = Color.White;
+        dgvSummary.BorderStyle = BorderStyle.Fixed3D;
+        dgvSummary.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle5.BackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        dataGridViewCellStyle5.ForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle5.Padding = new Padding(4, 6, 4, 6);
+        dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+        dgvSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+        dgvSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvSummary.Columns.AddRange(new DataGridViewColumn[] { colOrderNum, colCustomer, colTable, colCreated, colTotal, colStatus });
+        dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle6.BackColor = Color.White;
+        dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F);
+        dataGridViewCellStyle6.ForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle6.Padding = new Padding(4);
+        dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(219, 234, 254);
+        dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+        dgvSummary.DefaultCellStyle = dataGridViewCellStyle6;
+        dgvSummary.Dock = DockStyle.Fill;
+        dgvSummary.EnableHeadersVisualStyles = false;
+        dgvSummary.GridColor = Color.FromArgb(226, 232, 240);
+        dgvSummary.Location = new Point(12, 63);
+        dgvSummary.MultiSelect = false;
+        dgvSummary.Name = "dgvSummary";
+        dgvSummary.ReadOnly = true;
+        dgvSummary.RowHeadersVisible = false;
+        dgvSummary.RowHeadersWidth = 51;
+        dgvSummary.RowTemplate.Height = 36;
+        dgvSummary.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvSummary.Size = new Size(1048, 110);
+        dgvSummary.TabIndex = 1;
+        dgvSummary.CellDoubleClick += dgvSummary_CellDoubleClick;
         // 
         // colOrderNum
         // 
-        this.colOrderNum.FillWeight = 85F;
-        this.colOrderNum.HeaderText = "Order #";
-        this.colOrderNum.MinimumWidth = 6;
-        this.colOrderNum.Name = "colOrderNum";
-        this.colOrderNum.ReadOnly = true;
+        colOrderNum.FillWeight = 85F;
+        colOrderNum.HeaderText = "Order #";
+        colOrderNum.MinimumWidth = 6;
+        colOrderNum.Name = "colOrderNum";
+        colOrderNum.ReadOnly = true;
         // 
         // colCustomer
         // 
-        this.colCustomer.FillWeight = 160F;
-        this.colCustomer.HeaderText = "Customer";
-        this.colCustomer.MinimumWidth = 6;
-        this.colCustomer.Name = "colCustomer";
-        this.colCustomer.ReadOnly = true;
+        colCustomer.FillWeight = 160F;
+        colCustomer.HeaderText = "Customer";
+        colCustomer.MinimumWidth = 6;
+        colCustomer.Name = "colCustomer";
+        colCustomer.ReadOnly = true;
         // 
         // colTable
         // 
-        this.colTable.FillWeight = 85F;
-        this.colTable.HeaderText = "Table";
-        this.colTable.MinimumWidth = 6;
-        this.colTable.Name = "colTable";
-        this.colTable.ReadOnly = true;
+        colTable.FillWeight = 85F;
+        colTable.HeaderText = "Table";
+        colTable.MinimumWidth = 6;
+        colTable.Name = "colTable";
+        colTable.ReadOnly = true;
         // 
         // colCreated
         // 
-        this.colCreated.FillWeight = 95F;
-        this.colCreated.HeaderText = "Created Time";
-        this.colCreated.MinimumWidth = 6;
-        this.colCreated.Name = "colCreated";
-        this.colCreated.ReadOnly = true;
+        colCreated.FillWeight = 95F;
+        colCreated.HeaderText = "Created Time";
+        colCreated.MinimumWidth = 6;
+        colCreated.Name = "colCreated";
+        colCreated.ReadOnly = true;
         // 
         // colTotal
         // 
-        this.colTotal.FillWeight = 95F;
-        this.colTotal.HeaderText = "Total (ETB)";
-        this.colTotal.MinimumWidth = 6;
-        this.colTotal.Name = "colTotal";
-        this.colTotal.ReadOnly = true;
+        colTotal.FillWeight = 95F;
+        colTotal.HeaderText = "Total (ETB)";
+        colTotal.MinimumWidth = 6;
+        colTotal.Name = "colTotal";
+        colTotal.ReadOnly = true;
         // 
         // colStatus
         // 
-        this.colStatus.FillWeight = 90F;
-        this.colStatus.HeaderText = "Status";
-        this.colStatus.MinimumWidth = 6;
-        this.colStatus.Name = "colStatus";
-        this.colStatus.ReadOnly = true;
+        colStatus.FillWeight = 90F;
+        colStatus.HeaderText = "Status";
+        colStatus.MinimumWidth = 6;
+        colStatus.Name = "colStatus";
+        colStatus.ReadOnly = true;
         // 
         // lblSummaryFooter
         // 
-        this.lblSummaryFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-        this.lblSummaryFooter.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblSummaryFooter.ForeColor = System.Drawing.Color.FromArgb(107, 114, 128);
-        this.lblSummaryFooter.Location = new System.Drawing.Point(12, 300);
-        this.lblSummaryFooter.Name = "lblSummaryFooter";
-        this.lblSummaryFooter.Size = new System.Drawing.Size(972, 26);
-        this.lblSummaryFooter.TabIndex = 2;
-        this.lblSummaryFooter.Text = "Summary cards cover all orders; completed order value totals completed orders only.";
-        this.lblSummaryFooter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        lblSummaryFooter.Dock = DockStyle.Bottom;
+        lblSummaryFooter.Font = new Font("Segoe UI", 8.5F);
+        lblSummaryFooter.ForeColor = Color.FromArgb(107, 114, 128);
+        lblSummaryFooter.Location = new Point(12, 173);
+        lblSummaryFooter.Name = "lblSummaryFooter";
+        lblSummaryFooter.Size = new Size(1048, 26);
+        lblSummaryFooter.TabIndex = 2;
+        lblSummaryFooter.Text = "Summary cards cover all orders; completed order value totals completed orders only.";
+        lblSummaryFooter.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // pnlBreakdownHeader
         // 
-        this.pnlBreakdownHeader.Controls.Add(this.lblTimesNote);
-        this.pnlBreakdownHeader.Controls.Add(this.lblBreakdownSubtitle);
-        this.pnlBreakdownHeader.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlBreakdownHeader.Location = new System.Drawing.Point(12, 33);
-        this.pnlBreakdownHeader.Name = "pnlBreakdownHeader";
-        this.pnlBreakdownHeader.Size = new System.Drawing.Size(972, 26);
-        this.pnlBreakdownHeader.TabIndex = 0;
+        pnlBreakdownHeader.Controls.Add(lblTimesNote);
+        pnlBreakdownHeader.Controls.Add(lblBreakdownSubtitle);
+        pnlBreakdownHeader.Dock = DockStyle.Top;
+        pnlBreakdownHeader.Location = new Point(12, 37);
+        pnlBreakdownHeader.Name = "pnlBreakdownHeader";
+        pnlBreakdownHeader.Size = new Size(1048, 26);
+        pnlBreakdownHeader.TabIndex = 0;
         // 
         // lblTimesNote
         // 
-        this.lblTimesNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.lblTimesNote.AutoSize = true;
-        this.lblTimesNote.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblTimesNote.ForeColor = System.Drawing.Color.FromArgb(107, 114, 128);
-        this.lblTimesNote.Location = new System.Drawing.Point(822, 3);
-        this.lblTimesNote.Name = "lblTimesNote";
-        this.lblTimesNote.Size = new System.Drawing.Size(150, 20);
-        this.lblTimesNote.TabIndex = 1;
-        this.lblTimesNote.Text = "Created times are local";
+        lblTimesNote.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblTimesNote.AutoSize = true;
+        lblTimesNote.Font = new Font("Segoe UI", 8.5F);
+        lblTimesNote.ForeColor = Color.FromArgb(107, 114, 128);
+        lblTimesNote.Location = new Point(898, 3);
+        lblTimesNote.Name = "lblTimesNote";
+        lblTimesNote.Size = new Size(185, 23);
+        lblTimesNote.TabIndex = 1;
+        lblTimesNote.Text = "Created times are local";
         // 
         // lblBreakdownSubtitle
         // 
-        this.lblBreakdownSubtitle.AutoSize = true;
-        this.lblBreakdownSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblBreakdownSubtitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblBreakdownSubtitle.Location = new System.Drawing.Point(0, 3);
-        this.lblBreakdownSubtitle.Name = "lblBreakdownSubtitle";
-        this.lblBreakdownSubtitle.Size = new System.Drawing.Size(188, 20);
-        this.lblBreakdownSubtitle.TabIndex = 0;
-        this.lblBreakdownSubtitle.Text = "Filtered orders list breakdown";
+        lblBreakdownSubtitle.AutoSize = true;
+        lblBreakdownSubtitle.Font = new Font("Segoe UI", 9F);
+        lblBreakdownSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblBreakdownSubtitle.Location = new Point(0, 3);
+        lblBreakdownSubtitle.Name = "lblBreakdownSubtitle";
+        lblBreakdownSubtitle.Size = new Size(247, 25);
+        lblBreakdownSubtitle.TabIndex = 0;
+        lblBreakdownSubtitle.Text = "Filtered orders list breakdown";
         // 
         // ReportsView
         // 
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-        this.BackColor = System.Drawing.Color.FromArgb(243, 244, 246);
-        this.Controls.Add(this.grpOrderSummary);
-        this.Controls.Add(this.grpSummaryCards);
-        this.Controls.Add(this.grpFilters);
-        this.Controls.Add(this.pnlHeader);
-        this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.Name = "ReportsView";
-        this.Padding = new System.Windows.Forms.Padding(24, 16, 24, 20);
-        this.Size = new System.Drawing.Size(1044, 680);
-        this.pnlHeader.ResumeLayout(false);
-        this.pnlHeader.PerformLayout();
-        this.grpFilters.ResumeLayout(false);
-        this.grpFilters.PerformLayout();
-        this.grpSummaryCards.ResumeLayout(false);
-        this.tlpKpi.ResumeLayout(false);
-        this.pnlKpiTotal.ResumeLayout(false);
-        this.pnlKpiTotal.PerformLayout();
-        this.pnlKpiPending.ResumeLayout(false);
-        this.pnlKpiPending.PerformLayout();
-        this.pnlKpiPreparing.ResumeLayout(false);
-        this.pnlKpiPreparing.PerformLayout();
-        this.pnlKpiReady.ResumeLayout(false);
-        this.pnlKpiReady.PerformLayout();
-        this.pnlKpiCompleted.ResumeLayout(false);
-        this.pnlKpiCompleted.PerformLayout();
-        this.pnlKpiValue.ResumeLayout(false);
-        this.pnlKpiValue.PerformLayout();
-        this.grpOrderSummary.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).EndInit();
-        this.pnlBreakdownHeader.ResumeLayout(false);
-        this.pnlBreakdownHeader.PerformLayout();
-        this.ResumeLayout(false);
+        AutoScaleDimensions = new SizeF(144F, 144F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.FromArgb(243, 244, 246);
+        Controls.Add(grpOrderSummary);
+        Controls.Add(grpSummaryCards);
+        Controls.Add(grpFilters);
+        Controls.Add(pnlHeader);
+        Name = "ReportsView";
+        Padding = new Padding(24, 16, 24, 20);
+        Size = new Size(1120, 553);
+        pnlHeader.ResumeLayout(false);
+        pnlHeader.PerformLayout();
+        grpFilters.ResumeLayout(false);
+        grpFilters.PerformLayout();
+        grpSummaryCards.ResumeLayout(false);
+        tlpKpi.ResumeLayout(false);
+        pnlKpiTotal.ResumeLayout(false);
+        pnlKpiTotal.PerformLayout();
+        pnlKpiPending.ResumeLayout(false);
+        pnlKpiPending.PerformLayout();
+        pnlKpiPreparing.ResumeLayout(false);
+        pnlKpiPreparing.PerformLayout();
+        pnlKpiReady.ResumeLayout(false);
+        pnlKpiReady.PerformLayout();
+        pnlKpiCompleted.ResumeLayout(false);
+        pnlKpiCompleted.PerformLayout();
+        pnlKpiValue.ResumeLayout(false);
+        pnlKpiValue.PerformLayout();
+        grpOrderSummary.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)dgvSummary).EndInit();
+        pnlBreakdownHeader.ResumeLayout(false);
+        pnlBreakdownHeader.PerformLayout();
+        ResumeLayout(false);
     }
 
     private System.Windows.Forms.Panel pnlHeader;
@@ -698,3 +686,4 @@ partial class ReportsView
     private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
     private System.Windows.Forms.Label lblSummaryFooter;
 }
+
