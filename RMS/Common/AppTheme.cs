@@ -8,33 +8,33 @@ namespace RMS.Common;
 /// </summary>
 public static class AppTheme
 {
-    // Primary Sidebar & Shell Colors
-    public static readonly Color SidebarBackground = Color.FromArgb(46, 24, 29);       // Deep warm burgundy (#2E181D)
-    public static readonly Color SidebarHover = Color.FromArgb(64, 34, 41);            // Hover state (#402229)
-    public static readonly Color SidebarActive = Color.FromArgb(122, 32, 48);          // Active item pill (#7A2030)
-    public static readonly Color SidebarText = Color.FromArgb(235, 225, 226);          // Soft off-white text
-    public static readonly Color SidebarMutedText = Color.FromArgb(170, 145, 149);     // Muted labels (#AA9195)
-    public static readonly Color GoldAccent = Color.FromArgb(212, 163, 115);           // Warm Gold (#D4A373)
-    public static readonly Color GoldBadgeBackground = Color.FromArgb(80, 45, 52);
+    // Primary Sidebar & Shell Colors (Classic Windows Corporate Slate/Navy)
+    public static readonly Color SidebarBackground = Color.FromArgb(30, 41, 59);       // Professional Slate (#1E293B)
+    public static readonly Color SidebarHover = Color.FromArgb(51, 65, 85);            // Slate hover (#334155)
+    public static readonly Color SidebarActive = Color.FromArgb(37, 99, 235);          // Corporate Blue highlight (#2563EB)
+    public static readonly Color SidebarText = Color.FromArgb(248, 250, 252);          // Clean white text
+    public static readonly Color SidebarMutedText = Color.FromArgb(148, 163, 184);     // Muted section labels (#94A3B8)
+    public static readonly Color GoldAccent = Color.FromArgb(96, 165, 250);            // Corporate soft blue (#60A5FA)
+    public static readonly Color GoldBadgeBackground = Color.FromArgb(30, 58, 95);     // Navy badge (#1E3A5F)
 
     // Content Canvas Colors
-    public static readonly Color ContentBackground = Color.FromArgb(248, 246, 244);    // Very light warm gray (#F8F6F4)
+    public static readonly Color ContentBackground = Color.FromArgb(243, 244, 246);    // Standard Windows Desktop Light Gray (#F3F4F6)
     public static readonly Color CardBackground = Color.White;
-    public static readonly Color CardBorder = Color.FromArgb(235, 230, 225);           // Subtle border (#EBE6E1)
+    public static readonly Color CardBorder = Color.FromArgb(226, 232, 240);           // Standard border (#E2E8F0)
     public static readonly Color HeaderBackground = Color.White;
-    public static readonly Color StatusStripBackground = Color.FromArgb(250, 249, 248);
+    public static readonly Color StatusStripBackground = Color.FromArgb(241, 245, 249); // Status bar light gray
 
     // Typography Colors
-    public static readonly Color TextPrimary = Color.FromArgb(31, 41, 55);              // Dark charcoal (#1F2937)
-    public static readonly Color TextSecondary = Color.FromArgb(107, 114, 128);        // Muted gray (#6B7280)
-    public static readonly Color TextMuted = Color.FromArgb(156, 163, 175);            // Light gray (#9CA3AF)
+    public static readonly Color TextPrimary = Color.FromArgb(15, 23, 42);              // Deep charcoal/black (#0F172A)
+    public static readonly Color TextSecondary = Color.FromArgb(71, 85, 105);          // Secondary gray (#475569)
+    public static readonly Color TextMuted = Color.FromArgb(148, 163, 184);            // Light gray (#94A3B8)
 
     // Action Button Colors
-    public static readonly Color PrimaryButton = Color.FromArgb(122, 32, 48);          // Burgundy (#7A2030)
-    public static readonly Color PrimaryButtonHover = Color.FromArgb(100, 25, 39);     // Darker burgundy (#641927)
-    public static readonly Color SecondaryButtonBorder = Color.FromArgb(209, 213, 219);// Light gray border (#D1D5DB)
-    public static readonly Color DangerButton = Color.FromArgb(185, 28, 28);           // Red (#B91C1C)
-    public static readonly Color DangerButtonHover = Color.FromArgb(153, 27, 27);
+    public static readonly Color PrimaryButton = Color.FromArgb(30, 58, 95);          // Classic Navy (#1E3A5F)
+    public static readonly Color PrimaryButtonHover = Color.FromArgb(22, 44, 71);     // Darker Navy (#162C47)
+    public static readonly Color SecondaryButtonBorder = Color.FromArgb(203, 213, 225);// Light gray border (#CBD5E1)
+    public static readonly Color DangerButton = Color.FromArgb(220, 38, 38);           // Standard Red (#DC2626)
+    public static readonly Color DangerButtonHover = Color.FromArgb(185, 28, 28);
 
     // Order Status Badges (Background, Text)
     public static readonly Color StatusPendingBg = Color.FromArgb(254, 243, 199);      // Amber (#FEF3C7)
