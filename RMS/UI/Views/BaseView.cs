@@ -7,30 +7,41 @@ namespace RMS.UI.Views;
 
 /// <summary>
 /// Base UserControl for application screen views.
-/// Provides consistent background, header layout, and navigation delegation.
+/// Provides consistent background, navigation delegation, and designer support.
 /// </summary>
-public abstract class BaseView : UserControl, INavigationAware
+public class BaseView : UserControl, INavigationAware
 {
     [System.ComponentModel.Browsable(false)]
     [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
     public Action<ViewType, object?>? NavigateAction { get; set; }
 
-    protected Panel HeaderPanel { get; private set; }
-    protected Label TitleLabel { get; private set; }
-    protected Label SubtitleLabel { get; private set; }
-    protected Panel ContentPanel { get; private set; }
+    // Properties for views utilizing base header/content panels
+    protected Panel HeaderPanel { get; set; } = null!;
+    protected Label TitleLabel { get; set; } = null!;
+    protected Label SubtitleLabel { get; set; } = null!;
+    protected Panel ContentPanel { get; set; } = null!;
 
-    protected BaseView(string title, string subtitle)
+    /// <summary>
+    /// Parameterless constructor enabling full Visual Studio Windows Forms Designer support.
+    /// </summary>
+    public BaseView()
     {
         Dock = DockStyle.Fill;
         BackColor = AppTheme.ContentBackground;
+        Font = AppTheme.BodyRegular;
+    }
 
+    /// <summary>
+    /// Constructor for legacy views that utilize base header and content panels.
+    /// </summary>
+    protected BaseView(string title, string subtitle) : this()
+    {
         HeaderPanel = new Panel
         {
             Dock = DockStyle.Top,
-            Height = 78,
+            Height = 70,
             BackColor = AppTheme.ContentBackground,
-            Padding = new Padding(28, 10, 28, 8)
+            Padding = new Padding(24, 8, 24, 4)
         };
 
         TitleLabel = new Label
@@ -39,7 +50,7 @@ public abstract class BaseView : UserControl, INavigationAware
             Font = AppTheme.HeaderLarge,
             ForeColor = AppTheme.TextPrimary,
             AutoSize = true,
-            Location = new Point(28, 10)
+            Location = new Point(24, 10)
         };
 
         SubtitleLabel = new Label
@@ -48,7 +59,7 @@ public abstract class BaseView : UserControl, INavigationAware
             Font = AppTheme.Subtitle,
             ForeColor = AppTheme.TextSecondary,
             AutoSize = true,
-            Location = new Point(28, 48)
+            Location = new Point(24, 42)
         };
 
         HeaderPanel.Controls.Add(TitleLabel);
@@ -58,19 +69,18 @@ public abstract class BaseView : UserControl, INavigationAware
         {
             Dock = DockStyle.Fill,
             BackColor = AppTheme.ContentBackground,
-            Padding = new Padding(28, 8, 28, 20),
-            AutoScroll = false
+            Padding = new Padding(24, 0, 24, 16),
+            AutoScroll = true
         };
 
-        // Add HeaderPanel first so it docks to Top at Y=0; ContentPanel docks to Fill below it.
-        Controls.Add(HeaderPanel);
         Controls.Add(ContentPanel);
+        Controls.Add(HeaderPanel);
         HeaderPanel.SendToBack();
     }
 
     public virtual void OnNavigatedTo(object? parameter = null)
     {
-        // Derived classes override this to refresh data upon being loaded
+        // Derived views override this to refresh data upon being displayed
     }
 
     protected void Navigate(ViewType targetView, object? context = null)
