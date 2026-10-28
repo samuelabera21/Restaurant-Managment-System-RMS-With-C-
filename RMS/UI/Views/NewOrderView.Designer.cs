@@ -15,569 +15,544 @@ partial class NewOrderView
 
     private void InitializeComponent()
     {
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-        System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-        this.pnlHeader = new System.Windows.Forms.Panel();
-        this.lblRequiredNote = new System.Windows.Forms.Label();
-        this.lblSubtitle = new System.Windows.Forms.Label();
-        this.lblTitle = new System.Windows.Forms.Label();
-        this.lblAlertMessage = new System.Windows.Forms.Label();
-        this.grpOrderInfo = new System.Windows.Forms.GroupBox();
-        this.txtOrderDateTime = new System.Windows.Forms.TextBox();
-        this.lblOrderDateTime = new System.Windows.Forms.Label();
-        this.numTableNumber = new System.Windows.Forms.NumericUpDown();
-        this.lblTableNumber = new System.Windows.Forms.Label();
-        this.txtCustomerName = new System.Windows.Forms.TextBox();
-        this.lblCustomerName = new System.Windows.Forms.Label();
-        this.txtOrderNumber = new System.Windows.Forms.TextBox();
-        this.lblOrderNumber = new System.Windows.Forms.Label();
-        this.grpAddItem = new System.Windows.Forms.GroupBox();
-        this.btnAddItem = new System.Windows.Forms.Button();
-        this.numQuantity = new System.Windows.Forms.NumericUpDown();
-        this.lblQuantity = new System.Windows.Forms.Label();
-        this.cboMenuItems = new System.Windows.Forms.ComboBox();
-        this.lblMenuItem = new System.Windows.Forms.Label();
-        this.grpOrderItems = new System.Windows.Forms.GroupBox();
-        this.dgvOrderItems = new System.Windows.Forms.DataGridView();
-        this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
-        this.pnlOrderItemsBottom = new System.Windows.Forms.Panel();
-        this.lblTotal = new System.Windows.Forms.Label();
-        this.lblSubtotalNote = new System.Windows.Forms.Label();
-        this.pnlActions = new System.Windows.Forms.Panel();
-        this.btnCancel = new System.Windows.Forms.Button();
-        this.btnViewOrders = new System.Windows.Forms.Button();
-        this.btnClearForm = new System.Windows.Forms.Button();
-        this.btnSaveOrder = new System.Windows.Forms.Button();
-        this.pnlHeader.SuspendLayout();
-        this.grpOrderInfo.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.numTableNumber)).BeginInit();
-        this.grpAddItem.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
-        this.grpOrderItems.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).BeginInit();
-        this.pnlOrderItemsBottom.SuspendLayout();
-        this.pnlActions.SuspendLayout();
-        this.SuspendLayout();
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+        pnlHeader = new Panel();
+        lblRequiredNote = new Label();
+        lblSubtitle = new Label();
+        lblTitle = new Label();
+        lblAlertMessage = new Label();
+        grpOrderInfo = new GroupBox();
+        txtOrderDateTime = new TextBox();
+        lblOrderDateTime = new Label();
+        numTableNumber = new NumericUpDown();
+        lblTableNumber = new Label();
+        txtCustomerName = new TextBox();
+        lblCustomerName = new Label();
+        txtOrderNumber = new TextBox();
+        lblOrderNumber = new Label();
+        grpAddItem = new GroupBox();
+        btnAddItem = new Button();
+        numQuantity = new NumericUpDown();
+        lblQuantity = new Label();
+        cboMenuItems = new ComboBox();
+        lblMenuItem = new Label();
+        grpOrderItems = new GroupBox();
+        dgvOrderItems = new DataGridView();
+        colItem = new DataGridViewTextBoxColumn();
+        colPrice = new DataGridViewTextBoxColumn();
+        colQty = new DataGridViewTextBoxColumn();
+        colSubtotal = new DataGridViewTextBoxColumn();
+        colRemove = new DataGridViewButtonColumn();
+        pnlOrderItemsBottom = new Panel();
+        lblTotal = new Label();
+        lblSubtotalNote = new Label();
+        pnlActions = new Panel();
+        btnCancel = new Button();
+        btnViewOrders = new Button();
+        btnClearForm = new Button();
+        btnSaveOrder = new Button();
+        pnlHeader.SuspendLayout();
+        grpOrderInfo.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)numTableNumber).BeginInit();
+        grpAddItem.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
+        grpOrderItems.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)dgvOrderItems).BeginInit();
+        pnlOrderItemsBottom.SuspendLayout();
+        pnlActions.SuspendLayout();
+        SuspendLayout();
         // 
         // pnlHeader
         // 
-        this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-        this.pnlHeader.Controls.Add(this.lblRequiredNote);
-        this.pnlHeader.Controls.Add(this.lblSubtitle);
-        this.pnlHeader.Controls.Add(this.lblTitle);
-        this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-        this.pnlHeader.Location = new System.Drawing.Point(24, 16);
-        this.pnlHeader.Name = "pnlHeader";
-        this.pnlHeader.Size = new System.Drawing.Size(996, 52);
-        this.pnlHeader.TabIndex = 0;
+        pnlHeader.BackColor = Color.Transparent;
+        pnlHeader.Controls.Add(lblRequiredNote);
+        pnlHeader.Controls.Add(lblSubtitle);
+        pnlHeader.Controls.Add(lblTitle);
+        pnlHeader.Dock = DockStyle.Top;
+        pnlHeader.Location = new Point(24, 16);
+        pnlHeader.Name = "pnlHeader";
+        pnlHeader.Size = new Size(1072, 52);
+        pnlHeader.TabIndex = 0;
         // 
         // lblRequiredNote
         // 
-        this.lblRequiredNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.lblRequiredNote.AutoSize = true;
-        this.lblRequiredNote.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblRequiredNote.ForeColor = System.Drawing.Color.FromArgb(107, 114, 128);
-        this.lblRequiredNote.Location = new System.Drawing.Point(882, 12);
-        this.lblRequiredNote.Name = "lblRequiredNote";
-        this.lblRequiredNote.Size = new System.Drawing.Size(111, 20);
-        this.lblRequiredNote.TabIndex = 2;
-        this.lblRequiredNote.Text = "* Required fields";
+        lblRequiredNote.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblRequiredNote.AutoSize = true;
+        lblRequiredNote.Font = new Font("Segoe UI", 9F);
+        lblRequiredNote.ForeColor = Color.FromArgb(107, 114, 128);
+        lblRequiredNote.Location = new Point(958, 12);
+        lblRequiredNote.Name = "lblRequiredNote";
+        lblRequiredNote.Size = new Size(142, 25);
+        lblRequiredNote.TabIndex = 2;
+        lblRequiredNote.Text = "* Required fields";
         // 
         // lblSubtitle
         // 
-        this.lblSubtitle.AutoSize = true;
-        this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-        this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblSubtitle.Location = new System.Drawing.Point(0, 30);
-        this.lblSubtitle.Name = "lblSubtitle";
-        this.lblSubtitle.Size = new System.Drawing.Size(193, 20);
-        this.lblSubtitle.TabIndex = 1;
-        this.lblSubtitle.Text = "Create a new restaurant order";
+        lblSubtitle.AutoSize = true;
+        lblSubtitle.Font = new Font("Segoe UI", 9F);
+        lblSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
+        lblSubtitle.Location = new Point(0, 30);
+        lblSubtitle.Name = "lblSubtitle";
+        lblSubtitle.Size = new Size(245, 25);
+        lblSubtitle.TabIndex = 1;
+        lblSubtitle.Text = "Create a new restaurant order";
         // 
         // lblTitle
         // 
-        this.lblTitle.AutoSize = true;
-        this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-        this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.lblTitle.Location = new System.Drawing.Point(-2, 0);
-        this.lblTitle.Name = "lblTitle";
-        this.lblTitle.Size = new System.Drawing.Size(155, 37);
-        this.lblTitle.TabIndex = 0;
-        this.lblTitle.Text = "New Order";
+        lblTitle.AutoSize = true;
+        lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+        lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
+        lblTitle.Location = new Point(-12, -15);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(184, 45);
+        lblTitle.TabIndex = 0;
+        lblTitle.Text = "New Order";
         // 
         // lblAlertMessage
         // 
-        this.lblAlertMessage.BackColor = System.Drawing.Color.FromArgb(254, 242, 242);
-        this.lblAlertMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        this.lblAlertMessage.Dock = System.Windows.Forms.DockStyle.Top;
-        this.lblAlertMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-        this.lblAlertMessage.ForeColor = System.Drawing.Color.FromArgb(220, 38, 38);
-        this.lblAlertMessage.Location = new System.Drawing.Point(24, 68);
-        this.lblAlertMessage.Name = "lblAlertMessage";
-        this.lblAlertMessage.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-        this.lblAlertMessage.Size = new System.Drawing.Size(996, 32);
-        this.lblAlertMessage.TabIndex = 1;
-        this.lblAlertMessage.Text = "Alert message";
-        this.lblAlertMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.lblAlertMessage.Visible = false;
+        lblAlertMessage.BackColor = Color.FromArgb(254, 242, 242);
+        lblAlertMessage.BorderStyle = BorderStyle.FixedSingle;
+        lblAlertMessage.Dock = DockStyle.Top;
+        lblAlertMessage.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblAlertMessage.ForeColor = Color.FromArgb(220, 38, 38);
+        lblAlertMessage.Location = new Point(24, 68);
+        lblAlertMessage.Name = "lblAlertMessage";
+        lblAlertMessage.Padding = new Padding(8, 0, 0, 0);
+        lblAlertMessage.Size = new Size(1072, 32);
+        lblAlertMessage.TabIndex = 1;
+        lblAlertMessage.Text = "Alert message";
+        lblAlertMessage.TextAlign = ContentAlignment.MiddleLeft;
+        lblAlertMessage.Visible = false;
         // 
         // grpOrderInfo
         // 
-        this.grpOrderInfo.BackColor = System.Drawing.Color.Transparent;
-        this.grpOrderInfo.Controls.Add(this.txtOrderDateTime);
-        this.grpOrderInfo.Controls.Add(this.lblOrderDateTime);
-        this.grpOrderInfo.Controls.Add(this.numTableNumber);
-        this.grpOrderInfo.Controls.Add(this.lblTableNumber);
-        this.grpOrderInfo.Controls.Add(this.txtCustomerName);
-        this.grpOrderInfo.Controls.Add(this.lblCustomerName);
-        this.grpOrderInfo.Controls.Add(this.txtOrderNumber);
-        this.grpOrderInfo.Controls.Add(this.lblOrderNumber);
-        this.grpOrderInfo.Dock = System.Windows.Forms.DockStyle.Top;
-        this.grpOrderInfo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.grpOrderInfo.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpOrderInfo.Location = new System.Drawing.Point(24, 100);
-        this.grpOrderInfo.Name = "grpOrderInfo";
-        this.grpOrderInfo.Size = new System.Drawing.Size(996, 92);
-        this.grpOrderInfo.TabIndex = 2;
-        this.grpOrderInfo.TabStop = false;
-        this.grpOrderInfo.Text = "Order Information";
+        grpOrderInfo.BackColor = Color.Transparent;
+        grpOrderInfo.Controls.Add(txtOrderDateTime);
+        grpOrderInfo.Controls.Add(lblOrderDateTime);
+        grpOrderInfo.Controls.Add(numTableNumber);
+        grpOrderInfo.Controls.Add(lblTableNumber);
+        grpOrderInfo.Controls.Add(txtCustomerName);
+        grpOrderInfo.Controls.Add(lblCustomerName);
+        grpOrderInfo.Controls.Add(txtOrderNumber);
+        grpOrderInfo.Controls.Add(lblOrderNumber);
+        grpOrderInfo.Dock = DockStyle.Top;
+        grpOrderInfo.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        grpOrderInfo.ForeColor = Color.FromArgb(15, 23, 42);
+        grpOrderInfo.Location = new Point(24, 100);
+        grpOrderInfo.Name = "grpOrderInfo";
+        grpOrderInfo.Size = new Size(1072, 92);
+        grpOrderInfo.TabIndex = 2;
+        grpOrderInfo.TabStop = false;
+        grpOrderInfo.Text = "Order Information";
         // 
         // txtOrderDateTime
         // 
-        this.txtOrderDateTime.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        this.txtOrderDateTime.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.txtOrderDateTime.Location = new System.Drawing.Point(620, 48);
-        this.txtOrderDateTime.Name = "txtOrderDateTime";
-        this.txtOrderDateTime.ReadOnly = true;
-        this.txtOrderDateTime.Size = new System.Drawing.Size(200, 29);
-        this.txtOrderDateTime.TabIndex = 7;
+        txtOrderDateTime.BackColor = Color.FromArgb(241, 245, 249);
+        txtOrderDateTime.Font = new Font("Segoe UI", 9.5F);
+        txtOrderDateTime.Location = new Point(620, 48);
+        txtOrderDateTime.Name = "txtOrderDateTime";
+        txtOrderDateTime.ReadOnly = true;
+        txtOrderDateTime.Size = new Size(200, 33);
+        txtOrderDateTime.TabIndex = 7;
         // 
         // lblOrderDateTime
         // 
-        this.lblOrderDateTime.AutoSize = true;
-        this.lblOrderDateTime.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblOrderDateTime.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblOrderDateTime.Location = new System.Drawing.Point(616, 26);
-        this.lblOrderDateTime.Name = "lblOrderDateTime";
-        this.lblOrderDateTime.Size = new System.Drawing.Size(95, 20);
-        this.lblOrderDateTime.TabIndex = 6;
-        this.lblOrderDateTime.Text = "Date & Time:";
+        lblOrderDateTime.AutoSize = true;
+        lblOrderDateTime.Font = new Font("Segoe UI", 8.5F);
+        lblOrderDateTime.ForeColor = Color.FromArgb(71, 85, 105);
+        lblOrderDateTime.Location = new Point(616, 26);
+        lblOrderDateTime.Name = "lblOrderDateTime";
+        lblOrderDateTime.Size = new Size(97, 23);
+        lblOrderDateTime.TabIndex = 6;
+        lblOrderDateTime.Text = "Date & Time:";
         // 
         // numTableNumber
         // 
-        this.numTableNumber.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.numTableNumber.Location = new System.Drawing.Point(470, 48);
-        this.numTableNumber.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-        this.numTableNumber.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-        this.numTableNumber.Name = "numTableNumber";
-        this.numTableNumber.Size = new System.Drawing.Size(120, 29);
-        this.numTableNumber.TabIndex = 5;
-        this.numTableNumber.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
+        numTableNumber.Font = new Font("Segoe UI", 9.5F);
+        numTableNumber.Location = new Point(470, 48);
+        numTableNumber.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
+        numTableNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+        numTableNumber.Name = "numTableNumber";
+        numTableNumber.Size = new Size(120, 33);
+        numTableNumber.TabIndex = 5;
+        numTableNumber.Value = new decimal(new int[] { 4, 0, 0, 0 });
         // 
         // lblTableNumber
         // 
-        this.lblTableNumber.AutoSize = true;
-        this.lblTableNumber.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblTableNumber.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblTableNumber.Location = new System.Drawing.Point(466, 26);
-        this.lblTableNumber.Name = "lblTableNumber";
-        this.lblTableNumber.Size = new System.Drawing.Size(117, 20);
-        this.lblTableNumber.TabIndex = 4;
-        this.lblTableNumber.Text = "Table Number: *";
+        lblTableNumber.AutoSize = true;
+        lblTableNumber.Font = new Font("Segoe UI", 8.5F);
+        lblTableNumber.ForeColor = Color.FromArgb(71, 85, 105);
+        lblTableNumber.Location = new Point(466, 26);
+        lblTableNumber.Name = "lblTableNumber";
+        lblTableNumber.Size = new Size(133, 23);
+        lblTableNumber.TabIndex = 4;
+        lblTableNumber.Text = "Table Number: *";
         // 
         // txtCustomerName
         // 
-        this.txtCustomerName.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.txtCustomerName.Location = new System.Drawing.Point(170, 48);
-        this.txtCustomerName.Name = "txtCustomerName";
-        this.txtCustomerName.PlaceholderText = "Enter customer name";
-        this.txtCustomerName.Size = new System.Drawing.Size(270, 29);
-        this.txtCustomerName.TabIndex = 3;
-        this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
+        txtCustomerName.Font = new Font("Segoe UI", 9.5F);
+        txtCustomerName.Location = new Point(170, 48);
+        txtCustomerName.Name = "txtCustomerName";
+        txtCustomerName.PlaceholderText = "Enter customer name";
+        txtCustomerName.Size = new Size(270, 33);
+        txtCustomerName.TabIndex = 3;
+        txtCustomerName.TextChanged += txtCustomerName_TextChanged;
         // 
         // lblCustomerName
         // 
-        this.lblCustomerName.AutoSize = true;
-        this.lblCustomerName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblCustomerName.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblCustomerName.Location = new System.Drawing.Point(166, 26);
-        this.lblCustomerName.Name = "lblCustomerName";
-        this.lblCustomerName.Size = new System.Drawing.Size(130, 20);
-        this.lblCustomerName.TabIndex = 2;
-        this.lblCustomerName.Text = "Customer Name: *";
+        lblCustomerName.AutoSize = true;
+        lblCustomerName.Font = new Font("Segoe UI", 8.5F);
+        lblCustomerName.ForeColor = Color.FromArgb(71, 85, 105);
+        lblCustomerName.Location = new Point(166, 26);
+        lblCustomerName.Name = "lblCustomerName";
+        lblCustomerName.Size = new Size(151, 23);
+        lblCustomerName.TabIndex = 2;
+        lblCustomerName.Text = "Customer Name: *";
         // 
         // txtOrderNumber
         // 
-        this.txtOrderNumber.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        this.txtOrderNumber.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.txtOrderNumber.Location = new System.Drawing.Point(18, 48);
-        this.txtOrderNumber.Name = "txtOrderNumber";
-        this.txtOrderNumber.ReadOnly = true;
-        this.txtOrderNumber.Size = new System.Drawing.Size(120, 29);
-        this.txtOrderNumber.TabIndex = 1;
-        this.txtOrderNumber.Text = "#116";
-        this.txtOrderNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+        txtOrderNumber.BackColor = Color.FromArgb(241, 245, 249);
+        txtOrderNumber.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        txtOrderNumber.Location = new Point(18, 48);
+        txtOrderNumber.Name = "txtOrderNumber";
+        txtOrderNumber.ReadOnly = true;
+        txtOrderNumber.Size = new Size(120, 33);
+        txtOrderNumber.TabIndex = 1;
+        txtOrderNumber.Text = "#116";
+        txtOrderNumber.TextAlign = HorizontalAlignment.Center;
         // 
         // lblOrderNumber
         // 
-        this.lblOrderNumber.AutoSize = true;
-        this.lblOrderNumber.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblOrderNumber.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblOrderNumber.Location = new System.Drawing.Point(14, 26);
-        this.lblOrderNumber.Name = "lblOrderNumber";
-        this.lblOrderNumber.Size = new System.Drawing.Size(65, 20);
-        this.lblOrderNumber.TabIndex = 0;
-        this.lblOrderNumber.Text = "Order #:";
+        lblOrderNumber.AutoSize = true;
+        lblOrderNumber.Font = new Font("Segoe UI", 8.5F);
+        lblOrderNumber.ForeColor = Color.FromArgb(71, 85, 105);
+        lblOrderNumber.Location = new Point(14, 26);
+        lblOrderNumber.Name = "lblOrderNumber";
+        lblOrderNumber.Size = new Size(73, 23);
+        lblOrderNumber.TabIndex = 0;
+        lblOrderNumber.Text = "Order #:";
         // 
         // grpAddItem
         // 
-        this.grpAddItem.BackColor = System.Drawing.Color.Transparent;
-        this.grpAddItem.Controls.Add(this.btnAddItem);
-        this.grpAddItem.Controls.Add(this.numQuantity);
-        this.grpAddItem.Controls.Add(this.lblQuantity);
-        this.grpAddItem.Controls.Add(this.cboMenuItems);
-        this.grpAddItem.Controls.Add(this.lblMenuItem);
-        this.grpAddItem.Dock = System.Windows.Forms.DockStyle.Top;
-        this.grpAddItem.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.grpAddItem.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpAddItem.Location = new System.Drawing.Point(24, 192);
-        this.grpAddItem.Name = "grpAddItem";
-        this.grpAddItem.Size = new System.Drawing.Size(996, 85);
-        this.grpAddItem.TabIndex = 3;
-        this.grpAddItem.TabStop = false;
-        this.grpAddItem.Text = "Add Menu Item";
+        grpAddItem.BackColor = Color.Transparent;
+        grpAddItem.Controls.Add(btnAddItem);
+        grpAddItem.Controls.Add(numQuantity);
+        grpAddItem.Controls.Add(lblQuantity);
+        grpAddItem.Controls.Add(cboMenuItems);
+        grpAddItem.Controls.Add(lblMenuItem);
+        grpAddItem.Dock = DockStyle.Top;
+        grpAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        grpAddItem.ForeColor = Color.FromArgb(15, 23, 42);
+        grpAddItem.Location = new Point(24, 192);
+        grpAddItem.Name = "grpAddItem";
+        grpAddItem.Size = new Size(1072, 85);
+        grpAddItem.TabIndex = 3;
+        grpAddItem.TabStop = false;
+        grpAddItem.Text = "Add Menu Item";
         // 
         // btnAddItem
         // 
-        this.btnAddItem.BackColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnAddItem.FlatAppearance.BorderSize = 0;
-        this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnAddItem.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.btnAddItem.ForeColor = System.Drawing.Color.White;
-        this.btnAddItem.Location = new System.Drawing.Point(540, 42);
-        this.btnAddItem.Name = "btnAddItem";
-        this.btnAddItem.Size = new System.Drawing.Size(140, 31);
-        this.btnAddItem.TabIndex = 4;
-        this.btnAddItem.Text = "+ Add to Order";
-        this.btnAddItem.UseVisualStyleBackColor = false;
-        this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+        btnAddItem.BackColor = Color.FromArgb(30, 58, 95);
+        btnAddItem.Cursor = Cursors.Hand;
+        btnAddItem.FlatAppearance.BorderSize = 0;
+        btnAddItem.FlatStyle = FlatStyle.Flat;
+        btnAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        btnAddItem.ForeColor = Color.White;
+        btnAddItem.Location = new Point(540, 42);
+        btnAddItem.Name = "btnAddItem";
+        btnAddItem.Size = new Size(140, 31);
+        btnAddItem.TabIndex = 4;
+        btnAddItem.Text = "+ Add to Order";
+        btnAddItem.UseVisualStyleBackColor = false;
+        btnAddItem.Click += btnAddItem_Click;
         // 
         // numQuantity
         // 
-        this.numQuantity.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.numQuantity.Location = new System.Drawing.Point(420, 43);
-        this.numQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-        this.numQuantity.Name = "numQuantity";
-        this.numQuantity.Size = new System.Drawing.Size(90, 29);
-        this.numQuantity.TabIndex = 3;
-        this.numQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+        numQuantity.Font = new Font("Segoe UI", 9.5F);
+        numQuantity.Location = new Point(420, 43);
+        numQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+        numQuantity.Name = "numQuantity";
+        numQuantity.Size = new Size(90, 33);
+        numQuantity.TabIndex = 3;
+        numQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
         // 
         // lblQuantity
         // 
-        this.lblQuantity.AutoSize = true;
-        this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblQuantity.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblQuantity.Location = new System.Drawing.Point(416, 22);
-        this.lblQuantity.Name = "lblQuantity";
-        this.lblQuantity.Size = new System.Drawing.Size(68, 20);
-        this.lblQuantity.TabIndex = 2;
-        this.lblQuantity.Text = "Quantity:";
+        lblQuantity.AutoSize = true;
+        lblQuantity.Font = new Font("Segoe UI", 8.5F);
+        lblQuantity.ForeColor = Color.FromArgb(71, 85, 105);
+        lblQuantity.Location = new Point(416, 22);
+        lblQuantity.Name = "lblQuantity";
+        lblQuantity.Size = new Size(80, 23);
+        lblQuantity.TabIndex = 2;
+        lblQuantity.Text = "Quantity:";
         // 
         // cboMenuItems
         // 
-        this.cboMenuItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.cboMenuItems.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.cboMenuItems.FormattingEnabled = true;
-        this.cboMenuItems.Location = new System.Drawing.Point(18, 43);
-        this.cboMenuItems.Name = "cboMenuItems";
-        this.cboMenuItems.Size = new System.Drawing.Size(370, 29);
-        this.cboMenuItems.TabIndex = 1;
+        cboMenuItems.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboMenuItems.Font = new Font("Segoe UI", 9.5F);
+        cboMenuItems.FormattingEnabled = true;
+        cboMenuItems.Location = new Point(18, 43);
+        cboMenuItems.Name = "cboMenuItems";
+        cboMenuItems.Size = new Size(370, 33);
+        cboMenuItems.TabIndex = 1;
         // 
         // lblMenuItem
         // 
-        this.lblMenuItem.AutoSize = true;
-        this.lblMenuItem.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblMenuItem.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-        this.lblMenuItem.Location = new System.Drawing.Point(14, 22);
-        this.lblMenuItem.Name = "lblMenuItem";
-        this.lblMenuItem.Size = new System.Drawing.Size(86, 20);
-        this.lblMenuItem.TabIndex = 0;
-        this.lblMenuItem.Text = "Select Item:";
+        lblMenuItem.AutoSize = true;
+        lblMenuItem.Font = new Font("Segoe UI", 8.5F);
+        lblMenuItem.ForeColor = Color.FromArgb(71, 85, 105);
+        lblMenuItem.Location = new Point(14, 22);
+        lblMenuItem.Name = "lblMenuItem";
+        lblMenuItem.Size = new Size(99, 23);
+        lblMenuItem.TabIndex = 0;
+        lblMenuItem.Text = "Select Item:";
         // 
         // grpOrderItems
         // 
-        this.grpOrderItems.BackColor = System.Drawing.Color.Transparent;
-        this.grpOrderItems.Controls.Add(this.dgvOrderItems);
-        this.grpOrderItems.Controls.Add(this.pnlOrderItemsBottom);
-        this.grpOrderItems.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.grpOrderItems.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-        this.grpOrderItems.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        this.grpOrderItems.Location = new System.Drawing.Point(24, 277);
-        this.grpOrderItems.Name = "grpOrderItems";
-        this.grpOrderItems.Padding = new System.Windows.Forms.Padding(12, 10, 12, 12);
-        this.grpOrderItems.Size = new System.Drawing.Size(996, 329);
-        this.grpOrderItems.TabIndex = 4;
-        this.grpOrderItems.TabStop = false;
-        this.grpOrderItems.Text = "Order Items";
+        grpOrderItems.BackColor = Color.Transparent;
+        grpOrderItems.Controls.Add(dgvOrderItems);
+        grpOrderItems.Controls.Add(pnlOrderItemsBottom);
+        grpOrderItems.Dock = DockStyle.Fill;
+        grpOrderItems.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        grpOrderItems.ForeColor = Color.FromArgb(15, 23, 42);
+        grpOrderItems.Location = new Point(24, 277);
+        grpOrderItems.Name = "grpOrderItems";
+        grpOrderItems.Padding = new Padding(12, 10, 12, 12);
+        grpOrderItems.Size = new Size(1072, 206);
+        grpOrderItems.TabIndex = 4;
+        grpOrderItems.TabStop = false;
+        grpOrderItems.Text = "Order Items";
         // 
         // dgvOrderItems
         // 
-        this.dgvOrderItems.AllowUserToAddRows = false;
-        this.dgvOrderItems.AllowUserToDeleteRows = false;
-        this.dgvOrderItems.AllowUserToResizeRows = false;
-        dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-        this.dgvOrderItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-        this.dgvOrderItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        this.dgvOrderItems.BackgroundColor = System.Drawing.Color.White;
-        this.dgvOrderItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-        this.dgvOrderItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-        dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-        dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-        this.dgvOrderItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-        this.dgvOrderItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dgvOrderItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colItem,
-            this.colPrice,
-            this.colQty,
-            this.colSubtotal,
-            this.colRemove});
-        dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-        dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-        dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(219, 234, 254);
-        dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-        this.dgvOrderItems.DefaultCellStyle = dataGridViewCellStyle3;
-        this.dgvOrderItems.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.dgvOrderItems.EnableHeadersVisualStyles = false;
-        this.dgvOrderItems.GridColor = System.Drawing.Color.FromArgb(226, 232, 240);
-        this.dgvOrderItems.Location = new System.Drawing.Point(12, 33);
-        this.dgvOrderItems.MultiSelect = false;
-        this.dgvOrderItems.Name = "dgvOrderItems";
-        this.dgvOrderItems.ReadOnly = true;
-        this.dgvOrderItems.RowHeadersVisible = false;
-        this.dgvOrderItems.RowHeadersWidth = 51;
-        this.dgvOrderItems.RowTemplate.Height = 36;
-        this.dgvOrderItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        this.dgvOrderItems.Size = new System.Drawing.Size(972, 244);
-        this.dgvOrderItems.TabIndex = 0;
-        this.dgvOrderItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderItems_CellContentClick);
+        dgvOrderItems.AllowUserToAddRows = false;
+        dgvOrderItems.AllowUserToDeleteRows = false;
+        dgvOrderItems.AllowUserToResizeRows = false;
+        dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
+        dgvOrderItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+        dgvOrderItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvOrderItems.BackgroundColor = Color.White;
+        dgvOrderItems.BorderStyle = BorderStyle.Fixed3D;
+        dgvOrderItems.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle2.BackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        dataGridViewCellStyle2.ForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle2.Padding = new Padding(4, 6, 4, 6);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+        dgvOrderItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+        dgvOrderItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvOrderItems.Columns.AddRange(new DataGridViewColumn[] { colItem, colPrice, colQty, colSubtotal, colRemove });
+        dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle3.BackColor = Color.White;
+        dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
+        dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle3.Padding = new Padding(4);
+        dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(219, 234, 254);
+        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+        dgvOrderItems.DefaultCellStyle = dataGridViewCellStyle3;
+        dgvOrderItems.Dock = DockStyle.Fill;
+        dgvOrderItems.EnableHeadersVisualStyles = false;
+        dgvOrderItems.GridColor = Color.FromArgb(226, 232, 240);
+        dgvOrderItems.Location = new Point(12, 37);
+        dgvOrderItems.MultiSelect = false;
+        dgvOrderItems.Name = "dgvOrderItems";
+        dgvOrderItems.ReadOnly = true;
+        dgvOrderItems.RowHeadersVisible = false;
+        dgvOrderItems.RowHeadersWidth = 51;
+        dgvOrderItems.RowTemplate.Height = 36;
+        dgvOrderItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvOrderItems.Size = new Size(1048, 117);
+        dgvOrderItems.TabIndex = 0;
+        dgvOrderItems.CellContentClick += dgvOrderItems_CellContentClick;
         // 
         // colItem
         // 
-        this.colItem.FillWeight = 160F;
-        this.colItem.HeaderText = "Item Name";
-        this.colItem.MinimumWidth = 6;
-        this.colItem.Name = "colItem";
-        this.colItem.ReadOnly = true;
+        colItem.FillWeight = 160F;
+        colItem.HeaderText = "Item Name";
+        colItem.MinimumWidth = 6;
+        colItem.Name = "colItem";
+        colItem.ReadOnly = true;
         // 
         // colPrice
         // 
-        this.colPrice.FillWeight = 90F;
-        this.colPrice.HeaderText = "Unit Price";
-        this.colPrice.MinimumWidth = 6;
-        this.colPrice.Name = "colPrice";
-        this.colPrice.ReadOnly = true;
+        colPrice.FillWeight = 90F;
+        colPrice.HeaderText = "Unit Price";
+        colPrice.MinimumWidth = 6;
+        colPrice.Name = "colPrice";
+        colPrice.ReadOnly = true;
         // 
         // colQty
         // 
-        this.colQty.FillWeight = 70F;
-        this.colQty.HeaderText = "Quantity";
-        this.colQty.MinimumWidth = 6;
-        this.colQty.Name = "colQty";
-        this.colQty.ReadOnly = true;
+        colQty.FillWeight = 70F;
+        colQty.HeaderText = "Quantity";
+        colQty.MinimumWidth = 6;
+        colQty.Name = "colQty";
+        colQty.ReadOnly = true;
         // 
         // colSubtotal
         // 
-        this.colSubtotal.FillWeight = 90F;
-        this.colSubtotal.HeaderText = "Subtotal";
-        this.colSubtotal.MinimumWidth = 6;
-        this.colSubtotal.Name = "colSubtotal";
-        this.colSubtotal.ReadOnly = true;
+        colSubtotal.FillWeight = 90F;
+        colSubtotal.HeaderText = "Subtotal";
+        colSubtotal.MinimumWidth = 6;
+        colSubtotal.Name = "colSubtotal";
+        colSubtotal.ReadOnly = true;
         // 
         // colRemove
         // 
-        this.colRemove.FillWeight = 70F;
-        this.colRemove.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.colRemove.HeaderText = "Action";
-        this.colRemove.MinimumWidth = 6;
-        this.colRemove.Name = "colRemove";
-        this.colRemove.ReadOnly = true;
-        this.colRemove.Text = "Remove";
-        this.colRemove.UseColumnTextForButtonValue = true;
+        colRemove.FillWeight = 70F;
+        colRemove.FlatStyle = FlatStyle.System;
+        colRemove.HeaderText = "Action";
+        colRemove.MinimumWidth = 6;
+        colRemove.Name = "colRemove";
+        colRemove.ReadOnly = true;
+        colRemove.Text = "Remove";
+        colRemove.UseColumnTextForButtonValue = true;
         // 
         // pnlOrderItemsBottom
         // 
-        this.pnlOrderItemsBottom.BackColor = System.Drawing.Color.Transparent;
-        this.pnlOrderItemsBottom.Controls.Add(this.lblTotal);
-        this.pnlOrderItemsBottom.Controls.Add(this.lblSubtotalNote);
-        this.pnlOrderItemsBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-        this.pnlOrderItemsBottom.Location = new System.Drawing.Point(12, 277);
-        this.pnlOrderItemsBottom.Name = "pnlOrderItemsBottom";
-        this.pnlOrderItemsBottom.Size = new System.Drawing.Size(972, 40);
-        this.pnlOrderItemsBottom.TabIndex = 1;
+        pnlOrderItemsBottom.BackColor = Color.Transparent;
+        pnlOrderItemsBottom.Controls.Add(lblTotal);
+        pnlOrderItemsBottom.Controls.Add(lblSubtotalNote);
+        pnlOrderItemsBottom.Dock = DockStyle.Bottom;
+        pnlOrderItemsBottom.Location = new Point(12, 154);
+        pnlOrderItemsBottom.Name = "pnlOrderItemsBottom";
+        pnlOrderItemsBottom.Size = new Size(1048, 40);
+        pnlOrderItemsBottom.TabIndex = 1;
         // 
         // lblTotal
         // 
-        this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
-        this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-        this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.lblTotal.Location = new System.Drawing.Point(672, 0);
-        this.lblTotal.Name = "lblTotal";
-        this.lblTotal.Size = new System.Drawing.Size(300, 40);
-        this.lblTotal.TabIndex = 1;
-        this.lblTotal.Text = "Total: 0 ETB";
-        this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        lblTotal.Dock = DockStyle.Right;
+        lblTotal.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+        lblTotal.ForeColor = Color.FromArgb(30, 58, 95);
+        lblTotal.Location = new Point(748, 0);
+        lblTotal.Name = "lblTotal";
+        lblTotal.Size = new Size(300, 40);
+        lblTotal.TabIndex = 1;
+        lblTotal.Text = "Total: 0 ETB";
+        lblTotal.TextAlign = ContentAlignment.MiddleRight;
         // 
         // lblSubtotalNote
         // 
-        this.lblSubtotalNote.Dock = System.Windows.Forms.DockStyle.Left;
-        this.lblSubtotalNote.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-        this.lblSubtotalNote.ForeColor = System.Drawing.Color.FromArgb(107, 114, 128);
-        this.lblSubtotalNote.Location = new System.Drawing.Point(0, 0);
-        this.lblSubtotalNote.Name = "lblSubtotalNote";
-        this.lblSubtotalNote.Size = new System.Drawing.Size(400, 40);
-        this.lblSubtotalNote.TabIndex = 0;
-        this.lblSubtotalNote.Text = "Subtotals and total update automatically when items change.";
-        this.lblSubtotalNote.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        lblSubtotalNote.Dock = DockStyle.Left;
+        lblSubtotalNote.Font = new Font("Segoe UI", 8.5F);
+        lblSubtotalNote.ForeColor = Color.FromArgb(107, 114, 128);
+        lblSubtotalNote.Location = new Point(0, 0);
+        lblSubtotalNote.Name = "lblSubtotalNote";
+        lblSubtotalNote.Size = new Size(400, 40);
+        lblSubtotalNote.TabIndex = 0;
+        lblSubtotalNote.Text = "Subtotals and total update automatically when items change.";
+        lblSubtotalNote.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // pnlActions
         // 
-        this.pnlActions.BackColor = System.Drawing.Color.Transparent;
-        this.pnlActions.Controls.Add(this.btnCancel);
-        this.pnlActions.Controls.Add(this.btnViewOrders);
-        this.pnlActions.Controls.Add(this.btnClearForm);
-        this.pnlActions.Controls.Add(this.btnSaveOrder);
-        this.pnlActions.Dock = System.Windows.Forms.DockStyle.Bottom;
-        this.pnlActions.Location = new System.Drawing.Point(24, 606);
-        this.pnlActions.Name = "pnlActions";
-        this.pnlActions.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-        this.pnlActions.Size = new System.Drawing.Size(996, 50);
-        this.pnlActions.TabIndex = 5;
+        pnlActions.BackColor = Color.Transparent;
+        pnlActions.Controls.Add(btnCancel);
+        pnlActions.Controls.Add(btnViewOrders);
+        pnlActions.Controls.Add(btnClearForm);
+        pnlActions.Controls.Add(btnSaveOrder);
+        pnlActions.Dock = DockStyle.Bottom;
+        pnlActions.Location = new Point(24, 483);
+        pnlActions.Name = "pnlActions";
+        pnlActions.Padding = new Padding(0, 8, 0, 0);
+        pnlActions.Size = new Size(1072, 50);
+        pnlActions.TabIndex = 5;
         // 
         // btnCancel
         // 
-        this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-        this.btnCancel.BackColor = System.Drawing.Color.White;
-        this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnCancel.Location = new System.Drawing.Point(886, 8);
-        this.btnCancel.Name = "btnCancel";
-        this.btnCancel.Size = new System.Drawing.Size(110, 36);
-        this.btnCancel.TabIndex = 3;
-        this.btnCancel.Text = "Cancel";
-        this.btnCancel.UseVisualStyleBackColor = false;
-        this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+        btnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnCancel.BackColor = Color.White;
+        btnCancel.Cursor = Cursors.Hand;
+        btnCancel.FlatStyle = FlatStyle.System;
+        btnCancel.Font = new Font("Segoe UI", 9.5F);
+        btnCancel.Location = new Point(962, 8);
+        btnCancel.Name = "btnCancel";
+        btnCancel.Size = new Size(110, 36);
+        btnCancel.TabIndex = 3;
+        btnCancel.Text = "Cancel";
+        btnCancel.UseVisualStyleBackColor = false;
+        btnCancel.Click += btnCancel_Click;
         // 
         // btnViewOrders
         // 
-        this.btnViewOrders.BackColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.btnViewOrders.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnViewOrders.FlatAppearance.BorderSize = 0;
-        this.btnViewOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnViewOrders.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.btnViewOrders.ForeColor = System.Drawing.Color.White;
-        this.btnViewOrders.Location = new System.Drawing.Point(260, 8);
-        this.btnViewOrders.Name = "btnViewOrders";
-        this.btnViewOrders.Size = new System.Drawing.Size(140, 36);
-        this.btnViewOrders.TabIndex = 2;
-        this.btnViewOrders.Text = "📋 View Orders";
-        this.btnViewOrders.UseVisualStyleBackColor = false;
-        this.btnViewOrders.Visible = false;
-        this.btnViewOrders.Click += new System.EventHandler(this.btnViewOrders_Click);
+        btnViewOrders.BackColor = Color.FromArgb(30, 58, 95);
+        btnViewOrders.Cursor = Cursors.Hand;
+        btnViewOrders.FlatAppearance.BorderSize = 0;
+        btnViewOrders.FlatStyle = FlatStyle.Flat;
+        btnViewOrders.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        btnViewOrders.ForeColor = Color.White;
+        btnViewOrders.Location = new Point(260, 8);
+        btnViewOrders.Name = "btnViewOrders";
+        btnViewOrders.Size = new Size(140, 36);
+        btnViewOrders.TabIndex = 2;
+        btnViewOrders.Text = "📋 View Orders";
+        btnViewOrders.UseVisualStyleBackColor = false;
+        btnViewOrders.Visible = false;
+        btnViewOrders.Click += btnViewOrders_Click;
         // 
         // btnClearForm
         // 
-        this.btnClearForm.BackColor = System.Drawing.Color.White;
-        this.btnClearForm.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnClearForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        this.btnClearForm.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.btnClearForm.Location = new System.Drawing.Point(135, 8);
-        this.btnClearForm.Name = "btnClearForm";
-        this.btnClearForm.Size = new System.Drawing.Size(110, 36);
-        this.btnClearForm.TabIndex = 1;
-        this.btnClearForm.Text = "Clear Form";
-        this.btnClearForm.UseVisualStyleBackColor = false;
-        this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+        btnClearForm.BackColor = Color.White;
+        btnClearForm.Cursor = Cursors.Hand;
+        btnClearForm.FlatStyle = FlatStyle.System;
+        btnClearForm.Font = new Font("Segoe UI", 9.5F);
+        btnClearForm.Location = new Point(135, 8);
+        btnClearForm.Name = "btnClearForm";
+        btnClearForm.Size = new Size(110, 36);
+        btnClearForm.TabIndex = 1;
+        btnClearForm.Text = "Clear Form";
+        btnClearForm.UseVisualStyleBackColor = false;
+        btnClearForm.Click += btnClearForm_Click;
         // 
         // btnSaveOrder
         // 
-        this.btnSaveOrder.BackColor = System.Drawing.Color.FromArgb(30, 58, 95);
-        this.btnSaveOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.btnSaveOrder.FlatAppearance.BorderSize = 0;
-        this.btnSaveOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnSaveOrder.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-        this.btnSaveOrder.ForeColor = System.Drawing.Color.White;
-        this.btnSaveOrder.Location = new System.Drawing.Point(0, 8);
-        this.btnSaveOrder.Name = "btnSaveOrder";
-        this.btnSaveOrder.Size = new System.Drawing.Size(125, 36);
-        this.btnSaveOrder.TabIndex = 0;
-        this.btnSaveOrder.Text = "💾 Save Order";
-        this.btnSaveOrder.UseVisualStyleBackColor = false;
-        this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
+        btnSaveOrder.BackColor = Color.FromArgb(30, 58, 95);
+        btnSaveOrder.Cursor = Cursors.Hand;
+        btnSaveOrder.FlatAppearance.BorderSize = 0;
+        btnSaveOrder.FlatStyle = FlatStyle.Flat;
+        btnSaveOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        btnSaveOrder.ForeColor = Color.White;
+        btnSaveOrder.Location = new Point(0, 8);
+        btnSaveOrder.Name = "btnSaveOrder";
+        btnSaveOrder.Size = new Size(125, 36);
+        btnSaveOrder.TabIndex = 0;
+        btnSaveOrder.Text = "💾 Save Order";
+        btnSaveOrder.UseVisualStyleBackColor = false;
+        btnSaveOrder.Click += btnSaveOrder_Click;
         // 
         // NewOrderView
         // 
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-        this.BackColor = System.Drawing.Color.FromArgb(243, 244, 246);
-        this.Controls.Add(this.grpOrderItems);
-        this.Controls.Add(this.pnlActions);
-        this.Controls.Add(this.grpAddItem);
-        this.Controls.Add(this.grpOrderInfo);
-        this.Controls.Add(this.lblAlertMessage);
-        this.Controls.Add(this.pnlHeader);
-        this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-        this.Name = "NewOrderView";
-        this.Padding = new System.Windows.Forms.Padding(24, 16, 24, 20);
-        this.Size = new System.Drawing.Size(1044, 676);
-        this.pnlHeader.ResumeLayout(false);
-        this.pnlHeader.PerformLayout();
-        this.grpOrderInfo.ResumeLayout(false);
-        this.grpOrderInfo.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.numTableNumber)).EndInit();
-        this.grpAddItem.ResumeLayout(false);
-        this.grpAddItem.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
-        this.grpOrderItems.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).EndInit();
-        this.pnlOrderItemsBottom.ResumeLayout(false);
-        this.pnlActions.ResumeLayout(false);
-        this.ResumeLayout(false);
+        AutoScaleDimensions = new SizeF(144F, 144F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.FromArgb(243, 244, 246);
+        Controls.Add(grpOrderItems);
+        Controls.Add(pnlActions);
+        Controls.Add(grpAddItem);
+        Controls.Add(grpOrderInfo);
+        Controls.Add(lblAlertMessage);
+        Controls.Add(pnlHeader);
+        Name = "NewOrderView";
+        Padding = new Padding(24, 16, 24, 20);
+        Size = new Size(1120, 553);
+        pnlHeader.ResumeLayout(false);
+        pnlHeader.PerformLayout();
+        grpOrderInfo.ResumeLayout(false);
+        grpOrderInfo.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)numTableNumber).EndInit();
+        grpAddItem.ResumeLayout(false);
+        grpAddItem.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)numQuantity).EndInit();
+        grpOrderItems.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)dgvOrderItems).EndInit();
+        pnlOrderItemsBottom.ResumeLayout(false);
+        pnlActions.ResumeLayout(false);
+        ResumeLayout(false);
     }
 
     private System.Windows.Forms.Panel pnlHeader;
@@ -616,3 +591,4 @@ partial class NewOrderView
     private System.Windows.Forms.Button btnViewOrders;
     private System.Windows.Forms.Button btnCancel;
 }
+
