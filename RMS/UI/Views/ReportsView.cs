@@ -23,6 +23,7 @@ public partial class ReportsView : BaseView, INavigationAware
 
         if (!DesignMode)
         {
+            dgvSummary.CellDoubleClick += dgvSummary_CellDoubleClick;
             cboDateFilter.SelectedIndex = 0;
             cboStatusFilter.SelectedIndex = 0;
 

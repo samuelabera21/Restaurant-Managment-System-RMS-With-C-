@@ -27,6 +27,7 @@ public partial class MenuView : BaseView
             return;
         }
 
+        dgvMenu.CellDoubleClick += dgvMenu_CellDoubleClick;
         cboAvailability.SelectedIndex = 0; // Default to "All Items"
         _store.OnMenuChanged += () =>
         {
@@ -138,7 +139,7 @@ public partial class MenuView : BaseView
         }
     }
 
-    private void dgvMenu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    private void dgvMenu_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0 && dgvMenu.Rows[e.RowIndex].Tag is MenuItem item)
         {

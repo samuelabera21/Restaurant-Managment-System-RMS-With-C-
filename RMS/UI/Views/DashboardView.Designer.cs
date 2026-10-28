@@ -422,7 +422,6 @@ partial class DashboardView
         this.dgvRecentOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
         this.dgvRecentOrders.Size = new System.Drawing.Size(1048, 219);
         this.dgvRecentOrders.TabIndex = 1;
-        this.dgvRecentOrders.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecentOrders_CellDoubleClick);
         // 
         // colOrderNum
         // 

@@ -481,7 +481,6 @@ partial class ReportsView
         dgvSummary.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         dgvSummary.Size = new Size(1048, 186);
         dgvSummary.TabIndex = 1;
-        dgvSummary.CellDoubleClick += dgvSummary_CellDoubleClick;
         // 
         // colOrderNum
         // 

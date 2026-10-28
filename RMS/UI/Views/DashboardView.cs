@@ -26,6 +26,7 @@ public partial class DashboardView : BaseView
             return;
         }
 
+        dgvRecentOrders.CellDoubleClick += dgvRecentOrders_CellDoubleClick;
         _store.OnOrdersChanged += RefreshDashboard;
     }
 

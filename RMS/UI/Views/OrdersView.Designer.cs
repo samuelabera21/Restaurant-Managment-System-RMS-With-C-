@@ -232,7 +232,6 @@ partial class OrdersView
         dgvOrders.RowHeadersWidth = 51;
         dgvOrders.RowTemplate.Height = 36;
         dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvOrders.CellDoubleClick += dgvOrders_CellDoubleClick;
         dgvOrders.Size = new Size(1048, 305);
         dgvOrders.TabIndex = 0;
         dgvOrders.SelectionChanged += dgvOrders_SelectionChanged;

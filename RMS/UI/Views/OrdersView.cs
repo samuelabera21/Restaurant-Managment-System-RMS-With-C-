@@ -29,6 +29,7 @@ public partial class OrdersView : BaseView
             return;
         }
 
+        dgvOrders.CellDoubleClick += dgvOrders_CellDoubleClick;
         cboStatus.SelectedIndex = 0; // "All Statuses"
 
         _store.OnOrdersChanged += () =>
@@ -143,11 +144,11 @@ public partial class OrdersView : BaseView
         UpdateActionButtonsState();
     }
 
-    private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    private void dgvOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0)
         {
-            btnViewDetails_Click(sender, EventArgs.Empty);
+            btnViewDetails_Click(sender ?? this, EventArgs.Empty);
         }
     }
 

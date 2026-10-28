@@ -25,6 +25,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
 
         if (!DesignMode)
         {
+            dgvMenuItems.CellDoubleClick += dgvMenuItems_CellDoubleClick;
             cboAvailabilityFilter.SelectedIndex = 0;
         }
     }

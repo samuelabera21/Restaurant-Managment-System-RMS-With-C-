@@ -243,7 +243,6 @@ partial class MenuManagementView
         dgvMenuItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         dgvMenuItems.Size = new Size(1048, 280);
         dgvMenuItems.TabIndex = 1;
-        dgvMenuItems.CellDoubleClick += dgvMenuItems_CellDoubleClick;
         dgvMenuItems.SelectionChanged += dgvMenuItems_SelectionChanged;
         // 
         // colId

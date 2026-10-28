@@ -208,7 +208,6 @@ partial class MenuView
         dgvMenu.Size = new Size(1048, 352);
         dgvMenu.TabIndex = 0;
         dgvMenu.CellContentClick += dgvMenu_CellContentClick;
-        dgvMenu.CellDoubleClick += dgvMenu_CellDoubleClick;
         // 
         // colName
         // 
