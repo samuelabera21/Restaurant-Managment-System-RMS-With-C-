@@ -420,7 +420,7 @@ partial class DashboardView
         // colOrderNum
         // 
         colOrderNum.FillWeight = 80F;
-        colOrderNum.HeaderText = "Order #";
+        colOrderNum.HeaderText = "Order No";
         colOrderNum.MinimumWidth = 6;
         colOrderNum.Name = "colOrderNum";
         colOrderNum.ReadOnly = true;
