@@ -45,6 +45,10 @@ public partial class MainForm : Form
             btn.FlatAppearance.MouseDownBackColor = AppTheme.SidebarActive;
         }
 
+        // Align header elements dynamically to avoid high-DPI truncation
+        pnlHeader.Resize += (s, e) => AlignUserHeader();
+        lblUserInfo.TextChanged += (s, e) => AlignUserHeader();
+
         // In design mode, stop here so Visual Studio Designer loads cleanly
         if (DesignMode || System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
         {
@@ -70,22 +74,39 @@ public partial class MainForm : Form
 
     private void EnsureUserLoggedIn()
     {
-        while (_store.CurrentUser == null)
+        if (_store.CurrentUser == null)
         {
-            using var login = new LoginDialog();
-            if (login.ShowDialog(this) == DialogResult.OK && _store.CurrentUser != null)
-            {
-                break;
-            }
-            else
-            {
-                // If user closes or cancels login dialog, exit cleanly
-                Application.Exit();
-                return;
-            }
+            PerformSignOut();
+            return;
         }
 
         ApplyRoleLayout(_store.CurrentUser);
+    }
+
+    private void PerformSignOut()
+    {
+        _store.CurrentUser = null;
+        pnlContentHost.Controls.Clear();
+        this.Hide();
+
+        using var login = new LoginDialog();
+        if (login.ShowDialog() == DialogResult.OK && _store.CurrentUser != null)
+        {
+            this.Show();
+            ApplyRoleLayout(_store.CurrentUser);
+        }
+        else
+        {
+            Application.Exit();
+        }
+    }
+
+    private void AlignUserHeader()
+    {
+        if (lblUserInfo != null && btnLogout != null && pnlHeader != null)
+        {
+            lblUserInfo.Left = Math.Max(pnlHeader.Width - 420, btnLogout.Left - lblUserInfo.PreferredWidth - 14);
+        }
     }
 
     private void ApplyRoleLayout(StaffMember user)
@@ -95,13 +116,14 @@ public partial class MainForm : Form
         if (isManager)
         {
             lblUserInfo.Text = $"👤 Manager: {user.FullName}";
+            AlignUserHeader();
 
-            // Manager workspace: Dashboard, Reports, Menu, Orders, Administration
+            // Manager workspace strictly: Dashboard, Reports, Manage Menu, Manage Waiters
             btnNavDashboard.Visible = true;
             btnNavReports.Visible = true;
-            btnNavMenu.Visible = true;
-            btnNavOrders.Visible = true;
-            btnNavNewOrder.Visible = false; // Order entry is for waiters on dining floor
+            btnNavMenu.Visible = false;
+            btnNavOrders.Visible = false;
+            btnNavNewOrder.Visible = false;
 
             lblAdmin.Visible = true;
             btnNavManageMenu.Visible = true;
@@ -112,8 +134,9 @@ public partial class MainForm : Form
         else
         {
             lblUserInfo.Text = $"👤 Waiter: {user.FullName} (Staff)";
+            AlignUserHeader();
 
-            // Waiter workspace: Menu, New Order, Orders only
+            // Waiter workspace strictly: Menu, New Order, Orders
             btnNavMenu.Visible = true;
             btnNavNewOrder.Visible = true;
             btnNavOrders.Visible = true;
@@ -236,8 +259,7 @@ public partial class MainForm : Form
         if (MessageBox.Show("Are you sure you want to sign out?", "Sign Out",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
         {
-            _store.CurrentUser = null;
-            EnsureUserLoggedIn();
+            PerformSignOut();
         }
     }
 
