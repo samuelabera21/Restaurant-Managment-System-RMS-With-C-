@@ -115,7 +115,7 @@ public partial class MainForm : Form
 
         if (isManager)
         {
-            lblUserInfo.Text = $"👤 Manager: {user.FullName}";
+            lblUserInfo.Text = $"Manager: {user.FullName}";
             AlignUserHeader();
 
             // Manager workspace strictly: Dashboard, Reports, Manage Menu, Manage Waiters
@@ -133,7 +133,7 @@ public partial class MainForm : Form
         }
         else
         {
-            lblUserInfo.Text = $"👤 Waiter: {user.FullName} (Staff)";
+            lblUserInfo.Text = $"Waiter: {user.FullName}";
             AlignUserHeader();
 
             // Waiter workspace strictly: Menu, New Order, Orders
@@ -204,14 +204,14 @@ public partial class MainForm : Form
 
         // Update window title and status bar
         Text = $"RMS — {targetView}";
-        SetStatus($"Ready • Viewing {targetView}");
+        SetStatus($"Ready - Viewing {targetView}");
     }
 
     public void SetStatus(string message)
     {
         if (lblStatusLeft != null)
         {
-            lblStatusLeft.Text = $"● {message}";
+            lblStatusLeft.Text = message;
         }
     }
 
