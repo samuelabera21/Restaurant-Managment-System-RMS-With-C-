@@ -75,7 +75,7 @@ public partial class OrdersView : BaseView
         foreach (var order in filteredList)
         {
             int rowIndex = dgvOrders.Rows.Add(
-                $"#{order.OrderNumber}",
+                order.OrderNumber.ToString(),
                 order.CustomerName,
                 $"Table {order.TableNumber}",
                 order.CreatedAt.ToString("h:mm tt"),
@@ -177,7 +177,7 @@ public partial class OrdersView : BaseView
 
         if (!_orderService.CanAdvanceStatus(order.Status, out var nextStatus) || nextStatus == null)
         {
-            MessageBox.Show($"Order #{order.OrderNumber} is already '{order.Status}' and cannot advance further.",
+            MessageBox.Show($"Order {order.OrderNumber} is already '{order.Status}' and cannot advance further.",
                 "Status Limit", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
@@ -195,7 +195,7 @@ public partial class OrdersView : BaseView
         var order = GetSelectedOrder();
         if (order == null || !order.CanCancel) return;
 
-        string message = $"Are you sure you want to cancel Order #{order.OrderNumber}?\n#{order.OrderNumber} • {order.CustomerName} • Table {order.TableNumber} • {order.Status}";
+        string message = $"Are you sure you want to cancel Order {order.OrderNumber}?\nOrder {order.OrderNumber} - {order.CustomerName} • Table {order.TableNumber} • {order.Status}";
         if (ConfirmationDialog.Confirm(this, "Cancel Order?", "Cancel Order?", message, "Yes, Cancel Order", isDanger: true))
         {
             _orderService.CancelOrder(order.OrderNumber);
