@@ -348,3 +348,4 @@ partial class StaffManagementView
     private Button btnEditStaff;
     private Button btnToggleStatus;
 }
+
