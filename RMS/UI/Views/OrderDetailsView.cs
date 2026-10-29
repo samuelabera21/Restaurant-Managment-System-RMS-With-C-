@@ -45,8 +45,8 @@ public partial class OrderDetailsView : BaseView, INavigationAware
     {
         if (order == null) return;
 
-        lblOrderHeading.Text = $"#{order.OrderNumber} Order Information • Server: {order.WaiterName}";
-        lblOrderNum.Text = $"#{order.OrderNumber}";
+        lblOrderHeading.Text = $"Order {order.OrderNumber} Information - Server: {order.WaiterName}";
+        lblOrderNum.Text = order.OrderNumber.ToString();
         lblCustomer.Text = order.CustomerName;
         lblTable.Text = $"Table {order.TableNumber}";
         lblCreated.Text = order.CreatedAt.ToString("h:mm tt");
@@ -118,7 +118,7 @@ public partial class OrderDetailsView : BaseView, INavigationAware
     {
         if (_currentOrder == null || !_currentOrder.CanCancel) return;
 
-        string message = $"Are you sure you want to cancel Order #{_currentOrder.OrderNumber}?\n#{_currentOrder.OrderNumber} • {_currentOrder.CustomerName} • Table {_currentOrder.TableNumber} • {_currentOrder.Status}";
+        string message = $"Are you sure you want to cancel Order {_currentOrder.OrderNumber}?\nOrder {_currentOrder.OrderNumber} - {_currentOrder.CustomerName} • Table {_currentOrder.TableNumber} • {_currentOrder.Status}";
         if (ConfirmationDialog.Confirm(this, "Cancel Order?", "Cancel Order?", message, "Yes, Cancel Order", isDanger: true))
         {
             _orderService.CancelOrder(_currentOrder.OrderNumber);
