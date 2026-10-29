@@ -60,7 +60,7 @@ public class MenuItemDialog : Form
 
         var lblSubtitle = new Label
         {
-            Text = isEditing ? $"Update details for #{existingItem!.Id} - {existingItem.Name}" : "Configure item name, category, price, and availability",
+            Text = isEditing ? $"Update details for Item {existingItem!.Id} - {existingItem.Name}" : "Configure item name, category, price, and availability",
             Font = AppTheme.SmallRegular,
             ForeColor = AppTheme.TextSecondary,
             AutoSize = true,
