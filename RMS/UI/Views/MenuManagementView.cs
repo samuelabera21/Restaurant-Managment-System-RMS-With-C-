@@ -105,7 +105,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
         foreach (var item in filteredList)
         {
             int rowIndex = dgvMenuItems.Rows.Add(
-                $"#{item.Id}",
+                item.Id.ToString(),
                 item.Name,
                 item.Category,
                 $"{item.Price:N0} ETB",
