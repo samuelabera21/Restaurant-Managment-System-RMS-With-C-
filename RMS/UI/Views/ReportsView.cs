@@ -102,7 +102,7 @@ public partial class ReportsView : BaseView, INavigationAware
         foreach (var order in filteredList)
         {
             int rowIndex = dgvSummary.Rows.Add(
-                $"#{order.OrderNumber}",
+                order.OrderNumber.ToString(),
                 order.CustomerName,
                 $"Table {order.TableNumber}",
                 order.CreatedAt.ToString("h:mm tt"),
