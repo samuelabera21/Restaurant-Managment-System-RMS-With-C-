@@ -25,14 +25,14 @@ public partial class StaffMemberDialog : Form
         if (_existingStaff != null)
         {
             lblDialogTitle.Text = "Edit Waiter";
-            txtStaffId.Text = $"#{_existingStaff.Id}";
+            txtStaffId.Text = _existingStaff.Id.ToString();
             txtFullName.Text = _existingStaff.FullName;
             cboShift.SelectedItem = _existingStaff.Shift;
         }
         else
         {
             lblDialogTitle.Text = "Add New Waiter";
-            txtStaffId.Text = $"#{_store.PeekNextStaffId()}";
+            txtStaffId.Text = _store.PeekNextStaffId().ToString();
             cboShift.SelectedIndex = 0; // Day Shift
         }
     }
