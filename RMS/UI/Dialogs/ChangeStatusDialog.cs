@@ -53,7 +53,7 @@ public class ChangeStatusDialog : Form
 
         var lblHeading = new Label
         {
-            Text = $"Advance Status for Order #{order.OrderNumber}?",
+            Text = $"Advance Status for Order {order.OrderNumber}?",
             Font = AppTheme.HeaderMedium,
             ForeColor = AppTheme.TextPrimary,
             AutoSize = true,
