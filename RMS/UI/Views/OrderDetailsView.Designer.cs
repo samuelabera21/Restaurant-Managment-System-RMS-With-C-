@@ -226,7 +226,7 @@ partial class OrderDetailsView
         lblOrderNum.Name = "lblOrderNum";
         lblOrderNum.Size = new Size(61, 30);
         lblOrderNum.TabIndex = 2;
-        lblOrderNum.Text = "#104";
+        lblOrderNum.Text = "104";
         // 
         // lblCaptionOrderNum
         // 
@@ -237,7 +237,7 @@ partial class OrderDetailsView
         lblCaptionOrderNum.Name = "lblCaptionOrderNum";
         lblCaptionOrderNum.Size = new Size(72, 23);
         lblCaptionOrderNum.TabIndex = 1;
-        lblCaptionOrderNum.Text = "Order #";
+        lblCaptionOrderNum.Text = "Order No";
         // 
         // lblOrderHeading
         // 
@@ -248,7 +248,7 @@ partial class OrderDetailsView
         lblOrderHeading.Name = "lblOrderHeading";
         lblOrderHeading.Size = new Size(261, 30);
         lblOrderHeading.TabIndex = 0;
-        lblOrderHeading.Text = "#104 Order Information";
+        lblOrderHeading.Text = "Order 104 Information";
         // 
         // grpOrderItems
         // 
