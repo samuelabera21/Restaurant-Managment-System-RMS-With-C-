@@ -88,7 +88,7 @@ partial class EditOrderView
         lblSubheaderContext.Name = "lblSubheaderContext";
         lblSubheaderContext.Size = new Size(450, 24);
         lblSubheaderContext.TabIndex = 2;
-        lblSubheaderContext.Text = "#104 • Hana • Table 4 • Existing order";
+        lblSubheaderContext.Text = "Order 104 - Hana - Table 4 - Existing order";
         lblSubheaderContext.TextAlign = ContentAlignment.MiddleRight;
         // 
         // lblSubtitle
@@ -259,7 +259,7 @@ partial class EditOrderView
         lblOrderNumberBadge.Name = "lblOrderNumberBadge";
         lblOrderNumberBadge.Size = new Size(65, 30);
         lblOrderNumberBadge.TabIndex = 1;
-        lblOrderNumberBadge.Text = "#104";
+        lblOrderNumberBadge.Text = "104";
         // 
         // lblOrderNumTitle
         // 
@@ -270,7 +270,7 @@ partial class EditOrderView
         lblOrderNumTitle.Name = "lblOrderNumTitle";
         lblOrderNumTitle.Size = new Size(72, 23);
         lblOrderNumTitle.TabIndex = 0;
-        lblOrderNumTitle.Text = "Order #";
+        lblOrderNumTitle.Text = "Order No";
         // 
         // grpAddItems
         // 
