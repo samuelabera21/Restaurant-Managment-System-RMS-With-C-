@@ -63,7 +63,7 @@ public partial class StaffManagementView : BaseView, INavigationAware
         foreach (var staff in results)
         {
             int rowIndex = dgvStaff.Rows.Add(
-                $"#{staff.Id}",
+                staff.Id.ToString(),
                 staff.FullName,
                 staff.Role,
                 staff.Shift,
