@@ -159,7 +159,7 @@ partial class OrdersView
         txtSearch.Font = new Font("Segoe UI", 9.5F);
         txtSearch.Location = new Point(80, 25);
         txtSearch.Name = "txtSearch";
-        txtSearch.PlaceholderText = "Search by order #, customer, table...";
+        txtSearch.PlaceholderText = "Search by order number, customer, table...";
         txtSearch.Size = new Size(245, 33);
         txtSearch.TabIndex = 1;
         txtSearch.TextChanged += txtSearch_TextChanged;
@@ -239,7 +239,7 @@ partial class OrdersView
         // colOrderNum
         // 
         colOrderNum.FillWeight = 85F;
-        colOrderNum.HeaderText = "Order #";
+        colOrderNum.HeaderText = "Order No";
         colOrderNum.MinimumWidth = 6;
         colOrderNum.Name = "colOrderNum";
         colOrderNum.ReadOnly = true;
