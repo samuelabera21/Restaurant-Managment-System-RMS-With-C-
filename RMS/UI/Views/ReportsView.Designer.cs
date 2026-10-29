@@ -485,7 +485,7 @@ partial class ReportsView
         // colOrderNum
         // 
         colOrderNum.FillWeight = 85F;
-        colOrderNum.HeaderText = "Order #";
+        colOrderNum.HeaderText = "Order No";
         colOrderNum.MinimumWidth = 6;
         colOrderNum.Name = "colOrderNum";
         colOrderNum.ReadOnly = true;
