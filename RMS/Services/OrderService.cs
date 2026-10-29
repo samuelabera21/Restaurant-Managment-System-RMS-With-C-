@@ -97,11 +97,11 @@ public class OrderService
     public void UpdateOrder(int orderNumber, string customerName, int tableNumber, IEnumerable<OrderItem> newItems)
     {
         var order = _store.FindOrderByNumber(orderNumber)
-            ?? throw new KeyNotFoundException($"Order #{orderNumber} not found.");
+            ?? throw new KeyNotFoundException($"Order {orderNumber} not found.");
 
         if (!order.CanEdit)
         {
-            throw new InvalidOperationException($"Order #{orderNumber} has status '{order.Status}' and cannot be edited.");
+            throw new InvalidOperationException($"Order {orderNumber} has status '{order.Status}' and cannot be edited.");
         }
 
         var itemList = newItems.ToList();
@@ -158,11 +158,11 @@ public class OrderService
     public OrderStatus AdvanceOrderStatus(int orderNumber)
     {
         var order = _store.FindOrderByNumber(orderNumber)
-            ?? throw new KeyNotFoundException($"Order #{orderNumber} not found.");
+            ?? throw new KeyNotFoundException($"Order {orderNumber} not found.");
 
         if (!CanAdvanceStatus(order.Status, out var nextStatus) || nextStatus == null)
         {
-            throw new InvalidOperationException($"Order #{orderNumber} with status '{order.Status}' cannot advance further.");
+            throw new InvalidOperationException($"Order {orderNumber} with status '{order.Status}' cannot advance further.");
         }
 
         order.Status = nextStatus.Value;
@@ -178,11 +178,11 @@ public class OrderService
     public void CancelOrder(int orderNumber)
     {
         var order = _store.FindOrderByNumber(orderNumber)
-            ?? throw new KeyNotFoundException($"Order #{orderNumber} not found.");
+            ?? throw new KeyNotFoundException($"Order {orderNumber} not found.");
 
         if (!order.CanCancel)
         {
-            throw new InvalidOperationException($"Order #{orderNumber} with status '{order.Status}' cannot be cancelled.");
+            throw new InvalidOperationException($"Order {orderNumber} with status '{order.Status}' cannot be cancelled.");
         }
 
         order.Status = OrderStatus.Cancelled;
