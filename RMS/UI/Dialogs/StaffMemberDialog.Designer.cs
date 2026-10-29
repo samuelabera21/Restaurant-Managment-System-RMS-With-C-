@@ -229,3 +229,4 @@ partial class StaffMemberDialog
     private Button btnSave;
     private Button btnCancel;
 }
+
