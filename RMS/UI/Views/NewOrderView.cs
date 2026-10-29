@@ -71,7 +71,7 @@ public partial class NewOrderView : BaseView
 
     private void UpdateOrderNumberBadge()
     {
-        txtOrderNumber.Text = $"#{_store.PeekNextOrderNumber()}";
+        txtOrderNumber.Text = _store.PeekNextOrderNumber().ToString();
         txtOrderDateTime.Text = DateTime.Now.ToString("dd MMM yyyy, h:mm tt");
     }
 
@@ -258,7 +258,7 @@ public partial class NewOrderView : BaseView
         var createdOrder = _orderService.CreateOrder(custName, tableNum, _lineItems);
         _isOrderSaved = true;
 
-        ShowAlert($"Order #{createdOrder.OrderNumber} created successfully!", isSuccess: true);
+        ShowAlert($"Order {createdOrder.OrderNumber} created successfully!", isSuccess: true);
         LockInputsAfterSave(createdOrder.OrderNumber);
     }
 
@@ -270,7 +270,7 @@ public partial class NewOrderView : BaseView
                     this,
                     "New Order",
                     "Discard unsaved order?",
-                    $"Your unsaved changes to Order #{_store.PeekNextOrderNumber()} will be lost.",
+                    $"Your unsaved changes to Order {_store.PeekNextOrderNumber()} will be lost.",
                     "Discard Order"))
             {
                 ResetForm();
@@ -290,7 +290,7 @@ public partial class NewOrderView : BaseView
                     this,
                     "New Order",
                     "Discard unsaved order?",
-                    $"Your unsaved changes to Order #{_store.PeekNextOrderNumber()} will be lost.",
+                    $"Your unsaved changes to Order {_store.PeekNextOrderNumber()} will be lost.",
                     "Discard Order"))
             {
                 ResetForm();
