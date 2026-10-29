@@ -70,10 +70,10 @@ public partial class EditOrderView : BaseView, INavigationAware
         _hasUnsavedChanges = false;
         _isOrderCompleted = order.Status == OrderStatus.Completed || order.Status == OrderStatus.Cancelled;
 
-        lblOrderNumberBadge.Text = order.CanEdit ? $"#{order.OrderNumber}" : $"#{order.OrderNumber} (Locked)";
+        lblOrderNumberBadge.Text = order.CanEdit ? order.OrderNumber.ToString() : $"{order.OrderNumber} (Locked)";
         txtCustomerName.Text = order.CustomerName;
         numTableNumber.Value = order.TableNumber;
-        lblSubheaderContext.Text = $"#{order.OrderNumber} • {order.CustomerName} • Table {order.TableNumber} • {(order.CanEdit ? "Existing order" : "Read-only order")}";
+        lblSubheaderContext.Text = $"Order {order.OrderNumber} - {order.CustomerName} • Table {order.TableNumber} • {(order.CanEdit ? "Existing order" : "Read-only order")}";
 
         UpdateStatusBadge(order.Status);
 
@@ -122,9 +122,9 @@ public partial class EditOrderView : BaseView, INavigationAware
         _hasUnsavedChanges = true;
         if (_originalOrder != null)
         {
-            lblSubheaderContext.Text = $"#{_originalOrder.OrderNumber} • {txtCustomerName.Text.Trim()} • Table {numTableNumber.Value} • Unsaved changes";
+            lblSubheaderContext.Text = $"Order {_originalOrder.OrderNumber} - {txtCustomerName.Text.Trim()} • Table {numTableNumber.Value} • Unsaved changes";
         }
-        ShowAlert($"You have unsaved changes to Order #{_originalOrder?.OrderNumber}. Save Changes to apply them.", isError: false);
+        ShowAlert($"You have unsaved changes to Order {_originalOrder?.OrderNumber}. Save Changes to apply them.", isError: false);
     }
 
     private void AddSelectedItem()
@@ -212,15 +212,15 @@ public partial class EditOrderView : BaseView, INavigationAware
         {
             lblCustomerNameError.Visible = string.IsNullOrWhiteSpace(custName);
             lblTableNumberError.Visible = tableNum <= 0;
-            ShowAlert($"Please correct the required fields before saving Order #{_originalOrder.OrderNumber}.", isError: true);
+            ShowAlert($"Please correct the required fields before saving Order {_originalOrder.OrderNumber}.", isError: true);
             return;
         }
 
         _orderService.UpdateOrder(_originalOrder.OrderNumber, custName, tableNum, _editItems);
         _hasUnsavedChanges = false;
 
-        ShowAlert($"Order #{_originalOrder.OrderNumber} updated successfully.", isError: false, isSuccess: true);
-        lblSubheaderContext.Text = $"#{_originalOrder.OrderNumber} • {custName} • Table {tableNum} • All changes saved";
+        ShowAlert($"Order {_originalOrder.OrderNumber} updated successfully.", isError: false, isSuccess: true);
+        lblSubheaderContext.Text = $"Order {_originalOrder.OrderNumber} - {custName} • Table {tableNum} • All changes saved";
         btnBackToDetails.Visible = true;
     }
 
@@ -232,7 +232,7 @@ public partial class EditOrderView : BaseView, INavigationAware
                     this,
                     "Edit Order",
                     "Discard unsaved changes?",
-                    $"Your changes to Order #{_originalOrder.OrderNumber} will be lost.",
+                    $"Your changes to Order {_originalOrder.OrderNumber} will be lost.",
                     "Discard Changes"))
             {
                 LoadOrderForEditing(_originalOrder);
