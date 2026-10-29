@@ -13,190 +13,129 @@ partial class LoginDialog
         base.Dispose(disposing);
     }
 
+    #region Windows Form Designer generated code
+
     private void InitializeComponent()
     {
-        pnlHeader = new Panel();
-        lblSubtitle = new Label();
-        lblTitle = new Label();
-        pnlBody = new Panel();
-        pnlHints = new Panel();
-        lblHintsTitle = new Label();
-        lblHintsText = new Label();
-        lblError = new Label();
-        btnLogin = new Button();
-        txtStaffId = new TextBox();
-        lblStaffId = new Label();
-        pnlHeader.SuspendLayout();
-        pnlBody.SuspendLayout();
-        pnlHints.SuspendLayout();
+        grpCredentials = new System.Windows.Forms.GroupBox();
+        lblError = new System.Windows.Forms.Label();
+        lblHint = new System.Windows.Forms.Label();
+        txtStaffId = new System.Windows.Forms.TextBox();
+        lblStaffId = new System.Windows.Forms.Label();
+        btnLogin = new System.Windows.Forms.Button();
+        btnCancel = new System.Windows.Forms.Button();
+        grpCredentials.SuspendLayout();
         SuspendLayout();
         // 
-        // pnlHeader
+        // grpCredentials
         // 
-        pnlHeader.BackColor = Color.FromArgb(30, 58, 95);
-        pnlHeader.Controls.Add(lblSubtitle);
-        pnlHeader.Controls.Add(lblTitle);
-        pnlHeader.Dock = DockStyle.Top;
-        pnlHeader.Location = new Point(0, 0);
-        pnlHeader.Name = "pnlHeader";
-        pnlHeader.Padding = new Padding(24, 16, 24, 16);
-        pnlHeader.Size = new Size(420, 80);
-        pnlHeader.TabIndex = 0;
-        // 
-        // lblSubtitle
-        // 
-        lblSubtitle.AutoSize = true;
-        lblSubtitle.Font = new Font("Segoe UI", 9F);
-        lblSubtitle.ForeColor = Color.FromArgb(203, 213, 225);
-        lblSubtitle.Location = new Point(24, 45);
-        lblSubtitle.Name = "lblSubtitle";
-        lblSubtitle.Size = new Size(244, 20);
-        lblSubtitle.TabIndex = 1;
-        lblSubtitle.Text = "Restaurant Order Management System";
-        // 
-        // lblTitle
-        // 
-        lblTitle.AutoSize = true;
-        lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-        lblTitle.ForeColor = Color.White;
-        lblTitle.Location = new Point(22, 12);
-        lblTitle.Name = "lblTitle";
-        lblTitle.Size = new Size(93, 32);
-        lblTitle.TabIndex = 0;
-        lblTitle.Text = "Sign In";
-        // 
-        // pnlBody
-        // 
-        pnlBody.BackColor = Color.White;
-        pnlBody.Controls.Add(pnlHints);
-        pnlBody.Controls.Add(lblError);
-        pnlBody.Controls.Add(btnLogin);
-        pnlBody.Controls.Add(txtStaffId);
-        pnlBody.Controls.Add(lblStaffId);
-        pnlBody.Dock = DockStyle.Fill;
-        pnlBody.Location = new Point(0, 80);
-        pnlBody.Name = "pnlBody";
-        pnlBody.Padding = new Padding(24);
-        pnlBody.Size = new Size(420, 260);
-        pnlBody.TabIndex = 1;
-        // 
-        // pnlHints
-        // 
-        pnlHints.BackColor = Color.FromArgb(248, 250, 252);
-        pnlHints.BorderStyle = BorderStyle.FixedSingle;
-        pnlHints.Controls.Add(lblHintsTitle);
-        pnlHints.Controls.Add(lblHintsText);
-        pnlHints.Location = new Point(24, 160);
-        pnlHints.Name = "pnlHints";
-        pnlHints.Padding = new Padding(10, 8, 10, 8);
-        pnlHints.Size = new Size(372, 72);
-        pnlHints.TabIndex = 4;
-        // 
-        // lblHintsTitle
-        // 
-        lblHintsTitle.AutoSize = true;
-        lblHintsTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
-        lblHintsTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblHintsTitle.Location = new Point(8, 6);
-        lblHintsTitle.Name = "lblHintsTitle";
-        lblHintsTitle.Size = new Size(137, 19);
-        lblHintsTitle.TabIndex = 0;
-        lblHintsTitle.Text = "Registered Staff IDs:";
-        // 
-        // lblHintsText
-        // 
-        lblHintsText.AutoSize = true;
-        lblHintsText.Font = new Font("Segoe UI", 8.5F);
-        lblHintsText.ForeColor = Color.FromArgb(100, 116, 139);
-        lblHintsText.Location = new Point(8, 28);
-        lblHintsText.Name = "lblHintsText";
-        lblHintsText.Size = new Size(328, 38);
-        lblHintsText.TabIndex = 1;
-        lblHintsText.Text = "• Manager ID: 100\n• Waiter IDs: 101 (Abebe), 102 (Hana), 103 (Dawit)";
+        grpCredentials.Controls.Add(lblError);
+        grpCredentials.Controls.Add(lblHint);
+        grpCredentials.Controls.Add(txtStaffId);
+        grpCredentials.Controls.Add(lblStaffId);
+        grpCredentials.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        grpCredentials.Location = new System.Drawing.Point(16, 14);
+        grpCredentials.Name = "grpCredentials";
+        grpCredentials.Size = new System.Drawing.Size(346, 130);
+        grpCredentials.TabIndex = 0;
+        grpCredentials.TabStop = false;
+        grpCredentials.Text = "Staff Login";
         // 
         // lblError
         // 
         lblError.AutoSize = true;
-        lblError.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-        lblError.ForeColor = Color.FromArgb(220, 38, 38);
-        lblError.Location = new Point(24, 68);
+        lblError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        lblError.ForeColor = System.Drawing.Color.Red;
+        lblError.Location = new System.Drawing.Point(20, 96);
         lblError.Name = "lblError";
-        lblError.Size = new Size(265, 20);
-        lblError.TabIndex = 2;
-        lblError.Text = "Invalid Staff ID. Please try again.";
+        lblError.Size = new System.Drawing.Size(262, 19);
+        lblError.TabIndex = 3;
+        lblError.Text = "Invalid Staff ID. Account not found or inactive.";
         lblError.Visible = false;
         // 
-        // btnLogin
+        // lblHint
         // 
-        btnLogin.BackColor = Color.FromArgb(30, 58, 95);
-        btnLogin.Cursor = Cursors.Hand;
-        btnLogin.FlatAppearance.BorderSize = 0;
-        btnLogin.FlatStyle = FlatStyle.Flat;
-        btnLogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-        btnLogin.ForeColor = Color.White;
-        btnLogin.Location = new Point(24, 98);
-        btnLogin.Name = "btnLogin";
-        btnLogin.Size = new Size(372, 40);
-        btnLogin.TabIndex = 3;
-        btnLogin.Text = "Sign In";
-        btnLogin.UseVisualStyleBackColor = false;
-        btnLogin.Click += btnLogin_Click;
+        lblHint.AutoSize = true;
+        lblHint.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        lblHint.ForeColor = System.Drawing.SystemColors.GrayText;
+        lblHint.Location = new System.Drawing.Point(95, 64);
+        lblHint.Name = "lblHint";
+        lblHint.Size = new System.Drawing.Size(227, 19);
+        lblHint.TabIndex = 2;
+        lblHint.Text = "Manager: 100  |  Waiters: 101, 102, 103";
         // 
         // txtStaffId
         // 
-        txtStaffId.Font = new Font("Segoe UI", 11F);
-        txtStaffId.Location = new Point(24, 34);
+        txtStaffId.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        txtStaffId.Location = new System.Drawing.Point(95, 30);
         txtStaffId.Name = "txtStaffId";
-        txtStaffId.PlaceholderText = "Enter Staff ID (e.g., 100 or 101)";
-        txtStaffId.Size = new Size(372, 32);
+        txtStaffId.Size = new System.Drawing.Size(228, 29);
         txtStaffId.TabIndex = 1;
         txtStaffId.TextChanged += txtStaffId_TextChanged;
         // 
         // lblStaffId
         // 
         lblStaffId.AutoSize = true;
-        lblStaffId.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        lblStaffId.ForeColor = Color.FromArgb(15, 23, 42);
-        lblStaffId.Location = new Point(22, 10);
+        lblStaffId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        lblStaffId.Location = new System.Drawing.Point(20, 34);
         lblStaffId.Name = "lblStaffId";
-        lblStaffId.Size = new Size(74, 21);
+        lblStaffId.Size = new System.Drawing.Size(61, 20);
         lblStaffId.TabIndex = 0;
         lblStaffId.Text = "Staff ID:";
+        // 
+        // btnLogin
+        // 
+        btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.System;
+        btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        btnLogin.Location = new System.Drawing.Point(174, 158);
+        btnLogin.Name = "btnLogin";
+        btnLogin.Size = new System.Drawing.Size(90, 32);
+        btnLogin.TabIndex = 1;
+        btnLogin.Text = "Sign In";
+        btnLogin.UseVisualStyleBackColor = true;
+        btnLogin.Click += btnLogin_Click;
+        // 
+        // btnCancel
+        // 
+        btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+        btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+        btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        btnCancel.Location = new System.Drawing.Point(272, 158);
+        btnCancel.Name = "btnCancel";
+        btnCancel.Size = new System.Drawing.Size(90, 32);
+        btnCancel.TabIndex = 2;
+        btnCancel.Text = "Cancel";
+        btnCancel.UseVisualStyleBackColor = true;
+        btnCancel.Click += btnCancel_Click;
         // 
         // LoginDialog
         // 
         AcceptButton = btnLogin;
-        AutoScaleDimensions = new SizeF(8F, 20F);
-        AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.White;
-        ClientSize = new Size(420, 340);
-        Controls.Add(pnlBody);
-        Controls.Add(pnlHeader);
-        FormBorderStyle = FormBorderStyle.FixedDialog;
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        CancelButton = btnCancel;
+        ClientSize = new System.Drawing.Size(380, 206);
+        Controls.Add(btnCancel);
+        Controls.Add(btnLogin);
+        Controls.Add(grpCredentials);
+        FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
         MaximizeBox = false;
         MinimizeBox = false;
         Name = "LoginDialog";
-        StartPosition = FormStartPosition.CenterScreen;
+        StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         Text = "RMS — Sign In";
-        pnlHeader.ResumeLayout(false);
-        pnlHeader.PerformLayout();
-        pnlBody.ResumeLayout(false);
-        pnlBody.PerformLayout();
-        pnlHints.ResumeLayout(false);
-        pnlHints.PerformLayout();
+        grpCredentials.ResumeLayout(false);
+        grpCredentials.PerformLayout();
         ResumeLayout(false);
     }
 
-    private Panel pnlHeader;
-    private Label lblTitle;
-    private Label lblSubtitle;
-    private Panel pnlBody;
-    private Label lblStaffId;
-    private TextBox txtStaffId;
-    private Label lblError;
-    private Button btnLogin;
-    private Panel pnlHints;
-    private Label lblHintsTitle;
-    private Label lblHintsText;
-}
+    #endregion
 
+    private System.Windows.Forms.GroupBox grpCredentials;
+    private System.Windows.Forms.Label lblStaffId;
+    private System.Windows.Forms.TextBox txtStaffId;
+    private System.Windows.Forms.Label lblHint;
+    private System.Windows.Forms.Label lblError;
+    private System.Windows.Forms.Button btnLogin;
+    private System.Windows.Forms.Button btnCancel;
+}
