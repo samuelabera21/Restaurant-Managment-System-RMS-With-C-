@@ -199,3 +199,4 @@ partial class LoginDialog
     private Label lblHintsTitle;
     private Label lblHintsText;
 }
+
