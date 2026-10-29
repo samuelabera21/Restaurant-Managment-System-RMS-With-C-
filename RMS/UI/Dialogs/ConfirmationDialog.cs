@@ -49,7 +49,7 @@ public class ConfirmationDialog : Form
 
         var lblHeading = new Label
         {
-            Text = $"⚠  {heading}",
+            Text = heading,
             Font = AppTheme.HeaderMedium,
             ForeColor = AppTheme.TextPrimary,
             AutoSize = true,
