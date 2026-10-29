@@ -152,4 +152,5 @@ public partial class MenuView : BaseView
             );
         }
     }
+
 }

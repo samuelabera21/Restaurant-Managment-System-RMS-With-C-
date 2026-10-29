@@ -31,20 +31,28 @@ public class RestaurantStore
     }
 
     private readonly MenuPersistenceService _menuPersistence;
+    private readonly StaffPersistenceService _staffPersistence;
     private readonly List<MenuItem> _menuItems = new();
+    private readonly List<StaffMember> _staffMembers = new();
     private readonly List<Order> _orders = new();
     private int _nextOrderNumber = 116;
 
+    public StaffMember? CurrentUser { get; set; }
+
     public event Action? OnOrdersChanged;
     public event Action? OnMenuChanged;
+    public event Action? OnStaffChanged;
 
     public IReadOnlyList<MenuItem> MenuItems => _menuItems.AsReadOnly();
+    public IReadOnlyList<StaffMember> StaffMembers => _staffMembers.AsReadOnly();
     public IReadOnlyList<Order> Orders => _orders.AsReadOnly();
 
-    public RestaurantStore(MenuPersistenceService? menuPersistence = null)
+    public RestaurantStore(MenuPersistenceService? menuPersistence = null, StaffPersistenceService? staffPersistence = null)
     {
         _menuPersistence = menuPersistence ?? new MenuPersistenceService();
+        _staffPersistence = staffPersistence ?? new StaffPersistenceService();
         InitializeMenu();
+        InitializeStaff();
         SeedDemonstrationOrders();
     }
 
@@ -103,6 +111,67 @@ public class RestaurantStore
             existing.IsAvailable = isAvailable;
             SaveMenuChanges();
         }
+    }
+
+    #endregion
+
+    #region Staff Management
+
+    private void InitializeStaff()
+    {
+        _staffMembers.Clear();
+        _staffMembers.AddRange(_staffPersistence.LoadOrCreateDefault());
+    }
+
+    public void SaveStaffChanges()
+    {
+        _staffPersistence.SaveStaff(_staffMembers);
+        OnStaffChanged?.Invoke();
+    }
+
+    public int PeekNextStaffId()
+    {
+        return _staffMembers.Count > 0 ? _staffMembers.Max(s => s.Id) + 1 : 101;
+    }
+
+    public void AddStaffMember(StaffMember member)
+    {
+        ArgumentNullException.ThrowIfNull(member);
+        if (member.Id <= 0)
+        {
+            member.Id = PeekNextStaffId();
+        }
+        _staffMembers.Add(member);
+        SaveStaffChanges();
+    }
+
+    public void UpdateStaffMember(StaffMember updated)
+    {
+        ArgumentNullException.ThrowIfNull(updated);
+        var existing = _staffMembers.FirstOrDefault(s => s.Id == updated.Id);
+        if (existing != null)
+        {
+            existing.FullName = updated.FullName;
+            existing.Role = updated.Role;
+            existing.Shift = updated.Shift;
+            existing.IsActive = updated.IsActive;
+            SaveStaffChanges();
+        }
+    }
+
+    public void SetStaffStatus(int staffId, bool isActive)
+    {
+        var existing = _staffMembers.FirstOrDefault(s => s.Id == staffId);
+        if (existing != null)
+        {
+            existing.IsActive = isActive;
+            SaveStaffChanges();
+        }
+    }
+
+    public StaffMember? AuthenticateStaff(int staffId)
+    {
+        return _staffMembers.FirstOrDefault(s => s.Id == staffId && s.IsActive);
     }
 
     #endregion

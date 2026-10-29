@@ -257,7 +257,7 @@ partial class EditOrderView
         lblOrderNumberBadge.ForeColor = Color.FromArgb(30, 58, 95);
         lblOrderNumberBadge.Location = new Point(18, 55);
         lblOrderNumberBadge.Name = "lblOrderNumberBadge";
-        lblOrderNumberBadge.Size = new Size(114, 30);
+        lblOrderNumberBadge.Size = new Size(65, 30);
         lblOrderNumberBadge.TabIndex = 1;
         lblOrderNumberBadge.Text = "#104";
         // 
@@ -358,7 +358,7 @@ partial class EditOrderView
         grpOrderItems.Location = new Point(24, 310);
         grpOrderItems.Name = "grpOrderItems";
         grpOrderItems.Padding = new Padding(16, 10, 16, 12);
-        grpOrderItems.Size = new Size(1072, 401);
+        grpOrderItems.Size = new Size(1072, 448);
         grpOrderItems.TabIndex = 4;
         grpOrderItems.TabStop = false;
         grpOrderItems.Text = "Order Items";
@@ -405,7 +405,7 @@ partial class EditOrderView
         dgvItems.RowHeadersWidth = 51;
         dgvItems.RowTemplate.Height = 36;
         dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvItems.Size = new Size(1040, 307);
+        dgvItems.Size = new Size(1040, 354);
         dgvItems.TabIndex = 0;
         dgvItems.CellContentClick += dgvItems_CellContentClick;
         // 
@@ -456,7 +456,7 @@ partial class EditOrderView
         pnlItemsFooter.Controls.Add(lblTotalAmount);
         pnlItemsFooter.Controls.Add(lblSummaryQty);
         pnlItemsFooter.Dock = DockStyle.Bottom;
-        pnlItemsFooter.Location = new Point(16, 344);
+        pnlItemsFooter.Location = new Point(16, 391);
         pnlItemsFooter.Name = "pnlItemsFooter";
         pnlItemsFooter.Size = new Size(1040, 45);
         pnlItemsFooter.TabIndex = 1;
@@ -491,7 +491,7 @@ partial class EditOrderView
         pnlActions.Controls.Add(btnCancelChanges);
         pnlActions.Controls.Add(btnSaveChanges);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(24, 711);
+        pnlActions.Location = new Point(24, 758);
         pnlActions.Name = "pnlActions";
         pnlActions.Size = new Size(1072, 60);
         pnlActions.TabIndex = 5;
@@ -553,7 +553,7 @@ partial class EditOrderView
         Controls.Add(pnlHeader);
         Name = "EditOrderView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 791);
+        Size = new Size(1120, 838);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         pnlAlertBanner.ResumeLayout(false);

@@ -55,11 +55,12 @@ partial class MenuView
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, 0);
+        lblTitle.Location = new Point(0, -1);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(106, 45);
         lblTitle.TabIndex = 0;
         lblTitle.Text = "Menu";
+        
         // 
         // grpFilter
         // 
@@ -158,7 +159,7 @@ partial class MenuView
         grpMenuTable.Location = new Point(24, 132);
         grpMenuTable.Name = "grpMenuTable";
         grpMenuTable.Padding = new Padding(12, 10, 12, 12);
-        grpMenuTable.Size = new Size(1072, 401);
+        grpMenuTable.Size = new Size(1072, 390);
         grpMenuTable.TabIndex = 2;
         grpMenuTable.TabStop = false;
         grpMenuTable.Text = "Menu Items";
@@ -205,7 +206,7 @@ partial class MenuView
         dgvMenu.RowHeadersWidth = 51;
         dgvMenu.RowTemplate.Height = 36;
         dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvMenu.Size = new Size(1048, 352);
+        dgvMenu.Size = new Size(1048, 341);
         dgvMenu.TabIndex = 0;
         dgvMenu.CellContentClick += dgvMenu_CellContentClick;
         // 
@@ -261,7 +262,7 @@ partial class MenuView
         Controls.Add(pnlHeader);
         Name = "MenuView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Size = new Size(1120, 542);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);

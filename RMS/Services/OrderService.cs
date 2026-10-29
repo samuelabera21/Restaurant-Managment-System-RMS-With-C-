@@ -65,7 +65,7 @@ public class OrderService
     /// Creates a new order using the next atomic sequential number (starting at #116),
     /// freezes item snapshots, and saves it in Pending status.
     /// </summary>
-    public Order CreateOrder(string customerName, int tableNumber, IEnumerable<OrderItem> items)
+    public Order CreateOrder(string customerName, int tableNumber, IEnumerable<OrderItem> items, string? waiterName = null)
     {
         var itemList = items.ToList();
 
@@ -75,7 +75,10 @@ public class OrderService
         }
 
         int newOrderNumber = _store.AllocateNextOrderNumber();
-        var order = new Order(newOrderNumber, customerName.Trim(), tableNumber, OrderStatus.Pending, DateTime.Now);
+        var order = new Order(newOrderNumber, customerName.Trim(), tableNumber, OrderStatus.Pending, DateTime.Now)
+        {
+            WaiterName = !string.IsNullOrWhiteSpace(waiterName) ? waiterName : (_store.CurrentUser?.FullName ?? "Abebe")
+        };
 
         foreach (var item in itemList)
         {

@@ -7,6 +7,7 @@ public class Order
 {
     public int OrderNumber { get; set; }
     public string CustomerName { get; set; } = string.Empty;
+    public string WaiterName { get; set; } = "Abebe";
     public int TableNumber { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public OrderStatus Status { get; set; } = OrderStatus.Pending;

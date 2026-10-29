@@ -395,7 +395,7 @@ partial class OrderDetailsView
         lblLockedNotice.ForeColor = Color.FromArgb(107, 114, 128);
         lblLockedNotice.Location = new Point(4, 38);
         lblLockedNotice.Name = "lblLockedNotice";
-        lblLockedNotice.Size = new Size(566, 23);
+        lblLockedNotice.Size = new Size(546, 23);
         lblLockedNotice.TabIndex = 2;
         lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
         lblLockedNotice.Visible = false;

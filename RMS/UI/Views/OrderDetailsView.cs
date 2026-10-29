@@ -45,7 +45,7 @@ public partial class OrderDetailsView : BaseView, INavigationAware
     {
         if (order == null) return;
 
-        lblOrderHeading.Text = $"#{order.OrderNumber} Order Information";
+        lblOrderHeading.Text = $"#{order.OrderNumber} Order Information • Server: {order.WaiterName}";
         lblOrderNum.Text = $"#{order.OrderNumber}";
         lblCustomer.Text = order.CustomerName;
         lblTable.Text = $"Table {order.TableNumber}";

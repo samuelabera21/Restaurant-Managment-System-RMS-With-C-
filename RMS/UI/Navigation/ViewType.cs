@@ -12,7 +12,8 @@ public enum ViewType
     OrderDetails,
     EditOrder,
     Reports,
-    MenuManagement
+    MenuManagement,
+    StaffManagement
 }
 
 /// <summary>

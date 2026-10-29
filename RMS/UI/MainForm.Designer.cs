@@ -17,6 +17,7 @@ partial class MainForm
     {
         pnlSidebar = new Panel();
         btnExit = new Button();
+        btnNavManageStaff = new Button();
         btnNavManageMenu = new Button();
         lblAdmin = new Label();
         btnNavReports = new Button();
@@ -29,6 +30,7 @@ partial class MainForm
         lblBrandBadge = new Label();
         lblBrandTitle = new Label();
         pnlHeader = new Panel();
+        btnLogout = new Button();
         lblUserInfo = new Label();
         lblHeaderTitle = new Label();
         statusStrip = new StatusStrip();
@@ -45,6 +47,7 @@ partial class MainForm
         // 
         pnlSidebar.BackColor = Color.FromArgb(30, 41, 59);
         pnlSidebar.Controls.Add(btnExit);
+        pnlSidebar.Controls.Add(btnNavManageStaff);
         pnlSidebar.Controls.Add(btnNavManageMenu);
         pnlSidebar.Controls.Add(lblAdmin);
         pnlSidebar.Controls.Add(btnNavReports);
@@ -96,6 +99,24 @@ partial class MainForm
         btnNavManageMenu.TextAlign = ContentAlignment.MiddleLeft;
         btnNavManageMenu.UseVisualStyleBackColor = true;
         btnNavManageMenu.Click += btnNavManageMenu_Click;
+        // 
+        // btnNavManageStaff
+        // 
+        btnNavManageStaff.Cursor = Cursors.Hand;
+        btnNavManageStaff.Dock = DockStyle.Top;
+        btnNavManageStaff.FlatAppearance.BorderSize = 0;
+        btnNavManageStaff.FlatStyle = FlatStyle.Flat;
+        btnNavManageStaff.Font = new Font("Segoe UI", 9.5F);
+        btnNavManageStaff.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavManageStaff.Location = new Point(12, 392);
+        btnNavManageStaff.Name = "btnNavManageStaff";
+        btnNavManageStaff.Padding = new Padding(8, 0, 0, 0);
+        btnNavManageStaff.Size = new Size(252, 40);
+        btnNavManageStaff.TabIndex = 9;
+        btnNavManageStaff.Text = "👥  Manage Waiters";
+        btnNavManageStaff.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavManageStaff.UseVisualStyleBackColor = true;
+        btnNavManageStaff.Click += btnNavManageStaff_Click;
         // 
         // lblAdmin
         // 
@@ -249,6 +270,7 @@ partial class MainForm
         // 
         pnlHeader.BackColor = Color.White;
         pnlHeader.BorderStyle = BorderStyle.FixedSingle;
+        pnlHeader.Controls.Add(btnLogout);
         pnlHeader.Controls.Add(lblUserInfo);
         pnlHeader.Controls.Add(lblHeaderTitle);
         pnlHeader.Dock = DockStyle.Top;
@@ -263,11 +285,26 @@ partial class MainForm
         lblUserInfo.AutoSize = true;
         lblUserInfo.Font = new Font("Segoe UI", 9.5F);
         lblUserInfo.ForeColor = Color.FromArgb(71, 85, 105);
-        lblUserInfo.Location = new Point(794, 17);
+        lblUserInfo.Location = new Point(660, 17);
         lblUserInfo.Name = "lblUserInfo";
         lblUserInfo.Size = new Size(210, 25);
         lblUserInfo.TabIndex = 1;
         lblUserInfo.Text = "👤 Waiter: Abebe (Staff)";
+        // 
+        // btnLogout
+        // 
+        btnLogout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnLogout.BackColor = Color.White;
+        btnLogout.Cursor = Cursors.Hand;
+        btnLogout.FlatStyle = FlatStyle.System;
+        btnLogout.Font = new Font("Segoe UI", 8.5F);
+        btnLogout.Location = new Point(894, 12);
+        btnLogout.Name = "btnLogout";
+        btnLogout.Size = new Size(82, 30);
+        btnLogout.TabIndex = 2;
+        btnLogout.Text = "Sign Out";
+        btnLogout.UseVisualStyleBackColor = false;
+        btnLogout.Click += btnLogout_Click;
         // 
         // lblHeaderTitle
         // 
@@ -357,10 +394,12 @@ partial class MainForm
     private System.Windows.Forms.Button btnNavOrders;
     private System.Windows.Forms.Button btnNavReports;
     private System.Windows.Forms.Label lblAdmin;
+    private System.Windows.Forms.Button btnNavManageStaff;
     private System.Windows.Forms.Button btnNavManageMenu;
     private System.Windows.Forms.Button btnExit;
     private System.Windows.Forms.Panel pnlHeader;
     private System.Windows.Forms.Label lblHeaderTitle;
+    private System.Windows.Forms.Button btnLogout;
     private System.Windows.Forms.Label lblUserInfo;
     private System.Windows.Forms.StatusStrip statusStrip;
     private System.Windows.Forms.ToolStripStatusLabel lblStatusLeft;

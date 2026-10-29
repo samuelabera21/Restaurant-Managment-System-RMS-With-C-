@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using RMS.Common;
+using RMS.Models;
+using RMS.Services;
 using RMS.UI.Dialogs;
 using RMS.UI.Navigation;
 using RMS.UI.Views;
@@ -9,14 +13,15 @@ namespace RMS.UI;
 
 /// <summary>
 /// Main application shell providing the left navigation panel,
-/// top application header, bottom status bar, and dynamic view host container.
+/// top application header, bottom status bar, dynamic view host container,
+/// and role-based workspace layouts for Waiters and Managers.
 /// </summary>
 public partial class MainForm : Form
 {
+    private readonly RestaurantStore _store = RestaurantStore.Instance;
     private readonly Dictionary<ViewType, BaseView> _views = new();
     private readonly Dictionary<ViewType, Button> _navButtons = new();
     private ViewType _currentViewType = ViewType.Dashboard;
-    private bool _isAdminAuthenticated = false;
 
     public MainForm()
     {
@@ -29,9 +34,10 @@ public partial class MainForm : Form
         _navButtons[ViewType.Orders] = btnNavOrders;
         _navButtons[ViewType.Reports] = btnNavReports;
         _navButtons[ViewType.MenuManagement] = btnNavManageMenu;
+        _navButtons[ViewType.StaffManagement] = btnNavManageStaff;
 
         // Configure clean dark slate hover states
-        foreach (var btn in new[] { btnNavDashboard, btnNavMenu, btnNavNewOrder, btnNavOrders, btnNavReports, btnNavManageMenu, btnExit })
+        foreach (var btn in new[] { btnNavDashboard, btnNavMenu, btnNavNewOrder, btnNavOrders, btnNavReports, btnNavManageMenu, btnNavManageStaff, btnExit })
         {
             btn.UseVisualStyleBackColor = false;
             btn.FlatAppearance.BorderSize = 0;
@@ -47,9 +53,80 @@ public partial class MainForm : Form
 
         // Register application views
         RegisterViews();
+    }
 
-        // Start on Dashboard
-        NavigateTo(ViewType.Dashboard);
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+
+        if (DesignMode || System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
+        {
+            return;
+        }
+
+        // Prompt for Staff ID login on application startup
+        EnsureUserLoggedIn();
+    }
+
+    private void EnsureUserLoggedIn()
+    {
+        while (_store.CurrentUser == null)
+        {
+            using var login = new LoginDialog();
+            if (login.ShowDialog(this) == DialogResult.OK && _store.CurrentUser != null)
+            {
+                break;
+            }
+            else
+            {
+                // If user closes or cancels login dialog, exit cleanly
+                Application.Exit();
+                return;
+            }
+        }
+
+        ApplyRoleLayout(_store.CurrentUser);
+    }
+
+    private void ApplyRoleLayout(StaffMember user)
+    {
+        bool isManager = string.Equals(user.Role, "Manager", StringComparison.OrdinalIgnoreCase);
+
+        if (isManager)
+        {
+            lblUserInfo.Text = $"👤 Manager: {user.FullName}";
+
+            // Manager workspace: Dashboard, Reports, Menu, Orders, Administration
+            btnNavDashboard.Visible = true;
+            btnNavReports.Visible = true;
+            btnNavMenu.Visible = true;
+            btnNavOrders.Visible = true;
+            btnNavNewOrder.Visible = false; // Order entry is for waiters on dining floor
+
+            lblAdmin.Visible = true;
+            btnNavManageMenu.Visible = true;
+            btnNavManageStaff.Visible = true;
+
+            NavigateTo(ViewType.Dashboard);
+        }
+        else
+        {
+            lblUserInfo.Text = $"👤 Waiter: {user.FullName} (Staff)";
+
+            // Waiter workspace: Menu, New Order, Orders only
+            btnNavMenu.Visible = true;
+            btnNavNewOrder.Visible = true;
+            btnNavOrders.Visible = true;
+
+            // Hide Manager-only views from Waiter
+            btnNavDashboard.Visible = false;
+            btnNavReports.Visible = false;
+            lblAdmin.Visible = false;
+            btnNavManageMenu.Visible = false;
+            btnNavManageStaff.Visible = false;
+
+            NavigateTo(ViewType.NewOrder);
+        }
     }
 
     private void RegisterViews()
@@ -62,24 +139,18 @@ public partial class MainForm : Form
         _views[ViewType.EditOrder] = new EditOrderView { NavigateAction = NavigateTo };
         _views[ViewType.Reports] = new ReportsView { NavigateAction = NavigateTo };
         _views[ViewType.MenuManagement] = new MenuManagementView { NavigateAction = NavigateTo };
+        _views[ViewType.StaffManagement] = new StaffManagementView { NavigateAction = NavigateTo };
     }
 
     public void NavigateTo(ViewType targetView, object? context = null)
     {
-        // PIN protection guard for Admin Menu Management
-        if (targetView == ViewType.MenuManagement && !_isAdminAuthenticated)
+        // Guard: Prevent non-managers from navigating to admin views
+        if ((targetView == ViewType.MenuManagement || targetView == ViewType.StaffManagement || targetView == ViewType.Reports)
+            && _store.CurrentUser?.Role != "Manager")
         {
-            using var pinDialog = new PinEntryDialog();
-            if (pinDialog.ShowDialog(this) == DialogResult.OK && pinDialog.IsAuthenticated)
-            {
-                _isAdminAuthenticated = true;
-                SetStatus("Admin authenticated • Access granted to Menu Management");
-            }
-            else
-            {
-                SetStatus("Menu Management access cancelled");
-                return;
-            }
+            MessageBox.Show("This section is restricted to Restaurant Managers.",
+                "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
         }
 
         if (!_views.TryGetValue(targetView, out var nextView))
@@ -122,40 +193,55 @@ public partial class MainForm : Form
     }
 
     // =========================================================================
-    // Button Click Event Handlers (Created via Visual Studio Designer)
+    // Button Click Event Handlers (Visual Studio Designer)
     // =========================================================================
 
-    private void btnNavDashboard_Click(object sender, EventArgs e)
+    private void btnNavDashboard_Click(object? sender, EventArgs e)
     {
         NavigateTo(ViewType.Dashboard);
     }
 
-    private void btnNavMenu_Click(object sender, EventArgs e)
+    private void btnNavMenu_Click(object? sender, EventArgs e)
     {
         NavigateTo(ViewType.Menu);
     }
 
-    private void btnNavNewOrder_Click(object sender, EventArgs e)
+    private void btnNavNewOrder_Click(object? sender, EventArgs e)
     {
         NavigateTo(ViewType.NewOrder);
     }
 
-    private void btnNavOrders_Click(object sender, EventArgs e)
+    private void btnNavOrders_Click(object? sender, EventArgs e)
     {
         NavigateTo(ViewType.Orders);
     }
 
-    private void btnNavReports_Click(object sender, EventArgs e)
+    private void btnNavReports_Click(object? sender, EventArgs e)
     {
         NavigateTo(ViewType.Reports);
     }
 
-    private void btnNavManageMenu_Click(object sender, EventArgs e)
+    private void btnNavManageMenu_Click(object? sender, EventArgs e)
     {
         NavigateTo(ViewType.MenuManagement);
     }
 
-    private void btnExit_Click(object sender, EventArgs e)
+    private void btnNavManageStaff_Click(object? sender, EventArgs e)
+    {
+        NavigateTo(ViewType.StaffManagement);
+    }
+
+    private void btnLogout_Click(object? sender, EventArgs e)
+    {
+        if (MessageBox.Show("Are you sure you want to sign out?", "Sign Out",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        {
+            _store.CurrentUser = null;
+            EnsureUserLoggedIn();
+        }
+    }
+
+    private void btnExit_Click(object? sender, EventArgs e)
     {
         if (MessageBox.Show("Are you sure you want to exit ዉለታ Restaurant RMS?", "Exit Application",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

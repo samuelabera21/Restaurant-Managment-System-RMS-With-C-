@@ -26,7 +26,6 @@ public partial class DashboardView : BaseView
             return;
         }
 
-        dgvRecentOrders.CellDoubleClick += dgvRecentOrders_CellDoubleClick;
         _store.OnOrdersChanged += RefreshDashboard;
     }
 
@@ -60,7 +59,7 @@ public partial class DashboardView : BaseView
 
         foreach (var order in recentOrders)
         {
-            int rowIndex = dgvRecentOrders.Rows.Add(
+            dgvRecentOrders.Rows.Add(
                 $"#{order.OrderNumber}",
                 order.CustomerName,
                 $"Table {order.TableNumber}",
@@ -68,18 +67,9 @@ public partial class DashboardView : BaseView
                 $"{order.Total:N0} ETB",
                 order.Status.ToString()
             );
-            dgvRecentOrders.Rows[rowIndex].Tag = order;
         }
 
         dgvRecentOrders.ClearSelection();
-    }
-
-    private void dgvRecentOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
-    {
-        if (e.RowIndex >= 0 && dgvRecentOrders.Rows[e.RowIndex].Tag is Order order)
-        {
-            Navigate(ViewType.OrderDetails, order.OrderNumber);
-        }
     }
 
     private void btnNewOrder_Click(object? sender, EventArgs e)
