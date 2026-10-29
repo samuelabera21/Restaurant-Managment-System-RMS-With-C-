@@ -192,7 +192,7 @@ partial class NewOrderView
         txtOrderNumber.ReadOnly = true;
         txtOrderNumber.Size = new Size(120, 33);
         txtOrderNumber.TabIndex = 1;
-        txtOrderNumber.Text = "#116";
+        txtOrderNumber.Text = "116";
         txtOrderNumber.TextAlign = HorizontalAlignment.Center;
         // 
         // lblOrderNumber
@@ -204,7 +204,7 @@ partial class NewOrderView
         lblOrderNumber.Name = "lblOrderNumber";
         lblOrderNumber.Size = new Size(73, 23);
         lblOrderNumber.TabIndex = 0;
-        lblOrderNumber.Text = "Order #:";
+        lblOrderNumber.Text = "Order No:";
         // 
         // grpAddItem
         // 
