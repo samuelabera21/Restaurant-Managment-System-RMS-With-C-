@@ -61,7 +61,7 @@ public partial class DashboardView : BaseView
         foreach (var order in recentOrders)
         {
             dgvRecentOrders.Rows.Add(
-                $"#{order.OrderNumber}",
+                order.OrderNumber.ToString(),
                 order.CustomerName,
                 $"Table {order.TableNumber}",
                 order.CreatedAt.ToString("h:mm tt"),
