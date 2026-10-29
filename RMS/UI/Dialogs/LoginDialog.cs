@@ -7,8 +7,8 @@ using RMS.Services;
 namespace RMS.UI.Dialogs;
 
 /// <summary>
-/// Professional, lightweight login dialog prompting for Staff ID.
-/// Automatically detects Manager vs. Waiter roles based on the entered ID.
+/// Standard Windows Forms login dialog for Staff ID authentication.
+/// Fully customizable via the Visual Studio Designer.
 /// </summary>
 public partial class LoginDialog : Form
 {
@@ -44,22 +44,25 @@ public partial class LoginDialog : Form
         Close();
     }
 
+    private void btnCancel_Click(object? sender, EventArgs e)
+    {
+        DialogResult = DialogResult.Cancel;
+        Close();
+    }
+
     private void ShowError(string message)
     {
         lblError.Text = message;
         lblError.Visible = true;
-        txtStaffId.BackColor = Color.FromArgb(254, 242, 242);
         txtStaffId.Focus();
         txtStaffId.SelectAll();
     }
 
     private void txtStaffId_TextChanged(object? sender, EventArgs e)
     {
-        txtStaffId.BackColor = Color.White;
         if (lblError.Visible)
         {
             lblError.Visible = false;
         }
     }
 }
-
