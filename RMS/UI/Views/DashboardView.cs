@@ -32,6 +32,7 @@ public partial class DashboardView : BaseView
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
+        btnNewOrder.Visible = _store.CurrentUser?.Role != "Manager";
         RefreshDashboard();
     }
 
@@ -79,6 +80,12 @@ public partial class DashboardView : BaseView
 
     private void lnkViewAll_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
     {
+        Navigate(ViewType.Orders);
+    }
+
+    private void dgvRecentOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex < 0) return;
         Navigate(ViewType.Orders);
     }
 }
