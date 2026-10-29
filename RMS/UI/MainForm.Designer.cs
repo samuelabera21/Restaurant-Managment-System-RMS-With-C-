@@ -77,7 +77,7 @@ partial class MainForm
         btnExit.Padding = new Padding(8, 0, 0, 0);
         btnExit.Size = new Size(252, 40);
         btnExit.TabIndex = 9;
-        btnExit.Text = "↪  Exit";
+        btnExit.Text = "Exit";
         btnExit.TextAlign = ContentAlignment.MiddleLeft;
         btnExit.UseVisualStyleBackColor = true;
         btnExit.Click += btnExit_Click;
@@ -95,7 +95,7 @@ partial class MainForm
         btnNavManageMenu.Padding = new Padding(8, 0, 0, 0);
         btnNavManageMenu.Size = new Size(252, 40);
         btnNavManageMenu.TabIndex = 8;
-        btnNavManageMenu.Text = "⚙  Manage Menu";
+        btnNavManageMenu.Text = "Manage Menu";
         btnNavManageMenu.TextAlign = ContentAlignment.MiddleLeft;
         btnNavManageMenu.UseVisualStyleBackColor = true;
         btnNavManageMenu.Click += btnNavManageMenu_Click;
@@ -113,7 +113,7 @@ partial class MainForm
         btnNavManageStaff.Padding = new Padding(8, 0, 0, 0);
         btnNavManageStaff.Size = new Size(252, 40);
         btnNavManageStaff.TabIndex = 9;
-        btnNavManageStaff.Text = "👥  Manage Waiters";
+        btnNavManageStaff.Text = "Manage Waiters";
         btnNavManageStaff.TextAlign = ContentAlignment.MiddleLeft;
         btnNavManageStaff.UseVisualStyleBackColor = true;
         btnNavManageStaff.Click += btnNavManageStaff_Click;
@@ -143,7 +143,7 @@ partial class MainForm
         btnNavReports.Padding = new Padding(8, 0, 0, 0);
         btnNavReports.Size = new Size(252, 40);
         btnNavReports.TabIndex = 6;
-        btnNavReports.Text = "📊  Reports";
+        btnNavReports.Text = "Reports";
         btnNavReports.TextAlign = ContentAlignment.MiddleLeft;
         btnNavReports.UseVisualStyleBackColor = true;
         btnNavReports.Click += btnNavReports_Click;
@@ -161,7 +161,7 @@ partial class MainForm
         btnNavOrders.Padding = new Padding(8, 0, 0, 0);
         btnNavOrders.Size = new Size(252, 40);
         btnNavOrders.TabIndex = 5;
-        btnNavOrders.Text = "📋  Orders";
+        btnNavOrders.Text = "Orders";
         btnNavOrders.TextAlign = ContentAlignment.MiddleLeft;
         btnNavOrders.UseVisualStyleBackColor = true;
         btnNavOrders.Click += btnNavOrders_Click;
@@ -179,7 +179,7 @@ partial class MainForm
         btnNavNewOrder.Padding = new Padding(8, 0, 0, 0);
         btnNavNewOrder.Size = new Size(252, 40);
         btnNavNewOrder.TabIndex = 4;
-        btnNavNewOrder.Text = "⊕  New Order";
+        btnNavNewOrder.Text = "New Order";
         btnNavNewOrder.TextAlign = ContentAlignment.MiddleLeft;
         btnNavNewOrder.UseVisualStyleBackColor = true;
         btnNavNewOrder.Click += btnNavNewOrder_Click;
@@ -197,7 +197,7 @@ partial class MainForm
         btnNavMenu.Padding = new Padding(8, 0, 0, 0);
         btnNavMenu.Size = new Size(252, 40);
         btnNavMenu.TabIndex = 3;
-        btnNavMenu.Text = "📖  Menu";
+        btnNavMenu.Text = "Menu";
         btnNavMenu.TextAlign = ContentAlignment.MiddleLeft;
         btnNavMenu.UseVisualStyleBackColor = true;
         btnNavMenu.Click += btnNavMenu_Click;
@@ -215,7 +215,7 @@ partial class MainForm
         btnNavDashboard.Padding = new Padding(8, 0, 0, 0);
         btnNavDashboard.Size = new Size(252, 40);
         btnNavDashboard.TabIndex = 2;
-        btnNavDashboard.Text = "⊞  Dashboard";
+        btnNavDashboard.Text = "Dashboard";
         btnNavDashboard.TextAlign = ContentAlignment.MiddleLeft;
         btnNavDashboard.UseVisualStyleBackColor = true;
         btnNavDashboard.Click += btnNavDashboard_Click;
@@ -230,7 +230,7 @@ partial class MainForm
         lblWorkspace.Padding = new Padding(6, 12, 0, 4);
         lblWorkspace.Size = new Size(252, 34);
         lblWorkspace.TabIndex = 1;
-        lblWorkspace.Text = "WORKSPACE";
+        lblWorkspace.Text = "NAVIGATION";
         // 
         // pnlBrand
         // 
@@ -289,7 +289,7 @@ partial class MainForm
         lblUserInfo.Name = "lblUserInfo";
         lblUserInfo.Size = new Size(210, 25);
         lblUserInfo.TabIndex = 1;
-        lblUserInfo.Text = "👤 Waiter: Abebe (Staff)";
+        lblUserInfo.Text = "Waiter: Abebe";
         // 
         // btnLogout
         // 
@@ -335,7 +335,7 @@ partial class MainForm
         lblStatusLeft.Name = "lblStatusLeft";
         lblStatusLeft.Size = new Size(780, 25);
         lblStatusLeft.Spring = true;
-        lblStatusLeft.Text = "● Ready • Viewing Dashboard";
+        lblStatusLeft.Text = "Ready - Viewing Dashboard";
         lblStatusLeft.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // lblStatusRight
