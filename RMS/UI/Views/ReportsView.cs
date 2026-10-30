@@ -94,7 +94,7 @@ public partial class ReportsView : BaseView, INavigationAware
         // 5. Update Breakdown Subtitle
         string dateText = isTodayOnly ? "Today" : "All dates";
         string statusText = selectedStatus.HasValue ? selectedStatus.Value.ToString() : "All Statuses";
-        lblBreakdownSubtitle.Text = $"{filteredList.Count} orders listed • {dateText} • {statusText}";
+        //lblBreakdownSubtitle.Text = $"{filteredList.Count} orders listed • {dateText} • {statusText}";
         lblSummaryFooter.Text = string.Empty;
 
         // 6. Populate Breakdown Table
