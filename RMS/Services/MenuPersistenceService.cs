@@ -75,11 +75,8 @@ public class MenuPersistenceService
     {
         return new List<MenuItem>
         {
-            new(1, "Coffee", "Drinks", 40m, isAvailable: true),
-            new(2, "Tea", "Drinks", 30m, isAvailable: true),
-            new(3, "Juice", "Drinks", 60m, isAvailable: false),
-            new(4, "Burger", "Main Course", 180m, isAvailable: true),
-            new(5, "Pizza", "Main Course", 250m, isAvailable: true)
+            new(1, "Burger", "Main Course", 180m, isAvailable: true),
+            new(2, "Coffee", "Drinks", 40m, isAvailable: true)
         };
     }
 }
