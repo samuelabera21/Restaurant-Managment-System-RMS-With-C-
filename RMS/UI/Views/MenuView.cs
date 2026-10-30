@@ -81,7 +81,7 @@ public partial class MenuView : BaseView
         var results = filtered.ToList();
 
         // Update count summary label
-        lblCountSummary.Text = $"Showing {results.Count} of {allItems.Count} items";
+        
 
         // Populate DataGridView
         dgvMenu.Rows.Clear();
@@ -152,5 +152,6 @@ public partial class MenuView : BaseView
             );
         }
     }
+
 
 }
