@@ -79,12 +79,12 @@ partial class DashboardView
         // btnNewOrder
         // 
         btnNewOrder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnNewOrder.BackColor = Color.FromArgb(30, 58, 95);
+        btnNewOrder.UseVisualStyleBackColor = true;
         btnNewOrder.Cursor = Cursors.Hand;
         btnNewOrder.FlatAppearance.BorderSize = 0;
-        btnNewOrder.FlatStyle = FlatStyle.Flat;
+        btnNewOrder.FlatStyle = FlatStyle.System;
         btnNewOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnNewOrder.ForeColor = Color.White;
+        btnNewOrder.ForeColor = SystemColors.ControlText;
         btnNewOrder.Location = new Point(942, 6);
         btnNewOrder.Name = "btnNewOrder";
         btnNewOrder.Size = new Size(130, 36);
