@@ -205,7 +205,7 @@ public class MenuItemDialog : Form
             Font = AppTheme.BodyBold,
             ForeColor = AppTheme.TextPrimary,
             BackColor = Color.White,
-            FlatStyle = FlatStyle.Flat,
+            FlatStyle = FlatStyle.System,
             Size = new Size(100, 36),
             Location = new Point(208, 14),
             Cursor = Cursors.Hand,
@@ -217,9 +217,9 @@ public class MenuItemDialog : Form
         {
             Text = isEditing ? "Save Changes" : "Add Item",
             Font = AppTheme.BodyBold,
-            ForeColor = Color.White,
-            BackColor = AppTheme.PrimaryButton,
-            FlatStyle = FlatStyle.Flat,
+            ForeColor = SystemColors.ControlText,
+            UseVisualStyleBackColor = true,
+            FlatStyle = FlatStyle.System,
             Size = new Size(110, 36),
             Location = new Point(316, 14),
             Cursor = Cursors.Hand
