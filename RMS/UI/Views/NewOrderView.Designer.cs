@@ -226,12 +226,12 @@ partial class NewOrderView
         // 
         // btnAddItem
         // 
-        btnAddItem.BackColor = Color.FromArgb(30, 58, 95);
+        btnAddItem.UseVisualStyleBackColor = true;
         btnAddItem.Cursor = Cursors.Hand;
         btnAddItem.FlatAppearance.BorderSize = 0;
-        btnAddItem.FlatStyle = FlatStyle.Flat;
+        btnAddItem.FlatStyle = FlatStyle.System;
         btnAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnAddItem.ForeColor = Color.White;
+        btnAddItem.ForeColor = SystemColors.ControlText;
         btnAddItem.Location = new Point(530, 42);
         btnAddItem.Name = "btnAddItem";
         btnAddItem.Size = new Size(125, 31);
@@ -440,12 +440,12 @@ partial class NewOrderView
         // 
         // btnViewOrders
         // 
-        btnViewOrders.BackColor = Color.FromArgb(30, 58, 95);
+        btnViewOrders.UseVisualStyleBackColor = true;
         btnViewOrders.Cursor = Cursors.Hand;
         btnViewOrders.FlatAppearance.BorderSize = 0;
-        btnViewOrders.FlatStyle = FlatStyle.Flat;
+        btnViewOrders.FlatStyle = FlatStyle.System;
         btnViewOrders.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnViewOrders.ForeColor = Color.White;
+        btnViewOrders.ForeColor = SystemColors.ControlText;
         btnViewOrders.Location = new Point(260, 8);
         btnViewOrders.Name = "btnViewOrders";
         btnViewOrders.Size = new Size(140, 36);
@@ -471,12 +471,12 @@ partial class NewOrderView
         // 
         // btnSaveOrder
         // 
-        btnSaveOrder.BackColor = Color.FromArgb(30, 58, 95);
+        btnSaveOrder.UseVisualStyleBackColor = true;
         btnSaveOrder.Cursor = Cursors.Hand;
         btnSaveOrder.FlatAppearance.BorderSize = 0;
         btnSaveOrder.FlatStyle = FlatStyle.System;
         btnSaveOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnSaveOrder.ForeColor = Color.White;
+        btnSaveOrder.ForeColor = SystemColors.ControlText;
         btnSaveOrder.Location = new Point(0, 8);
         btnSaveOrder.Name = "btnSaveOrder";
         btnSaveOrder.Size = new Size(135, 36);
