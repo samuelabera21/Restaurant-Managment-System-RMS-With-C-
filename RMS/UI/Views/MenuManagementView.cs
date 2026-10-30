@@ -120,7 +120,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
             statusCell.Style.Font = AppTheme.BodyRegular;
         }
 
-        lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";
+        //lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";
         UpdateActionButtons();
     }
 
