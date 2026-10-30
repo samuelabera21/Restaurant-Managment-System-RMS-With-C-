@@ -243,7 +243,7 @@ partial class OrderDetailsView
         // 
         lblOrderHeading.AutoSize = true;
         lblOrderHeading.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-        lblOrderHeading.ForeColor = Color.FromArgb(30, 58, 95);
+        lblOrderHeading.ForeColor = Color.FromArgb(15, 23, 42);
         lblOrderHeading.Location = new Point(18, 28);
         lblOrderHeading.Name = "lblOrderHeading";
         lblOrderHeading.Size = new Size(261, 30);
@@ -417,11 +417,11 @@ partial class OrderDetailsView
         // 
         // btnEditOrder
         // 
-        btnEditOrder.BackColor = Color.FromArgb(30, 58, 95);
+        btnEditOrder.UseVisualStyleBackColor = true;
         btnEditOrder.Cursor = Cursors.Hand;
         btnEditOrder.FlatStyle = FlatStyle.System;
         btnEditOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnEditOrder.ForeColor = Color.White;
+        btnEditOrder.ForeColor = SystemColors.ControlText;
         btnEditOrder.Location = new Point(0, 4);
         btnEditOrder.Name = "btnEditOrder";
         btnEditOrder.Size = new Size(140, 34);
