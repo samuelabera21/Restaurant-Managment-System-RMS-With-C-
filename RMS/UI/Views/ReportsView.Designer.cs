@@ -54,8 +54,6 @@ partial class ReportsView
         colCreated = new DataGridViewTextBoxColumn();
         colTotal = new DataGridViewTextBoxColumn();
         colStatus = new DataGridViewTextBoxColumn();
-        pnlBreakdownHeader = new Panel();
-        lblBreakdownSubtitle = new Label();
         lblSummaryFooter = new Label();
         pnlHeader.SuspendLayout();
         grpFilters.SuspendLayout();
@@ -69,7 +67,6 @@ partial class ReportsView
         pnlKpiValue.SuspendLayout();
         grpOrderSummary.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvSummary).BeginInit();
-        pnlBreakdownHeader.SuspendLayout();
         SuspendLayout();
         // 
         // pnlHeader
@@ -79,7 +76,7 @@ partial class ReportsView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 44);
+        pnlHeader.Size = new Size(1072, 63);
         pnlHeader.TabIndex = 0;
         // 
         // lblTitle
@@ -87,7 +84,7 @@ partial class ReportsView
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, 0);
+        lblTitle.Location = new Point(3, 15);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(137, 45);
         lblTitle.TabIndex = 0;
@@ -104,12 +101,11 @@ partial class ReportsView
         grpFilters.Dock = DockStyle.Top;
         grpFilters.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpFilters.ForeColor = Color.FromArgb(15, 23, 42);
-        grpFilters.Location = new Point(24, 60);
+        grpFilters.Location = new Point(24, 79);
         grpFilters.Name = "grpFilters";
-        grpFilters.Size = new Size(1072, 72);
+        grpFilters.Size = new Size(1072, 134);
         grpFilters.TabIndex = 1;
         grpFilters.TabStop = false;
-        grpFilters.Text = "Filters";
         // 
         // btnClearFilters
         // 
@@ -117,7 +113,7 @@ partial class ReportsView
         btnClearFilters.Cursor = Cursors.Hand;
         btnClearFilters.FlatStyle = FlatStyle.System;
         btnClearFilters.Font = new Font("Segoe UI", 9F);
-        btnClearFilters.Location = new Point(500, 24);
+        btnClearFilters.Location = new Point(598, 48);
         btnClearFilters.Name = "btnClearFilters";
         btnClearFilters.Size = new Size(75, 31);
         btnClearFilters.TabIndex = 4;
@@ -131,7 +127,7 @@ partial class ReportsView
         cboStatusFilter.Font = new Font("Segoe UI", 9.5F);
         cboStatusFilter.FormattingEnabled = true;
         cboStatusFilter.Items.AddRange(new object[] { "All Statuses", "Pending", "Preparing", "Ready", "Completed" });
-        cboStatusFilter.Location = new Point(345, 25);
+        cboStatusFilter.Location = new Point(391, 48);
         cboStatusFilter.Name = "cboStatusFilter";
         cboStatusFilter.Size = new Size(135, 33);
         cboStatusFilter.TabIndex = 3;
@@ -141,7 +137,7 @@ partial class ReportsView
         // 
         lblStatusFilter.AutoSize = true;
         lblStatusFilter.Font = new Font("Segoe UI", 9.5F);
-        lblStatusFilter.Location = new Point(280, 28);
+        lblStatusFilter.Location = new Point(296, 56);
         lblStatusFilter.Name = "lblStatusFilter";
         lblStatusFilter.Size = new Size(66, 25);
         lblStatusFilter.TabIndex = 2;
@@ -153,7 +149,7 @@ partial class ReportsView
         cboDateFilter.Font = new Font("Segoe UI", 9.5F);
         cboDateFilter.FormattingEnabled = true;
         cboDateFilter.Items.AddRange(new object[] { "All dates", "Today" });
-        cboDateFilter.Location = new Point(125, 25);
+        cboDateFilter.Location = new Point(140, 53);
         cboDateFilter.Name = "cboDateFilter";
         cboDateFilter.Size = new Size(135, 33);
         cboDateFilter.TabIndex = 1;
@@ -163,7 +159,7 @@ partial class ReportsView
         // 
         lblDateFilter.AutoSize = true;
         lblDateFilter.Font = new Font("Segoe UI", 9.5F);
-        lblDateFilter.Location = new Point(16, 28);
+        lblDateFilter.Location = new Point(12, 61);
         lblDateFilter.Name = "lblDateFilter";
         lblDateFilter.Size = new Size(113, 25);
         lblDateFilter.TabIndex = 0;
@@ -176,13 +172,12 @@ partial class ReportsView
         grpSummaryCards.Dock = DockStyle.Top;
         grpSummaryCards.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpSummaryCards.ForeColor = Color.FromArgb(15, 23, 42);
-        grpSummaryCards.Location = new Point(24, 132);
+        grpSummaryCards.Location = new Point(24, 213);
         grpSummaryCards.Name = "grpSummaryCards";
         grpSummaryCards.Padding = new Padding(12, 8, 12, 10);
         grpSummaryCards.Size = new Size(1072, 140);
         grpSummaryCards.TabIndex = 2;
         grpSummaryCards.TabStop = false;
-        grpSummaryCards.Text = "Performance Summary";
         // 
         // tlpKpi
         // 
@@ -425,17 +420,15 @@ partial class ReportsView
         // 
         grpOrderSummary.BackColor = Color.Transparent;
         grpOrderSummary.Controls.Add(dgvSummary);
-        grpOrderSummary.Controls.Add(pnlBreakdownHeader);
         grpOrderSummary.Dock = DockStyle.Fill;
         grpOrderSummary.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpOrderSummary.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOrderSummary.Location = new Point(24, 272);
+        grpOrderSummary.Location = new Point(24, 353);
         grpOrderSummary.Name = "grpOrderSummary";
         grpOrderSummary.Padding = new Padding(12, 10, 12, 12);
-        grpOrderSummary.Size = new Size(1072, 261);
+        grpOrderSummary.Size = new Size(1072, 245);
         grpOrderSummary.TabIndex = 3;
         grpOrderSummary.TabStop = false;
-        grpOrderSummary.Text = "Order Breakdown";
         // 
         // dgvSummary
         // 
@@ -471,7 +464,7 @@ partial class ReportsView
         dgvSummary.Dock = DockStyle.Fill;
         dgvSummary.EnableHeadersVisualStyles = false;
         dgvSummary.GridColor = Color.FromArgb(226, 232, 240);
-        dgvSummary.Location = new Point(12, 63);
+        dgvSummary.Location = new Point(12, 37);
         dgvSummary.MultiSelect = false;
         dgvSummary.Name = "dgvSummary";
         dgvSummary.ReadOnly = true;
@@ -479,7 +472,7 @@ partial class ReportsView
         dgvSummary.RowHeadersWidth = 51;
         dgvSummary.RowTemplate.Height = 36;
         dgvSummary.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvSummary.Size = new Size(1048, 186);
+        dgvSummary.Size = new Size(1048, 196);
         dgvSummary.TabIndex = 1;
         // 
         // colOrderNum
@@ -530,26 +523,6 @@ partial class ReportsView
         colStatus.Name = "colStatus";
         colStatus.ReadOnly = true;
         // 
-        // pnlBreakdownHeader
-        // 
-        pnlBreakdownHeader.Controls.Add(lblBreakdownSubtitle);
-        pnlBreakdownHeader.Dock = DockStyle.Top;
-        pnlBreakdownHeader.Location = new Point(12, 37);
-        pnlBreakdownHeader.Name = "pnlBreakdownHeader";
-        pnlBreakdownHeader.Size = new Size(1048, 26);
-        pnlBreakdownHeader.TabIndex = 0;
-        // 
-        // lblBreakdownSubtitle
-        // 
-        lblBreakdownSubtitle.AutoSize = true;
-        lblBreakdownSubtitle.Font = new Font("Segoe UI", 9F);
-        lblBreakdownSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblBreakdownSubtitle.Location = new Point(0, 3);
-        lblBreakdownSubtitle.Name = "lblBreakdownSubtitle";
-        lblBreakdownSubtitle.Size = new Size(247, 25);
-        lblBreakdownSubtitle.TabIndex = 0;
-        lblBreakdownSubtitle.Text = "Filtered orders list breakdown";
-        // 
         // lblSummaryFooter
         // 
         lblSummaryFooter.Location = new Point(0, 0);
@@ -569,7 +542,7 @@ partial class ReportsView
         Controls.Add(pnlHeader);
         Name = "ReportsView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Size = new Size(1120, 618);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilters.ResumeLayout(false);
@@ -590,8 +563,6 @@ partial class ReportsView
         pnlKpiValue.PerformLayout();
         grpOrderSummary.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvSummary).EndInit();
-        pnlBreakdownHeader.ResumeLayout(false);
-        pnlBreakdownHeader.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -624,8 +595,6 @@ partial class ReportsView
     private System.Windows.Forms.Label lblCompletedValue;
     private System.Windows.Forms.Label lblKpiValTitle;
     private System.Windows.Forms.GroupBox grpOrderSummary;
-    private System.Windows.Forms.Panel pnlBreakdownHeader;
-    private System.Windows.Forms.Label lblBreakdownSubtitle;
     private System.Windows.Forms.DataGridView dgvSummary;
     private System.Windows.Forms.DataGridViewTextBoxColumn colOrderNum;
     private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
