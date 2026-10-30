@@ -49,8 +49,6 @@ partial class DashboardView
         colCreated = new DataGridViewTextBoxColumn();
         colTotal = new DataGridViewTextBoxColumn();
         colStatus = new DataGridViewTextBoxColumn();
-        pnlRecentHeader = new Panel();
-        lnkViewAll = new LinkLabel();
         pnlHeader.SuspendLayout();
         grpOverview.SuspendLayout();
         tlpKpis.SuspendLayout();
@@ -62,7 +60,6 @@ partial class DashboardView
         pnlKpiValue.SuspendLayout();
         grpRecentOrders.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvRecentOrders).BeginInit();
-        pnlRecentHeader.SuspendLayout();
         SuspendLayout();
         // 
         // pnlHeader
@@ -73,21 +70,20 @@ partial class DashboardView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 48);
+        pnlHeader.Size = new Size(1072, 68);
         pnlHeader.TabIndex = 0;
         // 
         // btnNewOrder
         // 
         btnNewOrder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnNewOrder.UseVisualStyleBackColor = true;
         btnNewOrder.Cursor = Cursors.Hand;
         btnNewOrder.FlatAppearance.BorderSize = 0;
         btnNewOrder.FlatStyle = FlatStyle.System;
         btnNewOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnNewOrder.ForeColor = SystemColors.ControlText;
-        btnNewOrder.Location = new Point(942, 6);
+        btnNewOrder.Location = new Point(835, 8);
         btnNewOrder.Name = "btnNewOrder";
-        btnNewOrder.Size = new Size(130, 36);
+        btnNewOrder.Size = new Size(130, 49);
         btnNewOrder.TabIndex = 1;
         btnNewOrder.Text = "+ New Order";
         btnNewOrder.UseVisualStyleBackColor = false;
@@ -98,7 +94,7 @@ partial class DashboardView
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, 4);
+        lblTitle.Location = new Point(3, 12);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(184, 45);
         lblTitle.TabIndex = 0;
@@ -111,13 +107,12 @@ partial class DashboardView
         grpOverview.Dock = DockStyle.Top;
         grpOverview.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpOverview.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOverview.Location = new Point(24, 64);
+        grpOverview.Location = new Point(24, 84);
         grpOverview.Name = "grpOverview";
         grpOverview.Padding = new Padding(12, 10, 12, 12);
-        grpOverview.Size = new Size(1072, 175);
+        grpOverview.Size = new Size(1072, 265);
         grpOverview.TabIndex = 1;
         grpOverview.TabStop = false;
-        grpOverview.Text = "Today's Overview";
         // 
         // tlpKpis
         // 
@@ -137,7 +132,7 @@ partial class DashboardView
         tlpKpis.RowCount = 2;
         tlpKpis.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tlpKpis.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tlpKpis.Size = new Size(1048, 126);
+        tlpKpis.Size = new Size(1048, 216);
         tlpKpis.TabIndex = 0;
         // 
         // pnlKpiTotal
@@ -151,7 +146,7 @@ partial class DashboardView
         pnlKpiTotal.Margin = new Padding(4);
         pnlKpiTotal.Name = "pnlKpiTotal";
         pnlKpiTotal.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiTotal.Size = new Size(341, 55);
+        pnlKpiTotal.Size = new Size(341, 100);
         pnlKpiTotal.TabIndex = 0;
         // 
         // lblTotalCount
@@ -159,7 +154,7 @@ partial class DashboardView
         lblTotalCount.AutoSize = true;
         lblTotalCount.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
         lblTotalCount.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTotalCount.Location = new Point(122, 6);
+        lblTotalCount.Location = new Point(193, 12);
         lblTotalCount.Name = "lblTotalCount";
         lblTotalCount.Size = new Size(52, 41);
         lblTotalCount.TabIndex = 1;
@@ -170,7 +165,7 @@ partial class DashboardView
         lblKpiTotalTitle.AutoSize = true;
         lblKpiTotalTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblKpiTotalTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblKpiTotalTitle.Location = new Point(8, 4);
+        lblKpiTotalTitle.Location = new Point(8, 27);
         lblKpiTotalTitle.Name = "lblKpiTotalTitle";
         lblKpiTotalTitle.Size = new Size(108, 23);
         lblKpiTotalTitle.TabIndex = 0;
@@ -187,7 +182,7 @@ partial class DashboardView
         pnlKpiPending.Margin = new Padding(4);
         pnlKpiPending.Name = "pnlKpiPending";
         pnlKpiPending.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiPending.Size = new Size(341, 55);
+        pnlKpiPending.Size = new Size(341, 100);
         pnlKpiPending.TabIndex = 1;
         // 
         // lblPendingCount
@@ -195,7 +190,7 @@ partial class DashboardView
         lblPendingCount.AutoSize = true;
         lblPendingCount.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
         lblPendingCount.ForeColor = Color.FromArgb(15, 23, 42);
-        lblPendingCount.Location = new Point(109, 6);
+        lblPendingCount.Location = new Point(164, 9);
         lblPendingCount.Name = "lblPendingCount";
         lblPendingCount.Size = new Size(35, 41);
         lblPendingCount.TabIndex = 1;
@@ -206,11 +201,12 @@ partial class DashboardView
         lblKpiPendingTitle.AutoSize = true;
         lblKpiPendingTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblKpiPendingTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblKpiPendingTitle.Location = new Point(8, 4);
+        lblKpiPendingTitle.Location = new Point(13, 24);
         lblKpiPendingTitle.Name = "lblKpiPendingTitle";
         lblKpiPendingTitle.Size = new Size(75, 23);
         lblKpiPendingTitle.TabIndex = 0;
         lblKpiPendingTitle.Text = "Pending";
+        lblKpiPendingTitle.Click += lblKpiPendingTitle_Click;
         // 
         // pnlKpiPreparing
         // 
@@ -223,7 +219,7 @@ partial class DashboardView
         pnlKpiPreparing.Margin = new Padding(4);
         pnlKpiPreparing.Name = "pnlKpiPreparing";
         pnlKpiPreparing.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiPreparing.Size = new Size(342, 55);
+        pnlKpiPreparing.Size = new Size(342, 100);
         pnlKpiPreparing.TabIndex = 2;
         // 
         // lblPreparingCount
@@ -231,7 +227,7 @@ partial class DashboardView
         lblPreparingCount.AutoSize = true;
         lblPreparingCount.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
         lblPreparingCount.ForeColor = Color.FromArgb(15, 23, 42);
-        lblPreparingCount.Location = new Point(120, 6);
+        lblPreparingCount.Location = new Point(179, 9);
         lblPreparingCount.Name = "lblPreparingCount";
         lblPreparingCount.Size = new Size(35, 41);
         lblPreparingCount.TabIndex = 1;
@@ -242,7 +238,7 @@ partial class DashboardView
         lblKpiPrepTitle.AutoSize = true;
         lblKpiPrepTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblKpiPrepTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblKpiPrepTitle.Location = new Point(8, 4);
+        lblKpiPrepTitle.Location = new Point(8, 21);
         lblKpiPrepTitle.Name = "lblKpiPrepTitle";
         lblKpiPrepTitle.Size = new Size(89, 23);
         lblKpiPrepTitle.TabIndex = 0;
@@ -255,11 +251,11 @@ partial class DashboardView
         pnlKpiReady.Controls.Add(lblReadyCount);
         pnlKpiReady.Controls.Add(lblKpiReadyTitle);
         pnlKpiReady.Dock = DockStyle.Fill;
-        pnlKpiReady.Location = new Point(4, 67);
+        pnlKpiReady.Location = new Point(4, 112);
         pnlKpiReady.Margin = new Padding(4);
         pnlKpiReady.Name = "pnlKpiReady";
         pnlKpiReady.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiReady.Size = new Size(341, 55);
+        pnlKpiReady.Size = new Size(341, 100);
         pnlKpiReady.TabIndex = 3;
         // 
         // lblReadyCount
@@ -267,7 +263,7 @@ partial class DashboardView
         lblReadyCount.AutoSize = true;
         lblReadyCount.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
         lblReadyCount.ForeColor = Color.FromArgb(15, 23, 42);
-        lblReadyCount.Location = new Point(98, 6);
+        lblReadyCount.Location = new Point(193, 23);
         lblReadyCount.Name = "lblReadyCount";
         lblReadyCount.Size = new Size(35, 41);
         lblReadyCount.TabIndex = 1;
@@ -278,7 +274,7 @@ partial class DashboardView
         lblKpiReadyTitle.AutoSize = true;
         lblKpiReadyTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblKpiReadyTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblKpiReadyTitle.Location = new Point(8, 4);
+        lblKpiReadyTitle.Location = new Point(13, 38);
         lblKpiReadyTitle.Name = "lblKpiReadyTitle";
         lblKpiReadyTitle.Size = new Size(59, 23);
         lblKpiReadyTitle.TabIndex = 0;
@@ -291,11 +287,11 @@ partial class DashboardView
         pnlKpiCompleted.Controls.Add(lblCompletedCount);
         pnlKpiCompleted.Controls.Add(lblKpiCompTitle);
         pnlKpiCompleted.Dock = DockStyle.Fill;
-        pnlKpiCompleted.Location = new Point(353, 67);
+        pnlKpiCompleted.Location = new Point(353, 112);
         pnlKpiCompleted.Margin = new Padding(4);
         pnlKpiCompleted.Name = "pnlKpiCompleted";
         pnlKpiCompleted.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiCompleted.Size = new Size(341, 55);
+        pnlKpiCompleted.Size = new Size(341, 100);
         pnlKpiCompleted.TabIndex = 4;
         // 
         // lblCompletedCount
@@ -303,7 +299,7 @@ partial class DashboardView
         lblCompletedCount.AutoSize = true;
         lblCompletedCount.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
         lblCompletedCount.ForeColor = Color.FromArgb(15, 23, 42);
-        lblCompletedCount.Location = new Point(134, 6);
+        lblCompletedCount.Location = new Point(164, 26);
         lblCompletedCount.Name = "lblCompletedCount";
         lblCompletedCount.Size = new Size(35, 41);
         lblCompletedCount.TabIndex = 1;
@@ -314,7 +310,7 @@ partial class DashboardView
         lblKpiCompTitle.AutoSize = true;
         lblKpiCompTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblKpiCompTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblKpiCompTitle.Location = new Point(8, 4);
+        lblKpiCompTitle.Location = new Point(13, 44);
         lblKpiCompTitle.Name = "lblKpiCompTitle";
         lblKpiCompTitle.Size = new Size(99, 23);
         lblKpiCompTitle.TabIndex = 0;
@@ -327,11 +323,11 @@ partial class DashboardView
         pnlKpiValue.Controls.Add(lblCompletedValue);
         pnlKpiValue.Controls.Add(lblKpiValTitle);
         pnlKpiValue.Dock = DockStyle.Fill;
-        pnlKpiValue.Location = new Point(702, 67);
+        pnlKpiValue.Location = new Point(702, 112);
         pnlKpiValue.Margin = new Padding(4);
         pnlKpiValue.Name = "pnlKpiValue";
         pnlKpiValue.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiValue.Size = new Size(342, 55);
+        pnlKpiValue.Size = new Size(342, 100);
         pnlKpiValue.TabIndex = 5;
         // 
         // lblCompletedValue
@@ -339,7 +335,7 @@ partial class DashboardView
         lblCompletedValue.AutoSize = true;
         lblCompletedValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
         lblCompletedValue.ForeColor = Color.FromArgb(15, 23, 42);
-        lblCompletedValue.Location = new Point(148, 4);
+        lblCompletedValue.Location = new Point(132, 29);
         lblCompletedValue.Name = "lblCompletedValue";
         lblCompletedValue.Size = new Size(155, 41);
         lblCompletedValue.TabIndex = 1;
@@ -350,7 +346,7 @@ partial class DashboardView
         lblKpiValTitle.AutoSize = true;
         lblKpiValTitle.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblKpiValTitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblKpiValTitle.Location = new Point(8, 4);
+        lblKpiValTitle.Location = new Point(13, 41);
         lblKpiValTitle.Name = "lblKpiValTitle";
         lblKpiValTitle.Size = new Size(113, 23);
         lblKpiValTitle.TabIndex = 0;
@@ -360,17 +356,15 @@ partial class DashboardView
         // 
         grpRecentOrders.BackColor = Color.Transparent;
         grpRecentOrders.Controls.Add(dgvRecentOrders);
-        grpRecentOrders.Controls.Add(pnlRecentHeader);
         grpRecentOrders.Dock = DockStyle.Fill;
         grpRecentOrders.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpRecentOrders.ForeColor = Color.FromArgb(15, 23, 42);
-        grpRecentOrders.Location = new Point(24, 239);
+        grpRecentOrders.Location = new Point(24, 349);
         grpRecentOrders.Name = "grpRecentOrders";
         grpRecentOrders.Padding = new Padding(12, 10, 12, 12);
-        grpRecentOrders.Size = new Size(1072, 532);
+        grpRecentOrders.Size = new Size(1072, 138);
         grpRecentOrders.TabIndex = 2;
         grpRecentOrders.TabStop = false;
-        grpRecentOrders.Text = "Recent Orders";
         // 
         // dgvRecentOrders
         // 
@@ -406,7 +400,7 @@ partial class DashboardView
         dgvRecentOrders.Dock = DockStyle.Fill;
         dgvRecentOrders.EnableHeadersVisualStyles = false;
         dgvRecentOrders.GridColor = Color.FromArgb(226, 232, 240);
-        dgvRecentOrders.Location = new Point(12, 67);
+        dgvRecentOrders.Location = new Point(12, 37);
         dgvRecentOrders.MultiSelect = false;
         dgvRecentOrders.Name = "dgvRecentOrders";
         dgvRecentOrders.ReadOnly = true;
@@ -414,7 +408,7 @@ partial class DashboardView
         dgvRecentOrders.RowHeadersWidth = 51;
         dgvRecentOrders.RowTemplate.Height = 36;
         dgvRecentOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvRecentOrders.Size = new Size(1048, 453);
+        dgvRecentOrders.Size = new Size(1048, 89);
         dgvRecentOrders.TabIndex = 1;
         // 
         // colOrderNum
@@ -465,31 +459,6 @@ partial class DashboardView
         colStatus.Name = "colStatus";
         colStatus.ReadOnly = true;
         // 
-        // pnlRecentHeader
-        // 
-        pnlRecentHeader.Controls.Add(lnkViewAll);
-        pnlRecentHeader.Dock = DockStyle.Top;
-        pnlRecentHeader.Location = new Point(12, 37);
-        pnlRecentHeader.Name = "pnlRecentHeader";
-        pnlRecentHeader.Size = new Size(1048, 30);
-        pnlRecentHeader.TabIndex = 0;
-        // 
-        // lnkViewAll
-        // 
-        lnkViewAll.ActiveLinkColor = Color.FromArgb(22, 44, 71);
-        lnkViewAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        lnkViewAll.AutoSize = true;
-        lnkViewAll.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-        lnkViewAll.LinkBehavior = LinkBehavior.HoverUnderline;
-        lnkViewAll.LinkColor = Color.FromArgb(30, 58, 95);
-        lnkViewAll.Location = new Point(918, 4);
-        lnkViewAll.Name = "lnkViewAll";
-        lnkViewAll.Size = new Size(158, 25);
-        lnkViewAll.TabIndex = 0;
-        lnkViewAll.TabStop = true;
-        lnkViewAll.Text = "View all orders →";
-        lnkViewAll.LinkClicked += lnkViewAll_LinkClicked;
-        // 
         // DashboardView
         // 
         AutoScaleDimensions = new SizeF(144F, 144F);
@@ -500,7 +469,7 @@ partial class DashboardView
         Controls.Add(pnlHeader);
         Name = "DashboardView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 791);
+        Size = new Size(1120, 507);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpOverview.ResumeLayout(false);
@@ -519,8 +488,6 @@ partial class DashboardView
         pnlKpiValue.PerformLayout();
         grpRecentOrders.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvRecentOrders).EndInit();
-        pnlRecentHeader.ResumeLayout(false);
-        pnlRecentHeader.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -548,8 +515,6 @@ partial class DashboardView
     private System.Windows.Forms.Label lblCompletedValue;
     private System.Windows.Forms.Label lblKpiValTitle;
     private System.Windows.Forms.GroupBox grpRecentOrders;
-    private System.Windows.Forms.Panel pnlRecentHeader;
-    private System.Windows.Forms.LinkLabel lnkViewAll;
     private System.Windows.Forms.DataGridView dgvRecentOrders;
     private System.Windows.Forms.DataGridViewTextBoxColumn colOrderNum;
     private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
