@@ -212,81 +212,8 @@ public class RestaurantStore
     private void SeedDemonstrationOrders()
     {
         _orders.Clear();
-
-        DateTime today = DateTime.Today;
-
-        // #104: Hana, Table 4, Pending (Coffee x2 = 80, Burger x1 = 180) -> 260 ETB
-        var o104 = new Order(104, "Hana", 4, OrderStatus.Pending, today.AddHours(10).AddMinutes(15));
-        o104.Items.Add(new OrderItem(1, "Coffee", 40m, 2));
-        o104.Items.Add(new OrderItem(4, "Burger", 180m, 1));
-        _orders.Add(o104);
-
-        // #105: Abel, Table 4, Preparing (Pizza x1 = 250) -> 250 ETB
-        var o105 = new Order(105, "Abel", 4, OrderStatus.Preparing, today.AddHours(10).AddMinutes(20));
-        o105.Items.Add(new OrderItem(5, "Pizza", 250m, 1));
-        _orders.Add(o105);
-
-        // #106: Sara, Table 4, Ready (Tea x1 = 30) -> 30 ETB
-        var o106 = new Order(106, "Sara", 4, OrderStatus.Ready, today.AddHours(10).AddMinutes(25));
-        o106.Items.Add(new OrderItem(2, "Tea", 30m, 1));
-        _orders.Add(o106);
-
-        // #107: Dawit, Table 4, Completed (Juice x1 = 60) -> 60 ETB
-        var o107 = new Order(107, "Dawit", 4, OrderStatus.Completed, today.AddHours(10).AddMinutes(30));
-        o107.Items.Add(new OrderItem(3, "Juice", 60m, 1));
-        _orders.Add(o107);
-
-        // #108: Yared, Table 2, Pending (Burger x1 = 180, Tea x1 = 30) -> 210 ETB
-        var o108 = new Order(108, "Yared", 2, OrderStatus.Pending, today.AddHours(10).AddMinutes(35));
-        o108.Items.Add(new OrderItem(4, "Burger", 180m, 1));
-        o108.Items.Add(new OrderItem(2, "Tea", 30m, 1));
-        _orders.Add(o108);
-
-        // #109: Bethlehem, Table 1, Preparing (Pizza x1 = 250, Coffee x1 = 40) -> 290 ETB
-        var o109 = new Order(109, "Bethlehem", 1, OrderStatus.Preparing, today.AddHours(10).AddMinutes(40));
-        o109.Items.Add(new OrderItem(5, "Pizza", 250m, 1));
-        o109.Items.Add(new OrderItem(1, "Coffee", 40m, 1));
-        _orders.Add(o109);
-
-        // #110: Natnael, Table 5, Preparing (Burger x2 = 360) -> 360 ETB
-        var o110 = new Order(110, "Natnael", 5, OrderStatus.Preparing, today.AddHours(10).AddMinutes(45));
-        o110.Items.Add(new OrderItem(4, "Burger", 180m, 2));
-        _orders.Add(o110);
-
-        // #111: Helen, Table 3, Ready (Coffee x2 = 80) -> 80 ETB
-        var o111 = new Order(111, "Helen", 3, OrderStatus.Ready, today.AddHours(10).AddMinutes(50));
-        o111.Items.Add(new OrderItem(1, "Coffee", 40m, 2));
-        _orders.Add(o111);
-
-        // #112: Daniel, Table 6, Completed (Pizza x2 = 500, Burger x1 = 180, Tea x2 = 60) -> 740 ETB
-        var o112 = new Order(112, "Daniel", 6, OrderStatus.Completed, today.AddHours(11).AddMinutes(0));
-        o112.Items.Add(new OrderItem(5, "Pizza", 250m, 2));
-        o112.Items.Add(new OrderItem(4, "Burger", 180m, 1));
-        o112.Items.Add(new OrderItem(2, "Tea", 30m, 2));
-        _orders.Add(o112);
-
-        // #113: Tigist, Table 2, Completed (Pizza x1 = 250, Burger x1 = 180, Coffee x1 = 40) -> 470 ETB
-        var o113 = new Order(113, "Tigist", 2, OrderStatus.Completed, today.AddHours(11).AddMinutes(10));
-        o113.Items.Add(new OrderItem(5, "Pizza", 250m, 1));
-        o113.Items.Add(new OrderItem(4, "Burger", 180m, 1));
-        o113.Items.Add(new OrderItem(1, "Coffee", 40m, 1));
-        _orders.Add(o113);
-
-        // #114: Michael, Table 7, Completed (Pizza x1 = 250, Burger x1 = 180) -> 430 ETB
-        var o114 = new Order(114, "Michael", 7, OrderStatus.Completed, today.AddHours(11).AddMinutes(15));
-        o114.Items.Add(new OrderItem(5, "Pizza", 250m, 1));
-        o114.Items.Add(new OrderItem(4, "Burger", 180m, 1));
-        _orders.Add(o114);
-
-        // #115: Rahel, Table 8, Completed (Coffee x3 = 120, Tea x1 = 30) -> 150 ETB
-        var o115 = new Order(115, "Rahel", 8, OrderStatus.Completed, today.AddHours(11).AddMinutes(20));
-        o115.Items.Add(new OrderItem(1, "Coffee", 40m, 3));
-        o115.Items.Add(new OrderItem(2, "Tea", 30m, 1));
-        _orders.Add(o115);
-
-        _nextOrderNumber = 116;
+        _nextOrderNumber = 101;
     }
-
     #endregion
 
     #region Real-Time KPI Metrics
