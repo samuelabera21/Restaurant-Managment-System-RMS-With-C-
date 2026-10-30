@@ -291,12 +291,12 @@ partial class StaffManagementView
         // btnAddStaff
         // 
         btnAddStaff.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnAddStaff.BackColor = Color.FromArgb(30, 58, 95);
+        btnAddStaff.UseVisualStyleBackColor = true;
         btnAddStaff.Cursor = Cursors.Hand;
         btnAddStaff.FlatAppearance.BorderSize = 0;
-        btnAddStaff.FlatStyle = FlatStyle.Flat;
+        btnAddStaff.FlatStyle = FlatStyle.System;
         btnAddStaff.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-        btnAddStaff.ForeColor = Color.White;
+        btnAddStaff.ForeColor = SystemColors.ControlText;
         btnAddStaff.Location = new Point(920, 8);
         btnAddStaff.Name = "btnAddStaff";
         btnAddStaff.Size = new Size(128, 32);
