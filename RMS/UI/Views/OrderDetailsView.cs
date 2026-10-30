@@ -75,27 +75,27 @@ public partial class OrderDetailsView : BaseView, INavigationAware
 
         int count = order.Items.Count;
         int totalQty = order.TotalItemQuantity;
-        lblSummaryQty.Text = $"{count} {(count == 1 ? "item" : "items")} • {totalQty} total quantity";
+        //lblSummaryQty.Text = $"{count} {(count == 1 ? "item" : "items")} • {totalQty} total quantity";
         lblTotalAmount.Text = $"Total: {order.Total:N0} ETB";
 
         // Handle locked states
         if (order.Status == OrderStatus.Completed)
         {
-            lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
-            lblLockedNotice.Visible = true;
+            //lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
+            //lblLockedNotice.Visible = true;
             btnEditOrder.Enabled = false;
             btnCancelOrder.Enabled = false;
         }
         else if (order.Status == OrderStatus.Cancelled)
         {
-            lblLockedNotice.Text = "This order has been cancelled and cannot be edited.";
-            lblLockedNotice.Visible = true;
+            //lblLockedNotice.Text = "This order has been cancelled and cannot be edited.";
+            //lblLockedNotice.Visible = true;
             btnEditOrder.Enabled = false;
             btnCancelOrder.Enabled = false;
         }
         else
         {
-            lblLockedNotice.Visible = false;
+            //lblLockedNotice.Visible = false;
             btnEditOrder.Enabled = true;
             btnCancelOrder.Enabled = true;
         }
