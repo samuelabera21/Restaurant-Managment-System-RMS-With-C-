@@ -88,4 +88,9 @@ public partial class DashboardView : BaseView
         if (e.RowIndex < 0) return;
         Navigate(ViewType.Orders);
     }
+
+    private void lblKpiPendingTitle_Click(object sender, EventArgs e)
+    {
+
+    }
 }
