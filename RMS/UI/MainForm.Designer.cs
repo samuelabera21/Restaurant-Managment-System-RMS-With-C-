@@ -19,22 +19,18 @@ partial class MainForm
         btnExit = new Button();
         btnNavManageStaff = new Button();
         btnNavManageMenu = new Button();
-        lblAdmin = new Label();
         btnNavReports = new Button();
         btnNavOrders = new Button();
         btnNavNewOrder = new Button();
         btnNavMenu = new Button();
         btnNavDashboard = new Button();
-        lblWorkspace = new Label();
         pnlBrand = new Panel();
-        lblBrandBadge = new Label();
         lblBrandTitle = new Label();
         pnlHeader = new Panel();
         btnLogout = new Button();
         lblUserInfo = new Label();
         lblHeaderTitle = new Label();
         statusStrip = new StatusStrip();
-        lblStatusLeft = new ToolStripStatusLabel();
         lblStatusRight = new ToolStripStatusLabel();
         pnlContentHost = new Panel();
         pnlSidebar.SuspendLayout();
@@ -49,13 +45,11 @@ partial class MainForm
         pnlSidebar.Controls.Add(btnExit);
         pnlSidebar.Controls.Add(btnNavManageStaff);
         pnlSidebar.Controls.Add(btnNavManageMenu);
-        pnlSidebar.Controls.Add(lblAdmin);
         pnlSidebar.Controls.Add(btnNavReports);
         pnlSidebar.Controls.Add(btnNavOrders);
         pnlSidebar.Controls.Add(btnNavNewOrder);
         pnlSidebar.Controls.Add(btnNavMenu);
         pnlSidebar.Controls.Add(btnNavDashboard);
-        pnlSidebar.Controls.Add(lblWorkspace);
         pnlSidebar.Controls.Add(pnlBrand);
         pnlSidebar.Dock = DockStyle.Left;
         pnlSidebar.Location = new Point(0, 0);
@@ -66,94 +60,74 @@ partial class MainForm
         // 
         // btnExit
         // 
+        btnExit.BackColor = Color.White;
         btnExit.Cursor = Cursors.Hand;
         btnExit.Dock = DockStyle.Bottom;
-        btnExit.FlatAppearance.BorderSize = 0;
+        btnExit.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnExit.FlatStyle = FlatStyle.Flat;
         btnExit.Font = new Font("Segoe UI", 9.5F);
-        btnExit.BackColor = Color.White;
         btnExit.ForeColor = Color.FromArgb(71, 85, 105);
-        btnExit.FlatAppearance.BorderSize = 1;
-        btnExit.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnExit.Location = new Point(12, 727);
+        btnExit.Location = new Point(12, 656);
         btnExit.Name = "btnExit";
         btnExit.Padding = new Padding(8, 0, 0, 0);
-        btnExit.Size = new Size(252, 40);
+        btnExit.Size = new Size(252, 111);
         btnExit.TabIndex = 9;
         btnExit.Text = "Exit";
         btnExit.TextAlign = ContentAlignment.MiddleLeft;
         btnExit.UseVisualStyleBackColor = true;
         btnExit.Click += btnExit_Click;
         // 
-        // btnNavManageMenu
-        // 
-        btnNavManageMenu.Cursor = Cursors.Hand;
-        btnNavManageMenu.Dock = DockStyle.Top;
-        btnNavManageMenu.FlatAppearance.BorderSize = 0;
-        btnNavManageMenu.FlatStyle = FlatStyle.Flat;
-        btnNavManageMenu.Font = new Font("Segoe UI", 9.5F);
-        btnNavManageMenu.BackColor = Color.White;
-        btnNavManageMenu.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavManageMenu.FlatAppearance.BorderSize = 1;
-        btnNavManageMenu.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavManageMenu.Location = new Point(12, 352);
-        btnNavManageMenu.Name = "btnNavManageMenu";
-        btnNavManageMenu.Padding = new Padding(8, 0, 0, 0);
-        btnNavManageMenu.Size = new Size(252, 40);
-        btnNavManageMenu.TabIndex = 8;
-        btnNavManageMenu.Text = "Manage Menu";
-        btnNavManageMenu.TextAlign = ContentAlignment.MiddleLeft;
-        btnNavManageMenu.UseVisualStyleBackColor = true;
-        btnNavManageMenu.Click += btnNavManageMenu_Click;
-        // 
         // btnNavManageStaff
         // 
+        btnNavManageStaff.BackColor = Color.White;
         btnNavManageStaff.Cursor = Cursors.Hand;
         btnNavManageStaff.Dock = DockStyle.Top;
-        btnNavManageStaff.FlatAppearance.BorderSize = 0;
+        btnNavManageStaff.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavManageStaff.FlatStyle = FlatStyle.Flat;
         btnNavManageStaff.Font = new Font("Segoe UI", 9.5F);
-        btnNavManageStaff.BackColor = Color.White;
         btnNavManageStaff.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavManageStaff.FlatAppearance.BorderSize = 1;
-        btnNavManageStaff.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavManageStaff.Location = new Point(12, 392);
+        btnNavManageStaff.Location = new Point(12, 555);
         btnNavManageStaff.Name = "btnNavManageStaff";
         btnNavManageStaff.Padding = new Padding(8, 0, 0, 0);
-        btnNavManageStaff.Size = new Size(252, 40);
+        btnNavManageStaff.Size = new Size(252, 95);
         btnNavManageStaff.TabIndex = 9;
         btnNavManageStaff.Text = "Manage Waiters";
         btnNavManageStaff.TextAlign = ContentAlignment.MiddleLeft;
         btnNavManageStaff.UseVisualStyleBackColor = true;
         btnNavManageStaff.Click += btnNavManageStaff_Click;
         // 
-        // lblAdmin
+        // btnNavManageMenu
         // 
-        lblAdmin.Dock = DockStyle.Top;
-        lblAdmin.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
-        lblAdmin.ForeColor = Color.FromArgb(148, 163, 184);
-        lblAdmin.Location = new Point(12, 316);
-        lblAdmin.Name = "lblAdmin";
-        lblAdmin.Padding = new Padding(6, 14, 0, 4);
-        lblAdmin.Size = new Size(252, 36);
-        lblAdmin.TabIndex = 7;
-        lblAdmin.Text = "ADMINISTRATION";
+        btnNavManageMenu.BackColor = Color.White;
+        btnNavManageMenu.Cursor = Cursors.Hand;
+        btnNavManageMenu.Dock = DockStyle.Top;
+        btnNavManageMenu.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+        btnNavManageMenu.FlatStyle = FlatStyle.Flat;
+        btnNavManageMenu.Font = new Font("Segoe UI", 9.5F);
+        btnNavManageMenu.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavManageMenu.Location = new Point(12, 469);
+        btnNavManageMenu.Name = "btnNavManageMenu";
+        btnNavManageMenu.Padding = new Padding(8, 0, 0, 0);
+        btnNavManageMenu.Size = new Size(252, 86);
+        btnNavManageMenu.TabIndex = 8;
+        btnNavManageMenu.Text = "Manage Menu";
+        btnNavManageMenu.TextAlign = ContentAlignment.MiddleLeft;
+        btnNavManageMenu.UseVisualStyleBackColor = true;
+        btnNavManageMenu.Click += btnNavManageMenu_Click;
         // 
         // btnNavReports
         // 
+        btnNavReports.BackColor = Color.White;
         btnNavReports.Cursor = Cursors.Hand;
         btnNavReports.Dock = DockStyle.Top;
-        btnNavReports.FlatAppearance.BorderSize = 0;
+        btnNavReports.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavReports.FlatStyle = FlatStyle.Flat;
         btnNavReports.Font = new Font("Segoe UI", 9.5F);
-        btnNavReports.BackColor = Color.White;
         btnNavReports.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavReports.FlatAppearance.BorderSize = 1;
-        btnNavReports.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavReports.Location = new Point(12, 276);
+        btnNavReports.Location = new Point(12, 376);
         btnNavReports.Name = "btnNavReports";
         btnNavReports.Padding = new Padding(8, 0, 0, 0);
-        btnNavReports.Size = new Size(252, 40);
+        btnNavReports.Size = new Size(252, 93);
         btnNavReports.TabIndex = 6;
         btnNavReports.Text = "Reports";
         btnNavReports.TextAlign = ContentAlignment.MiddleLeft;
@@ -162,19 +136,17 @@ partial class MainForm
         // 
         // btnNavOrders
         // 
+        btnNavOrders.BackColor = Color.White;
         btnNavOrders.Cursor = Cursors.Hand;
         btnNavOrders.Dock = DockStyle.Top;
-        btnNavOrders.FlatAppearance.BorderSize = 0;
+        btnNavOrders.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavOrders.FlatStyle = FlatStyle.Flat;
         btnNavOrders.Font = new Font("Segoe UI", 9.5F);
-        btnNavOrders.BackColor = Color.White;
         btnNavOrders.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavOrders.FlatAppearance.BorderSize = 1;
-        btnNavOrders.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavOrders.Location = new Point(12, 236);
+        btnNavOrders.Location = new Point(12, 280);
         btnNavOrders.Name = "btnNavOrders";
         btnNavOrders.Padding = new Padding(8, 0, 0, 0);
-        btnNavOrders.Size = new Size(252, 40);
+        btnNavOrders.Size = new Size(252, 96);
         btnNavOrders.TabIndex = 5;
         btnNavOrders.Text = "Orders";
         btnNavOrders.TextAlign = ContentAlignment.MiddleLeft;
@@ -183,19 +155,17 @@ partial class MainForm
         // 
         // btnNavNewOrder
         // 
+        btnNavNewOrder.BackColor = Color.White;
         btnNavNewOrder.Cursor = Cursors.Hand;
         btnNavNewOrder.Dock = DockStyle.Top;
-        btnNavNewOrder.FlatAppearance.BorderSize = 0;
+        btnNavNewOrder.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavNewOrder.FlatStyle = FlatStyle.Flat;
         btnNavNewOrder.Font = new Font("Segoe UI", 9.5F);
-        btnNavNewOrder.BackColor = Color.White;
         btnNavNewOrder.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavNewOrder.FlatAppearance.BorderSize = 1;
-        btnNavNewOrder.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavNewOrder.Location = new Point(12, 196);
+        btnNavNewOrder.Location = new Point(12, 206);
         btnNavNewOrder.Name = "btnNavNewOrder";
         btnNavNewOrder.Padding = new Padding(8, 0, 0, 0);
-        btnNavNewOrder.Size = new Size(252, 40);
+        btnNavNewOrder.Size = new Size(252, 74);
         btnNavNewOrder.TabIndex = 4;
         btnNavNewOrder.Text = "New Order";
         btnNavNewOrder.TextAlign = ContentAlignment.MiddleLeft;
@@ -204,19 +174,17 @@ partial class MainForm
         // 
         // btnNavMenu
         // 
+        btnNavMenu.BackColor = Color.White;
         btnNavMenu.Cursor = Cursors.Hand;
         btnNavMenu.Dock = DockStyle.Top;
-        btnNavMenu.FlatAppearance.BorderSize = 0;
+        btnNavMenu.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavMenu.FlatStyle = FlatStyle.Flat;
         btnNavMenu.Font = new Font("Segoe UI", 9.5F);
-        btnNavMenu.BackColor = Color.White;
         btnNavMenu.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavMenu.FlatAppearance.BorderSize = 1;
-        btnNavMenu.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavMenu.Location = new Point(12, 156);
+        btnNavMenu.Location = new Point(12, 145);
         btnNavMenu.Name = "btnNavMenu";
         btnNavMenu.Padding = new Padding(8, 0, 0, 0);
-        btnNavMenu.Size = new Size(252, 40);
+        btnNavMenu.Size = new Size(252, 61);
         btnNavMenu.TabIndex = 3;
         btnNavMenu.Text = "Menu";
         btnNavMenu.TextAlign = ContentAlignment.MiddleLeft;
@@ -225,41 +193,26 @@ partial class MainForm
         // 
         // btnNavDashboard
         // 
+        btnNavDashboard.BackColor = Color.White;
         btnNavDashboard.Cursor = Cursors.Hand;
         btnNavDashboard.Dock = DockStyle.Top;
-        btnNavDashboard.FlatAppearance.BorderSize = 0;
+        btnNavDashboard.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavDashboard.FlatStyle = FlatStyle.Flat;
         btnNavDashboard.Font = new Font("Segoe UI", 9.5F);
-        btnNavDashboard.BackColor = Color.White;
         btnNavDashboard.ForeColor = Color.FromArgb(30, 41, 59);
-        btnNavDashboard.FlatAppearance.BorderSize = 1;
-        btnNavDashboard.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-        btnNavDashboard.Location = new Point(12, 116);
+        btnNavDashboard.Location = new Point(12, 82);
         btnNavDashboard.Name = "btnNavDashboard";
         btnNavDashboard.Padding = new Padding(8, 0, 0, 0);
-        btnNavDashboard.Size = new Size(252, 40);
+        btnNavDashboard.Size = new Size(252, 63);
         btnNavDashboard.TabIndex = 2;
         btnNavDashboard.Text = "Dashboard";
         btnNavDashboard.TextAlign = ContentAlignment.MiddleLeft;
         btnNavDashboard.UseVisualStyleBackColor = true;
         btnNavDashboard.Click += btnNavDashboard_Click;
         // 
-        // lblWorkspace
-        // 
-        lblWorkspace.Dock = DockStyle.Top;
-        lblWorkspace.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
-        lblWorkspace.ForeColor = Color.FromArgb(148, 163, 184);
-        lblWorkspace.Location = new Point(12, 82);
-        lblWorkspace.Name = "lblWorkspace";
-        lblWorkspace.Padding = new Padding(6, 12, 0, 4);
-        lblWorkspace.Size = new Size(252, 34);
-        lblWorkspace.TabIndex = 1;
-        lblWorkspace.Text = "NAVIGATION";
-        // 
         // pnlBrand
         // 
         pnlBrand.BackColor = Color.Transparent;
-        pnlBrand.Controls.Add(lblBrandBadge);
         pnlBrand.Controls.Add(lblBrandTitle);
         pnlBrand.Dock = DockStyle.Top;
         pnlBrand.Location = new Point(12, 14);
@@ -267,24 +220,12 @@ partial class MainForm
         pnlBrand.Size = new Size(252, 68);
         pnlBrand.TabIndex = 0;
         // 
-        // lblBrandBadge
-        // 
-        lblBrandBadge.BackColor = Color.FromArgb(226, 232, 240);
-        lblBrandBadge.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
-        lblBrandBadge.ForeColor = Color.FromArgb(30, 41, 59);
-        lblBrandBadge.Location = new Point(4, 4);
-        lblBrandBadge.Name = "lblBrandBadge";
-        lblBrandBadge.Size = new Size(46, 22);
-        lblBrandBadge.TabIndex = 0;
-        lblBrandBadge.Text = "RMS";
-        lblBrandBadge.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // lblBrandTitle
         // 
         lblBrandTitle.AutoSize = true;
         lblBrandTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblBrandTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblBrandTitle.Location = new Point(4, 32);
+        lblBrandTitle.Location = new Point(3, 21);
         lblBrandTitle.Name = "lblBrandTitle";
         lblBrandTitle.Size = new Size(206, 32);
         lblBrandTitle.TabIndex = 1;
@@ -303,18 +244,6 @@ partial class MainForm
         pnlHeader.Size = new Size(988, 56);
         pnlHeader.TabIndex = 1;
         // 
-        // lblUserInfo
-        // 
-        lblUserInfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        lblUserInfo.AutoSize = true;
-        lblUserInfo.Font = new Font("Segoe UI", 9.5F);
-        lblUserInfo.ForeColor = Color.FromArgb(71, 85, 105);
-        lblUserInfo.Location = new Point(660, 17);
-        lblUserInfo.Name = "lblUserInfo";
-        lblUserInfo.Size = new Size(210, 25);
-        lblUserInfo.TabIndex = 1;
-        lblUserInfo.Text = "Waiter: Abebe";
-        // 
         // btnLogout
         // 
         btnLogout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -322,13 +251,25 @@ partial class MainForm
         btnLogout.Cursor = Cursors.Hand;
         btnLogout.FlatStyle = FlatStyle.System;
         btnLogout.Font = new Font("Segoe UI", 8.5F);
-        btnLogout.Location = new Point(894, 12);
+        btnLogout.Location = new Point(804, 17);
         btnLogout.Name = "btnLogout";
-        btnLogout.Size = new Size(82, 30);
+        btnLogout.Size = new Size(127, 30);
         btnLogout.TabIndex = 2;
         btnLogout.Text = "Sign Out";
         btnLogout.UseVisualStyleBackColor = false;
         btnLogout.Click += btnLogout_Click;
+        // 
+        // lblUserInfo
+        // 
+        lblUserInfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        lblUserInfo.AutoSize = true;
+        lblUserInfo.Font = new Font("Segoe UI", 9.5F);
+        lblUserInfo.ForeColor = Color.FromArgb(71, 85, 105);
+        lblUserInfo.Location = new Point(523, 27);
+        lblUserInfo.Name = "lblUserInfo";
+        lblUserInfo.Size = new Size(130, 25);
+        lblUserInfo.TabIndex = 1;
+        lblUserInfo.Text = "Waiter: Abebe";
         // 
         // lblHeaderTitle
         // 
@@ -345,29 +286,19 @@ partial class MainForm
         // 
         statusStrip.BackColor = Color.FromArgb(241, 245, 249);
         statusStrip.ImageScalingSize = new Size(20, 20);
-        statusStrip.Items.AddRange(new ToolStripItem[] { lblStatusLeft, lblStatusRight });
+        statusStrip.Items.AddRange(new ToolStripItem[] { lblStatusRight });
         statusStrip.Location = new Point(276, 749);
         statusStrip.Name = "statusStrip";
         statusStrip.Size = new Size(988, 32);
         statusStrip.TabIndex = 2;
         statusStrip.Text = "statusStrip1";
         // 
-        // lblStatusLeft
-        // 
-        lblStatusLeft.Font = new Font("Segoe UI", 9F);
-        lblStatusLeft.ForeColor = Color.FromArgb(71, 85, 105);
-        lblStatusLeft.Name = "lblStatusLeft";
-        lblStatusLeft.Size = new Size(780, 25);
-        lblStatusLeft.Spring = true;
-        lblStatusLeft.Text = "Ready - Viewing Dashboard";
-        lblStatusLeft.TextAlign = ContentAlignment.MiddleLeft;
-        // 
         // lblStatusRight
         // 
         lblStatusRight.Font = new Font("Segoe UI", 9F);
         lblStatusRight.ForeColor = Color.FromArgb(148, 163, 184);
         lblStatusRight.Name = "lblStatusRight";
-        lblStatusRight.Size = new Size(193, 25);
+        lblStatusRight.Size = new Size(973, 25);
         lblStatusRight.Spring = true;
         lblStatusRight.Text = "ዉለታ Restaurant · RMS";
         lblStatusRight.TextAlign = ContentAlignment.MiddleRight;
@@ -409,15 +340,12 @@ partial class MainForm
 
     private System.Windows.Forms.Panel pnlSidebar;
     private System.Windows.Forms.Panel pnlBrand;
-    private System.Windows.Forms.Label lblBrandBadge;
     private System.Windows.Forms.Label lblBrandTitle;
-    private System.Windows.Forms.Label lblWorkspace;
     private System.Windows.Forms.Button btnNavDashboard;
     private System.Windows.Forms.Button btnNavMenu;
     private System.Windows.Forms.Button btnNavNewOrder;
     private System.Windows.Forms.Button btnNavOrders;
     private System.Windows.Forms.Button btnNavReports;
-    private System.Windows.Forms.Label lblAdmin;
     private System.Windows.Forms.Button btnNavManageStaff;
     private System.Windows.Forms.Button btnNavManageMenu;
     private System.Windows.Forms.Button btnExit;
@@ -426,7 +354,6 @@ partial class MainForm
     private System.Windows.Forms.Button btnLogout;
     private System.Windows.Forms.Label lblUserInfo;
     private System.Windows.Forms.StatusStrip statusStrip;
-    private System.Windows.Forms.ToolStripStatusLabel lblStatusLeft;
     private System.Windows.Forms.ToolStripStatusLabel lblStatusRight;
     private System.Windows.Forms.Panel pnlContentHost;
 }
