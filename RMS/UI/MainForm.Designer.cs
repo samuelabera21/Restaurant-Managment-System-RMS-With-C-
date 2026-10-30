@@ -45,7 +45,7 @@ partial class MainForm
         // 
         // pnlSidebar
         // 
-        pnlSidebar.BackColor = Color.FromArgb(30, 41, 59);
+        pnlSidebar.BackColor = Color.FromArgb(241, 245, 249);
         pnlSidebar.Controls.Add(btnExit);
         pnlSidebar.Controls.Add(btnNavManageStaff);
         pnlSidebar.Controls.Add(btnNavManageMenu);
@@ -71,7 +71,10 @@ partial class MainForm
         btnExit.FlatAppearance.BorderSize = 0;
         btnExit.FlatStyle = FlatStyle.Flat;
         btnExit.Font = new Font("Segoe UI", 9.5F);
-        btnExit.ForeColor = Color.FromArgb(148, 163, 184);
+        btnExit.BackColor = Color.White;
+        btnExit.ForeColor = Color.FromArgb(71, 85, 105);
+        btnExit.FlatAppearance.BorderSize = 1;
+        btnExit.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnExit.Location = new Point(12, 727);
         btnExit.Name = "btnExit";
         btnExit.Padding = new Padding(8, 0, 0, 0);
@@ -89,7 +92,10 @@ partial class MainForm
         btnNavManageMenu.FlatAppearance.BorderSize = 0;
         btnNavManageMenu.FlatStyle = FlatStyle.Flat;
         btnNavManageMenu.Font = new Font("Segoe UI", 9.5F);
-        btnNavManageMenu.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavManageMenu.BackColor = Color.White;
+        btnNavManageMenu.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavManageMenu.FlatAppearance.BorderSize = 1;
+        btnNavManageMenu.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavManageMenu.Location = new Point(12, 352);
         btnNavManageMenu.Name = "btnNavManageMenu";
         btnNavManageMenu.Padding = new Padding(8, 0, 0, 0);
@@ -107,7 +113,10 @@ partial class MainForm
         btnNavManageStaff.FlatAppearance.BorderSize = 0;
         btnNavManageStaff.FlatStyle = FlatStyle.Flat;
         btnNavManageStaff.Font = new Font("Segoe UI", 9.5F);
-        btnNavManageStaff.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavManageStaff.BackColor = Color.White;
+        btnNavManageStaff.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavManageStaff.FlatAppearance.BorderSize = 1;
+        btnNavManageStaff.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavManageStaff.Location = new Point(12, 392);
         btnNavManageStaff.Name = "btnNavManageStaff";
         btnNavManageStaff.Padding = new Padding(8, 0, 0, 0);
@@ -137,7 +146,10 @@ partial class MainForm
         btnNavReports.FlatAppearance.BorderSize = 0;
         btnNavReports.FlatStyle = FlatStyle.Flat;
         btnNavReports.Font = new Font("Segoe UI", 9.5F);
-        btnNavReports.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavReports.BackColor = Color.White;
+        btnNavReports.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavReports.FlatAppearance.BorderSize = 1;
+        btnNavReports.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavReports.Location = new Point(12, 276);
         btnNavReports.Name = "btnNavReports";
         btnNavReports.Padding = new Padding(8, 0, 0, 0);
@@ -155,7 +167,10 @@ partial class MainForm
         btnNavOrders.FlatAppearance.BorderSize = 0;
         btnNavOrders.FlatStyle = FlatStyle.Flat;
         btnNavOrders.Font = new Font("Segoe UI", 9.5F);
-        btnNavOrders.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavOrders.BackColor = Color.White;
+        btnNavOrders.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavOrders.FlatAppearance.BorderSize = 1;
+        btnNavOrders.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavOrders.Location = new Point(12, 236);
         btnNavOrders.Name = "btnNavOrders";
         btnNavOrders.Padding = new Padding(8, 0, 0, 0);
@@ -173,7 +188,10 @@ partial class MainForm
         btnNavNewOrder.FlatAppearance.BorderSize = 0;
         btnNavNewOrder.FlatStyle = FlatStyle.Flat;
         btnNavNewOrder.Font = new Font("Segoe UI", 9.5F);
-        btnNavNewOrder.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavNewOrder.BackColor = Color.White;
+        btnNavNewOrder.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavNewOrder.FlatAppearance.BorderSize = 1;
+        btnNavNewOrder.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavNewOrder.Location = new Point(12, 196);
         btnNavNewOrder.Name = "btnNavNewOrder";
         btnNavNewOrder.Padding = new Padding(8, 0, 0, 0);
@@ -191,7 +209,10 @@ partial class MainForm
         btnNavMenu.FlatAppearance.BorderSize = 0;
         btnNavMenu.FlatStyle = FlatStyle.Flat;
         btnNavMenu.Font = new Font("Segoe UI", 9.5F);
-        btnNavMenu.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavMenu.BackColor = Color.White;
+        btnNavMenu.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavMenu.FlatAppearance.BorderSize = 1;
+        btnNavMenu.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavMenu.Location = new Point(12, 156);
         btnNavMenu.Name = "btnNavMenu";
         btnNavMenu.Padding = new Padding(8, 0, 0, 0);
@@ -209,7 +230,10 @@ partial class MainForm
         btnNavDashboard.FlatAppearance.BorderSize = 0;
         btnNavDashboard.FlatStyle = FlatStyle.Flat;
         btnNavDashboard.Font = new Font("Segoe UI", 9.5F);
-        btnNavDashboard.ForeColor = Color.FromArgb(248, 250, 252);
+        btnNavDashboard.BackColor = Color.White;
+        btnNavDashboard.ForeColor = Color.FromArgb(30, 41, 59);
+        btnNavDashboard.FlatAppearance.BorderSize = 1;
+        btnNavDashboard.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
         btnNavDashboard.Location = new Point(12, 116);
         btnNavDashboard.Name = "btnNavDashboard";
         btnNavDashboard.Padding = new Padding(8, 0, 0, 0);
@@ -245,9 +269,9 @@ partial class MainForm
         // 
         // lblBrandBadge
         // 
-        lblBrandBadge.BackColor = Color.FromArgb(30, 58, 95);
+        lblBrandBadge.BackColor = Color.FromArgb(226, 232, 240);
         lblBrandBadge.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
-        lblBrandBadge.ForeColor = Color.FromArgb(96, 165, 250);
+        lblBrandBadge.ForeColor = Color.FromArgb(30, 41, 59);
         lblBrandBadge.Location = new Point(4, 4);
         lblBrandBadge.Name = "lblBrandBadge";
         lblBrandBadge.Size = new Size(46, 22);
@@ -259,7 +283,7 @@ partial class MainForm
         // 
         lblBrandTitle.AutoSize = true;
         lblBrandTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-        lblBrandTitle.ForeColor = Color.White;
+        lblBrandTitle.ForeColor = Color.FromArgb(15, 23, 42);
         lblBrandTitle.Location = new Point(4, 32);
         lblBrandTitle.Name = "lblBrandTitle";
         lblBrandTitle.Size = new Size(206, 32);
