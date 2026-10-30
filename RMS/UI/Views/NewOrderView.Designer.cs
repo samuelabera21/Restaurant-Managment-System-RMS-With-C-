@@ -68,7 +68,7 @@ partial class NewOrderView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 44);
+        pnlHeader.Size = new Size(1072, 53);
         pnlHeader.TabIndex = 0;
         // 
         // lblTitle
@@ -76,7 +76,7 @@ partial class NewOrderView
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, 0);
+        lblTitle.Location = new Point(97, 3);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(184, 45);
         lblTitle.TabIndex = 0;
@@ -89,10 +89,10 @@ partial class NewOrderView
         lblAlertMessage.Dock = DockStyle.Top;
         lblAlertMessage.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
         lblAlertMessage.ForeColor = Color.FromArgb(220, 38, 38);
-        lblAlertMessage.Location = new Point(24, 60);
+        lblAlertMessage.Location = new Point(24, 69);
         lblAlertMessage.Name = "lblAlertMessage";
         lblAlertMessage.Padding = new Padding(8, 0, 0, 0);
-        lblAlertMessage.Size = new Size(1072, 30);
+        lblAlertMessage.Size = new Size(1072, 54);
         lblAlertMessage.TabIndex = 1;
         lblAlertMessage.Text = "Alert message";
         lblAlertMessage.TextAlign = ContentAlignment.MiddleLeft;
@@ -112,18 +112,17 @@ partial class NewOrderView
         grpOrderInfo.Dock = DockStyle.Top;
         grpOrderInfo.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpOrderInfo.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOrderInfo.Location = new Point(24, 90);
+        grpOrderInfo.Location = new Point(24, 123);
         grpOrderInfo.Name = "grpOrderInfo";
-        grpOrderInfo.Size = new Size(1072, 88);
+        grpOrderInfo.Size = new Size(1072, 118);
         grpOrderInfo.TabIndex = 2;
         grpOrderInfo.TabStop = false;
-        grpOrderInfo.Text = "Order Information";
         // 
         // txtOrderDateTime
         // 
         txtOrderDateTime.BackColor = Color.FromArgb(241, 245, 249);
         txtOrderDateTime.Font = new Font("Segoe UI", 9.5F);
-        txtOrderDateTime.Location = new Point(630, 46);
+        txtOrderDateTime.Location = new Point(1006, 70);
         txtOrderDateTime.Name = "txtOrderDateTime";
         txtOrderDateTime.ReadOnly = true;
         txtOrderDateTime.Size = new Size(200, 33);
@@ -134,7 +133,7 @@ partial class NewOrderView
         lblOrderDateTime.AutoSize = true;
         lblOrderDateTime.Font = new Font("Segoe UI", 8.5F);
         lblOrderDateTime.ForeColor = Color.FromArgb(71, 85, 105);
-        lblOrderDateTime.Location = new Point(626, 24);
+        lblOrderDateTime.Location = new Point(1006, 29);
         lblOrderDateTime.Name = "lblOrderDateTime";
         lblOrderDateTime.Size = new Size(97, 23);
         lblOrderDateTime.TabIndex = 6;
@@ -143,7 +142,7 @@ partial class NewOrderView
         // numTableNumber
         // 
         numTableNumber.Font = new Font("Segoe UI", 9.5F);
-        numTableNumber.Location = new Point(475, 46);
+        numTableNumber.Location = new Point(734, 71);
         numTableNumber.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
         numTableNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numTableNumber.Name = "numTableNumber";
@@ -156,7 +155,7 @@ partial class NewOrderView
         lblTableNumber.AutoSize = true;
         lblTableNumber.Font = new Font("Segoe UI", 8.5F);
         lblTableNumber.ForeColor = Color.FromArgb(71, 85, 105);
-        lblTableNumber.Location = new Point(471, 24);
+        lblTableNumber.Location = new Point(721, 24);
         lblTableNumber.Name = "lblTableNumber";
         lblTableNumber.Size = new Size(133, 23);
         lblTableNumber.TabIndex = 4;
@@ -165,7 +164,7 @@ partial class NewOrderView
         // txtCustomerName
         // 
         txtCustomerName.Font = new Font("Segoe UI", 9.5F);
-        txtCustomerName.Location = new Point(170, 46);
+        txtCustomerName.Location = new Point(285, 70);
         txtCustomerName.Name = "txtCustomerName";
         txtCustomerName.PlaceholderText = "Enter customer name";
         txtCustomerName.Size = new Size(275, 33);
@@ -177,7 +176,7 @@ partial class NewOrderView
         lblCustomerName.AutoSize = true;
         lblCustomerName.Font = new Font("Segoe UI", 8.5F);
         lblCustomerName.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCustomerName.Location = new Point(166, 24);
+        lblCustomerName.Location = new Point(299, 24);
         lblCustomerName.Name = "lblCustomerName";
         lblCustomerName.Size = new Size(151, 23);
         lblCustomerName.TabIndex = 2;
@@ -187,7 +186,7 @@ partial class NewOrderView
         // 
         txtOrderNumber.BackColor = Color.FromArgb(241, 245, 249);
         txtOrderNumber.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        txtOrderNumber.Location = new Point(18, 46);
+        txtOrderNumber.Location = new Point(49, 71);
         txtOrderNumber.Name = "txtOrderNumber";
         txtOrderNumber.ReadOnly = true;
         txtOrderNumber.Size = new Size(120, 33);
@@ -200,9 +199,9 @@ partial class NewOrderView
         lblOrderNumber.AutoSize = true;
         lblOrderNumber.Font = new Font("Segoe UI", 8.5F);
         lblOrderNumber.ForeColor = Color.FromArgb(71, 85, 105);
-        lblOrderNumber.Location = new Point(14, 24);
+        lblOrderNumber.Location = new Point(61, 24);
         lblOrderNumber.Name = "lblOrderNumber";
-        lblOrderNumber.Size = new Size(73, 23);
+        lblOrderNumber.Size = new Size(86, 23);
         lblOrderNumber.TabIndex = 0;
         lblOrderNumber.Text = "Order No:";
         // 
@@ -217,22 +216,20 @@ partial class NewOrderView
         grpAddItem.Dock = DockStyle.Top;
         grpAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpAddItem.ForeColor = Color.FromArgb(15, 23, 42);
-        grpAddItem.Location = new Point(24, 178);
+        grpAddItem.Location = new Point(24, 241);
         grpAddItem.Name = "grpAddItem";
-        grpAddItem.Size = new Size(1072, 85);
+        grpAddItem.Size = new Size(1072, 125);
         grpAddItem.TabIndex = 3;
         grpAddItem.TabStop = false;
-        grpAddItem.Text = "Add Menu Item";
         // 
         // btnAddItem
         // 
-        btnAddItem.UseVisualStyleBackColor = true;
         btnAddItem.Cursor = Cursors.Hand;
         btnAddItem.FlatAppearance.BorderSize = 0;
         btnAddItem.FlatStyle = FlatStyle.System;
         btnAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnAddItem.ForeColor = SystemColors.ControlText;
-        btnAddItem.Location = new Point(530, 42);
+        btnAddItem.Location = new Point(978, 42);
         btnAddItem.Name = "btnAddItem";
         btnAddItem.Size = new Size(125, 31);
         btnAddItem.TabIndex = 4;
@@ -243,7 +240,7 @@ partial class NewOrderView
         // numQuantity
         // 
         numQuantity.Font = new Font("Segoe UI", 9.5F);
-        numQuantity.Location = new Point(415, 43);
+        numQuantity.Location = new Point(734, 69);
         numQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numQuantity.Name = "numQuantity";
         numQuantity.Size = new Size(90, 33);
@@ -255,7 +252,7 @@ partial class NewOrderView
         lblQuantity.AutoSize = true;
         lblQuantity.Font = new Font("Segoe UI", 8.5F);
         lblQuantity.ForeColor = Color.FromArgb(71, 85, 105);
-        lblQuantity.Location = new Point(411, 22);
+        lblQuantity.Location = new Point(734, 29);
         lblQuantity.Name = "lblQuantity";
         lblQuantity.Size = new Size(80, 23);
         lblQuantity.TabIndex = 2;
@@ -266,7 +263,7 @@ partial class NewOrderView
         cboMenuItems.DropDownStyle = ComboBoxStyle.DropDownList;
         cboMenuItems.Font = new Font("Segoe UI", 9.5F);
         cboMenuItems.FormattingEnabled = true;
-        cboMenuItems.Location = new Point(18, 43);
+        cboMenuItems.Location = new Point(134, 69);
         cboMenuItems.Name = "cboMenuItems";
         cboMenuItems.Size = new Size(370, 33);
         cboMenuItems.TabIndex = 1;
@@ -276,7 +273,7 @@ partial class NewOrderView
         lblMenuItem.AutoSize = true;
         lblMenuItem.Font = new Font("Segoe UI", 8.5F);
         lblMenuItem.ForeColor = Color.FromArgb(71, 85, 105);
-        lblMenuItem.Location = new Point(14, 22);
+        lblMenuItem.Location = new Point(134, 29);
         lblMenuItem.Name = "lblMenuItem";
         lblMenuItem.Size = new Size(99, 23);
         lblMenuItem.TabIndex = 0;
@@ -290,13 +287,12 @@ partial class NewOrderView
         grpOrderItems.Dock = DockStyle.Fill;
         grpOrderItems.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpOrderItems.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOrderItems.Location = new Point(24, 263);
+        grpOrderItems.Location = new Point(24, 366);
         grpOrderItems.Name = "grpOrderItems";
         grpOrderItems.Padding = new Padding(12, 10, 12, 12);
-        grpOrderItems.Size = new Size(1072, 220);
+        grpOrderItems.Size = new Size(1072, 176);
         grpOrderItems.TabIndex = 4;
         grpOrderItems.TabStop = false;
-        grpOrderItems.Text = "Order Items";
         // 
         // dgvOrderItems
         // 
@@ -340,7 +336,7 @@ partial class NewOrderView
         dgvOrderItems.RowHeadersWidth = 51;
         dgvOrderItems.RowTemplate.Height = 36;
         dgvOrderItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvOrderItems.Size = new Size(1048, 131);
+        dgvOrderItems.Size = new Size(1048, 87);
         dgvOrderItems.TabIndex = 0;
         dgvOrderItems.CellContentClick += dgvOrderItems_CellContentClick;
         // 
@@ -392,7 +388,7 @@ partial class NewOrderView
         pnlOrderItemsBottom.BackColor = Color.Transparent;
         pnlOrderItemsBottom.Controls.Add(lblTotal);
         pnlOrderItemsBottom.Dock = DockStyle.Bottom;
-        pnlOrderItemsBottom.Location = new Point(12, 168);
+        pnlOrderItemsBottom.Location = new Point(12, 124);
         pnlOrderItemsBottom.Name = "pnlOrderItemsBottom";
         pnlOrderItemsBottom.Size = new Size(1048, 40);
         pnlOrderItemsBottom.TabIndex = 1;
@@ -417,10 +413,10 @@ partial class NewOrderView
         pnlActions.Controls.Add(btnClearForm);
         pnlActions.Controls.Add(btnSaveOrder);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(24, 483);
+        pnlActions.Location = new Point(24, 542);
         pnlActions.Name = "pnlActions";
         pnlActions.Padding = new Padding(0, 8, 0, 0);
-        pnlActions.Size = new Size(1072, 50);
+        pnlActions.Size = new Size(1072, 56);
         pnlActions.TabIndex = 5;
         // 
         // btnCancel
@@ -430,7 +426,7 @@ partial class NewOrderView
         btnCancel.Cursor = Cursors.Hand;
         btnCancel.FlatStyle = FlatStyle.System;
         btnCancel.Font = new Font("Segoe UI", 9.5F);
-        btnCancel.Location = new Point(962, 8);
+        btnCancel.Location = new Point(598, 11);
         btnCancel.Name = "btnCancel";
         btnCancel.Size = new Size(110, 36);
         btnCancel.TabIndex = 3;
@@ -440,13 +436,12 @@ partial class NewOrderView
         // 
         // btnViewOrders
         // 
-        btnViewOrders.UseVisualStyleBackColor = true;
         btnViewOrders.Cursor = Cursors.Hand;
         btnViewOrders.FlatAppearance.BorderSize = 0;
         btnViewOrders.FlatStyle = FlatStyle.System;
         btnViewOrders.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnViewOrders.ForeColor = SystemColors.ControlText;
-        btnViewOrders.Location = new Point(260, 8);
+        btnViewOrders.Location = new Point(764, 8);
         btnViewOrders.Name = "btnViewOrders";
         btnViewOrders.Size = new Size(140, 36);
         btnViewOrders.TabIndex = 2;
@@ -461,7 +456,7 @@ partial class NewOrderView
         btnClearForm.Cursor = Cursors.Hand;
         btnClearForm.FlatStyle = FlatStyle.System;
         btnClearForm.Font = new Font("Segoe UI", 9.5F);
-        btnClearForm.Location = new Point(145, 8);
+        btnClearForm.Location = new Point(426, 11);
         btnClearForm.Name = "btnClearForm";
         btnClearForm.Size = new Size(110, 36);
         btnClearForm.TabIndex = 1;
@@ -471,13 +466,12 @@ partial class NewOrderView
         // 
         // btnSaveOrder
         // 
-        btnSaveOrder.UseVisualStyleBackColor = true;
         btnSaveOrder.Cursor = Cursors.Hand;
         btnSaveOrder.FlatAppearance.BorderSize = 0;
         btnSaveOrder.FlatStyle = FlatStyle.System;
         btnSaveOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnSaveOrder.ForeColor = SystemColors.ControlText;
-        btnSaveOrder.Location = new Point(0, 8);
+        btnSaveOrder.Location = new Point(211, 11);
         btnSaveOrder.Name = "btnSaveOrder";
         btnSaveOrder.Size = new Size(135, 36);
         btnSaveOrder.TabIndex = 0;
@@ -498,7 +492,7 @@ partial class NewOrderView
         Controls.Add(pnlHeader);
         Name = "NewOrderView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Size = new Size(1120, 618);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpOrderInfo.ResumeLayout(false);
