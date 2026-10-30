@@ -19,7 +19,6 @@ partial class StaffManagementView
         DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
         pnlHeader = new Panel();
-        lblSubtitle = new Label();
         lblTitle = new Label();
         grpFilter = new GroupBox();
         btnClearSearch = new Button();
@@ -33,7 +32,6 @@ partial class StaffManagementView
         colShift = new DataGridViewTextBoxColumn();
         colStatus = new DataGridViewTextBoxColumn();
         pnlStaffActions = new Panel();
-        lblSummary = new Label();
         btnToggleStatus = new Button();
         btnEditStaff = new Button();
         btnAddStaff = new Button();
@@ -47,33 +45,23 @@ partial class StaffManagementView
         // pnlHeader
         // 
         pnlHeader.BackColor = Color.Transparent;
-        pnlHeader.Controls.Add(lblSubtitle);
         pnlHeader.Controls.Add(lblTitle);
         pnlHeader.Dock = DockStyle.Top;
-        pnlHeader.Location = new Point(24, 16);
+        pnlHeader.Location = new Point(33, 20);
+        pnlHeader.Margin = new Padding(4);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 50);
+        pnlHeader.Size = new Size(1054, 61);
         pnlHeader.TabIndex = 0;
-        // 
-        // lblSubtitle
-        // 
-        lblSubtitle.AutoSize = true;
-        lblSubtitle.Font = new Font("Segoe UI", 9F);
-        lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
-        lblSubtitle.Location = new Point(0, 30);
-        lblSubtitle.Name = "lblSubtitle";
-        lblSubtitle.Size = new Size(335, 20);
-        lblSubtitle.TabIndex = 1;
-        lblSubtitle.Text = "Manage restaurant staff and waiter accounts";
         // 
         // lblTitle
         // 
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, -2);
+        lblTitle.Location = new Point(20, 12);
+        lblTitle.Margin = new Padding(4, 0, 4, 0);
         lblTitle.Name = "lblTitle";
-        lblTitle.Size = new Size(254, 37);
+        lblTitle.Size = new Size(297, 45);
         lblTitle.TabIndex = 0;
         lblTitle.Text = "Staff Management";
         // 
@@ -86,13 +74,13 @@ partial class StaffManagementView
         grpFilter.Dock = DockStyle.Top;
         grpFilter.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
-        grpFilter.Location = new Point(24, 66);
+        grpFilter.Location = new Point(33, 81);
+        grpFilter.Margin = new Padding(4);
         grpFilter.Name = "grpFilter";
-        grpFilter.Padding = new Padding(12, 8, 12, 10);
-        grpFilter.Size = new Size(1072, 64);
+        grpFilter.Padding = new Padding(16, 10, 16, 12);
+        grpFilter.Size = new Size(1054, 134);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
-        grpFilter.Text = "Search Staff";
         // 
         // btnClearSearch
         // 
@@ -100,9 +88,10 @@ partial class StaffManagementView
         btnClearSearch.Cursor = Cursors.Hand;
         btnClearSearch.FlatStyle = FlatStyle.System;
         btnClearSearch.Font = new Font("Segoe UI", 9F);
-        btnClearSearch.Location = new Point(410, 24);
+        btnClearSearch.Location = new Point(830, 62);
+        btnClearSearch.Margin = new Padding(4);
         btnClearSearch.Name = "btnClearSearch";
-        btnClearSearch.Size = new Size(80, 30);
+        btnClearSearch.Size = new Size(110, 38);
         btnClearSearch.TabIndex = 2;
         btnClearSearch.Text = "Clear";
         btnClearSearch.UseVisualStyleBackColor = false;
@@ -111,10 +100,11 @@ partial class StaffManagementView
         // txtSearch
         // 
         txtSearch.Font = new Font("Segoe UI", 9F);
-        txtSearch.Location = new Point(78, 25);
+        txtSearch.Location = new Point(121, 62);
+        txtSearch.Margin = new Padding(4);
         txtSearch.Name = "txtSearch";
         txtSearch.PlaceholderText = "Search by staff ID or name...";
-        txtSearch.Size = new Size(320, 27);
+        txtSearch.Size = new Size(624, 31);
         txtSearch.TabIndex = 1;
         txtSearch.TextChanged += txtSearch_TextChanged;
         // 
@@ -123,9 +113,10 @@ partial class StaffManagementView
         lblSearch.AutoSize = true;
         lblSearch.Font = new Font("Segoe UI", 9F);
         lblSearch.ForeColor = Color.FromArgb(71, 85, 105);
-        lblSearch.Location = new Point(16, 28);
+        lblSearch.Location = new Point(20, 62);
+        lblSearch.Margin = new Padding(4, 0, 4, 0);
         lblSearch.Name = "lblSearch";
-        lblSearch.Size = new Size(56, 20);
+        lblSearch.Size = new Size(68, 25);
         lblSearch.TabIndex = 0;
         lblSearch.Text = "Search:";
         // 
@@ -137,13 +128,13 @@ partial class StaffManagementView
         grpStaffTable.Dock = DockStyle.Fill;
         grpStaffTable.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpStaffTable.ForeColor = Color.FromArgb(15, 23, 42);
-        grpStaffTable.Location = new Point(24, 130);
+        grpStaffTable.Location = new Point(33, 215);
+        grpStaffTable.Margin = new Padding(4);
         grpStaffTable.Name = "grpStaffTable";
-        grpStaffTable.Padding = new Padding(12, 8, 12, 10);
-        grpStaffTable.Size = new Size(1072, 403);
+        grpStaffTable.Padding = new Padding(16, 10, 16, 12);
+        grpStaffTable.Size = new Size(1054, 245);
         grpStaffTable.TabIndex = 2;
         grpStaffTable.TabStop = false;
-        grpStaffTable.Text = "Staff Directory";
         // 
         // dgvStaff
         // 
@@ -158,7 +149,7 @@ partial class StaffManagementView
         dgvStaff.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle2.BackColor = Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(71, 85, 105);
         dataGridViewCellStyle2.Padding = new Padding(8, 0, 8, 0);
         dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(241, 245, 249);
@@ -170,7 +161,7 @@ partial class StaffManagementView
         dgvStaff.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colRole, colShift, colStatus });
         dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle3.BackColor = Color.White;
-        dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+        dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
         dataGridViewCellStyle3.Padding = new Padding(8, 0, 8, 0);
         dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(241, 245, 249);
@@ -180,7 +171,8 @@ partial class StaffManagementView
         dgvStaff.Dock = DockStyle.Fill;
         dgvStaff.EnableHeadersVisualStyles = false;
         dgvStaff.GridColor = Color.FromArgb(226, 232, 240);
-        dgvStaff.Location = new Point(12, 30);
+        dgvStaff.Location = new Point(16, 36);
+        dgvStaff.Margin = new Padding(4);
         dgvStaff.MultiSelect = false;
         dgvStaff.Name = "dgvStaff";
         dgvStaff.ReadOnly = true;
@@ -188,7 +180,7 @@ partial class StaffManagementView
         dgvStaff.RowHeadersWidth = 51;
         dgvStaff.RowTemplate.Height = 36;
         dgvStaff.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvStaff.Size = new Size(1048, 316);
+        dgvStaff.Size = new Size(1022, 87);
         dgvStaff.TabIndex = 0;
         dgvStaff.SelectionChanged += dgvStaff_SelectionChanged;
         // 
@@ -218,7 +210,6 @@ partial class StaffManagementView
         // 
         // colShift
         // 
-        colShift.FillWeight = 100F;
         colShift.HeaderText = "Working Shift";
         colShift.MinimumWidth = 6;
         colShift.Name = "colShift";
@@ -235,26 +226,15 @@ partial class StaffManagementView
         // pnlStaffActions
         // 
         pnlStaffActions.BackColor = Color.Transparent;
-        pnlStaffActions.Controls.Add(lblSummary);
         pnlStaffActions.Controls.Add(btnToggleStatus);
         pnlStaffActions.Controls.Add(btnEditStaff);
         pnlStaffActions.Controls.Add(btnAddStaff);
         pnlStaffActions.Dock = DockStyle.Bottom;
-        pnlStaffActions.Location = new Point(12, 346);
+        pnlStaffActions.Location = new Point(16, 123);
+        pnlStaffActions.Margin = new Padding(4);
         pnlStaffActions.Name = "pnlStaffActions";
-        pnlStaffActions.Size = new Size(1048, 47);
+        pnlStaffActions.Size = new Size(1022, 110);
         pnlStaffActions.TabIndex = 1;
-        // 
-        // lblSummary
-        // 
-        lblSummary.AutoSize = true;
-        lblSummary.Font = new Font("Segoe UI", 9F);
-        lblSummary.ForeColor = Color.FromArgb(100, 116, 139);
-        lblSummary.Location = new Point(0, 14);
-        lblSummary.Name = "lblSummary";
-        lblSummary.Size = new Size(244, 20);
-        lblSummary.TabIndex = 0;
-        lblSummary.Text = "Showing 4 registered staff members";
         // 
         // btnToggleStatus
         // 
@@ -264,9 +244,10 @@ partial class StaffManagementView
         btnToggleStatus.Enabled = false;
         btnToggleStatus.FlatStyle = FlatStyle.System;
         btnToggleStatus.Font = new Font("Segoe UI", 9F);
-        btnToggleStatus.Location = new Point(660, 8);
+        btnToggleStatus.Location = new Point(149, 22);
+        btnToggleStatus.Margin = new Padding(4);
         btnToggleStatus.Name = "btnToggleStatus";
-        btnToggleStatus.Size = new Size(130, 32);
+        btnToggleStatus.Size = new Size(179, 71);
         btnToggleStatus.TabIndex = 1;
         btnToggleStatus.Text = "Toggle Status";
         btnToggleStatus.UseVisualStyleBackColor = false;
@@ -280,9 +261,10 @@ partial class StaffManagementView
         btnEditStaff.Enabled = false;
         btnEditStaff.FlatStyle = FlatStyle.System;
         btnEditStaff.Font = new Font("Segoe UI", 9F);
-        btnEditStaff.Location = new Point(800, 8);
+        btnEditStaff.Location = new Point(451, 22);
+        btnEditStaff.Margin = new Padding(4);
         btnEditStaff.Name = "btnEditStaff";
-        btnEditStaff.Size = new Size(110, 32);
+        btnEditStaff.Size = new Size(151, 71);
         btnEditStaff.TabIndex = 2;
         btnEditStaff.Text = "Edit Waiter";
         btnEditStaff.UseVisualStyleBackColor = false;
@@ -291,15 +273,15 @@ partial class StaffManagementView
         // btnAddStaff
         // 
         btnAddStaff.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnAddStaff.UseVisualStyleBackColor = true;
         btnAddStaff.Cursor = Cursors.Hand;
         btnAddStaff.FlatAppearance.BorderSize = 0;
         btnAddStaff.FlatStyle = FlatStyle.System;
         btnAddStaff.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
         btnAddStaff.ForeColor = SystemColors.ControlText;
-        btnAddStaff.Location = new Point(920, 8);
+        btnAddStaff.Location = new Point(792, 22);
+        btnAddStaff.Margin = new Padding(4);
         btnAddStaff.Name = "btnAddStaff";
-        btnAddStaff.Size = new Size(128, 32);
+        btnAddStaff.Size = new Size(176, 71);
         btnAddStaff.TabIndex = 3;
         btnAddStaff.Text = "+ Add Waiter";
         btnAddStaff.UseVisualStyleBackColor = false;
@@ -307,16 +289,16 @@ partial class StaffManagementView
         // 
         // StaffManagementView
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleDimensions = new SizeF(11F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(243, 244, 246);
         Controls.Add(grpStaffTable);
         Controls.Add(grpFilter);
         Controls.Add(pnlHeader);
-        Font = new Font("Segoe UI", 9.5F);
+        Margin = new Padding(4);
         Name = "StaffManagementView";
-        Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Padding = new Padding(33, 20, 33, 25);
+        Size = new Size(1120, 485);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);
@@ -324,13 +306,11 @@ partial class StaffManagementView
         grpStaffTable.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvStaff).EndInit();
         pnlStaffActions.ResumeLayout(false);
-        pnlStaffActions.PerformLayout();
         ResumeLayout(false);
     }
 
     private Panel pnlHeader;
     private Label lblTitle;
-    private Label lblSubtitle;
     private GroupBox grpFilter;
     private Label lblSearch;
     private TextBox txtSearch;
@@ -343,7 +323,6 @@ partial class StaffManagementView
     private DataGridViewTextBoxColumn colShift;
     private DataGridViewTextBoxColumn colStatus;
     private Panel pnlStaffActions;
-    private Label lblSummary;
     private Button btnAddStaff;
     private Button btnEditStaff;
     private Button btnToggleStatus;
