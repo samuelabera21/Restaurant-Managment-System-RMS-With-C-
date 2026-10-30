@@ -72,9 +72,7 @@ public class StaffPersistenceService
         return new List<StaffMember>
         {
             new(100, "Manager (Admin)", "Manager", "All Shifts", true),
-            new(101, "Abebe Bikila", "Waiter", "Day Shift", true),
-            new(102, "Hana Tadesse", "Waiter", "Evening Shift", true),
-            new(103, "Dawit Kebede", "Waiter", "Day Shift", true)
+            new(101, "Abebe Bikila", "Waiter", "Day Shift", true)
         };
     }
 }
