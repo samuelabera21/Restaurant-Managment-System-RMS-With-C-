@@ -69,7 +69,7 @@ public partial class OrdersView : BaseView
         var filteredList = _orderService.FilterOrders(query, statusFilter).ToList();
         int totalOrders = _store.Orders.Count;
 
-        lblOrdersSummary.Text = $"Showing {filteredList.Count} of {totalOrders} orders";
+        //lblOrdersSummary.Text = $"Showing {filteredList.Count} of {totalOrders} orders";
 
         dgvOrders.Rows.Clear();
         foreach (var order in filteredList)
