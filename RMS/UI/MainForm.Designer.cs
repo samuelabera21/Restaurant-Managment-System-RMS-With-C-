@@ -251,9 +251,9 @@ partial class MainForm
         btnLogout.Cursor = Cursors.Hand;
         btnLogout.FlatStyle = FlatStyle.System;
         btnLogout.Font = new Font("Segoe UI", 8.5F);
-        btnLogout.Location = new Point(804, 17);
+        btnLogout.Location = new Point(831, 17);
         btnLogout.Name = "btnLogout";
-        btnLogout.Size = new Size(127, 30);
+        btnLogout.Size = new Size(100, 30);
         btnLogout.TabIndex = 2;
         btnLogout.Text = "Sign Out";
         btnLogout.UseVisualStyleBackColor = false;
@@ -265,7 +265,7 @@ partial class MainForm
         lblUserInfo.AutoSize = true;
         lblUserInfo.Font = new Font("Segoe UI", 9.5F);
         lblUserInfo.ForeColor = Color.FromArgb(71, 85, 105);
-        lblUserInfo.Location = new Point(523, 27);
+        lblUserInfo.Location = new Point(484, 22);
         lblUserInfo.Name = "lblUserInfo";
         lblUserInfo.Size = new Size(130, 25);
         lblUserInfo.TabIndex = 1;
