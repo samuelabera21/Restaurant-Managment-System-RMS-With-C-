@@ -66,7 +66,7 @@ partial class MenuManagementView
         // 
         lblAdminBadge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblAdminBadge.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        lblAdminBadge.ForeColor = Color.FromArgb(67, 56, 202);
+        lblAdminBadge.ForeColor = Color.FromArgb(71, 85, 105);
         lblAdminBadge.Location = new Point(822, 10);
         lblAdminBadge.Name = "lblAdminBadge";
         lblAdminBadge.Size = new Size(250, 24);
