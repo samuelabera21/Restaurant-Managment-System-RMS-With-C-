@@ -36,13 +36,15 @@ public partial class MainForm : Form
         _navButtons[ViewType.MenuManagement] = btnNavManageMenu;
         _navButtons[ViewType.StaffManagement] = btnNavManageStaff;
 
-        // Configure clean dark slate hover states
+        // Configure clean desktop navigation button borders & states
         foreach (var btn in new[] { btnNavDashboard, btnNavMenu, btnNavNewOrder, btnNavOrders, btnNavReports, btnNavManageMenu, btnNavManageStaff, btnExit })
         {
             btn.UseVisualStyleBackColor = false;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.FlatAppearance.MouseOverBackColor = AppTheme.SidebarHover;
-            btn.FlatAppearance.MouseDownBackColor = AppTheme.SidebarActive;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 1;
+            btn.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
+            btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(226, 232, 240);
         }
 
         // Align header elements dynamically to avoid high-DPI truncation
@@ -183,13 +185,16 @@ public partial class MainForm : Form
 
         _currentViewType = targetView;
 
-        // Update active navigation button styling
+        // Update active navigation button styling (clean light desktop style)
         foreach (var (type, btn) in _navButtons)
         {
             bool isActive = (type == targetView);
-            btn.BackColor = isActive ? AppTheme.SidebarActive : Color.Transparent;
+            btn.BackColor = isActive ? Color.FromArgb(30, 58, 95) : Color.White;
+            btn.ForeColor = isActive ? Color.White : Color.FromArgb(30, 41, 59);
             btn.Font = isActive ? AppTheme.NavItemActiveFont : AppTheme.NavItemFont;
-            btn.FlatAppearance.MouseOverBackColor = isActive ? AppTheme.SidebarActive : AppTheme.SidebarHover;
+            btn.FlatAppearance.BorderSize = isActive ? 0 : 1;
+            btn.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btn.FlatAppearance.MouseOverBackColor = isActive ? Color.FromArgb(30, 58, 95) : Color.FromArgb(241, 245, 249);
         }
 
         // Swap View inside Content Host panel
