@@ -254,7 +254,7 @@ partial class EditOrderView
         // 
         lblOrderNumberBadge.AutoSize = true;
         lblOrderNumberBadge.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-        lblOrderNumberBadge.ForeColor = Color.FromArgb(30, 58, 95);
+        lblOrderNumberBadge.ForeColor = Color.FromArgb(15, 23, 42);
         lblOrderNumberBadge.Location = new Point(18, 55);
         lblOrderNumberBadge.Name = "lblOrderNumberBadge";
         lblOrderNumberBadge.Size = new Size(65, 30);
@@ -293,7 +293,7 @@ partial class EditOrderView
         // 
         // btnAddItem
         // 
-        btnAddItem.BackColor = Color.FromArgb(30, 58, 95);
+        btnAddItem.UseVisualStyleBackColor = true;
         btnAddItem.Cursor = Cursors.Hand;
         btnAddItem.FlatStyle = FlatStyle.System;
         btnAddItem.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
@@ -528,7 +528,7 @@ partial class EditOrderView
         // 
         // btnSaveChanges
         // 
-        btnSaveChanges.BackColor = Color.FromArgb(30, 58, 95);
+        btnSaveChanges.UseVisualStyleBackColor = true;
         btnSaveChanges.Cursor = Cursors.Hand;
         btnSaveChanges.FlatStyle = FlatStyle.System;
         btnSaveChanges.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
