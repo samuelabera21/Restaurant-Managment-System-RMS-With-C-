@@ -17,13 +17,13 @@ partial class LoginDialog
 
     private void InitializeComponent()
     {
-        grpCredentials = new System.Windows.Forms.GroupBox();
-        lblError = new System.Windows.Forms.Label();
-        lblHint = new System.Windows.Forms.Label();
-        txtStaffId = new System.Windows.Forms.TextBox();
-        lblStaffId = new System.Windows.Forms.Label();
-        btnLogin = new System.Windows.Forms.Button();
-        btnCancel = new System.Windows.Forms.Button();
+        grpCredentials = new GroupBox();
+        lblError = new Label();
+        lblHint = new Label();
+        txtStaffId = new TextBox();
+        lblStaffId = new Label();
+        btnLogin = new Button();
+        btnCancel = new Button();
         grpCredentials.SuspendLayout();
         SuspendLayout();
         // 
@@ -33,10 +33,12 @@ partial class LoginDialog
         grpCredentials.Controls.Add(lblHint);
         grpCredentials.Controls.Add(txtStaffId);
         grpCredentials.Controls.Add(lblStaffId);
-        grpCredentials.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        grpCredentials.Location = new System.Drawing.Point(16, 14);
+        grpCredentials.Font = new Font("Segoe UI", 9F);
+        grpCredentials.Location = new Point(20, 18);
+        grpCredentials.Margin = new Padding(4, 4, 4, 4);
         grpCredentials.Name = "grpCredentials";
-        grpCredentials.Size = new System.Drawing.Size(346, 130);
+        grpCredentials.Padding = new Padding(4, 4, 4, 4);
+        grpCredentials.Size = new Size(432, 162);
         grpCredentials.TabIndex = 0;
         grpCredentials.TabStop = false;
         grpCredentials.Text = "Staff Login";
@@ -44,11 +46,12 @@ partial class LoginDialog
         // lblError
         // 
         lblError.AutoSize = true;
-        lblError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        lblError.ForeColor = System.Drawing.Color.Red;
-        lblError.Location = new System.Drawing.Point(20, 96);
+        lblError.Font = new Font("Segoe UI", 8.25F);
+        lblError.ForeColor = Color.Red;
+        lblError.Location = new Point(25, 120);
+        lblError.Margin = new Padding(4, 0, 4, 0);
         lblError.Name = "lblError";
-        lblError.Size = new System.Drawing.Size(262, 19);
+        lblError.Size = new Size(361, 23);
         lblError.TabIndex = 3;
         lblError.Text = "Invalid Staff ID. Account not found or inactive.";
         lblError.Visible = false;
@@ -56,40 +59,44 @@ partial class LoginDialog
         // lblHint
         // 
         lblHint.AutoSize = true;
-        lblHint.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        lblHint.ForeColor = System.Drawing.SystemColors.GrayText;
-        lblHint.Location = new System.Drawing.Point(95, 64);
+        lblHint.Font = new Font("Segoe UI", 8.25F);
+        lblHint.ForeColor = SystemColors.GrayText;
+        lblHint.Location = new Point(119, 80);
+        lblHint.Margin = new Padding(4, 0, 4, 0);
         lblHint.Name = "lblHint";
-        lblHint.Size = new System.Drawing.Size(227, 19);
+        lblHint.Size = new Size(302, 23);
         lblHint.TabIndex = 2;
-        lblHint.Text = "Manager: 100  |  Waiters: 101, 102, 103";
+        lblHint.Text = "Manager: 100  |  Waiter: 101";
         // 
         // txtStaffId
         // 
-        txtStaffId.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        txtStaffId.Location = new System.Drawing.Point(95, 30);
+        txtStaffId.Font = new Font("Segoe UI", 9.5F);
+        txtStaffId.Location = new Point(119, 38);
+        txtStaffId.Margin = new Padding(4, 4, 4, 4);
         txtStaffId.Name = "txtStaffId";
-        txtStaffId.Size = new System.Drawing.Size(228, 29);
+        txtStaffId.Size = new Size(284, 33);
         txtStaffId.TabIndex = 1;
         txtStaffId.TextChanged += txtStaffId_TextChanged;
         // 
         // lblStaffId
         // 
         lblStaffId.AutoSize = true;
-        lblStaffId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        lblStaffId.Location = new System.Drawing.Point(20, 34);
+        lblStaffId.Font = new Font("Segoe UI", 9F);
+        lblStaffId.Location = new Point(25, 42);
+        lblStaffId.Margin = new Padding(4, 0, 4, 0);
         lblStaffId.Name = "lblStaffId";
-        lblStaffId.Size = new System.Drawing.Size(61, 20);
+        lblStaffId.Size = new Size(75, 25);
         lblStaffId.TabIndex = 0;
         lblStaffId.Text = "Staff ID:";
         // 
         // btnLogin
         // 
-        btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        btnLogin.Location = new System.Drawing.Point(174, 158);
+        btnLogin.FlatStyle = FlatStyle.System;
+        btnLogin.Font = new Font("Segoe UI", 9F);
+        btnLogin.Location = new Point(218, 198);
+        btnLogin.Margin = new Padding(4, 4, 4, 4);
         btnLogin.Name = "btnLogin";
-        btnLogin.Size = new System.Drawing.Size(90, 32);
+        btnLogin.Size = new Size(112, 40);
         btnLogin.TabIndex = 1;
         btnLogin.Text = "Sign In";
         btnLogin.UseVisualStyleBackColor = true;
@@ -97,12 +104,13 @@ partial class LoginDialog
         // 
         // btnCancel
         // 
-        btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-        btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        btnCancel.Location = new System.Drawing.Point(272, 158);
+        btnCancel.DialogResult = DialogResult.Cancel;
+        btnCancel.FlatStyle = FlatStyle.System;
+        btnCancel.Font = new Font("Segoe UI", 9F);
+        btnCancel.Location = new Point(340, 198);
+        btnCancel.Margin = new Padding(4, 4, 4, 4);
         btnCancel.Name = "btnCancel";
-        btnCancel.Size = new System.Drawing.Size(90, 32);
+        btnCancel.Size = new Size(112, 40);
         btnCancel.TabIndex = 2;
         btnCancel.Text = "Cancel";
         btnCancel.UseVisualStyleBackColor = true;
@@ -111,18 +119,19 @@ partial class LoginDialog
         // LoginDialog
         // 
         AcceptButton = btnLogin;
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        AutoScaleDimensions = new SizeF(10F, 25F);
+        AutoScaleMode = AutoScaleMode.Font;
         CancelButton = btnCancel;
-        ClientSize = new System.Drawing.Size(380, 206);
+        ClientSize = new Size(537, 258);
         Controls.Add(btnCancel);
         Controls.Add(btnLogin);
         Controls.Add(grpCredentials);
-        FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        Margin = new Padding(4, 4, 4, 4);
         MaximizeBox = false;
         MinimizeBox = false;
         Name = "LoginDialog";
-        StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "RMS — Sign In";
         grpCredentials.ResumeLayout(false);
         grpCredentials.PerformLayout();
