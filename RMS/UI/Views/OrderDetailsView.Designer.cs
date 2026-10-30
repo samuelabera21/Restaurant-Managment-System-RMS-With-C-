@@ -20,7 +20,6 @@ partial class OrderDetailsView
         DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
         pnlHeader = new Panel();
         btnBack = new Button();
-        lblSubtitle = new Label();
         lblTitle = new Label();
         grpOrderInfo = new GroupBox();
         lblStatus = new Label();
@@ -42,9 +41,7 @@ partial class OrderDetailsView
         colSubtotal = new DataGridViewTextBoxColumn();
         pnlItemsFooter = new Panel();
         lblTotalAmount = new Label();
-        lblSummaryQty = new Label();
         pnlActions = new Panel();
-        lblLockedNotice = new Label();
         btnCancelOrder = new Button();
         btnEditOrder = new Button();
         pnlHeader.SuspendLayout();
@@ -59,12 +56,11 @@ partial class OrderDetailsView
         // 
         pnlHeader.BackColor = Color.Transparent;
         pnlHeader.Controls.Add(btnBack);
-        pnlHeader.Controls.Add(lblSubtitle);
         pnlHeader.Controls.Add(lblTitle);
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 56);
+        pnlHeader.Size = new Size(1072, 100);
         pnlHeader.TabIndex = 0;
         // 
         // btnBack
@@ -74,31 +70,20 @@ partial class OrderDetailsView
         btnBack.Cursor = Cursors.Hand;
         btnBack.FlatStyle = FlatStyle.System;
         btnBack.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnBack.Location = new Point(912, 10);
+        btnBack.Location = new Point(804, 15);
         btnBack.Name = "btnBack";
-        btnBack.Size = new Size(160, 36);
+        btnBack.Size = new Size(160, 52);
         btnBack.TabIndex = 2;
         btnBack.Text = "Back to Orders";
         btnBack.UseVisualStyleBackColor = false;
         btnBack.Click += btnBack_Click;
-        // 
-        // lblSubtitle
-        // 
-        lblSubtitle.AutoSize = true;
-        lblSubtitle.Font = new Font("Segoe UI", 9F);
-        lblSubtitle.ForeColor = Color.FromArgb(71, 85, 105);
-        lblSubtitle.Location = new Point(271, 16);
-        lblSubtitle.Name = "lblSubtitle";
-        lblSubtitle.Size = new Size(295, 25);
-        lblSubtitle.TabIndex = 1;
-        lblSubtitle.Text = "Review order information and items";
         // 
         // lblTitle
         // 
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(3, -4);
+        lblTitle.Location = new Point(29, 15);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(218, 45);
         lblTitle.TabIndex = 0;
@@ -121,20 +106,19 @@ partial class OrderDetailsView
         grpOrderInfo.Dock = DockStyle.Top;
         grpOrderInfo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpOrderInfo.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOrderInfo.Location = new Point(24, 72);
+        grpOrderInfo.Location = new Point(24, 116);
         grpOrderInfo.Name = "grpOrderInfo";
         grpOrderInfo.Padding = new Padding(16, 12, 16, 12);
-        grpOrderInfo.Size = new Size(1072, 125);
+        grpOrderInfo.Size = new Size(1072, 225);
         grpOrderInfo.TabIndex = 1;
         grpOrderInfo.TabStop = false;
-        grpOrderInfo.Text = "Order Information";
         // 
         // lblStatus
         // 
         lblStatus.AutoSize = true;
         lblStatus.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
         lblStatus.ForeColor = Color.FromArgb(180, 83, 9);
-        lblStatus.Location = new Point(620, 85);
+        lblStatus.Location = new Point(641, 168);
         lblStatus.Name = "lblStatus";
         lblStatus.Size = new Size(94, 30);
         lblStatus.TabIndex = 10;
@@ -145,7 +129,7 @@ partial class OrderDetailsView
         lblCaptionStatus.AutoSize = true;
         lblCaptionStatus.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblCaptionStatus.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCaptionStatus.Location = new Point(620, 62);
+        lblCaptionStatus.Location = new Point(641, 110);
         lblCaptionStatus.Name = "lblCaptionStatus";
         lblCaptionStatus.Size = new Size(60, 23);
         lblCaptionStatus.TabIndex = 9;
@@ -156,7 +140,7 @@ partial class OrderDetailsView
         lblCreated.AutoSize = true;
         lblCreated.Font = new Font("Segoe UI", 10F);
         lblCreated.ForeColor = Color.FromArgb(15, 23, 42);
-        lblCreated.Location = new Point(470, 85);
+        lblCreated.Location = new Point(470, 170);
         lblCreated.Name = "lblCreated";
         lblCreated.Size = new Size(96, 28);
         lblCreated.TabIndex = 8;
@@ -167,7 +151,7 @@ partial class OrderDetailsView
         lblCaptionCreated.AutoSize = true;
         lblCaptionCreated.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblCaptionCreated.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCaptionCreated.Location = new Point(470, 62);
+        lblCaptionCreated.Location = new Point(459, 110);
         lblCaptionCreated.Name = "lblCaptionCreated";
         lblCaptionCreated.Size = new Size(118, 23);
         lblCaptionCreated.TabIndex = 7;
@@ -178,7 +162,7 @@ partial class OrderDetailsView
         lblTable.AutoSize = true;
         lblTable.Font = new Font("Segoe UI", 10F);
         lblTable.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTable.Location = new Point(320, 85);
+        lblTable.Location = new Point(320, 170);
         lblTable.Name = "lblTable";
         lblTable.Size = new Size(73, 28);
         lblTable.TabIndex = 6;
@@ -189,7 +173,7 @@ partial class OrderDetailsView
         lblCaptionTable.AutoSize = true;
         lblCaptionTable.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblCaptionTable.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCaptionTable.Location = new Point(320, 62);
+        lblCaptionTable.Location = new Point(320, 110);
         lblCaptionTable.Name = "lblCaptionTable";
         lblCaptionTable.Size = new Size(53, 23);
         lblCaptionTable.TabIndex = 5;
@@ -200,7 +184,7 @@ partial class OrderDetailsView
         lblCustomer.AutoSize = true;
         lblCustomer.Font = new Font("Segoe UI", 10F);
         lblCustomer.ForeColor = Color.FromArgb(15, 23, 42);
-        lblCustomer.Location = new Point(160, 85);
+        lblCustomer.Location = new Point(160, 170);
         lblCustomer.Name = "lblCustomer";
         lblCustomer.Size = new Size(57, 28);
         lblCustomer.TabIndex = 4;
@@ -211,7 +195,7 @@ partial class OrderDetailsView
         lblCaptionCustomer.AutoSize = true;
         lblCaptionCustomer.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblCaptionCustomer.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCaptionCustomer.Location = new Point(160, 62);
+        lblCaptionCustomer.Location = new Point(150, 110);
         lblCaptionCustomer.Name = "lblCaptionCustomer";
         lblCaptionCustomer.Size = new Size(87, 23);
         lblCaptionCustomer.TabIndex = 3;
@@ -222,9 +206,9 @@ partial class OrderDetailsView
         lblOrderNum.AutoSize = true;
         lblOrderNum.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
         lblOrderNum.ForeColor = Color.FromArgb(30, 58, 95);
-        lblOrderNum.Location = new Point(18, 85);
+        lblOrderNum.Location = new Point(16, 170);
         lblOrderNum.Name = "lblOrderNum";
-        lblOrderNum.Size = new Size(61, 30);
+        lblOrderNum.Size = new Size(49, 30);
         lblOrderNum.TabIndex = 2;
         lblOrderNum.Text = "104";
         // 
@@ -233,9 +217,9 @@ partial class OrderDetailsView
         lblCaptionOrderNum.AutoSize = true;
         lblCaptionOrderNum.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
         lblCaptionOrderNum.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCaptionOrderNum.Location = new Point(18, 62);
+        lblCaptionOrderNum.Location = new Point(4, 110);
         lblCaptionOrderNum.Name = "lblCaptionOrderNum";
-        lblCaptionOrderNum.Size = new Size(72, 23);
+        lblCaptionOrderNum.Size = new Size(85, 23);
         lblCaptionOrderNum.TabIndex = 1;
         lblCaptionOrderNum.Text = "Order No";
         // 
@@ -246,7 +230,7 @@ partial class OrderDetailsView
         lblOrderHeading.ForeColor = Color.FromArgb(15, 23, 42);
         lblOrderHeading.Location = new Point(18, 28);
         lblOrderHeading.Name = "lblOrderHeading";
-        lblOrderHeading.Size = new Size(261, 30);
+        lblOrderHeading.Size = new Size(248, 30);
         lblOrderHeading.TabIndex = 0;
         lblOrderHeading.Text = "Order 104 Information";
         // 
@@ -258,13 +242,12 @@ partial class OrderDetailsView
         grpOrderItems.Dock = DockStyle.Fill;
         grpOrderItems.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpOrderItems.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOrderItems.Location = new Point(24, 197);
+        grpOrderItems.Location = new Point(24, 341);
         grpOrderItems.Name = "grpOrderItems";
         grpOrderItems.Padding = new Padding(16, 12, 16, 12);
-        grpOrderItems.Size = new Size(1072, 271);
+        grpOrderItems.Size = new Size(1072, 239);
         grpOrderItems.TabIndex = 2;
         grpOrderItems.TabStop = false;
-        grpOrderItems.Text = "Order Items";
         // 
         // dgvItems
         // 
@@ -308,7 +291,7 @@ partial class OrderDetailsView
         dgvItems.RowHeadersWidth = 51;
         dgvItems.RowTemplate.Height = 36;
         dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvItems.Size = new Size(1040, 170);
+        dgvItems.Size = new Size(1040, 138);
         dgvItems.TabIndex = 0;
         // 
         // colItemName
@@ -346,9 +329,8 @@ partial class OrderDetailsView
         // pnlItemsFooter
         // 
         pnlItemsFooter.Controls.Add(lblTotalAmount);
-        pnlItemsFooter.Controls.Add(lblSummaryQty);
         pnlItemsFooter.Dock = DockStyle.Bottom;
-        pnlItemsFooter.Location = new Point(16, 209);
+        pnlItemsFooter.Location = new Point(16, 177);
         pnlItemsFooter.Name = "pnlItemsFooter";
         pnlItemsFooter.Size = new Size(1040, 50);
         pnlItemsFooter.TabIndex = 1;
@@ -365,40 +347,16 @@ partial class OrderDetailsView
         lblTotalAmount.Text = "Total: 260 ETB";
         lblTotalAmount.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // lblSummaryQty
-        // 
-        lblSummaryQty.AutoSize = true;
-        lblSummaryQty.Font = new Font("Segoe UI", 9.5F);
-        lblSummaryQty.ForeColor = Color.FromArgb(71, 85, 105);
-        lblSummaryQty.Location = new Point(4, 16);
-        lblSummaryQty.Name = "lblSummaryQty";
-        lblSummaryQty.Size = new Size(217, 25);
-        lblSummaryQty.TabIndex = 0;
-        lblSummaryQty.Text = "2 items • 3 total quantity";
-        // 
         // pnlActions
         // 
         pnlActions.BackColor = Color.Transparent;
-        pnlActions.Controls.Add(lblLockedNotice);
         pnlActions.Controls.Add(btnCancelOrder);
         pnlActions.Controls.Add(btnEditOrder);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(24, 468);
+        pnlActions.Location = new Point(24, 580);
         pnlActions.Name = "pnlActions";
         pnlActions.Size = new Size(1072, 65);
         pnlActions.TabIndex = 3;
-        // 
-        // lblLockedNotice
-        // 
-        lblLockedNotice.AutoSize = true;
-        lblLockedNotice.Font = new Font("Segoe UI", 8.5F);
-        lblLockedNotice.ForeColor = Color.FromArgb(107, 114, 128);
-        lblLockedNotice.Location = new Point(4, 38);
-        lblLockedNotice.Name = "lblLockedNotice";
-        lblLockedNotice.Size = new Size(546, 23);
-        lblLockedNotice.TabIndex = 2;
-        lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
-        lblLockedNotice.Visible = false;
         // 
         // btnCancelOrder
         // 
@@ -407,7 +365,7 @@ partial class OrderDetailsView
         btnCancelOrder.FlatStyle = FlatStyle.System;
         btnCancelOrder.Font = new Font("Segoe UI", 9.5F);
         btnCancelOrder.ForeColor = Color.FromArgb(220, 38, 38);
-        btnCancelOrder.Location = new Point(150, 4);
+        btnCancelOrder.Location = new Point(716, 16);
         btnCancelOrder.Name = "btnCancelOrder";
         btnCancelOrder.Size = new Size(130, 34);
         btnCancelOrder.TabIndex = 1;
@@ -417,12 +375,11 @@ partial class OrderDetailsView
         // 
         // btnEditOrder
         // 
-        btnEditOrder.UseVisualStyleBackColor = true;
         btnEditOrder.Cursor = Cursors.Hand;
         btnEditOrder.FlatStyle = FlatStyle.System;
         btnEditOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnEditOrder.ForeColor = SystemColors.ControlText;
-        btnEditOrder.Location = new Point(0, 4);
+        btnEditOrder.Location = new Point(373, 16);
         btnEditOrder.Name = "btnEditOrder";
         btnEditOrder.Size = new Size(140, 34);
         btnEditOrder.TabIndex = 0;
@@ -441,7 +398,7 @@ partial class OrderDetailsView
         Controls.Add(pnlHeader);
         Name = "OrderDetailsView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Size = new Size(1120, 665);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpOrderInfo.ResumeLayout(false);
@@ -449,15 +406,12 @@ partial class OrderDetailsView
         grpOrderItems.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
         pnlItemsFooter.ResumeLayout(false);
-        pnlItemsFooter.PerformLayout();
         pnlActions.ResumeLayout(false);
-        pnlActions.PerformLayout();
         ResumeLayout(false);
     }
 
     private System.Windows.Forms.Panel pnlHeader;
     private System.Windows.Forms.Label lblTitle;
-    private System.Windows.Forms.Label lblSubtitle;
     private System.Windows.Forms.Button btnBack;
     private System.Windows.Forms.GroupBox grpOrderInfo;
     private System.Windows.Forms.Label lblOrderHeading;
@@ -478,11 +432,9 @@ partial class OrderDetailsView
     private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity;
     private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
     private System.Windows.Forms.Panel pnlItemsFooter;
-    private System.Windows.Forms.Label lblSummaryQty;
     private System.Windows.Forms.Label lblTotalAmount;
     private System.Windows.Forms.Panel pnlActions;
     private System.Windows.Forms.Button btnEditOrder;
     private System.Windows.Forms.Button btnCancelOrder;
-    private System.Windows.Forms.Label lblLockedNotice;
 }
 
