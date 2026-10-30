@@ -57,7 +57,7 @@ public partial class StaffManagementView : BaseView, INavigationAware
 
         var results = filtered.OrderBy(s => s.Id).ToList();
 
-        lblSummary.Text = $"Showing {results.Count} of {allStaff.Count} registered staff members";
+        //lblSummary.Text = $"Showing {results.Count} of {allStaff.Count} registered staff members";
 
         dgvStaff.Rows.Clear();
         foreach (var staff in results)
