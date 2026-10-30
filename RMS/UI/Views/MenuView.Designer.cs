@@ -21,7 +21,6 @@ partial class MenuView
         pnlHeader = new Panel();
         lblTitle = new Label();
         grpFilter = new GroupBox();
-        lblCountSummary = new Label();
         cboAvailability = new ComboBox();
         lblFilterAvailability = new Label();
         btnClearSearch = new Button();
@@ -47,7 +46,7 @@ partial class MenuView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 44);
+        pnlHeader.Size = new Size(1072, 61);
         pnlHeader.TabIndex = 0;
         // 
         // lblTitle
@@ -55,17 +54,15 @@ partial class MenuView
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, -1);
+        lblTitle.Location = new Point(31, 13);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(106, 45);
         lblTitle.TabIndex = 0;
         lblTitle.Text = "Menu";
-        
         // 
         // grpFilter
         // 
         grpFilter.BackColor = Color.Transparent;
-        grpFilter.Controls.Add(lblCountSummary);
         grpFilter.Controls.Add(cboAvailability);
         grpFilter.Controls.Add(lblFilterAvailability);
         grpFilter.Controls.Add(btnClearSearch);
@@ -74,24 +71,11 @@ partial class MenuView
         grpFilter.Dock = DockStyle.Top;
         grpFilter.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
-        grpFilter.Location = new Point(24, 60);
+        grpFilter.Location = new Point(24, 77);
         grpFilter.Name = "grpFilter";
-        grpFilter.Size = new Size(1072, 72);
+        grpFilter.Size = new Size(1072, 117);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
-        grpFilter.Text = "Search & Filter";
-        // 
-        // lblCountSummary
-        // 
-        lblCountSummary.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        lblCountSummary.Font = new Font("Segoe UI", 9F);
-        lblCountSummary.ForeColor = Color.FromArgb(71, 85, 105);
-        lblCountSummary.Location = new Point(720, 28);
-        lblCountSummary.Name = "lblCountSummary";
-        lblCountSummary.Size = new Size(335, 25);
-        lblCountSummary.TabIndex = 5;
-        lblCountSummary.Text = "Showing 7 of 7 items";
-        lblCountSummary.TextAlign = ContentAlignment.MiddleRight;
         // 
         // cboAvailability
         // 
@@ -99,7 +83,7 @@ partial class MenuView
         cboAvailability.Font = new Font("Segoe UI", 9.5F);
         cboAvailability.FormattingEnabled = true;
         cboAvailability.Items.AddRange(new object[] { "All Items", "Available", "Unavailable" });
-        cboAvailability.Location = new Point(525, 25);
+        cboAvailability.Location = new Point(844, 49);
         cboAvailability.Name = "cboAvailability";
         cboAvailability.Size = new Size(140, 33);
         cboAvailability.TabIndex = 4;
@@ -109,7 +93,7 @@ partial class MenuView
         // 
         lblFilterAvailability.AutoSize = true;
         lblFilterAvailability.Font = new Font("Segoe UI", 9.5F);
-        lblFilterAvailability.Location = new Point(430, 28);
+        lblFilterAvailability.Location = new Point(657, 57);
         lblFilterAvailability.Name = "lblFilterAvailability";
         lblFilterAvailability.Size = new Size(108, 25);
         lblFilterAvailability.TabIndex = 3;
@@ -121,7 +105,7 @@ partial class MenuView
         btnClearSearch.Cursor = Cursors.Hand;
         btnClearSearch.FlatStyle = FlatStyle.System;
         btnClearSearch.Font = new Font("Segoe UI", 9F);
-        btnClearSearch.Location = new Point(330, 24);
+        btnClearSearch.Location = new Point(483, 57);
         btnClearSearch.Name = "btnClearSearch";
         btnClearSearch.Size = new Size(70, 31);
         btnClearSearch.TabIndex = 2;
@@ -132,7 +116,7 @@ partial class MenuView
         // txtSearch
         // 
         txtSearch.Font = new Font("Segoe UI", 9.5F);
-        txtSearch.Location = new Point(80, 25);
+        txtSearch.Location = new Point(190, 57);
         txtSearch.Name = "txtSearch";
         txtSearch.PlaceholderText = "Search item name or category...";
         txtSearch.Size = new Size(235, 33);
@@ -143,7 +127,7 @@ partial class MenuView
         // 
         lblSearch.AutoSize = true;
         lblSearch.Font = new Font("Segoe UI", 9.5F);
-        lblSearch.Location = new Point(16, 28);
+        lblSearch.Location = new Point(31, 60);
         lblSearch.Name = "lblSearch";
         lblSearch.Size = new Size(73, 25);
         lblSearch.TabIndex = 0;
@@ -156,13 +140,12 @@ partial class MenuView
         grpMenuTable.Dock = DockStyle.Fill;
         grpMenuTable.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpMenuTable.ForeColor = Color.FromArgb(15, 23, 42);
-        grpMenuTable.Location = new Point(24, 132);
+        grpMenuTable.Location = new Point(24, 194);
         grpMenuTable.Name = "grpMenuTable";
         grpMenuTable.Padding = new Padding(12, 10, 12, 12);
-        grpMenuTable.Size = new Size(1072, 390);
+        grpMenuTable.Size = new Size(1072, 293);
         grpMenuTable.TabIndex = 2;
         grpMenuTable.TabStop = false;
-        grpMenuTable.Text = "Menu Items";
         // 
         // dgvMenu
         // 
@@ -177,7 +160,7 @@ partial class MenuView
         dgvMenu.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle2.BackColor = Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(30, 41, 59);
         dataGridViewCellStyle2.Padding = new Padding(4, 6, 4, 6);
         dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(241, 245, 249);
@@ -188,7 +171,7 @@ partial class MenuView
         dgvMenu.Columns.AddRange(new DataGridViewColumn[] { colName, colCategory, colPrice, colAvailability, colAction });
         dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle3.BackColor = Color.White;
-        dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
+        dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
         dataGridViewCellStyle3.Padding = new Padding(4);
         dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(219, 234, 254);
@@ -206,7 +189,7 @@ partial class MenuView
         dgvMenu.RowHeadersWidth = 51;
         dgvMenu.RowTemplate.Height = 36;
         dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvMenu.Size = new Size(1048, 341);
+        dgvMenu.Size = new Size(1048, 244);
         dgvMenu.TabIndex = 0;
         dgvMenu.CellContentClick += dgvMenu_CellContentClick;
         // 
@@ -262,7 +245,7 @@ partial class MenuView
         Controls.Add(pnlHeader);
         Name = "MenuView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 542);
+        Size = new Size(1120, 507);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);
@@ -280,7 +263,6 @@ partial class MenuView
     private System.Windows.Forms.Button btnClearSearch;
     private System.Windows.Forms.Label lblFilterAvailability;
     private System.Windows.Forms.ComboBox cboAvailability;
-    private System.Windows.Forms.Label lblCountSummary;
     private System.Windows.Forms.GroupBox grpMenuTable;
     private System.Windows.Forms.DataGridView dgvMenu;
     private System.Windows.Forms.DataGridViewTextBoxColumn colName;
