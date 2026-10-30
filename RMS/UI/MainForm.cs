@@ -127,7 +127,7 @@ public partial class MainForm : Form
             btnNavOrders.Visible = false;
             btnNavNewOrder.Visible = false;
 
-            lblAdmin.Visible = true;
+            //lblAdmin.Visible = true;
             btnNavManageMenu.Visible = true;
             btnNavManageStaff.Visible = true;
 
@@ -146,7 +146,7 @@ public partial class MainForm : Form
             // Hide Manager-only views from Waiter
             btnNavDashboard.Visible = false;
             btnNavReports.Visible = false;
-            lblAdmin.Visible = false;
+            //lblAdmin.Visible = false;
             btnNavManageMenu.Visible = false;
             btnNavManageStaff.Visible = false;
 
@@ -214,9 +214,9 @@ public partial class MainForm : Form
 
     public void SetStatus(string message)
     {
-        if (lblStatusLeft != null)
+        //if (lblStatusLeft != null)
         {
-            lblStatusLeft.Text = message;
+            //lblStatusLeft.Text = message;
         }
     }
 
