@@ -35,7 +35,7 @@ partial class StaffMemberDialog
         // 
         // pnlHeader
         // 
-        pnlHeader.BackColor = Color.FromArgb(30, 58, 95);
+        pnlHeader.BackColor = SystemColors.Control;
         pnlHeader.Controls.Add(lblDialogTitle);
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(0, 0);
@@ -48,7 +48,7 @@ partial class StaffMemberDialog
         // 
         lblDialogTitle.AutoSize = true;
         lblDialogTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-        lblDialogTitle.ForeColor = Color.White;
+        lblDialogTitle.ForeColor = SystemColors.ControlText;
         lblDialogTitle.Location = new Point(18, 14);
         lblDialogTitle.Name = "lblDialogTitle";
         lblDialogTitle.Size = new Size(157, 28);
@@ -151,7 +151,7 @@ partial class StaffMemberDialog
         // 
         // pnlActions
         // 
-        pnlActions.BackColor = Color.FromArgb(248, 250, 252);
+        pnlActions.BackColor = SystemColors.Control;
         pnlActions.Controls.Add(btnCancel);
         pnlActions.Controls.Add(btnSave);
         pnlActions.Dock = DockStyle.Bottom;
@@ -177,12 +177,12 @@ partial class StaffMemberDialog
         // 
         // btnSave
         // 
-        btnSave.BackColor = Color.FromArgb(30, 58, 95);
+        btnSave.UseVisualStyleBackColor = true;
         btnSave.Cursor = Cursors.Hand;
         btnSave.FlatAppearance.BorderSize = 0;
-        btnSave.FlatStyle = FlatStyle.Flat;
+        btnSave.FlatStyle = FlatStyle.System;
         btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-        btnSave.ForeColor = Color.White;
+        btnSave.ForeColor = SystemColors.ControlText;
         btnSave.Location = new Point(205, 10);
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(95, 32);
