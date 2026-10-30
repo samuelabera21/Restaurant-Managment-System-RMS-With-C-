@@ -70,7 +70,7 @@ partial class DashboardView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 68);
+        pnlHeader.Size = new Size(795, 68);
         pnlHeader.TabIndex = 0;
         // 
         // btnNewOrder
@@ -81,7 +81,7 @@ partial class DashboardView
         btnNewOrder.FlatStyle = FlatStyle.System;
         btnNewOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnNewOrder.ForeColor = SystemColors.ControlText;
-        btnNewOrder.Location = new Point(835, 8);
+        btnNewOrder.Location = new Point(558, 8);
         btnNewOrder.Name = "btnNewOrder";
         btnNewOrder.Size = new Size(130, 49);
         btnNewOrder.TabIndex = 1;
@@ -110,7 +110,7 @@ partial class DashboardView
         grpOverview.Location = new Point(24, 84);
         grpOverview.Name = "grpOverview";
         grpOverview.Padding = new Padding(12, 10, 12, 12);
-        grpOverview.Size = new Size(1072, 265);
+        grpOverview.Size = new Size(795, 265);
         grpOverview.TabIndex = 1;
         grpOverview.TabStop = false;
         // 
@@ -132,7 +132,7 @@ partial class DashboardView
         tlpKpis.RowCount = 2;
         tlpKpis.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tlpKpis.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tlpKpis.Size = new Size(1048, 216);
+        tlpKpis.Size = new Size(771, 216);
         tlpKpis.TabIndex = 0;
         // 
         // pnlKpiTotal
@@ -146,7 +146,7 @@ partial class DashboardView
         pnlKpiTotal.Margin = new Padding(4);
         pnlKpiTotal.Name = "pnlKpiTotal";
         pnlKpiTotal.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiTotal.Size = new Size(341, 100);
+        pnlKpiTotal.Size = new Size(248, 100);
         pnlKpiTotal.TabIndex = 0;
         // 
         // lblTotalCount
@@ -178,11 +178,11 @@ partial class DashboardView
         pnlKpiPending.Controls.Add(lblPendingCount);
         pnlKpiPending.Controls.Add(lblKpiPendingTitle);
         pnlKpiPending.Dock = DockStyle.Fill;
-        pnlKpiPending.Location = new Point(353, 4);
+        pnlKpiPending.Location = new Point(260, 4);
         pnlKpiPending.Margin = new Padding(4);
         pnlKpiPending.Name = "pnlKpiPending";
         pnlKpiPending.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiPending.Size = new Size(341, 100);
+        pnlKpiPending.Size = new Size(248, 100);
         pnlKpiPending.TabIndex = 1;
         // 
         // lblPendingCount
@@ -215,11 +215,11 @@ partial class DashboardView
         pnlKpiPreparing.Controls.Add(lblPreparingCount);
         pnlKpiPreparing.Controls.Add(lblKpiPrepTitle);
         pnlKpiPreparing.Dock = DockStyle.Fill;
-        pnlKpiPreparing.Location = new Point(702, 4);
+        pnlKpiPreparing.Location = new Point(516, 4);
         pnlKpiPreparing.Margin = new Padding(4);
         pnlKpiPreparing.Name = "pnlKpiPreparing";
         pnlKpiPreparing.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiPreparing.Size = new Size(342, 100);
+        pnlKpiPreparing.Size = new Size(251, 100);
         pnlKpiPreparing.TabIndex = 2;
         // 
         // lblPreparingCount
@@ -255,7 +255,7 @@ partial class DashboardView
         pnlKpiReady.Margin = new Padding(4);
         pnlKpiReady.Name = "pnlKpiReady";
         pnlKpiReady.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiReady.Size = new Size(341, 100);
+        pnlKpiReady.Size = new Size(248, 100);
         pnlKpiReady.TabIndex = 3;
         // 
         // lblReadyCount
@@ -287,11 +287,11 @@ partial class DashboardView
         pnlKpiCompleted.Controls.Add(lblCompletedCount);
         pnlKpiCompleted.Controls.Add(lblKpiCompTitle);
         pnlKpiCompleted.Dock = DockStyle.Fill;
-        pnlKpiCompleted.Location = new Point(353, 112);
+        pnlKpiCompleted.Location = new Point(260, 112);
         pnlKpiCompleted.Margin = new Padding(4);
         pnlKpiCompleted.Name = "pnlKpiCompleted";
         pnlKpiCompleted.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiCompleted.Size = new Size(341, 100);
+        pnlKpiCompleted.Size = new Size(248, 100);
         pnlKpiCompleted.TabIndex = 4;
         // 
         // lblCompletedCount
@@ -323,11 +323,11 @@ partial class DashboardView
         pnlKpiValue.Controls.Add(lblCompletedValue);
         pnlKpiValue.Controls.Add(lblKpiValTitle);
         pnlKpiValue.Dock = DockStyle.Fill;
-        pnlKpiValue.Location = new Point(702, 112);
+        pnlKpiValue.Location = new Point(516, 112);
         pnlKpiValue.Margin = new Padding(4);
         pnlKpiValue.Name = "pnlKpiValue";
         pnlKpiValue.Padding = new Padding(10, 6, 10, 6);
-        pnlKpiValue.Size = new Size(342, 100);
+        pnlKpiValue.Size = new Size(251, 100);
         pnlKpiValue.TabIndex = 5;
         // 
         // lblCompletedValue
@@ -362,7 +362,7 @@ partial class DashboardView
         grpRecentOrders.Location = new Point(24, 349);
         grpRecentOrders.Name = "grpRecentOrders";
         grpRecentOrders.Padding = new Padding(12, 10, 12, 12);
-        grpRecentOrders.Size = new Size(1072, 138);
+        grpRecentOrders.Size = new Size(795, 296);
         grpRecentOrders.TabIndex = 2;
         grpRecentOrders.TabStop = false;
         // 
@@ -408,7 +408,7 @@ partial class DashboardView
         dgvRecentOrders.RowHeadersWidth = 51;
         dgvRecentOrders.RowTemplate.Height = 36;
         dgvRecentOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvRecentOrders.Size = new Size(1048, 89);
+        dgvRecentOrders.Size = new Size(771, 247);
         dgvRecentOrders.TabIndex = 1;
         // 
         // colOrderNum
@@ -469,7 +469,7 @@ partial class DashboardView
         Controls.Add(pnlHeader);
         Name = "DashboardView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 507);
+        Size = new Size(843, 665);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpOverview.ResumeLayout(false);
