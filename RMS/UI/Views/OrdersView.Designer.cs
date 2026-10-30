@@ -22,7 +22,6 @@ partial class OrdersView
         btnNewOrder = new Button();
         lblTitle = new Label();
         grpFilter = new GroupBox();
-        lblOrdersSummary = new Label();
         btnClearFilters = new Button();
         cboStatus = new ComboBox();
         lblStatus = new Label();
@@ -56,21 +55,20 @@ partial class OrdersView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 44);
+        pnlHeader.Size = new Size(1072, 114);
         pnlHeader.TabIndex = 0;
         // 
         // btnNewOrder
         // 
         btnNewOrder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnNewOrder.UseVisualStyleBackColor = true;
         btnNewOrder.Cursor = Cursors.Hand;
         btnNewOrder.FlatAppearance.BorderSize = 0;
         btnNewOrder.FlatStyle = FlatStyle.System;
         btnNewOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnNewOrder.ForeColor = SystemColors.ControlText;
-        btnNewOrder.Location = new Point(942, 4);
+        btnNewOrder.Location = new Point(825, 23);
         btnNewOrder.Name = "btnNewOrder";
-        btnNewOrder.Size = new Size(130, 36);
+        btnNewOrder.Size = new Size(130, 69);
         btnNewOrder.TabIndex = 1;
         btnNewOrder.Text = "+ New Order";
         btnNewOrder.UseVisualStyleBackColor = false;
@@ -81,7 +79,7 @@ partial class OrdersView
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
         lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new Point(0, 0);
+        lblTitle.Location = new Point(22, 29);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(121, 45);
         lblTitle.TabIndex = 0;
@@ -90,7 +88,6 @@ partial class OrdersView
         // grpFilter
         // 
         grpFilter.BackColor = Color.Transparent;
-        grpFilter.Controls.Add(lblOrdersSummary);
         grpFilter.Controls.Add(btnClearFilters);
         grpFilter.Controls.Add(cboStatus);
         grpFilter.Controls.Add(lblStatus);
@@ -99,24 +96,11 @@ partial class OrdersView
         grpFilter.Dock = DockStyle.Top;
         grpFilter.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
-        grpFilter.Location = new Point(24, 60);
+        grpFilter.Location = new Point(24, 130);
         grpFilter.Name = "grpFilter";
-        grpFilter.Size = new Size(1072, 72);
+        grpFilter.Size = new Size(1072, 165);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
-        grpFilter.Text = "Search & Filter";
-        // 
-        // lblOrdersSummary
-        // 
-        lblOrdersSummary.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        lblOrdersSummary.Font = new Font("Segoe UI", 9F);
-        lblOrdersSummary.ForeColor = Color.FromArgb(71, 85, 105);
-        lblOrdersSummary.Location = new Point(720, 28);
-        lblOrdersSummary.Name = "lblOrdersSummary";
-        lblOrdersSummary.Size = new Size(335, 25);
-        lblOrdersSummary.TabIndex = 5;
-        lblOrdersSummary.Text = "Showing 12 of 12 orders";
-        lblOrdersSummary.TextAlign = ContentAlignment.MiddleRight;
         // 
         // btnClearFilters
         // 
@@ -124,9 +108,9 @@ partial class OrdersView
         btnClearFilters.Cursor = Cursors.Hand;
         btnClearFilters.FlatStyle = FlatStyle.System;
         btnClearFilters.Font = new Font("Segoe UI", 9F);
-        btnClearFilters.Location = new Point(545, 24);
+        btnClearFilters.Location = new Point(1129, 54);
         btnClearFilters.Name = "btnClearFilters";
-        btnClearFilters.Size = new Size(75, 31);
+        btnClearFilters.Size = new Size(94, 41);
         btnClearFilters.TabIndex = 4;
         btnClearFilters.Text = "Clear";
         btnClearFilters.UseVisualStyleBackColor = false;
@@ -138,9 +122,9 @@ partial class OrdersView
         cboStatus.Font = new Font("Segoe UI", 9.5F);
         cboStatus.FormattingEnabled = true;
         cboStatus.Items.AddRange(new object[] { "All Statuses", "Pending", "Preparing", "Ready", "Completed", "Cancelled" });
-        cboStatus.Location = new Point(400, 25);
+        cboStatus.Location = new Point(902, 59);
         cboStatus.Name = "cboStatus";
-        cboStatus.Size = new Size(135, 33);
+        cboStatus.Size = new Size(163, 33);
         cboStatus.TabIndex = 3;
         cboStatus.SelectedIndexChanged += cboStatus_SelectedIndexChanged;
         // 
@@ -148,7 +132,7 @@ partial class OrdersView
         // 
         lblStatus.AutoSize = true;
         lblStatus.Font = new Font("Segoe UI", 9.5F);
-        lblStatus.Location = new Point(340, 28);
+        lblStatus.Location = new Point(788, 62);
         lblStatus.Name = "lblStatus";
         lblStatus.Size = new Size(66, 25);
         lblStatus.TabIndex = 2;
@@ -157,10 +141,10 @@ partial class OrdersView
         // txtSearch
         // 
         txtSearch.Font = new Font("Segoe UI", 9.5F);
-        txtSearch.Location = new Point(80, 25);
+        txtSearch.Location = new Point(199, 54);
         txtSearch.Name = "txtSearch";
         txtSearch.PlaceholderText = "Search by order number, customer, table...";
-        txtSearch.Size = new Size(245, 33);
+        txtSearch.Size = new Size(418, 33);
         txtSearch.TabIndex = 1;
         txtSearch.TextChanged += txtSearch_TextChanged;
         // 
@@ -168,7 +152,7 @@ partial class OrdersView
         // 
         lblSearch.AutoSize = true;
         lblSearch.Font = new Font("Segoe UI", 9.5F);
-        lblSearch.Location = new Point(16, 28);
+        lblSearch.Location = new Point(48, 62);
         lblSearch.Name = "lblSearch";
         lblSearch.Size = new Size(73, 25);
         lblSearch.TabIndex = 0;
@@ -182,13 +166,12 @@ partial class OrdersView
         grpOrdersTable.Dock = DockStyle.Fill;
         grpOrdersTable.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         grpOrdersTable.ForeColor = Color.FromArgb(15, 23, 42);
-        grpOrdersTable.Location = new Point(24, 132);
+        grpOrdersTable.Location = new Point(24, 295);
         grpOrdersTable.Name = "grpOrdersTable";
         grpOrdersTable.Padding = new Padding(12, 10, 12, 12);
-        grpOrdersTable.Size = new Size(1072, 401);
+        grpOrdersTable.Size = new Size(1072, 350);
         grpOrdersTable.TabIndex = 2;
         grpOrdersTable.TabStop = false;
-        grpOrdersTable.Text = "Orders List";
         // 
         // dgvOrders
         // 
@@ -232,7 +215,7 @@ partial class OrdersView
         dgvOrders.RowHeadersWidth = 51;
         dgvOrders.RowTemplate.Height = 36;
         dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvOrders.Size = new Size(1048, 305);
+        dgvOrders.Size = new Size(1048, 254);
         dgvOrders.TabIndex = 0;
         dgvOrders.SelectionChanged += dgvOrders_SelectionChanged;
         // 
@@ -292,7 +275,7 @@ partial class OrdersView
         pnlOrderActions.Controls.Add(btnEditOrder);
         pnlOrderActions.Controls.Add(btnViewDetails);
         pnlOrderActions.Dock = DockStyle.Bottom;
-        pnlOrderActions.Location = new Point(12, 342);
+        pnlOrderActions.Location = new Point(12, 291);
         pnlOrderActions.Name = "pnlOrderActions";
         pnlOrderActions.Padding = new Padding(0, 8, 0, 0);
         pnlOrderActions.Size = new Size(1048, 47);
@@ -305,7 +288,7 @@ partial class OrdersView
         btnCancelOrder.Enabled = false;
         btnCancelOrder.FlatStyle = FlatStyle.System;
         btnCancelOrder.Font = new Font("Segoe UI", 9F);
-        btnCancelOrder.Location = new Point(395, 8);
+        btnCancelOrder.Location = new Point(776, 6);
         btnCancelOrder.Name = "btnCancelOrder";
         btnCancelOrder.Size = new Size(120, 33);
         btnCancelOrder.TabIndex = 3;
@@ -320,7 +303,7 @@ partial class OrdersView
         btnChangeStatus.Enabled = false;
         btnChangeStatus.FlatStyle = FlatStyle.System;
         btnChangeStatus.Font = new Font("Segoe UI", 9F);
-        btnChangeStatus.Location = new Point(250, 8);
+        btnChangeStatus.Location = new Point(532, 6);
         btnChangeStatus.Name = "btnChangeStatus";
         btnChangeStatus.Size = new Size(135, 33);
         btnChangeStatus.TabIndex = 2;
@@ -335,7 +318,7 @@ partial class OrdersView
         btnEditOrder.Enabled = false;
         btnEditOrder.FlatStyle = FlatStyle.System;
         btnEditOrder.Font = new Font("Segoe UI", 9F);
-        btnEditOrder.Location = new Point(130, 8);
+        btnEditOrder.Location = new Point(261, 8);
         btnEditOrder.Name = "btnEditOrder";
         btnEditOrder.Size = new Size(110, 33);
         btnEditOrder.TabIndex = 1;
@@ -368,7 +351,7 @@ partial class OrdersView
         Controls.Add(pnlHeader);
         Name = "OrdersView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 553);
+        Size = new Size(1120, 665);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);
@@ -388,7 +371,6 @@ partial class OrdersView
     private System.Windows.Forms.Label lblStatus;
     private System.Windows.Forms.ComboBox cboStatus;
     private System.Windows.Forms.Button btnClearFilters;
-    private System.Windows.Forms.Label lblOrdersSummary;
     private System.Windows.Forms.GroupBox grpOrdersTable;
     private System.Windows.Forms.DataGridView dgvOrders;
     private System.Windows.Forms.DataGridViewTextBoxColumn colOrderNum;
