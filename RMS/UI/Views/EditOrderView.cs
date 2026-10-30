@@ -181,7 +181,7 @@ public partial class EditOrderView : BaseView, INavigationAware
         }
 
         int count = _editItems.Count;
-        lblSummaryQty.Text = $"{count} {(count == 1 ? "item" : "items")} • {totalQty} total quantity";
+        //lblSummaryQty.Text = $"{count} {(count == 1 ? "item" : "items")} • {totalQty} total quantity";
         lblTotalAmount.Text = $"Total: {total:N0} ETB";
     }
 
@@ -259,23 +259,23 @@ public partial class EditOrderView : BaseView, INavigationAware
 
     private void ShowAlert(string message, bool isError = false, bool isSuccess = false)
     {
-        pnlAlertBanner.Visible = true;
-        lblAlertMessage.Text = message;
+        //pnlAlertBanner.Visible = true;
+        //lblAlertMessage.Text = message;
 
         if (isSuccess)
         {
-            pnlAlertBanner.BackColor = AppTheme.StatusReadyBg;
-            lblAlertMessage.ForeColor = AppTheme.StatusReadyText;
+            //pnlAlertBanner.BackColor = AppTheme.StatusReadyBg;
+            //lblAlertMessage.ForeColor = AppTheme.StatusReadyText;
         }
         else if (isError)
         {
-            pnlAlertBanner.BackColor = Color.FromArgb(254, 226, 226);
-            lblAlertMessage.ForeColor = AppTheme.DangerButton;
+            //pnlAlertBanner.BackColor = Color.FromArgb(254, 226, 226);
+            //lblAlertMessage.ForeColor = AppTheme.DangerButton;
         }
         else
         {
-            pnlAlertBanner.BackColor = Color.FromArgb(241, 245, 249);
-            lblAlertMessage.ForeColor = AppTheme.TextSecondary;
+            //pnlAlertBanner.BackColor = Color.FromArgb(241, 245, 249);
+            //lblAlertMessage.ForeColor = AppTheme.TextSecondary;
         }
     }
 
