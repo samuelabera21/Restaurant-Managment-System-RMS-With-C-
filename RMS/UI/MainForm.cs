@@ -11,23 +11,18 @@ using RMS.UI.Views;
 
 namespace RMS.UI;
 
-/// <summary>
-/// Main application shell providing the left navigation panel,
-/// top application header, bottom status bar, dynamic view host container,
-/// and role-based workspace layouts for Waiters and Managers.
-/// </summary>
+// Main window: sidebar navigation and view container
 public partial class MainForm : Form
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
     private readonly Dictionary<ViewType, BaseView> _views = new();
     private readonly Dictionary<ViewType, Button> _navButtons = new();
-    private ViewType _currentViewType = ViewType.Dashboard;
 
     public MainForm()
     {
         InitializeComponent();
 
-        // Map navigation buttons
+        // Map buttons to views
         _navButtons[ViewType.Dashboard] = btnNavDashboard;
         _navButtons[ViewType.Menu] = btnNavMenu;
         _navButtons[ViewType.NewOrder] = btnNavNewOrder;
@@ -36,65 +31,47 @@ public partial class MainForm : Form
         _navButtons[ViewType.MenuManagement] = btnNavManageMenu;
         _navButtons[ViewType.StaffManagement] = btnNavManageStaff;
 
-        // Configure clean desktop navigation button borders & states
-        foreach (var btn in new[] { btnNavDashboard, btnNavMenu, btnNavNewOrder, btnNavOrders, btnNavReports, btnNavManageMenu, btnNavManageStaff, btnExit })
-        {
-            btn.UseVisualStyleBackColor = false;
-            btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 1;
-            btn.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-            btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
-            btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(226, 232, 240);
-        }
-
-        // Align header elements dynamically to avoid high-DPI truncation
+        // Keep header aligned
         pnlHeader.Resize += (s, e) => AlignUserHeader();
         lblUserInfo.TextChanged += (s, e) => AlignUserHeader();
 
-        // In design mode, stop here so Visual Studio Designer loads cleanly
         if (DesignMode || System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
-        {
             return;
-        }
 
-        // Register application views
         RegisterViews();
     }
 
+    // Check user login on startup
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
 
         if (DesignMode || System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
-        {
             return;
-        }
 
-        // Prompt for Staff ID login on application startup
         EnsureUserLoggedIn();
     }
 
+    // Ensure staff member is logged in
     private void EnsureUserLoggedIn()
     {
         if (_store.CurrentUser == null)
-        {
             PerformSignOut();
-            return;
-        }
-
-        ApplyRoleLayout(_store.CurrentUser);
+        else
+            ApplyRoleLayout(_store.CurrentUser);
     }
 
+    // Sign out user and show login form
     private void PerformSignOut()
     {
         _store.CurrentUser = null;
         pnlContentHost.Controls.Clear();
-        this.Hide();
+        Hide();
 
         using var login = new LoginDialog();
         if (login.ShowDialog() == DialogResult.OK && _store.CurrentUser != null)
         {
-            this.Show();
+            Show();
             ApplyRoleLayout(_store.CurrentUser);
         }
         else
@@ -103,6 +80,7 @@ public partial class MainForm : Form
         }
     }
 
+    // Align username and sign out button
     private void AlignUserHeader()
     {
         if (lblUserInfo != null && btnLogout != null && pnlHeader != null)
@@ -111,49 +89,24 @@ public partial class MainForm : Form
         }
     }
 
+    // Set visible buttons based on role (Manager vs Waiter)
     private void ApplyRoleLayout(StaffMember user)
     {
         bool isManager = string.Equals(user.Role, "Manager", StringComparison.OrdinalIgnoreCase);
+        lblUserInfo.Text = $"{user.Role}: {user.FullName}";
+        AlignUserHeader();
 
-        if (isManager)
-        {
-            lblUserInfo.Text = $"Manager: {user.FullName}";
-            AlignUserHeader();
+        // Manager buttons
+        btnNavDashboard.Visible = btnNavReports.Visible = btnNavManageMenu.Visible = btnNavManageStaff.Visible = isManager;
 
-            // Manager workspace strictly: Dashboard, Reports, Manage Menu, Manage Waiters
-            btnNavDashboard.Visible = true;
-            btnNavReports.Visible = true;
-            btnNavMenu.Visible = false;
-            btnNavOrders.Visible = false;
-            btnNavNewOrder.Visible = false;
+        // Waiter buttons
+        btnNavMenu.Visible = btnNavOrders.Visible = btnNavNewOrder.Visible = !isManager;
 
-            //lblAdmin.Visible = true;
-            btnNavManageMenu.Visible = true;
-            btnNavManageStaff.Visible = true;
-
-            NavigateTo(ViewType.Dashboard);
-        }
-        else
-        {
-            lblUserInfo.Text = $"Waiter: {user.FullName}";
-            AlignUserHeader();
-
-            // Waiter workspace strictly: Menu, New Order, Orders
-            btnNavMenu.Visible = true;
-            btnNavNewOrder.Visible = true;
-            btnNavOrders.Visible = true;
-
-            // Hide Manager-only views from Waiter
-            btnNavDashboard.Visible = false;
-            btnNavReports.Visible = false;
-            //lblAdmin.Visible = false;
-            btnNavManageMenu.Visible = false;
-            btnNavManageStaff.Visible = false;
-
-            NavigateTo(ViewType.NewOrder);
-        }
+        // Open starting page
+        NavigateTo(isManager ? ViewType.Dashboard : ViewType.NewOrder);
     }
 
+    // Register all application views
     private void RegisterViews()
     {
         _views[ViewType.Dashboard] = new DashboardView { NavigateAction = NavigateTo };
@@ -167,25 +120,20 @@ public partial class MainForm : Form
         _views[ViewType.StaffManagement] = new StaffManagementView { NavigateAction = NavigateTo };
     }
 
+    // Navigate to selected view
     public void NavigateTo(ViewType targetView, object? context = null)
     {
-        // Guard: Prevent non-managers from navigating to admin views
+        // Restrict admin views to Manager
         if ((targetView == ViewType.MenuManagement || targetView == ViewType.StaffManagement || targetView == ViewType.Reports)
             && _store.CurrentUser?.Role != "Manager")
         {
-            MessageBox.Show("This section is restricted to Restaurant Managers.",
-                "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("This section is restricted to Restaurant Managers.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
-        if (!_views.TryGetValue(targetView, out var nextView))
-        {
-            return;
-        }
+        if (!_views.TryGetValue(targetView, out var nextView)) return;
 
-        _currentViewType = targetView;
-
-        // Update active navigation button styling (clean light desktop style)
+        // Highlight active sidebar button
         foreach (var (type, btn) in _navButtons)
         {
             bool isActive = (type == targetView);
@@ -197,68 +145,30 @@ public partial class MainForm : Form
             btn.FlatAppearance.MouseOverBackColor = isActive ? Color.FromArgb(30, 58, 95) : Color.FromArgb(241, 245, 249);
         }
 
-        // Swap View inside Content Host panel
+        // Show view in content panel
         pnlContentHost.SuspendLayout();
         pnlContentHost.Controls.Clear();
         nextView.Dock = DockStyle.Fill;
         pnlContentHost.Controls.Add(nextView);
         pnlContentHost.ResumeLayout();
 
-        // Lifecycle callback
         nextView.OnNavigatedTo(context);
-
-        // Update window title and status bar
         Text = $"RMS — {targetView}";
-        SetStatus($"Ready - Viewing {targetView}");
     }
 
-    public void SetStatus(string message)
-    {
-        //if (lblStatusLeft != null)
-        {
-            //lblStatusLeft.Text = message;
-        }
-    }
+    // Status bar update helper
+    public void SetStatus(string message) { }
 
-    // =========================================================================
-    // Button Click Event Handlers (Visual Studio Designer)
-    // =========================================================================
+    // Sidebar navigation button clicks
+    private void btnNavDashboard_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Dashboard);
+    private void btnNavMenu_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Menu);
+    private void btnNavNewOrder_Click(object? sender, EventArgs e) => NavigateTo(ViewType.NewOrder);
+    private void btnNavOrders_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Orders);
+    private void btnNavReports_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Reports);
+    private void btnNavManageMenu_Click(object? sender, EventArgs e) => NavigateTo(ViewType.MenuManagement);
+    private void btnNavManageStaff_Click(object? sender, EventArgs e) => NavigateTo(ViewType.StaffManagement);
 
-    private void btnNavDashboard_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.Dashboard);
-    }
-
-    private void btnNavMenu_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.Menu);
-    }
-
-    private void btnNavNewOrder_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.NewOrder);
-    }
-
-    private void btnNavOrders_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.Orders);
-    }
-
-    private void btnNavReports_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.Reports);
-    }
-
-    private void btnNavManageMenu_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.MenuManagement);
-    }
-
-    private void btnNavManageStaff_Click(object? sender, EventArgs e)
-    {
-        NavigateTo(ViewType.StaffManagement);
-    }
-
+    // Sign out button click
     private void btnLogout_Click(object? sender, EventArgs e)
     {
         if (MessageBox.Show("Are you sure you want to sign out?", "Sign Out",
@@ -268,6 +178,7 @@ public partial class MainForm : Form
         }
     }
 
+    // Exit application button click
     private void btnExit_Click(object? sender, EventArgs e)
     {
         if (MessageBox.Show("Are you sure you want to exit ዉለታ Restaurant RMS?", "Exit Application",
