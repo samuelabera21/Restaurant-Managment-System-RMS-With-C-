@@ -10,10 +10,7 @@ using MenuItem = RMS.Models.MenuItem;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Menu catalog screen view allowing waiters to browse available foods and drinks,
-/// search by item name, and filter by availability.
-/// </summary>
+// Menu catalog view for browsing foods and drinks
 public partial class MenuView : BaseView
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -22,136 +19,93 @@ public partial class MenuView : BaseView
     {
         InitializeComponent();
 
-        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-        {
-            return;
-        }
+        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
         dgvMenu.CellDoubleClick += dgvMenu_CellDoubleClick;
-        cboAvailability.SelectedIndex = 0; // Default to "All Items"
+        cboAvailability.SelectedIndex = 0;
+
+        // Auto reload when menu items are updated
         _store.OnMenuChanged += () =>
         {
-            if (IsDisposed || Disposing) return;
-            if (InvokeRequired)
+            if (!IsDisposed && !Disposing)
             {
-                Invoke(new Action(ApplyFilters));
-            }
-            else
-            {
-                ApplyFilters();
+                if (InvokeRequired) Invoke(ApplyFilters);
+                else ApplyFilters();
             }
         };
 
         ApplyFilters();
     }
 
+    // Called when navigating to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
         ApplyFilters();
     }
 
+    // Filter and populate menu items in the table
     private void ApplyFilters()
     {
         if (IsDisposed || Disposing || dgvMenu.IsDisposed) return;
 
-        var allItems = _store.MenuItems;
         var query = txtSearch.Text.Trim();
-        var selectedFilter = cboAvailability.SelectedItem?.ToString() ?? "All Items";
+        var filter = cboAvailability.SelectedItem?.ToString() ?? "All Items";
 
-        // Filter availability
-        var filtered = allItems.AsEnumerable();
-        if (selectedFilter == "Available")
-        {
-            filtered = filtered.Where(i => i.IsAvailable);
-        }
-        else if (selectedFilter == "Unavailable")
-        {
-            filtered = filtered.Where(i => !i.IsAvailable);
-        }
+        var items = _store.MenuItems.Where(i =>
+            (filter == "All Items" || (filter == "Available" ? i.IsAvailable : !i.IsAvailable)) &&
+            (string.IsNullOrEmpty(query) || 
+             i.Name.Contains(query, StringComparison.OrdinalIgnoreCase) || 
+             i.Category.Contains(query, StringComparison.OrdinalIgnoreCase))
+        );
 
-        // Filter search text
-        if (!string.IsNullOrEmpty(query))
-        {
-            filtered = filtered.Where(i =>
-                i.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-                i.Category.Contains(query, StringComparison.OrdinalIgnoreCase));
-        }
-
-        var results = filtered.ToList();
-
-        // Update count summary label
-        
-
-        // Populate DataGridView
         dgvMenu.Rows.Clear();
-        foreach (var item in results)
+        foreach (var item in items)
         {
-            int rowIndex = dgvMenu.Rows.Add(
-                item.Name,
-                item.Category,
-                $"{item.Price:N0} ETB",
-                item.IsAvailable ? "Available" : "Unavailable",
-                "View"
-            );
-
-            var row = dgvMenu.Rows[rowIndex];
-            row.Tag = item;
+            int row = dgvMenu.Rows.Add(item.Name, item.Category, $"{item.Price:N0} ETB", item.IsAvailable ? "Available" : "Unavailable", "View");
+            dgvMenu.Rows[row].Tag = item;
         }
 
         dgvMenu.ClearSelection();
     }
 
-    // =========================================================================
-    // Event Handlers (Visual Studio Designer)
-    // =========================================================================
+    // Live search text change event
+    private void txtSearch_TextChanged(object sender, EventArgs e) => ApplyFilters();
 
-    private void txtSearch_TextChanged(object sender, EventArgs e)
-    {
-        ApplyFilters();
-    }
+    // Availability dropdown change event
+    private void cboAvailability_SelectedIndexChanged(object sender, EventArgs e) => ApplyFilters();
 
-    private void cboAvailability_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ApplyFilters();
-    }
-
+    // Reset search box and filter
     private void btnClearSearch_Click(object sender, EventArgs e)
     {
-        txtSearch.Text = string.Empty;
+        txtSearch.Clear();
         cboAvailability.SelectedIndex = 0;
         txtSearch.Focus();
     }
 
+    // View button clicked in table row
     private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex < 0) return;
-
-        if (e.ColumnIndex == colAction.Index && dgvMenu.Rows[e.RowIndex].Tag is MenuItem item)
+        if (e.RowIndex >= 0 && e.ColumnIndex == colAction.Index && dgvMenu.Rows[e.RowIndex].Tag is MenuItem item)
         {
-            string status = item.IsAvailable ? "Available" : "Currently Unavailable";
-            MessageBox.Show(
-                $"Menu Item: {item.Name}\nCategory: {item.Category}\nPrice: {item.Price:N0} ETB\nStatus: {status}",
-                $"Item Details — {item.Name}",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            ShowItemDetails(item);
         }
     }
 
+    // Double click row to view details
     private void dgvMenu_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0 && dgvMenu.Rows[e.RowIndex].Tag is MenuItem item)
         {
-            string status = item.IsAvailable ? "Available" : "Currently Unavailable";
-            MessageBox.Show(
-                $"Menu Item: {item.Name}\nCategory: {item.Category}\nPrice: {item.Price:N0} ETB\nStatus: {status}",
-                $"Item Details — {item.Name}",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            ShowItemDetails(item);
         }
     }
 
-
+    // Show popup dialog with item info
+    private void ShowItemDetails(MenuItem item)
+    {
+        string status = item.IsAvailable ? "Available" : "Currently Unavailable";
+        MessageBox.Show($"Menu Item: {item.Name}\nCategory: {item.Category}\nPrice: {item.Price:N0} ETB\nStatus: {status}", 
+            $"Item Details — {item.Name}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
 }
