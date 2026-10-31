@@ -13,11 +13,7 @@ using MenuItem = RMS.Models.MenuItem;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Order creation screen view.
-/// Handles sequential order numbering, item selection, real-time total calculations,
-/// validation alerts, and save confirmations in a clean desktop layout.
-/// </summary>
+// Order creation screen: handles table selection, customer name, items, and total calculation
 public partial class NewOrderView : BaseView
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -29,52 +25,39 @@ public partial class NewOrderView : BaseView
     {
         InitializeComponent();
 
-        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-        {
-            return;
-        }
+        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
         PopulateAvailableMenuItems();
         ResetForm();
     }
 
+    // Called when navigated to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
         PopulateAvailableMenuItems();
 
-        if (_isOrderSaved)
-        {
-            ResetForm();
-        }
-        else
-        {
-            UpdateOrderNumberBadge();
-        }
+        if (_isOrderSaved) ResetForm();
+        else UpdateOrderNumberBadge();
     }
 
+    // Load available menu items into dropdown
     private void PopulateAvailableMenuItems()
     {
         cboMenuItems.Items.Clear();
-        var availableItems = _store.MenuItems.Where(m => m.IsAvailable).ToList();
-
-        foreach (var item in availableItems)
-        {
-            cboMenuItems.Items.Add(item);
-        }
-
-        if (cboMenuItems.Items.Count > 0)
-        {
-            cboMenuItems.SelectedIndex = 0;
-        }
+        var available = _store.MenuItems.Where(m => m.IsAvailable).ToList();
+        foreach (var item in available) cboMenuItems.Items.Add(item);
+        if (cboMenuItems.Items.Count > 0) cboMenuItems.SelectedIndex = 0;
     }
 
+    // Update order number and timestamp displays
     private void UpdateOrderNumberBadge()
     {
         txtOrderNumber.Text = _store.PeekNextOrderNumber().ToString();
         txtOrderDateTime.Text = DateTime.Now.ToString("dd MMM yyyy, h:mm tt");
     }
 
+    // Refresh the order items table and total price
     private void RefreshItemsTable()
     {
         dgvOrderItems.Rows.Clear();
@@ -82,14 +65,8 @@ public partial class NewOrderView : BaseView
 
         foreach (var item in _lineItems)
         {
-            int rowIndex = dgvOrderItems.Rows.Add(
-                item.ItemName,
-                $"{item.UnitPrice:N0} ETB",
-                item.Quantity.ToString(),
-                $"{item.Subtotal:N0} ETB",
-                "Remove"
-            );
-            dgvOrderItems.Rows[rowIndex].Tag = item;
+            int row = dgvOrderItems.Rows.Add(item.ItemName, $"{item.UnitPrice:N0} ETB", item.Quantity, $"{item.Subtotal:N0} ETB", "Remove");
+            dgvOrderItems.Rows[row].Tag = item;
             total += item.Subtotal;
         }
 
@@ -97,11 +74,12 @@ public partial class NewOrderView : BaseView
         dgvOrderItems.ClearSelection();
     }
 
+    // Reset order form fields to empty defaults
     private void ResetForm()
     {
         _isOrderSaved = false;
         txtCustomerName.ReadOnly = false;
-        txtCustomerName.Text = string.Empty;
+        txtCustomerName.Clear();
         numTableNumber.Enabled = true;
         numTableNumber.Value = 4;
         cboMenuItems.Enabled = true;
@@ -120,13 +98,11 @@ public partial class NewOrderView : BaseView
         lblAlertMessage.Visible = false;
     }
 
-    private void LockInputsAfterSave(int orderNumber)
+    // Lock inputs after saving so order cannot be accidentally modified
+    private void LockInputsAfterSave()
     {
         txtCustomerName.ReadOnly = true;
-        numTableNumber.Enabled = false;
-        cboMenuItems.Enabled = false;
-        numQuantity.Enabled = false;
-        btnAddItem.Enabled = false;
+        numTableNumber.Enabled = cboMenuItems.Enabled = numQuantity.Enabled = btnAddItem.Enabled = false;
 
         btnSaveOrder.Text = "Order Saved";
         btnSaveOrder.Enabled = false;
@@ -134,37 +110,23 @@ public partial class NewOrderView : BaseView
         btnClearForm.Text = "New Order";
     }
 
+    // Display alert message with success or error styling
     private void ShowAlert(string message, bool isSuccess)
     {
         lblAlertMessage.Visible = true;
         lblAlertMessage.Text = message;
-
-        if (isSuccess)
-        {
-            lblAlertMessage.BackColor = Color.FromArgb(240, 253, 244); // Light green
-            lblAlertMessage.ForeColor = Color.FromArgb(22, 101, 52);    // Dark green
-        }
-        else
-        {
-            lblAlertMessage.BackColor = Color.FromArgb(254, 242, 242); // Light red
-            lblAlertMessage.ForeColor = Color.FromArgb(220, 38, 38);   // Dark red
-        }
+        lblAlertMessage.BackColor = isSuccess ? Color.FromArgb(240, 253, 244) : Color.FromArgb(254, 242, 242);
+        lblAlertMessage.ForeColor = isSuccess ? Color.FromArgb(22, 101, 52) : Color.FromArgb(220, 38, 38);
     }
 
-    private bool HasUnsavedChanges()
-    {
-        return !string.IsNullOrWhiteSpace(txtCustomerName.Text) || _lineItems.Count > 0;
-    }
+    // Check if form has unsaved customer or items
+    private bool HasUnsavedChanges() => !string.IsNullOrWhiteSpace(txtCustomerName.Text) || _lineItems.Count > 0;
 
-    // =========================================================================
-    // Event Handlers (Visual Studio Designer)
-    // =========================================================================
-
+    // Add selected menu item to the order list
     private void btnAddItem_Click(object sender, EventArgs e)
     {
         if (_isOrderSaved) return;
 
-        // 1. Validate Customer Name
         string custName = txtCustomerName.Text.Trim();
         if (string.IsNullOrWhiteSpace(custName))
         {
@@ -174,7 +136,6 @@ public partial class NewOrderView : BaseView
             return;
         }
 
-        // 2. Validate Table Number
         if (numTableNumber.Value <= 0)
         {
             ShowAlert("Please enter a valid table number.", isSuccess: false);
@@ -182,14 +143,12 @@ public partial class NewOrderView : BaseView
             return;
         }
 
-        // 3. Validate Item Selection
         if (cboMenuItems.SelectedItem is not MenuItem selectedMenu)
         {
             ShowAlert("Please select an available menu item.", isSuccess: false);
             return;
         }
 
-        // 4. Validate Quantity
         int qty = (int)numQuantity.Value;
         if (qty <= 0)
         {
@@ -198,33 +157,27 @@ public partial class NewOrderView : BaseView
             return;
         }
 
-        // Add or increment quantity
+        // Add item or increment existing item quantity
         var existing = _lineItems.FirstOrDefault(i => i.MenuItemId == selectedMenu.Id);
-        if (existing != null)
-        {
-            existing.Quantity += qty;
-        }
-        else
-        {
-            _lineItems.Add(OrderItem.CreateFromMenuItem(selectedMenu, qty));
-        }
+        if (existing != null) existing.Quantity += qty;
+        else _lineItems.Add(OrderItem.CreateFromMenuItem(selectedMenu, qty));
 
         numQuantity.Value = 1;
         RefreshItemsTable();
         lblAlertMessage.Visible = false;
     }
 
+    // Remove item when Remove button in table is clicked
     private void dgvOrderItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex < 0 || _isOrderSaved) return;
-
-        if (e.ColumnIndex == colRemove.Index && dgvOrderItems.Rows[e.RowIndex].Tag is OrderItem item)
+        if (e.RowIndex >= 0 && !_isOrderSaved && e.ColumnIndex == colRemove.Index && dgvOrderItems.Rows[e.RowIndex].Tag is OrderItem item)
         {
             _lineItems.Remove(item);
             RefreshItemsTable();
         }
     }
 
+    // Validate inputs and save order
     private void btnSaveOrder_Click(object sender, EventArgs e)
     {
         if (_isOrderSaved) return;
@@ -232,7 +185,6 @@ public partial class NewOrderView : BaseView
         string custName = txtCustomerName.Text.Trim();
         int tableNum = (int)numTableNumber.Value;
 
-        // Validation
         if (string.IsNullOrWhiteSpace(custName))
         {
             txtCustomerName.BackColor = Color.FromArgb(254, 242, 242);
@@ -254,66 +206,50 @@ public partial class NewOrderView : BaseView
             return;
         }
 
-        // Save Order via OrderService
-        var createdOrder = _orderService.CreateOrder(custName, tableNum, _lineItems);
+        // Create order and persist
+        var created = _orderService.CreateOrder(custName, tableNum, _lineItems);
         _isOrderSaved = true;
 
-        ShowAlert($"Order {createdOrder.OrderNumber} created successfully!", isSuccess: true);
-        LockInputsAfterSave(createdOrder.OrderNumber);
+        ShowAlert($"Order {created.OrderNumber} created successfully!", isSuccess: true);
+        LockInputsAfterSave();
     }
 
+    // Clear form or discard order
     private void btnClearForm_Click(object sender, EventArgs e)
     {
         if (!_isOrderSaved && HasUnsavedChanges())
         {
-            if (ConfirmationDialog.Confirm(
-                    this,
-                    "New Order",
-                    "Discard unsaved order?",
-                    $"Your unsaved changes to Order {_store.PeekNextOrderNumber()} will be lost.",
-                    "Discard Order"))
+            if (ConfirmationDialog.Confirm(this, "New Order", "Discard unsaved order?",
+                $"Your unsaved changes to Order {_store.PeekNextOrderNumber()} will be lost.", "Discard Order"))
             {
                 ResetForm();
             }
         }
-        else
-        {
-            ResetForm();
-        }
+        else ResetForm();
     }
 
+    // Cancel and return to orders list
     private void btnCancel_Click(object sender, EventArgs e)
     {
         if (!_isOrderSaved && HasUnsavedChanges())
         {
-            if (ConfirmationDialog.Confirm(
-                    this,
-                    "New Order",
-                    "Discard unsaved order?",
-                    $"Your unsaved changes to Order {_store.PeekNextOrderNumber()} will be lost.",
-                    "Discard Order"))
+            if (ConfirmationDialog.Confirm(this, "New Order", "Discard unsaved order?",
+                $"Your unsaved changes to Order {_store.PeekNextOrderNumber()} will be lost.", "Discard Order"))
             {
                 ResetForm();
                 Navigate(ViewType.Orders);
             }
         }
-        else
-        {
-            Navigate(ViewType.Orders);
-        }
+        else Navigate(ViewType.Orders);
     }
 
-    private void btnViewOrders_Click(object sender, EventArgs e)
-    {
-        Navigate(ViewType.Orders);
-    }
+    // Navigate to orders list
+    private void btnViewOrders_Click(object sender, EventArgs e) => Navigate(ViewType.Orders);
 
+    // Clear alert on name text changed
     private void txtCustomerName_TextChanged(object sender, EventArgs e)
     {
         txtCustomerName.BackColor = Color.White;
-        if (!_isOrderSaved && lblAlertMessage.Visible)
-        {
-            lblAlertMessage.Visible = false;
-        }
+        if (!_isOrderSaved && lblAlertMessage.Visible) lblAlertMessage.Visible = false;
     }
 }
