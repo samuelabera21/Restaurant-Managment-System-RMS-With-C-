@@ -12,10 +12,7 @@ using MenuItem = RMS.Models.MenuItem;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Edit Order screen view for modifying an active order:
-/// customer name, table number, item additions, quantity adjustments, and removal.
-/// </summary>
+// Edit order screen: modify active order customer, table, and items
 public partial class EditOrderView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -31,38 +28,27 @@ public partial class EditOrderView : BaseView, INavigationAware
         InitializeComponent();
     }
 
+    // Load order data when navigated to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
-
         if (DesignMode) return;
 
-        int orderNum = 104;
-        if (parameter is int num)
-        {
-            orderNum = num;
-        }
-
+        int orderNum = parameter is int num ? num : 101;
         PopulateAvailableMenuItems();
         _originalOrder = _store.FindOrderByNumber(orderNum) ?? _store.Orders.FirstOrDefault();
         LoadOrderForEditing(_originalOrder);
     }
 
+    // Load available menu items into dropdown
     private void PopulateAvailableMenuItems()
     {
         cboMenuItems.Items.Clear();
-        var availableItems = _store.MenuItems.Where(m => m.IsAvailable).ToList();
-        foreach (var item in availableItems)
-        {
-            cboMenuItems.Items.Add(item);
-        }
-
-        if (cboMenuItems.Items.Count > 0)
-        {
-            cboMenuItems.SelectedIndex = 0;
-        }
+        foreach (var item in _store.MenuItems.Where(m => m.IsAvailable)) cboMenuItems.Items.Add(item);
+        if (cboMenuItems.Items.Count > 0) cboMenuItems.SelectedIndex = 0;
     }
 
+    // Populate form with existing order data
     private void LoadOrderForEditing(Order? order)
     {
         if (order == null) return;
@@ -77,56 +63,32 @@ public partial class EditOrderView : BaseView, INavigationAware
 
         UpdateStatusBadge(order.Status);
 
-        // Copy items snapshot
+        // Copy existing items into edit buffer
         _editItems.Clear();
         foreach (var item in order.Items)
-        {
             _editItems.Add(new OrderItem(item.MenuItemId, item.ItemName, item.UnitPrice, item.Quantity));
-        }
 
         RefreshItemsTable();
 
-        // Lock / Unlock based on order status
-        if (_isOrderCompleted)
-        {
-            txtCustomerName.ReadOnly = true;
-            numTableNumber.Enabled = false;
-            cboMenuItems.Enabled = false;
-            numQuantity.Enabled = false;
-            btnAddItem.Enabled = false;
-            btnSaveChanges.Enabled = false;
-            btnCancelChanges.Enabled = false;
-            btnBackToDetails.Visible = true;
-
-            ShowAlert("Completed orders cannot be edited.", isError: true);
-        }
-        else
-        {
-            txtCustomerName.ReadOnly = false;
-            numTableNumber.Enabled = true;
-            cboMenuItems.Enabled = true;
-            numQuantity.Enabled = true;
-            btnAddItem.Enabled = true;
-            btnSaveChanges.Enabled = true;
-            btnCancelChanges.Enabled = true;
-            btnBackToDetails.Visible = false;
-
-            ShowAlert("Update customer details, add items or change quantities, then save.", isError: false);
-        }
+        // Lock controls if order is completed or cancelled
+        txtCustomerName.ReadOnly = _isOrderCompleted;
+        numTableNumber.Enabled = cboMenuItems.Enabled = numQuantity.Enabled = btnAddItem.Enabled = !_isOrderCompleted;
+        btnSaveChanges.Enabled = btnCancelChanges.Enabled = !_isOrderCompleted;
+        btnBackToDetails.Visible = _isOrderCompleted;
     }
 
+    // Flag that unsaved edits exist
     private void MarkDirty()
     {
         if (_isOrderCompleted) return;
-
         _hasUnsavedChanges = true;
         if (_originalOrder != null)
         {
             lblSubheaderContext.Text = $"Order {_originalOrder.OrderNumber} - {txtCustomerName.Text.Trim()} • Table {numTableNumber.Value} • Unsaved changes";
         }
-        ShowAlert($"You have unsaved changes to Order {_originalOrder?.OrderNumber}. Save Changes to apply them.", isError: false);
     }
 
+    // Add selected item into the order edit buffer
     private void AddSelectedItem()
     {
         if (_isOrderCompleted) return;
@@ -135,7 +97,6 @@ public partial class EditOrderView : BaseView, INavigationAware
         if (string.IsNullOrWhiteSpace(custName))
         {
             txtCustomerName.BackColor = Color.FromArgb(254, 242, 242);
-            ShowAlert("Please enter customer name before adding items.", isError: true);
             txtCustomerName.Focus();
             return;
         }
@@ -146,61 +107,42 @@ public partial class EditOrderView : BaseView, INavigationAware
         if (qty <= 0) return;
 
         var existing = _editItems.FirstOrDefault(i => i.MenuItemId == selectedMenu.Id);
-        if (existing != null)
-        {
-            existing.Quantity += qty;
-        }
-        else
-        {
-            _editItems.Add(OrderItem.CreateFromMenuItem(selectedMenu, qty));
-        }
+        if (existing != null) existing.Quantity += qty;
+        else _editItems.Add(OrderItem.CreateFromMenuItem(selectedMenu, qty));
 
         numQuantity.Value = 1;
         RefreshItemsTable();
         MarkDirty();
     }
 
+    // Refresh table rows and order total
     private void RefreshItemsTable()
     {
         dgvItems.Rows.Clear();
         decimal total = 0m;
-        int totalQty = 0;
 
         foreach (var item in _editItems)
         {
-            int rowIndex = dgvItems.Rows.Add(
-                item.ItemName,
-                $"{item.UnitPrice:N0} ETB",
-                item.Quantity.ToString(),
-                $"{item.Subtotal:N0} ETB",
-                "Remove"
-            );
-            dgvItems.Rows[rowIndex].Tag = item;
+            int row = dgvItems.Rows.Add(item.ItemName, $"{item.UnitPrice:N0} ETB", item.Quantity, $"{item.Subtotal:N0} ETB", "Remove");
+            dgvItems.Rows[row].Tag = item;
             total += item.Subtotal;
-            totalQty += item.Quantity;
         }
 
-        int count = _editItems.Count;
-        //lblSummaryQty.Text = $"{count} {(count == 1 ? "item" : "items")} • {totalQty} total quantity";
         lblTotalAmount.Text = $"Total: {total:N0} ETB";
     }
 
+    // Remove item from edited order
     private void dgvItems_CellContentClick(object? sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex < 0 || _isOrderCompleted) return;
-
-        int actionColIndex = dgvItems.Columns["colAction"]?.Index ?? -1;
-        if (actionColIndex >= 0 && e.ColumnIndex == actionColIndex)
+        if (e.RowIndex >= 0 && !_isOrderCompleted && e.ColumnIndex == colAction.Index && dgvItems.Rows[e.RowIndex].Tag is OrderItem item)
         {
-            if (dgvItems.Rows[e.RowIndex].Tag is OrderItem item)
-            {
-                _editItems.Remove(item);
-                RefreshItemsTable();
-                MarkDirty();
-            }
+            _editItems.Remove(item);
+            RefreshItemsTable();
+            MarkDirty();
         }
     }
 
+    // Validate and save updated order details
     private void SaveChanges()
     {
         if (_originalOrder == null || _isOrderCompleted) return;
@@ -212,28 +154,22 @@ public partial class EditOrderView : BaseView, INavigationAware
         {
             lblCustomerNameError.Visible = string.IsNullOrWhiteSpace(custName);
             lblTableNumberError.Visible = tableNum <= 0;
-            ShowAlert($"Please correct the required fields before saving Order {_originalOrder.OrderNumber}.", isError: true);
             return;
         }
 
         _orderService.UpdateOrder(_originalOrder.OrderNumber, custName, tableNum, _editItems);
         _hasUnsavedChanges = false;
-
-        ShowAlert($"Order {_originalOrder.OrderNumber} updated successfully.", isError: false, isSuccess: true);
         lblSubheaderContext.Text = $"Order {_originalOrder.OrderNumber} - {custName} • Table {tableNum} • All changes saved";
         btnBackToDetails.Visible = true;
     }
 
+    // Revert changes or navigate back to details
     private void CancelChanges()
     {
         if (_hasUnsavedChanges && _originalOrder != null)
         {
-            if (ConfirmationDialog.Confirm(
-                    this,
-                    "Edit Order",
-                    "Discard unsaved changes?",
-                    $"Your changes to Order {_originalOrder.OrderNumber} will be lost.",
-                    "Discard Changes"))
+            if (ConfirmationDialog.Confirm(this, "Edit Order", "Discard unsaved changes?",
+                $"Your changes to Order {_originalOrder.OrderNumber} will be lost.", "Discard Changes"))
             {
                 LoadOrderForEditing(_originalOrder);
             }
@@ -244,6 +180,7 @@ public partial class EditOrderView : BaseView, INavigationAware
         }
     }
 
+    // Update status badge color and text
     private void UpdateStatusBadge(OrderStatus status)
     {
         lblCurrentStatusBadge.Text = status.ToString();
@@ -257,53 +194,21 @@ public partial class EditOrderView : BaseView, INavigationAware
         };
     }
 
-    private void ShowAlert(string message, bool isError = false, bool isSuccess = false)
-    {
-        //pnlAlertBanner.Visible = true;
-        //lblAlertMessage.Text = message;
+    // Input changed handler
+    private void Input_Changed(object? sender, EventArgs e) => MarkDirty();
 
-        if (isSuccess)
-        {
-            //pnlAlertBanner.BackColor = AppTheme.StatusReadyBg;
-            //lblAlertMessage.ForeColor = AppTheme.StatusReadyText;
-        }
-        else if (isError)
-        {
-            //pnlAlertBanner.BackColor = Color.FromArgb(254, 226, 226);
-            //lblAlertMessage.ForeColor = AppTheme.DangerButton;
-        }
-        else
-        {
-            //pnlAlertBanner.BackColor = Color.FromArgb(241, 245, 249);
-            //lblAlertMessage.ForeColor = AppTheme.TextSecondary;
-        }
-    }
+    // Add item button click
+    private void btnAddItem_Click(object? sender, EventArgs e) => AddSelectedItem();
 
-    private void Input_Changed(object? sender, EventArgs e)
-    {
-        MarkDirty();
-    }
+    // Save changes button click
+    private void btnSaveChanges_Click(object? sender, EventArgs e) => SaveChanges();
 
-    private void btnAddItem_Click(object? sender, EventArgs e)
-    {
-        AddSelectedItem();
-    }
+    // Cancel changes button click
+    private void btnCancelChanges_Click(object? sender, EventArgs e) => CancelChanges();
 
-    private void btnSaveChanges_Click(object? sender, EventArgs e)
-    {
-        SaveChanges();
-    }
-
-    private void btnCancelChanges_Click(object? sender, EventArgs e)
-    {
-        CancelChanges();
-    }
-
+    // Return to order details button click
     private void btnBackToDetails_Click(object? sender, EventArgs e)
     {
-        if (_originalOrder != null)
-        {
-            Navigate(ViewType.OrderDetails, _originalOrder.OrderNumber);
-        }
+        if (_originalOrder != null) Navigate(ViewType.OrderDetails, _originalOrder.OrderNumber);
     }
 }
