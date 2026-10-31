@@ -6,10 +6,7 @@ using RMS.Services;
 
 namespace RMS.UI.Dialogs;
 
-/// <summary>
-/// Dialog for adding a new waiter or updating existing waiter details.
-/// Automatically assigns next sequential Staff ID.
-/// </summary>
+// Dialog for adding or editing a waiter record
 public partial class StaffMemberDialog : Form
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -17,7 +14,11 @@ public partial class StaffMemberDialog : Form
 
     public StaffMember? ResultStaff { get; private set; }
 
-    public StaffMemberDialog(StaffMember? staffToEdit = null)
+    // Parameterless constructor for Visual Studio Designer
+    public StaffMemberDialog() : this(null) { }
+
+    // Runtime constructor with optional staff to edit
+    public StaffMemberDialog(StaffMember? staffToEdit)
     {
         InitializeComponent();
         _existingStaff = staffToEdit;
@@ -33,10 +34,11 @@ public partial class StaffMemberDialog : Form
         {
             lblDialogTitle.Text = "Add New Waiter";
             txtStaffId.Text = _store.PeekNextStaffId().ToString();
-            cboShift.SelectedIndex = 0; // Day Shift
+            cboShift.SelectedIndex = 0;
         }
     }
 
+    // Validate inputs and save waiter details
     private void btnSave_Click(object? sender, EventArgs e)
     {
         string name = txtFullName.Text.Trim();
@@ -59,26 +61,17 @@ public partial class StaffMemberDialog : Form
         }
         else
         {
-            ResultStaff = new StaffMember(
-                _store.PeekNextStaffId(),
-                name,
-                "Waiter",
-                shift,
-                true
-            );
+            ResultStaff = new StaffMember(_store.PeekNextStaffId(), name, "Waiter", shift, true);
         }
 
         DialogResult = DialogResult.OK;
         Close();
     }
 
+    // Reset error styling on name input changed
     private void txtFullName_TextChanged(object? sender, EventArgs e)
     {
         txtFullName.BackColor = Color.White;
-        if (lblError.Visible)
-        {
-            lblError.Visible = false;
-        }
+        if (lblError.Visible) lblError.Visible = false;
     }
 }
-
