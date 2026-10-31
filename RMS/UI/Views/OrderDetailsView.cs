@@ -10,10 +10,7 @@ using RMS.UI.Navigation;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Order Details screen view showing the complete order breakdown,
-/// line items, unit prices, subtotal, and status-specific actions.
-/// </summary>
+// Order details screen: displays line items, prices, and status actions
 public partial class OrderDetailsView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -25,22 +22,18 @@ public partial class OrderDetailsView : BaseView, INavigationAware
         InitializeComponent();
     }
 
+    // Load and display selected order on navigation
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
-
         if (DesignMode) return;
 
-        int orderNum = 104;
-        if (parameter is int num)
-        {
-            orderNum = num;
-        }
-
+        int orderNum = parameter is int num ? num : 101;
         _currentOrder = _store.FindOrderByNumber(orderNum) ?? _store.Orders.FirstOrDefault();
         DisplayOrder(_currentOrder);
     }
 
+    // Populate order header, item grid, and action button states
     private void DisplayOrder(Order? order)
     {
         if (order == null) return;
@@ -65,60 +58,31 @@ public partial class OrderDetailsView : BaseView, INavigationAware
         dgvItems.Rows.Clear();
         foreach (var item in order.Items)
         {
-            dgvItems.Rows.Add(
-                item.ItemName,
-                $"{item.UnitPrice:N0} ETB",
-                item.Quantity.ToString(),
-                $"{item.Subtotal:N0} ETB"
-            );
+            dgvItems.Rows.Add(item.ItemName, $"{item.UnitPrice:N0} ETB", item.Quantity, $"{item.Subtotal:N0} ETB");
         }
 
-        int count = order.Items.Count;
-        int totalQty = order.TotalItemQuantity;
-        //lblSummaryQty.Text = $"{count} {(count == 1 ? "item" : "items")} • {totalQty} total quantity";
         lblTotalAmount.Text = $"Total: {order.Total:N0} ETB";
 
-        // Handle locked states
-        if (order.Status == OrderStatus.Completed)
-        {
-            //lblLockedNotice.Text = "Completed orders cannot be edited or cancelled, but remain viewable.";
-            //lblLockedNotice.Visible = true;
-            btnEditOrder.Enabled = false;
-            btnCancelOrder.Enabled = false;
-        }
-        else if (order.Status == OrderStatus.Cancelled)
-        {
-            //lblLockedNotice.Text = "This order has been cancelled and cannot be edited.";
-            //lblLockedNotice.Visible = true;
-            btnEditOrder.Enabled = false;
-            btnCancelOrder.Enabled = false;
-        }
-        else
-        {
-            //lblLockedNotice.Visible = false;
-            btnEditOrder.Enabled = true;
-            btnCancelOrder.Enabled = true;
-        }
+        // Enable or disable actions based on order status
+        btnEditOrder.Enabled = order.CanEdit;
+        btnCancelOrder.Enabled = order.CanCancel;
     }
 
-    private void btnBack_Click(object? sender, EventArgs e)
-    {
-        Navigate(ViewType.Orders);
-    }
+    // Return to orders list
+    private void btnBack_Click(object? sender, EventArgs e) => Navigate(ViewType.Orders);
 
+    // Edit current order
     private void btnEditOrder_Click(object? sender, EventArgs e)
     {
-        if (_currentOrder != null && _currentOrder.CanEdit)
-        {
-            Navigate(ViewType.EditOrder, _currentOrder.OrderNumber);
-        }
+        if (_currentOrder?.CanEdit == true) Navigate(ViewType.EditOrder, _currentOrder.OrderNumber);
     }
 
+    // Cancel current order with confirmation dialog
     private void btnCancelOrder_Click(object? sender, EventArgs e)
     {
         if (_currentOrder == null || !_currentOrder.CanCancel) return;
 
-        string message = $"Are you sure you want to cancel Order {_currentOrder.OrderNumber}?\nOrder {_currentOrder.OrderNumber} - {_currentOrder.CustomerName} • Table {_currentOrder.TableNumber} • {_currentOrder.Status}";
+        string message = $"Are you sure you want to cancel Order {_currentOrder.OrderNumber}?\n{_currentOrder.CustomerName} • Table {_currentOrder.TableNumber}";
         if (ConfirmationDialog.Confirm(this, "Cancel Order?", "Cancel Order?", message, "Yes, Cancel Order", isDanger: true))
         {
             _orderService.CancelOrder(_currentOrder.OrderNumber);
