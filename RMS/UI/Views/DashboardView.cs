@@ -10,9 +10,7 @@ using RMS.UI.Navigation;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Dashboard screen displaying live KPI summary and recent orders in a clean desktop table.
-/// </summary>
+// Dashboard screen: overview KPIs and recent orders table
 public partial class DashboardView : BaseView
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -21,14 +19,20 @@ public partial class DashboardView : BaseView
     {
         InitializeComponent();
 
-        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-        {
-            return;
-        }
+        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
-        _store.OnOrdersChanged += RefreshDashboard;
+        // Auto reload when orders change
+        _store.OnOrdersChanged += () =>
+        {
+            if (!IsDisposed && !Disposing)
+            {
+                if (InvokeRequired) Invoke(RefreshDashboard);
+                else RefreshDashboard();
+            }
+        };
     }
 
+    // Refresh KPIs and recent orders when navigated to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
@@ -36,15 +40,10 @@ public partial class DashboardView : BaseView
         RefreshDashboard();
     }
 
+    // Update KPI numbers and populate recent orders table
     private void RefreshDashboard()
     {
         if (IsDisposed || Disposing) return;
-
-        if (InvokeRequired)
-        {
-            Invoke(new Action(RefreshDashboard));
-            return;
-        }
 
         // 1. Update KPI overview statistics
         lblTotalCount.Text = _store.ActiveTotalOrdersCount.ToString();
@@ -54,11 +53,9 @@ public partial class DashboardView : BaseView
         lblCompletedCount.Text = _store.CompletedOrdersCount.ToString();
         lblCompletedValue.Text = $"{_store.CompletedOrdersValue:N0} ETB";
 
-        // 2. Populate recent orders into DataGridView with clean, uniform plain text (no colors)
+        // 2. Populate top 5 recent orders into DataGridView
         dgvRecentOrders.Rows.Clear();
-        var recentOrders = _store.Orders.Take(5);
-
-        foreach (var order in recentOrders)
+        foreach (var order in _store.Orders.Take(5))
         {
             dgvRecentOrders.Rows.Add(
                 order.OrderNumber.ToString(),
@@ -73,24 +70,15 @@ public partial class DashboardView : BaseView
         dgvRecentOrders.ClearSelection();
     }
 
-    private void btnNewOrder_Click(object? sender, EventArgs e)
-    {
-        Navigate(ViewType.NewOrder);
-    }
+    // New order button click
+    private void btnNewOrder_Click(object? sender, EventArgs e) => Navigate(ViewType.NewOrder);
 
-    private void lnkViewAll_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
-    {
-        Navigate(ViewType.Orders);
-    }
+    // View all orders link click
+    private void lnkViewAll_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e) => Navigate(ViewType.Orders);
 
+    // Double click recent order row to open orders view
     private void dgvRecentOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex < 0) return;
-        Navigate(ViewType.Orders);
-    }
-
-    private void lblKpiPendingTitle_Click(object sender, EventArgs e)
-    {
-
+        if (e.RowIndex >= 0) Navigate(ViewType.Orders);
     }
 }
