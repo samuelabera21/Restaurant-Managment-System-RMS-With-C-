@@ -6,10 +6,7 @@ using RMS.Services;
 
 namespace RMS.UI.Dialogs;
 
-/// <summary>
-/// Standard Windows Forms login dialog for Staff ID authentication.
-/// Fully customizable via the Visual Studio Designer.
-/// </summary>
+// Login dialog: authenticates staff member by numeric ID
 public partial class LoginDialog : Form
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -21,6 +18,7 @@ public partial class LoginDialog : Form
         InitializeComponent();
     }
 
+    // Validate numeric Staff ID and authenticate with store
     private void btnLogin_Click(object? sender, EventArgs e)
     {
         string input = txtStaffId.Text.Trim();
@@ -44,12 +42,14 @@ public partial class LoginDialog : Form
         Close();
     }
 
+    // Cancel login dialog
     private void btnCancel_Click(object? sender, EventArgs e)
     {
         DialogResult = DialogResult.Cancel;
         Close();
     }
 
+    // Display error label and highlight input
     private void ShowError(string message)
     {
         lblError.Text = message;
@@ -58,11 +58,9 @@ public partial class LoginDialog : Form
         txtStaffId.SelectAll();
     }
 
+    // Clear error message when user starts typing again
     private void txtStaffId_TextChanged(object? sender, EventArgs e)
     {
-        if (lblError.Visible)
-        {
-            lblError.Visible = false;
-        }
+        if (lblError.Visible) lblError.Visible = false;
     }
 }
