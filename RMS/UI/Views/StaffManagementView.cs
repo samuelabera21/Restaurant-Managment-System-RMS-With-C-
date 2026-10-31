@@ -11,10 +11,7 @@ using RMS.UI.Navigation;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Staff & Waiter Management screen view allowing the restaurant manager
-/// to register new waiters, update working shifts, and toggle active status.
-/// </summary>
+// Staff management screen: manage waiters, shifts, and active status
 public partial class StaffManagementView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -23,92 +20,63 @@ public partial class StaffManagementView : BaseView, INavigationAware
     {
         InitializeComponent();
 
-        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-        {
-            return;
-        }
+        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
         dgvStaff.CellDoubleClick += dgvStaff_CellDoubleClick;
         _store.OnStaffChanged += RefreshStaffGrid;
     }
 
+    // Reload grid when navigating to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
         RefreshStaffGrid();
     }
 
+    // Populate DataGridView with filtered staff members
     public void RefreshStaffGrid()
     {
         if (DesignMode || Disposing || IsDisposed || dgvStaff.IsDisposed) return;
 
-        string query = txtSearch.Text.Trim().ToLowerInvariant();
-        var allStaff = _store.StaffMembers;
-
-        var filtered = allStaff.AsEnumerable();
-        if (!string.IsNullOrEmpty(query))
-        {
-            filtered = filtered.Where(s =>
-                s.FullName.ToLowerInvariant().Contains(query) ||
-                s.Id.ToString().Contains(query) ||
-                s.Role.ToLowerInvariant().Contains(query) ||
-                s.Shift.ToLowerInvariant().Contains(query));
-        }
-
-        var results = filtered.OrderBy(s => s.Id).ToList();
-
-        //lblSummary.Text = $"Showing {results.Count} of {allStaff.Count} registered staff members";
+        string query = txtSearch.Text.Trim();
+        var staffList = _store.StaffMembers
+            .Where(s => string.IsNullOrEmpty(query) ||
+                        s.FullName.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                        s.Id.ToString().Contains(query) ||
+                        s.Shift.Contains(query, StringComparison.OrdinalIgnoreCase))
+            .OrderBy(s => s.Id);
 
         dgvStaff.Rows.Clear();
-        foreach (var staff in results)
+        foreach (var staff in staffList)
         {
-            int rowIndex = dgvStaff.Rows.Add(
-                staff.Id.ToString(),
-                staff.FullName,
-                staff.Role,
-                staff.Shift,
-                staff.IsActive ? "Active" : "Inactive"
-            );
-
-            var row = dgvStaff.Rows[rowIndex];
-            row.Tag = staff;
+            int row = dgvStaff.Rows.Add(staff.Id.ToString(), staff.FullName, staff.Role, staff.Shift, staff.IsActive ? "Active" : "Inactive");
+            dgvStaff.Rows[row].Tag = staff;
         }
 
         UpdateActionButtons();
     }
 
-    private StaffMember? GetSelectedStaff()
-    {
-        if (dgvStaff.CurrentRow?.Tag is StaffMember staff)
-        {
-            return staff;
-        }
-        return null;
-    }
+    // Helper to get currently selected staff member
+    private StaffMember? GetSelectedStaff() => dgvStaff.CurrentRow?.Tag as StaffMember;
 
+    // Enable or disable edit buttons (Manager record is protected)
     private void UpdateActionButtons()
     {
         var staff = GetSelectedStaff();
-        bool hasSelection = staff != null;
-        bool isEditable = hasSelection && staff?.Role != "Manager"; // Protect primary manager record
-
-        btnEditStaff.Enabled = isEditable;
-        btnToggleStatus.Enabled = isEditable;
+        bool isEditable = staff != null && staff.Role != "Manager";
+        btnEditStaff.Enabled = btnToggleStatus.Enabled = isEditable;
     }
 
-    private void dgvStaff_SelectionChanged(object? sender, EventArgs e)
-    {
-        UpdateActionButtons();
-    }
+    // Grid selection change event
+    private void dgvStaff_SelectionChanged(object? sender, EventArgs e) => UpdateActionButtons();
 
+    // Double click row to edit
     private void dgvStaff_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex >= 0)
-        {
-            EditSelectedStaff();
-        }
+        if (e.RowIndex >= 0) EditSelectedStaff();
     }
 
+    // Open dialog to register new waiter
     private void btnAddStaff_Click(object? sender, EventArgs e)
     {
         using var dialog = new StaffMemberDialog();
@@ -119,11 +87,10 @@ public partial class StaffManagementView : BaseView, INavigationAware
         }
     }
 
-    private void btnEditStaff_Click(object? sender, EventArgs e)
-    {
-        EditSelectedStaff();
-    }
+    // Edit staff button click
+    private void btnEditStaff_Click(object? sender, EventArgs e) => EditSelectedStaff();
 
+    // Open dialog to edit selected waiter
     private void EditSelectedStaff()
     {
         var staff = GetSelectedStaff();
@@ -137,6 +104,7 @@ public partial class StaffManagementView : BaseView, INavigationAware
         }
     }
 
+    // Toggle active status for selected waiter
     private void btnToggleStatus_Click(object? sender, EventArgs e)
     {
         var staff = GetSelectedStaff();
@@ -146,16 +114,14 @@ public partial class StaffManagementView : BaseView, INavigationAware
         RefreshStaffGrid();
     }
 
-    private void txtSearch_TextChanged(object? sender, EventArgs e)
-    {
-        RefreshStaffGrid();
-    }
+    // Live search input change
+    private void txtSearch_TextChanged(object? sender, EventArgs e) => RefreshStaffGrid();
 
+    // Reset search box
     private void btnClearSearch_Click(object? sender, EventArgs e)
     {
-        txtSearch.Text = string.Empty;
+        txtSearch.Clear();
         txtSearch.Focus();
         RefreshStaffGrid();
     }
 }
-
