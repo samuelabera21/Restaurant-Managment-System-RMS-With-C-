@@ -5,27 +5,20 @@ using MenuItem = RMS.Models.MenuItem;
 
 namespace RMS.UI.Dialogs;
 
-/// <summary>
-/// Modal dialog for adding a new menu item or editing an existing menu item.
-/// Fully compatible with the Visual Studio Form Designer.
-/// </summary>
+// Dialog for adding or editing a menu item
 public partial class MenuItemDialog : Form
 {
     private readonly int _existingId = 0;
 
     public MenuItem? ResultItem { get; private set; }
 
-    /// <summary>
-    /// Parameterless constructor required by the Visual Studio Designer.
-    /// </summary>
+    // Parameterless constructor for Visual Studio Designer
     public MenuItemDialog()
     {
         InitializeComponent();
     }
 
-    /// <summary>
-    /// Runtime constructor initializing the form with existing menu item data (if editing).
-    /// </summary>
+    // Runtime constructor with optional item to edit
     public MenuItemDialog(MenuItem? existingItem = null) : this()
     {
         if (existingItem != null)
@@ -50,6 +43,7 @@ public partial class MenuItemDialog : Form
         }
     }
 
+    // Validate inputs and save menu item
     private void btnSave_Click(object? sender, EventArgs e)
     {
         string name = txtName.Text.Trim();
@@ -86,6 +80,7 @@ public partial class MenuItemDialog : Form
         Close();
     }
 
+    // Cancel dialog
     private void btnCancel_Click(object? sender, EventArgs e)
     {
         DialogResult = DialogResult.Cancel;
