@@ -32,10 +32,11 @@ public class RestaurantStore
 
     private readonly MenuPersistenceService _menuPersistence;
     private readonly StaffPersistenceService _staffPersistence;
+    private readonly OrderPersistenceService _orderPersistence;
     private readonly List<MenuItem> _menuItems = new();
     private readonly List<StaffMember> _staffMembers = new();
     private readonly List<Order> _orders = new();
-    private int _nextOrderNumber = 116;
+    private int _nextOrderNumber = 101;
 
     public StaffMember? CurrentUser { get; set; }
 
@@ -47,13 +48,14 @@ public class RestaurantStore
     public IReadOnlyList<StaffMember> StaffMembers => _staffMembers.AsReadOnly();
     public IReadOnlyList<Order> Orders => _orders.AsReadOnly();
 
-    public RestaurantStore(MenuPersistenceService? menuPersistence = null, StaffPersistenceService? staffPersistence = null)
+    public RestaurantStore(MenuPersistenceService? menuPersistence = null, StaffPersistenceService? staffPersistence = null, OrderPersistenceService? orderPersistence = null)
     {
         _menuPersistence = menuPersistence ?? new MenuPersistenceService();
         _staffPersistence = staffPersistence ?? new StaffPersistenceService();
+        _orderPersistence = orderPersistence ?? new OrderPersistenceService();
         InitializeMenu();
         InitializeStaff();
-        SeedDemonstrationOrders();
+        InitializeOrders();
     }
 
     #region Menu Management
@@ -188,31 +190,35 @@ public class RestaurantStore
         }
     }
 
+    private void InitializeOrders()
+    {
+        _orders.Clear();
+        var loaded = _orderPersistence.LoadOrders();
+        _orders.AddRange(loaded);
+        _nextOrderNumber = _orders.Count > 0 ? _orders.Max(o => o.OrderNumber) + 1 : 101;
+    }
+
+    public void SaveOrderChanges()
+    {
+        _orderPersistence.SaveOrders(_orders);
+        OnOrdersChanged?.Invoke();
+    }
+
     public void AddOrder(Order order)
     {
         ArgumentNullException.ThrowIfNull(order);
         _orders.Add(order);
-        NotifyOrdersChanged();
+        SaveOrderChanges();
     }
 
     public void NotifyOrdersChanged()
     {
-        OnOrdersChanged?.Invoke();
+        SaveOrderChanges();
     }
 
     public Order? FindOrderByNumber(int orderNumber)
     {
         return _orders.FirstOrDefault(o => o.OrderNumber == orderNumber);
-    }
-
-    /// <summary>
-    /// Seeds the 12 approved demonstration orders (#104–#115) with their exact snapshots.
-    /// Invariant result: 12 Total, 2 Pending, 3 Preparing, 2 Ready, 5 Completed, 1,850 ETB completed revenue.
-    /// </summary>
-    private void SeedDemonstrationOrders()
-    {
-        _orders.Clear();
-        _nextOrderNumber = 101;
     }
     #endregion
 

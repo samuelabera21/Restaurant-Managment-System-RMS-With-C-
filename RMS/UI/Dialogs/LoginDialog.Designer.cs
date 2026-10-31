@@ -41,7 +41,7 @@ partial class LoginDialog
         grpCredentials.Size = new Size(432, 162);
         grpCredentials.TabIndex = 0;
         grpCredentials.TabStop = false;
-        grpCredentials.Text = "Staff Login";
+        grpCredentials.Text = "";
         // 
         // lblError
         // 
