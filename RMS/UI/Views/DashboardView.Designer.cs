@@ -206,7 +206,6 @@ partial class DashboardView
         lblKpiPendingTitle.Size = new Size(75, 23);
         lblKpiPendingTitle.TabIndex = 0;
         lblKpiPendingTitle.Text = "Pending";
-        lblKpiPendingTitle.Click += lblKpiPendingTitle_Click;
         // 
         // pnlKpiPreparing
         // 
