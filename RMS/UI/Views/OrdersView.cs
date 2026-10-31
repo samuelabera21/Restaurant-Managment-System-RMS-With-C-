@@ -11,10 +11,7 @@ using RMS.UI.Navigation;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Orders management screen view providing search, status filtering,
-/// order status advancement, and cancellation in a clean desktop layout.
-/// </summary>
+// Orders screen: view, search, advance status, and cancel orders
 public partial class OrdersView : BaseView
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -24,36 +21,32 @@ public partial class OrdersView : BaseView
     {
         InitializeComponent();
 
-        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-        {
-            return;
-        }
+        if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
         dgvOrders.CellDoubleClick += dgvOrders_CellDoubleClick;
-        cboStatus.SelectedIndex = 0; // "All Statuses"
+        cboStatus.SelectedIndex = 0;
 
+        // Auto reload when orders change
         _store.OnOrdersChanged += () =>
         {
-            if (IsDisposed || Disposing) return;
-            if (InvokeRequired)
+            if (!IsDisposed && !Disposing)
             {
-                Invoke(new Action(ApplyFilters));
-            }
-            else
-            {
-                ApplyFilters();
+                if (InvokeRequired) Invoke(ApplyFilters);
+                else ApplyFilters();
             }
         };
 
         ApplyFilters();
     }
 
+    // Called when navigated to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
         ApplyFilters();
     }
 
+    // Filter orders and populate DataGridView
     private void ApplyFilters()
     {
         if (IsDisposed || Disposing || dgvOrders.IsDisposed) return;
@@ -67,9 +60,6 @@ public partial class OrdersView : BaseView
         }
 
         var filteredList = _orderService.FilterOrders(query, statusFilter).ToList();
-        int totalOrders = _store.Orders.Count;
-
-        //lblOrdersSummary.Text = $"Showing {filteredList.Count} of {totalOrders} orders";
 
         dgvOrders.Rows.Clear();
         foreach (var order in filteredList)
@@ -83,93 +73,66 @@ public partial class OrdersView : BaseView
                 order.Status.ToString()
             );
 
-            var row = dgvOrders.Rows[rowIndex];
-            row.Tag = order;
+            dgvOrders.Rows[rowIndex].Tag = order;
         }
 
         UpdateActionButtonsState();
     }
 
+    // Enable/disable buttons based on selected order state
     private void UpdateActionButtonsState()
     {
-        if (dgvOrders.CurrentRow?.Tag is Order selectedOrder)
-        {
-            btnViewDetails.Enabled = true;
-            btnEditOrder.Enabled = selectedOrder.CanEdit;
-            btnChangeStatus.Enabled = _orderService.CanAdvanceStatus(selectedOrder.Status, out _);
-            btnCancelOrder.Enabled = selectedOrder.CanCancel;
-        }
-        else
-        {
-            btnViewDetails.Enabled = false;
-            btnEditOrder.Enabled = false;
-            btnChangeStatus.Enabled = false;
-            btnCancelOrder.Enabled = false;
-        }
+        var order = GetSelectedOrder();
+        btnViewDetails.Enabled = order != null;
+        btnEditOrder.Enabled = order?.CanEdit == true;
+        btnChangeStatus.Enabled = order != null && _orderService.CanAdvanceStatus(order.Status, out _);
+        btnCancelOrder.Enabled = order?.CanCancel == true;
     }
 
-    private Order? GetSelectedOrder()
-    {
-        return dgvOrders.CurrentRow?.Tag as Order;
-    }
+    // Helper to get currently selected order
+    private Order? GetSelectedOrder() => dgvOrders.CurrentRow?.Tag as Order;
 
-    // =========================================================================
-    // Event Handlers (Visual Studio Designer)
-    // =========================================================================
+    // Navigate to create new order
+    private void btnNewOrder_Click(object sender, EventArgs e) => Navigate(ViewType.NewOrder);
 
-    private void btnNewOrder_Click(object sender, EventArgs e)
-    {
-        Navigate(ViewType.NewOrder);
-    }
+    // Live search input change
+    private void txtSearch_TextChanged(object sender, EventArgs e) => ApplyFilters();
 
-    private void txtSearch_TextChanged(object sender, EventArgs e)
-    {
-        ApplyFilters();
-    }
+    // Status filter dropdown change
+    private void cboStatus_SelectedIndexChanged(object sender, EventArgs e) => ApplyFilters();
 
-    private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ApplyFilters();
-    }
-
+    // Reset search and filters
     private void btnClearFilters_Click(object sender, EventArgs e)
     {
-        txtSearch.Text = string.Empty;
+        txtSearch.Clear();
         cboStatus.SelectedIndex = 0;
         txtSearch.Focus();
     }
 
-    private void dgvOrders_SelectionChanged(object sender, EventArgs e)
-    {
-        UpdateActionButtonsState();
-    }
+    // Update button states on selection change
+    private void dgvOrders_SelectionChanged(object sender, EventArgs e) => UpdateActionButtonsState();
 
+    // Double click table row to view order details
     private void dgvOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex >= 0)
-        {
-            btnViewDetails_Click(sender ?? this, EventArgs.Empty);
-        }
+        if (e.RowIndex >= 0) btnViewDetails_Click(sender ?? this, EventArgs.Empty);
     }
 
+    // View order details
     private void btnViewDetails_Click(object sender, EventArgs e)
     {
         var order = GetSelectedOrder();
-        if (order != null)
-        {
-            Navigate(ViewType.OrderDetails, order.OrderNumber);
-        }
+        if (order != null) Navigate(ViewType.OrderDetails, order.OrderNumber);
     }
 
+    // Edit pending order
     private void btnEditOrder_Click(object sender, EventArgs e)
     {
         var order = GetSelectedOrder();
-        if (order != null && order.CanEdit)
-        {
-            Navigate(ViewType.EditOrder, order.OrderNumber);
-        }
+        if (order != null && order.CanEdit) Navigate(ViewType.EditOrder, order.OrderNumber);
     }
 
+    // Advance order to next status
     private void btnChangeStatus_Click(object sender, EventArgs e)
     {
         var order = GetSelectedOrder();
@@ -190,12 +153,13 @@ public partial class OrdersView : BaseView
         }
     }
 
+    // Cancel order with confirmation prompt
     private void btnCancelOrder_Click(object sender, EventArgs e)
     {
         var order = GetSelectedOrder();
         if (order == null || !order.CanCancel) return;
 
-        string message = $"Are you sure you want to cancel Order {order.OrderNumber}?\nOrder {order.OrderNumber} - {order.CustomerName} • Table {order.TableNumber} • {order.Status}";
+        string message = $"Are you sure you want to cancel Order {order.OrderNumber}?\n{order.CustomerName} • Table {order.TableNumber}";
         if (ConfirmationDialog.Confirm(this, "Cancel Order?", "Cancel Order?", message, "Yes, Cancel Order", isDanger: true))
         {
             _orderService.CancelOrder(order.OrderNumber);
