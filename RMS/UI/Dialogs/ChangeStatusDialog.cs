@@ -6,25 +6,18 @@ using RMS.Models;
 
 namespace RMS.UI.Dialogs;
 
-/// <summary>
-/// Confirmation dialog for advancing an order's status exactly one stage.
-/// Fully compatible with the Visual Studio Form Designer.
-/// </summary>
+// Dialog for advancing an order status one stage forward
 public partial class ChangeStatusDialog : Form
 {
     public bool IsConfirmed { get; private set; }
 
-    /// <summary>
-    /// Parameterless constructor required by the Visual Studio Designer.
-    /// </summary>
+    // Parameterless constructor for Visual Studio Designer
     public ChangeStatusDialog()
     {
         InitializeComponent();
     }
 
-    /// <summary>
-    /// Runtime constructor initializing the dialog with live order and target status.
-    /// </summary>
+    // Runtime constructor with target order and next status
     public ChangeStatusDialog(Order order, OrderStatus nextStatus) : this()
     {
         ArgumentNullException.ThrowIfNull(order);
@@ -37,6 +30,7 @@ public partial class ChangeStatusDialog : Form
         btnConfirm.Text = $"Advance to {nextStatus}";
     }
 
+    // Confirm status transition
     private void btnConfirm_Click(object? sender, EventArgs e)
     {
         IsConfirmed = true;
@@ -44,6 +38,7 @@ public partial class ChangeStatusDialog : Form
         Close();
     }
 
+    // Cancel status transition
     private void btnCancel_Click(object? sender, EventArgs e)
     {
         IsConfirmed = false;
