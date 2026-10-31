@@ -11,10 +11,7 @@ using MenuItem = RMS.Models.MenuItem;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Admin Menu Management screen view protected by PIN.
-/// Allows adding new items, editing name/category/price, and toggling availability.
-/// </summary>
+// Menu management screen: add, edit, and toggle food and drink availability
 public partial class MenuManagementView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -30,129 +27,79 @@ public partial class MenuManagementView : BaseView, INavigationAware
         }
     }
 
+    // Reload categories and items on navigation
     public override void OnNavigatedTo(object? parameter = null)
     {
         base.OnNavigatedTo(parameter);
-
         if (DesignMode) return;
 
         PopulateCategoryFilter();
         RefreshGrid();
     }
 
+    // Populate category dropdown from unique menu categories
     private void PopulateCategoryFilter()
     {
-        string? currentSelection = cboCategoryFilter.SelectedItem?.ToString();
+        string? current = cboCategoryFilter.SelectedItem?.ToString();
         cboCategoryFilter.Items.Clear();
         cboCategoryFilter.Items.Add("All Categories");
 
-        var categories = _store.MenuItems
-            .Select(m => m.Category)
-            .Where(c => !string.IsNullOrWhiteSpace(c))
-            .Distinct()
-            .OrderBy(c => c);
+        var categories = _store.MenuItems.Select(m => m.Category).Where(c => !string.IsNullOrWhiteSpace(c)).Distinct().OrderBy(c => c);
+        foreach (var category in categories) cboCategoryFilter.Items.Add(category);
 
-        foreach (var category in categories)
-        {
-            cboCategoryFilter.Items.Add(category);
-        }
-
-        if (currentSelection != null && cboCategoryFilter.Items.Contains(currentSelection))
-        {
-            cboCategoryFilter.SelectedItem = currentSelection;
-        }
-        else
-        {
-            cboCategoryFilter.SelectedIndex = 0;
-        }
+        cboCategoryFilter.SelectedIndex = (current != null && cboCategoryFilter.Items.Contains(current))
+            ? cboCategoryFilter.Items.IndexOf(current)
+            : 0;
     }
 
+    // Populate DataGridView with filtered menu items
     public void RefreshGrid()
     {
-        if (DesignMode) return;
+        if (DesignMode || Disposing || IsDisposed || dgvMenuItems.IsDisposed) return;
 
-        string searchQuery = txtSearch.Text.Trim().ToLowerInvariant();
-        string selectedCategory = cboCategoryFilter.SelectedItem?.ToString() ?? "All Categories";
+        string query = txtSearch.Text.Trim();
+        string category = cboCategoryFilter.SelectedItem?.ToString() ?? "All Categories";
         int availIndex = cboAvailabilityFilter.SelectedIndex;
 
-        var items = _store.MenuItems.AsEnumerable();
-
-        if (!string.IsNullOrEmpty(searchQuery))
-        {
-            items = items.Where(m =>
-                m.Name.ToLowerInvariant().Contains(searchQuery) ||
-                m.Category.ToLowerInvariant().Contains(searchQuery) ||
-                m.Id.ToString().Contains(searchQuery));
-        }
-
-        if (selectedCategory != "All Categories")
-        {
-            items = items.Where(m => string.Equals(m.Category, selectedCategory, StringComparison.OrdinalIgnoreCase));
-        }
-
-        if (availIndex == 1) // Available Only
-        {
-            items = items.Where(m => m.IsAvailable);
-        }
-        else if (availIndex == 2) // Unavailable Only
-        {
-            items = items.Where(m => !m.IsAvailable);
-        }
-
-        var filteredList = items.OrderBy(m => m.Id).ToList();
+        var items = _store.MenuItems.Where(m =>
+            (string.IsNullOrEmpty(query) || 
+             m.Name.Contains(query, StringComparison.OrdinalIgnoreCase) || 
+             m.Category.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+             m.Id.ToString().Contains(query)) &&
+            (category == "All Categories" || string.Equals(m.Category, category, StringComparison.OrdinalIgnoreCase)) &&
+            (availIndex == 0 || (availIndex == 1 ? m.IsAvailable : !m.IsAvailable))
+        ).OrderBy(m => m.Id);
 
         dgvMenuItems.Rows.Clear();
-        foreach (var item in filteredList)
+        foreach (var item in items)
         {
-            int rowIndex = dgvMenuItems.Rows.Add(
-                item.Id.ToString(),
-                item.Name,
-                item.Category,
-                $"{item.Price:N0} ETB",
-                item.IsAvailable ? "Available" : "Unavailable"
-            );
-
-            var row = dgvMenuItems.Rows[rowIndex];
-            row.Tag = item;
-
-            var statusCell = row.Cells["colStatus"];
-            statusCell.Style.ForeColor = Color.FromArgb(15, 23, 42);
-            statusCell.Style.Font = AppTheme.BodyRegular;
+            int row = dgvMenuItems.Rows.Add(item.Id.ToString(), item.Name, item.Category, $"{item.Price:N0} ETB", item.IsAvailable ? "Available" : "Unavailable");
+            dgvMenuItems.Rows[row].Tag = item;
         }
 
-        //lblSummary.Text = $"Showing {filteredList.Count} of {_store.MenuItems.Count} registered menu items";
         UpdateActionButtons();
     }
 
-    private MenuItem? GetSelectedMenuItem()
-    {
-        if (dgvMenuItems.SelectedRows.Count > 0 && dgvMenuItems.SelectedRows[0].Tag is MenuItem item)
-        {
-            return item;
-        }
-        return null;
-    }
+    // Helper to get currently selected menu item
+    private MenuItem? GetSelectedMenuItem() => dgvMenuItems.CurrentRow?.Tag as MenuItem;
 
+    // Enable/disable buttons based on item selection
     private void UpdateActionButtons()
     {
         bool hasSelection = GetSelectedMenuItem() != null;
-        btnEditItem.Enabled = hasSelection;
-        btnToggleStatus.Enabled = hasSelection;
+        btnEditItem.Enabled = btnToggleStatus.Enabled = hasSelection;
     }
 
-    private void dgvMenuItems_SelectionChanged(object? sender, EventArgs e)
-    {
-        UpdateActionButtons();
-    }
+    // Grid selection change event
+    private void dgvMenuItems_SelectionChanged(object? sender, EventArgs e) => UpdateActionButtons();
 
+    // Double click row to edit item
     private void dgvMenuItems_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex >= 0)
-        {
-            EditSelectedItem();
-        }
+        if (e.RowIndex >= 0) EditSelectedItem();
     }
 
+    // Open dialog to add new menu item
     private void btnAddItem_Click(object? sender, EventArgs e)
     {
         using var dialog = new MenuItemDialog();
@@ -164,11 +111,10 @@ public partial class MenuManagementView : BaseView, INavigationAware
         }
     }
 
-    private void btnEditItem_Click(object? sender, EventArgs e)
-    {
-        EditSelectedItem();
-    }
+    // Edit item button click
+    private void btnEditItem_Click(object? sender, EventArgs e) => EditSelectedItem();
 
+    // Open dialog to edit selected menu item
     private void EditSelectedItem()
     {
         var item = GetSelectedMenuItem();
@@ -183,6 +129,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
         }
     }
 
+    // Toggle availability status of selected item
     private void btnToggleStatus_Click(object? sender, EventArgs e)
     {
         var item = GetSelectedMenuItem();
@@ -192,21 +139,19 @@ public partial class MenuManagementView : BaseView, INavigationAware
         RefreshGrid();
     }
 
-    private void txtSearch_TextChanged(object? sender, EventArgs e)
-    {
-        RefreshGrid();
-    }
+    // Live search text change event
+    private void txtSearch_TextChanged(object? sender, EventArgs e) => RefreshGrid();
 
-    private void Filter_Changed(object? sender, EventArgs e)
-    {
-        RefreshGrid();
-    }
+    // Category or availability filter changed
+    private void Filter_Changed(object? sender, EventArgs e) => RefreshGrid();
 
+    // Reset search box and filters
     private void btnClearSearch_Click(object? sender, EventArgs e)
     {
-        txtSearch.Text = string.Empty;
+        txtSearch.Clear();
         cboCategoryFilter.SelectedIndex = 0;
         cboAvailabilityFilter.SelectedIndex = 0;
+        txtSearch.Focus();
         RefreshGrid();
     }
 }
