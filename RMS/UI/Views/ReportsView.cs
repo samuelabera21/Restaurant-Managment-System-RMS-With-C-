@@ -9,10 +9,7 @@ using RMS.UI.Navigation;
 
 namespace RMS.UI.Views;
 
-/// <summary>
-/// Reports screen view displaying order activity summary,
-/// dynamic KPI metric cards, date and status filters, and order breakdown table.
-/// </summary>
+// Reports screen: order activity summary, KPI metrics, and breakdown table
 public partial class ReportsView : BaseView, INavigationAware
 {
     private readonly RestaurantStore _store = RestaurantStore.Instance;
@@ -27,30 +24,29 @@ public partial class ReportsView : BaseView, INavigationAware
             cboDateFilter.SelectedIndex = 0;
             cboStatusFilter.SelectedIndex = 0;
 
+            // Auto reload when orders change
             _store.OnOrdersChanged += () =>
             {
-                if (IsHandleCreated)
-                {
-                    BeginInvoke(new Action(RefreshReports));
-                }
+                if (IsHandleCreated) BeginInvoke(RefreshReports);
             };
         }
     }
 
+    // Reload reports when navigated to this view
     public override void OnNavigatedTo(object? parameter = null)
     {
+        base.OnNavigatedTo(parameter);
         RefreshReports();
     }
 
+    // Filter orders and refresh summary KPIs and breakdown table
     public void RefreshReports()
     {
-        if (DesignMode) return;
+        if (DesignMode || Disposing || IsDisposed || dgvSummary.IsDisposed) return;
 
-        // 1. Date Filter
         bool isTodayOnly = cboDateFilter.SelectedIndex == 1;
         DateTime today = DateTime.Today;
 
-        // 2. Status Filter
         OrderStatus? selectedStatus = cboStatusFilter.SelectedIndex switch
         {
             1 => OrderStatus.Pending,
@@ -60,48 +56,28 @@ public partial class ReportsView : BaseView, INavigationAware
             _ => null
         };
 
-        // 3. Base order set (excluding cancelled from general stats)
-        var allOrders = _store.Orders.Where(o => o.Status != OrderStatus.Cancelled).ToList();
+        var allOrders = _store.Orders
+            .Where(o => o.Status != OrderStatus.Cancelled && (!isTodayOnly || o.CreatedAt.Date == today))
+            .ToList();
 
-        if (isTodayOnly)
-        {
-            allOrders = allOrders.Where(o => o.CreatedAt.Date == today).ToList();
-        }
+        var filteredList = allOrders
+            .Where(o => !selectedStatus.HasValue || o.Status == selectedStatus.Value)
+            .OrderByDescending(o => o.CreatedAt)
+            .ToList();
 
-        // Apply status filter for table breakdown
-        var filteredOrders = allOrders.AsEnumerable();
-        if (selectedStatus.HasValue)
-        {
-            filteredOrders = filteredOrders.Where(o => o.Status == selectedStatus.Value);
-        }
-        var filteredList = filteredOrders.OrderByDescending(o => o.CreatedAt).ToList();
+        // Update KPI summary cards
+        lblTotalOrders.Text = allOrders.Count.ToString();
+        lblPendingOrders.Text = allOrders.Count(o => o.Status == OrderStatus.Pending).ToString();
+        lblPreparingOrders.Text = allOrders.Count(o => o.Status == OrderStatus.Preparing).ToString();
+        lblReadyOrders.Text = allOrders.Count(o => o.Status == OrderStatus.Ready).ToString();
+        lblCompletedOrders.Text = allOrders.Count(o => o.Status == OrderStatus.Completed).ToString();
+        lblCompletedValue.Text = $"{allOrders.Where(o => o.Status == OrderStatus.Completed).Sum(o => o.Total):N0} ETB";
 
-        // 4. Update KPI Summary Cards
-        int totalCount = allOrders.Count;
-        int pendingCount = allOrders.Count(o => o.Status == OrderStatus.Pending);
-        int preparingCount = allOrders.Count(o => o.Status == OrderStatus.Preparing);
-        int readyCount = allOrders.Count(o => o.Status == OrderStatus.Ready);
-        int completedCount = allOrders.Count(o => o.Status == OrderStatus.Completed);
-        decimal completedRevenue = allOrders.Where(o => o.Status == OrderStatus.Completed).Sum(o => o.Total);
-
-        lblTotalOrders.Text = totalCount.ToString();
-        lblPendingOrders.Text = pendingCount.ToString();
-        lblPreparingOrders.Text = preparingCount.ToString();
-        lblReadyOrders.Text = readyCount.ToString();
-        lblCompletedOrders.Text = completedCount.ToString();
-        lblCompletedValue.Text = $"{completedRevenue:N0} ETB";
-
-        // 5. Update Breakdown Subtitle
-        string dateText = isTodayOnly ? "Today" : "All dates";
-        string statusText = selectedStatus.HasValue ? selectedStatus.Value.ToString() : "All Statuses";
-        //lblBreakdownSubtitle.Text = $"{filteredList.Count} orders listed • {dateText} • {statusText}";
-        lblSummaryFooter.Text = string.Empty;
-
-        // 6. Populate Breakdown Table
+        // Populate breakdown table
         dgvSummary.Rows.Clear();
         foreach (var order in filteredList)
         {
-            int rowIndex = dgvSummary.Rows.Add(
+            int row = dgvSummary.Rows.Add(
                 order.OrderNumber.ToString(),
                 order.CustomerName,
                 $"Table {order.TableNumber}",
@@ -109,22 +85,19 @@ public partial class ReportsView : BaseView, INavigationAware
                 $"{order.Total:N0} ETB",
                 order.Status.ToString()
             );
-
-            var row = dgvSummary.Rows[rowIndex];
-            row.Tag = order;
+            dgvSummary.Rows[row].Tag = order;
         }
+
+        lblSummaryFooter.Text = string.Empty;
     }
 
-    private void cboDateFilter_SelectedIndexChanged(object? sender, EventArgs e)
-    {
-        RefreshReports();
-    }
+    // Date filter dropdown changed
+    private void cboDateFilter_SelectedIndexChanged(object? sender, EventArgs e) => RefreshReports();
 
-    private void cboStatusFilter_SelectedIndexChanged(object? sender, EventArgs e)
-    {
-        RefreshReports();
-    }
+    // Status filter dropdown changed
+    private void cboStatusFilter_SelectedIndexChanged(object? sender, EventArgs e) => RefreshReports();
 
+    // Reset report filters
     private void btnClearFilters_Click(object? sender, EventArgs e)
     {
         cboDateFilter.SelectedIndex = 0;
@@ -132,6 +105,7 @@ public partial class ReportsView : BaseView, INavigationAware
         RefreshReports();
     }
 
+    // Double click row to view order details
     private void dgvSummary_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0 && dgvSummary.Rows[e.RowIndex].Tag is Order order)
