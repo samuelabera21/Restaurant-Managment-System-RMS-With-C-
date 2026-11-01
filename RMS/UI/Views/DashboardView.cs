@@ -21,6 +21,8 @@ public partial class DashboardView : BaseView
 
         if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
+        dgvRecentOrders.CellDoubleClick += dgvRecentOrders_CellDoubleClick;
+
         // Auto reload when orders change
         _store.OnOrdersChanged += () =>
         {
@@ -70,15 +72,23 @@ public partial class DashboardView : BaseView
         dgvRecentOrders.ClearSelection();
     }
 
-    // New order button click
-    private void btnNewOrder_Click(object? sender, EventArgs e) => Navigate(ViewType.NewOrder);
-
-    // View all orders link click
-    private void lnkViewAll_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e) => Navigate(ViewType.Orders);
+    // New order button click (Visual Studio Designer)
+    private void btnNewOrder_Click(object sender, EventArgs e)
+    {
+        Navigate(ViewType.NewOrder);
+    }
 
     // Double click recent order row to open orders view
     private void dgvRecentOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex >= 0) Navigate(ViewType.Orders);
+        if (e.RowIndex >= 0)
+        {
+            Navigate(ViewType.Orders);
+        }
+    }
+
+    private void pnlKpiTotal_Paint(object sender, PaintEventArgs e)
+    {
+
     }
 }

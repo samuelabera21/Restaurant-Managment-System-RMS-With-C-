@@ -55,7 +55,7 @@ partial class OrdersView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 114);
+        pnlHeader.Size = new Size(1125, 114);
         pnlHeader.TabIndex = 0;
         // 
         // btnNewOrder
@@ -66,7 +66,7 @@ partial class OrdersView
         btnNewOrder.FlatStyle = FlatStyle.System;
         btnNewOrder.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         btnNewOrder.ForeColor = SystemColors.ControlText;
-        btnNewOrder.Location = new Point(825, 23);
+        btnNewOrder.Location = new Point(878, 23);
         btnNewOrder.Name = "btnNewOrder";
         btnNewOrder.Size = new Size(130, 69);
         btnNewOrder.TabIndex = 1;
@@ -98,7 +98,7 @@ partial class OrdersView
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
         grpFilter.Location = new Point(24, 130);
         grpFilter.Name = "grpFilter";
-        grpFilter.Size = new Size(1072, 165);
+        grpFilter.Size = new Size(1125, 165);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
         // 
@@ -169,7 +169,7 @@ partial class OrdersView
         grpOrdersTable.Location = new Point(24, 295);
         grpOrdersTable.Name = "grpOrdersTable";
         grpOrdersTable.Padding = new Padding(12, 10, 12, 12);
-        grpOrdersTable.Size = new Size(1072, 350);
+        grpOrdersTable.Size = new Size(1125, 461);
         grpOrdersTable.TabIndex = 2;
         grpOrdersTable.TabStop = false;
         // 
@@ -215,7 +215,7 @@ partial class OrdersView
         dgvOrders.RowHeadersWidth = 51;
         dgvOrders.RowTemplate.Height = 36;
         dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvOrders.Size = new Size(1048, 254);
+        dgvOrders.Size = new Size(1101, 365);
         dgvOrders.TabIndex = 0;
         dgvOrders.SelectionChanged += dgvOrders_SelectionChanged;
         // 
@@ -275,10 +275,10 @@ partial class OrdersView
         pnlOrderActions.Controls.Add(btnEditOrder);
         pnlOrderActions.Controls.Add(btnViewDetails);
         pnlOrderActions.Dock = DockStyle.Bottom;
-        pnlOrderActions.Location = new Point(12, 291);
+        pnlOrderActions.Location = new Point(12, 402);
         pnlOrderActions.Name = "pnlOrderActions";
         pnlOrderActions.Padding = new Padding(0, 8, 0, 0);
-        pnlOrderActions.Size = new Size(1048, 47);
+        pnlOrderActions.Size = new Size(1101, 47);
         pnlOrderActions.TabIndex = 1;
         // 
         // btnCancelOrder
@@ -351,7 +351,7 @@ partial class OrdersView
         Controls.Add(pnlHeader);
         Name = "OrdersView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 665);
+        Size = new Size(1173, 776);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);

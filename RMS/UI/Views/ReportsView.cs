@@ -20,7 +20,6 @@ public partial class ReportsView : BaseView, INavigationAware
 
         if (!DesignMode)
         {
-            dgvSummary.CellDoubleClick += dgvSummary_CellDoubleClick;
             cboDateFilter.SelectedIndex = 0;
             cboStatusFilter.SelectedIndex = 0;
 
@@ -92,13 +91,19 @@ public partial class ReportsView : BaseView, INavigationAware
     }
 
     // Date filter dropdown changed
-    private void cboDateFilter_SelectedIndexChanged(object? sender, EventArgs e) => RefreshReports();
+    private void cboDateFilter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        RefreshReports();
+    }
 
     // Status filter dropdown changed
-    private void cboStatusFilter_SelectedIndexChanged(object? sender, EventArgs e) => RefreshReports();
+    private void cboStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        RefreshReports();
+    }
 
     // Reset report filters
-    private void btnClearFilters_Click(object? sender, EventArgs e)
+    private void btnClearFilters_Click(object sender, EventArgs e)
     {
         cboDateFilter.SelectedIndex = 0;
         cboStatusFilter.SelectedIndex = 0;

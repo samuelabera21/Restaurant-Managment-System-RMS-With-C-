@@ -93,13 +93,22 @@ public partial class OrdersView : BaseView
     private Order? GetSelectedOrder() => dgvOrders.CurrentRow?.Tag as Order;
 
     // Navigate to create new order
-    private void btnNewOrder_Click(object sender, EventArgs e) => Navigate(ViewType.NewOrder);
+    private void btnNewOrder_Click(object sender, EventArgs e)
+    {
+        Navigate(ViewType.NewOrder);
+    }
 
     // Live search input change
-    private void txtSearch_TextChanged(object sender, EventArgs e) => ApplyFilters();
+    private void txtSearch_TextChanged(object sender, EventArgs e)
+    {
+        ApplyFilters();
+    }
 
     // Status filter dropdown change
-    private void cboStatus_SelectedIndexChanged(object sender, EventArgs e) => ApplyFilters();
+    private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ApplyFilters();
+    }
 
     // Reset search and filters
     private void btnClearFilters_Click(object sender, EventArgs e)
@@ -110,7 +119,10 @@ public partial class OrdersView : BaseView
     }
 
     // Update button states on selection change
-    private void dgvOrders_SelectionChanged(object sender, EventArgs e) => UpdateActionButtonsState();
+    private void dgvOrders_SelectionChanged(object sender, EventArgs e)
+    {
+        UpdateActionButtonsState();
+    }
 
     // Double click table row to view order details
     private void dgvOrders_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)

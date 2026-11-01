@@ -44,7 +44,7 @@ public partial class MenuItemDialog : Form
     }
 
     // Validate inputs and save menu item
-    private void btnSave_Click(object? sender, EventArgs e)
+    private void btnSave_Click(object sender, EventArgs e)
     {
         string name = txtName.Text.Trim();
         string category = cboCategory.Text.Trim();
@@ -81,9 +81,14 @@ public partial class MenuItemDialog : Form
     }
 
     // Cancel dialog
-    private void btnCancel_Click(object? sender, EventArgs e)
+    private void btnCancel_Click(object sender, EventArgs e)
     {
         DialogResult = DialogResult.Cancel;
         Close();
+    }
+
+    private void chkAvailable_CheckedChanged(object sender, EventArgs e)
+    {
+
     }
 }

@@ -69,16 +69,19 @@ public partial class OrderDetailsView : BaseView, INavigationAware
     }
 
     // Return to orders list
-    private void btnBack_Click(object? sender, EventArgs e) => Navigate(ViewType.Orders);
+    private void btnBack_Click(object sender, EventArgs e)
+    {
+        Navigate(ViewType.Orders);
+    }
 
     // Edit current order
-    private void btnEditOrder_Click(object? sender, EventArgs e)
+    private void btnEditOrder_Click(object sender, EventArgs e)
     {
         if (_currentOrder?.CanEdit == true) Navigate(ViewType.EditOrder, _currentOrder.OrderNumber);
     }
 
     // Cancel current order with confirmation dialog
-    private void btnCancelOrder_Click(object? sender, EventArgs e)
+    private void btnCancelOrder_Click(object sender, EventArgs e)
     {
         if (_currentOrder == null || !_currentOrder.CanCancel) return;
 

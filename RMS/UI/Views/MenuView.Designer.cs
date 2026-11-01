@@ -46,7 +46,7 @@ partial class MenuView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 61);
+        pnlHeader.Size = new Size(1125, 61);
         pnlHeader.TabIndex = 0;
         // 
         // lblTitle
@@ -73,7 +73,7 @@ partial class MenuView
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
         grpFilter.Location = new Point(24, 77);
         grpFilter.Name = "grpFilter";
-        grpFilter.Size = new Size(1072, 117);
+        grpFilter.Size = new Size(1125, 117);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
         // 
@@ -132,6 +132,7 @@ partial class MenuView
         lblSearch.Size = new Size(73, 25);
         lblSearch.TabIndex = 0;
         lblSearch.Text = "Search:";
+        lblSearch.Click += lblSearch_Click;
         // 
         // grpMenuTable
         // 
@@ -143,7 +144,7 @@ partial class MenuView
         grpMenuTable.Location = new Point(24, 194);
         grpMenuTable.Name = "grpMenuTable";
         grpMenuTable.Padding = new Padding(12, 10, 12, 12);
-        grpMenuTable.Size = new Size(1072, 293);
+        grpMenuTable.Size = new Size(1125, 562);
         grpMenuTable.TabIndex = 2;
         grpMenuTable.TabStop = false;
         // 
@@ -189,7 +190,7 @@ partial class MenuView
         dgvMenu.RowHeadersWidth = 51;
         dgvMenu.RowTemplate.Height = 36;
         dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvMenu.Size = new Size(1048, 244);
+        dgvMenu.Size = new Size(1101, 513);
         dgvMenu.TabIndex = 0;
         dgvMenu.CellContentClick += dgvMenu_CellContentClick;
         // 
@@ -245,7 +246,7 @@ partial class MenuView
         Controls.Add(pnlHeader);
         Name = "MenuView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 507);
+        Size = new Size(1173, 776);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);

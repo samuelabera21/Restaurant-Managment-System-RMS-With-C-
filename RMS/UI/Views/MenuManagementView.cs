@@ -22,7 +22,6 @@ public partial class MenuManagementView : BaseView, INavigationAware
 
         if (!DesignMode)
         {
-            dgvMenuItems.CellDoubleClick += dgvMenuItems_CellDoubleClick;
             cboAvailabilityFilter.SelectedIndex = 0;
         }
     }
@@ -91,7 +90,10 @@ public partial class MenuManagementView : BaseView, INavigationAware
     }
 
     // Grid selection change event
-    private void dgvMenuItems_SelectionChanged(object? sender, EventArgs e) => UpdateActionButtons();
+    private void dgvMenuItems_SelectionChanged(object sender, EventArgs e)
+    {
+        UpdateActionButtons();
+    }
 
     // Double click row to edit item
     private void dgvMenuItems_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
@@ -100,7 +102,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
     }
 
     // Open dialog to add new menu item
-    private void btnAddItem_Click(object? sender, EventArgs e)
+    private void btnAddItem_Click(object sender, EventArgs e)
     {
         using var dialog = new MenuItemDialog();
         if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultItem != null)
@@ -112,7 +114,10 @@ public partial class MenuManagementView : BaseView, INavigationAware
     }
 
     // Edit item button click
-    private void btnEditItem_Click(object? sender, EventArgs e) => EditSelectedItem();
+    private void btnEditItem_Click(object sender, EventArgs e)
+    {
+        EditSelectedItem();
+    }
 
     // Open dialog to edit selected menu item
     private void EditSelectedItem()
@@ -130,7 +135,7 @@ public partial class MenuManagementView : BaseView, INavigationAware
     }
 
     // Toggle availability status of selected item
-    private void btnToggleStatus_Click(object? sender, EventArgs e)
+    private void btnToggleStatus_Click(object sender, EventArgs e)
     {
         var item = GetSelectedMenuItem();
         if (item == null) return;
@@ -140,13 +145,19 @@ public partial class MenuManagementView : BaseView, INavigationAware
     }
 
     // Live search text change event
-    private void txtSearch_TextChanged(object? sender, EventArgs e) => RefreshGrid();
+    private void txtSearch_TextChanged(object sender, EventArgs e)
+    {
+        RefreshGrid();
+    }
 
     // Category or availability filter changed
-    private void Filter_Changed(object? sender, EventArgs e) => RefreshGrid();
+    private void Filter_Changed(object sender, EventArgs e)
+    {
+        RefreshGrid();
+    }
 
     // Reset search box and filters
-    private void btnClearSearch_Click(object? sender, EventArgs e)
+    private void btnClearSearch_Click(object sender, EventArgs e)
     {
         txtSearch.Clear();
         cboCategoryFilter.SelectedIndex = 0;

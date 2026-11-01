@@ -54,8 +54,8 @@ public partial class MenuView : BaseView
 
         var items = _store.MenuItems.Where(i =>
             (filter == "All Items" || (filter == "Available" ? i.IsAvailable : !i.IsAvailable)) &&
-            (string.IsNullOrEmpty(query) || 
-             i.Name.Contains(query, StringComparison.OrdinalIgnoreCase) || 
+            (string.IsNullOrEmpty(query) ||
+             i.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
              i.Category.Contains(query, StringComparison.OrdinalIgnoreCase))
         );
 
@@ -70,10 +70,16 @@ public partial class MenuView : BaseView
     }
 
     // Live search text change event
-    private void txtSearch_TextChanged(object sender, EventArgs e) => ApplyFilters();
+    private void txtSearch_TextChanged(object sender, EventArgs e)
+    {
+        ApplyFilters();
+    }
 
     // Availability dropdown change event
-    private void cboAvailability_SelectedIndexChanged(object sender, EventArgs e) => ApplyFilters();
+    private void cboAvailability_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ApplyFilters();
+    }
 
     // Reset search box and filter
     private void btnClearSearch_Click(object sender, EventArgs e)
@@ -105,7 +111,12 @@ public partial class MenuView : BaseView
     private void ShowItemDetails(MenuItem item)
     {
         string status = item.IsAvailable ? "Available" : "Currently Unavailable";
-        MessageBox.Show($"Menu Item: {item.Name}\nCategory: {item.Category}\nPrice: {item.Price:N0} ETB\nStatus: {status}", 
+        MessageBox.Show($"Menu Item: {item.Name}\nCategory: {item.Category}\nPrice: {item.Price:N0} ETB\nStatus: {status}",
             $"Item Details — {item.Name}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void lblSearch_Click(object sender, EventArgs e)
+    {
+
     }
 }

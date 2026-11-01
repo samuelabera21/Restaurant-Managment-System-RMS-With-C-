@@ -55,7 +55,7 @@ partial class MenuManagementView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 65);
+        pnlHeader.Size = new Size(1125, 65);
         pnlHeader.TabIndex = 0;
         // 
         // lblAdminBadge
@@ -63,7 +63,7 @@ partial class MenuManagementView
         lblAdminBadge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblAdminBadge.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         lblAdminBadge.ForeColor = Color.FromArgb(71, 85, 105);
-        lblAdminBadge.Location = new Point(696, 16);
+        lblAdminBadge.Location = new Point(749, 16);
         lblAdminBadge.Name = "lblAdminBadge";
         lblAdminBadge.Size = new Size(250, 24);
         lblAdminBadge.TabIndex = 1;
@@ -96,7 +96,7 @@ partial class MenuManagementView
         grpFilter.ForeColor = Color.FromArgb(15, 23, 42);
         grpFilter.Location = new Point(24, 81);
         grpFilter.Name = "grpFilter";
-        grpFilter.Size = new Size(1072, 153);
+        grpFilter.Size = new Size(1125, 153);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
         // 
@@ -188,7 +188,7 @@ partial class MenuManagementView
         grpMenuItems.Location = new Point(24, 234);
         grpMenuItems.Name = "grpMenuItems";
         grpMenuItems.Padding = new Padding(12, 8, 12, 10);
-        grpMenuItems.Size = new Size(1072, 253);
+        grpMenuItems.Size = new Size(1125, 180);
         grpMenuItems.TabIndex = 2;
         grpMenuItems.TabStop = false;
         // 
@@ -234,8 +234,9 @@ partial class MenuManagementView
         dgvMenuItems.RowHeadersWidth = 51;
         dgvMenuItems.RowTemplate.Height = 36;
         dgvMenuItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvMenuItems.Size = new Size(1048, 95);
+        dgvMenuItems.Size = new Size(1101, 22);
         dgvMenuItems.TabIndex = 1;
+        dgvMenuItems.CellDoubleClick += dgvMenuItems_CellDoubleClick;
         dgvMenuItems.SelectionChanged += dgvMenuItems_SelectionChanged;
         // 
         // colId
@@ -284,9 +285,9 @@ partial class MenuManagementView
         pnlActions.Controls.Add(btnEditItem);
         pnlActions.Controls.Add(btnAddItem);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(12, 130);
+        pnlActions.Location = new Point(12, 57);
         pnlActions.Name = "pnlActions";
-        pnlActions.Size = new Size(1048, 113);
+        pnlActions.Size = new Size(1101, 113);
         pnlActions.TabIndex = 2;
         // 
         // btnToggleStatus
@@ -343,7 +344,7 @@ partial class MenuManagementView
         Controls.Add(pnlHeader);
         Name = "MenuManagementView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 507);
+        Size = new Size(1173, 434);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);

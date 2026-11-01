@@ -174,6 +174,7 @@ partial class StaffMemberDialog
         btnCancel.TabIndex = 1;
         btnCancel.Text = "Cancel";
         btnCancel.UseVisualStyleBackColor = false;
+        btnCancel.Click += btnCancel_Click;
         // 
         // btnSave
         // 

@@ -76,7 +76,7 @@ partial class ReportsView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 63);
+        pnlHeader.Size = new Size(1125, 63);
         pnlHeader.TabIndex = 0;
         // 
         // lblTitle
@@ -103,7 +103,7 @@ partial class ReportsView
         grpFilters.ForeColor = Color.FromArgb(15, 23, 42);
         grpFilters.Location = new Point(24, 79);
         grpFilters.Name = "grpFilters";
-        grpFilters.Size = new Size(1072, 134);
+        grpFilters.Size = new Size(1125, 134);
         grpFilters.TabIndex = 1;
         grpFilters.TabStop = false;
         // 
@@ -175,7 +175,7 @@ partial class ReportsView
         grpSummaryCards.Location = new Point(24, 213);
         grpSummaryCards.Name = "grpSummaryCards";
         grpSummaryCards.Padding = new Padding(12, 8, 12, 10);
-        grpSummaryCards.Size = new Size(1072, 140);
+        grpSummaryCards.Size = new Size(1125, 140);
         grpSummaryCards.TabIndex = 2;
         grpSummaryCards.TabStop = false;
         // 
@@ -197,7 +197,7 @@ partial class ReportsView
         tlpKpi.RowCount = 2;
         tlpKpi.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tlpKpi.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tlpKpi.Size = new Size(1048, 95);
+        tlpKpi.Size = new Size(1101, 95);
         tlpKpi.TabIndex = 0;
         // 
         // pnlKpiTotal
@@ -210,7 +210,7 @@ partial class ReportsView
         pnlKpiTotal.Location = new Point(3, 3);
         pnlKpiTotal.Name = "pnlKpiTotal";
         pnlKpiTotal.Padding = new Padding(8, 4, 8, 4);
-        pnlKpiTotal.Size = new Size(343, 41);
+        pnlKpiTotal.Size = new Size(360, 41);
         pnlKpiTotal.TabIndex = 0;
         // 
         // lblTotalOrders
@@ -219,7 +219,7 @@ partial class ReportsView
         lblTotalOrders.AutoSize = true;
         lblTotalOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblTotalOrders.ForeColor = Color.FromArgb(15, 23, 42);
-        lblTotalOrders.Location = new Point(265, 5);
+        lblTotalOrders.Location = new Point(282, 5);
         lblTotalOrders.Name = "lblTotalOrders";
         lblTotalOrders.Size = new Size(42, 32);
         lblTotalOrders.TabIndex = 1;
@@ -243,10 +243,10 @@ partial class ReportsView
         pnlKpiPending.Controls.Add(lblPendingOrders);
         pnlKpiPending.Controls.Add(lblKpiPendingTitle);
         pnlKpiPending.Dock = DockStyle.Fill;
-        pnlKpiPending.Location = new Point(352, 3);
+        pnlKpiPending.Location = new Point(369, 3);
         pnlKpiPending.Name = "pnlKpiPending";
         pnlKpiPending.Padding = new Padding(8, 4, 8, 4);
-        pnlKpiPending.Size = new Size(343, 41);
+        pnlKpiPending.Size = new Size(360, 41);
         pnlKpiPending.TabIndex = 1;
         // 
         // lblPendingOrders
@@ -255,7 +255,7 @@ partial class ReportsView
         lblPendingOrders.AutoSize = true;
         lblPendingOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblPendingOrders.ForeColor = Color.FromArgb(15, 23, 42);
-        lblPendingOrders.Location = new Point(280, 5);
+        lblPendingOrders.Location = new Point(297, 5);
         lblPendingOrders.Name = "lblPendingOrders";
         lblPendingOrders.Size = new Size(28, 32);
         lblPendingOrders.TabIndex = 1;
@@ -279,10 +279,10 @@ partial class ReportsView
         pnlKpiPreparing.Controls.Add(lblPreparingOrders);
         pnlKpiPreparing.Controls.Add(lblKpiPrepTitle);
         pnlKpiPreparing.Dock = DockStyle.Fill;
-        pnlKpiPreparing.Location = new Point(701, 3);
+        pnlKpiPreparing.Location = new Point(735, 3);
         pnlKpiPreparing.Name = "pnlKpiPreparing";
         pnlKpiPreparing.Padding = new Padding(8, 4, 8, 4);
-        pnlKpiPreparing.Size = new Size(344, 41);
+        pnlKpiPreparing.Size = new Size(363, 41);
         pnlKpiPreparing.TabIndex = 2;
         // 
         // lblPreparingOrders
@@ -291,7 +291,7 @@ partial class ReportsView
         lblPreparingOrders.AutoSize = true;
         lblPreparingOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblPreparingOrders.ForeColor = Color.FromArgb(15, 23, 42);
-        lblPreparingOrders.Location = new Point(280, 5);
+        lblPreparingOrders.Location = new Point(299, 5);
         lblPreparingOrders.Name = "lblPreparingOrders";
         lblPreparingOrders.Size = new Size(28, 32);
         lblPreparingOrders.TabIndex = 1;
@@ -318,7 +318,7 @@ partial class ReportsView
         pnlKpiReady.Location = new Point(3, 50);
         pnlKpiReady.Name = "pnlKpiReady";
         pnlKpiReady.Padding = new Padding(8, 4, 8, 4);
-        pnlKpiReady.Size = new Size(343, 42);
+        pnlKpiReady.Size = new Size(360, 42);
         pnlKpiReady.TabIndex = 3;
         // 
         // lblReadyOrders
@@ -327,7 +327,7 @@ partial class ReportsView
         lblReadyOrders.AutoSize = true;
         lblReadyOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblReadyOrders.ForeColor = Color.FromArgb(15, 23, 42);
-        lblReadyOrders.Location = new Point(280, 5);
+        lblReadyOrders.Location = new Point(297, 5);
         lblReadyOrders.Name = "lblReadyOrders";
         lblReadyOrders.Size = new Size(28, 32);
         lblReadyOrders.TabIndex = 1;
@@ -351,10 +351,10 @@ partial class ReportsView
         pnlKpiCompleted.Controls.Add(lblCompletedOrders);
         pnlKpiCompleted.Controls.Add(lblKpiCompTitle);
         pnlKpiCompleted.Dock = DockStyle.Fill;
-        pnlKpiCompleted.Location = new Point(352, 50);
+        pnlKpiCompleted.Location = new Point(369, 50);
         pnlKpiCompleted.Name = "pnlKpiCompleted";
         pnlKpiCompleted.Padding = new Padding(8, 4, 8, 4);
-        pnlKpiCompleted.Size = new Size(343, 42);
+        pnlKpiCompleted.Size = new Size(360, 42);
         pnlKpiCompleted.TabIndex = 4;
         // 
         // lblCompletedOrders
@@ -363,7 +363,7 @@ partial class ReportsView
         lblCompletedOrders.AutoSize = true;
         lblCompletedOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblCompletedOrders.ForeColor = Color.FromArgb(15, 23, 42);
-        lblCompletedOrders.Location = new Point(280, 5);
+        lblCompletedOrders.Location = new Point(297, 5);
         lblCompletedOrders.Name = "lblCompletedOrders";
         lblCompletedOrders.Size = new Size(28, 32);
         lblCompletedOrders.TabIndex = 1;
@@ -387,10 +387,10 @@ partial class ReportsView
         pnlKpiValue.Controls.Add(lblCompletedValue);
         pnlKpiValue.Controls.Add(lblKpiValTitle);
         pnlKpiValue.Dock = DockStyle.Fill;
-        pnlKpiValue.Location = new Point(701, 50);
+        pnlKpiValue.Location = new Point(735, 50);
         pnlKpiValue.Name = "pnlKpiValue";
         pnlKpiValue.Padding = new Padding(8, 4, 8, 4);
-        pnlKpiValue.Size = new Size(344, 42);
+        pnlKpiValue.Size = new Size(363, 42);
         pnlKpiValue.TabIndex = 5;
         // 
         // lblCompletedValue
@@ -399,7 +399,7 @@ partial class ReportsView
         lblCompletedValue.AutoSize = true;
         lblCompletedValue.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         lblCompletedValue.ForeColor = Color.FromArgb(15, 23, 42);
-        lblCompletedValue.Location = new Point(190, 5);
+        lblCompletedValue.Location = new Point(209, 5);
         lblCompletedValue.Name = "lblCompletedValue";
         lblCompletedValue.Size = new Size(126, 32);
         lblCompletedValue.TabIndex = 1;
@@ -426,7 +426,7 @@ partial class ReportsView
         grpOrderSummary.Location = new Point(24, 353);
         grpOrderSummary.Name = "grpOrderSummary";
         grpOrderSummary.Padding = new Padding(12, 10, 12, 12);
-        grpOrderSummary.Size = new Size(1072, 245);
+        grpOrderSummary.Size = new Size(1125, 388);
         grpOrderSummary.TabIndex = 3;
         grpOrderSummary.TabStop = false;
         // 
@@ -472,8 +472,9 @@ partial class ReportsView
         dgvSummary.RowHeadersWidth = 51;
         dgvSummary.RowTemplate.Height = 36;
         dgvSummary.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvSummary.Size = new Size(1048, 196);
+        dgvSummary.Size = new Size(1101, 339);
         dgvSummary.TabIndex = 1;
+        dgvSummary.CellDoubleClick += dgvSummary_CellDoubleClick;
         // 
         // colOrderNum
         // 
@@ -542,7 +543,7 @@ partial class ReportsView
         Controls.Add(pnlHeader);
         Name = "ReportsView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 618);
+        Size = new Size(1173, 761);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilters.ResumeLayout(false);

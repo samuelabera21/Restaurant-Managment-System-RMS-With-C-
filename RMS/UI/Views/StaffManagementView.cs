@@ -22,7 +22,6 @@ public partial class StaffManagementView : BaseView, INavigationAware
 
         if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
-        dgvStaff.CellDoubleClick += dgvStaff_CellDoubleClick;
         _store.OnStaffChanged += RefreshStaffGrid;
     }
 
@@ -68,7 +67,10 @@ public partial class StaffManagementView : BaseView, INavigationAware
     }
 
     // Grid selection change event
-    private void dgvStaff_SelectionChanged(object? sender, EventArgs e) => UpdateActionButtons();
+    private void dgvStaff_SelectionChanged(object sender, EventArgs e)
+    {
+        UpdateActionButtons();
+    }
 
     // Double click row to edit
     private void dgvStaff_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
@@ -77,7 +79,7 @@ public partial class StaffManagementView : BaseView, INavigationAware
     }
 
     // Open dialog to register new waiter
-    private void btnAddStaff_Click(object? sender, EventArgs e)
+    private void btnAddStaff_Click(object sender, EventArgs e)
     {
         using var dialog = new StaffMemberDialog();
         if (dialog.ShowDialog(FindForm()) == DialogResult.OK && dialog.ResultStaff != null)
@@ -88,7 +90,10 @@ public partial class StaffManagementView : BaseView, INavigationAware
     }
 
     // Edit staff button click
-    private void btnEditStaff_Click(object? sender, EventArgs e) => EditSelectedStaff();
+    private void btnEditStaff_Click(object sender, EventArgs e)
+    {
+        EditSelectedStaff();
+    }
 
     // Open dialog to edit selected waiter
     private void EditSelectedStaff()
@@ -105,7 +110,7 @@ public partial class StaffManagementView : BaseView, INavigationAware
     }
 
     // Toggle active status for selected waiter
-    private void btnToggleStatus_Click(object? sender, EventArgs e)
+    private void btnToggleStatus_Click(object sender, EventArgs e)
     {
         var staff = GetSelectedStaff();
         if (staff == null || staff.Role == "Manager") return;
@@ -115,10 +120,13 @@ public partial class StaffManagementView : BaseView, INavigationAware
     }
 
     // Live search input change
-    private void txtSearch_TextChanged(object? sender, EventArgs e) => RefreshStaffGrid();
+    private void txtSearch_TextChanged(object sender, EventArgs e)
+    {
+        RefreshStaffGrid();
+    }
 
     // Reset search box
-    private void btnClearSearch_Click(object? sender, EventArgs e)
+    private void btnClearSearch_Click(object sender, EventArgs e)
     {
         txtSearch.Clear();
         txtSearch.Focus();

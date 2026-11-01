@@ -17,102 +17,110 @@ partial class MenuItemDialog
 
     private void InitializeComponent()
     {
-        lblTitle = new System.Windows.Forms.Label();
-        lblSubtitle = new System.Windows.Forms.Label();
-        lblName = new System.Windows.Forms.Label();
-        txtName = new System.Windows.Forms.TextBox();
-        lblCategory = new System.Windows.Forms.Label();
-        cboCategory = new System.Windows.Forms.ComboBox();
-        lblPrice = new System.Windows.Forms.Label();
-        numPrice = new System.Windows.Forms.NumericUpDown();
-        chkAvailable = new System.Windows.Forms.CheckBox();
-        lblError = new System.Windows.Forms.Label();
-        btnCancel = new System.Windows.Forms.Button();
-        btnSave = new System.Windows.Forms.Button();
+        lblTitle = new Label();
+        lblSubtitle = new Label();
+        lblName = new Label();
+        txtName = new TextBox();
+        lblCategory = new Label();
+        cboCategory = new ComboBox();
+        lblPrice = new Label();
+        numPrice = new NumericUpDown();
+        chkAvailable = new CheckBox();
+        lblError = new Label();
+        btnCancel = new Button();
+        btnSave = new Button();
         ((System.ComponentModel.ISupportInitialize)numPrice).BeginInit();
         SuspendLayout();
         // 
         // lblTitle
         // 
         lblTitle.AutoSize = true;
-        lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-        lblTitle.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        lblTitle.Location = new System.Drawing.Point(22, 14);
+        lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+        lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
+        lblTitle.Location = new Point(28, 18);
+        lblTitle.Margin = new Padding(4, 0, 4, 0);
         lblTitle.Name = "lblTitle";
-        lblTitle.Size = new System.Drawing.Size(152, 28);
+        lblTitle.Size = new Size(190, 32);
         lblTitle.TabIndex = 0;
         lblTitle.Text = "Edit Menu Item";
         // 
         // lblSubtitle
         // 
         lblSubtitle.AutoSize = true;
-        lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        lblSubtitle.ForeColor = System.Drawing.SystemColors.GrayText;
-        lblSubtitle.Location = new System.Drawing.Point(24, 44);
+        lblSubtitle.Font = new Font("Segoe UI", 9F);
+        lblSubtitle.ForeColor = SystemColors.GrayText;
+        lblSubtitle.Location = new Point(30, 55);
+        lblSubtitle.Margin = new Padding(4, 0, 4, 0);
         lblSubtitle.Name = "lblSubtitle";
-        lblSubtitle.Size = new System.Drawing.Size(325, 20);
+        lblSubtitle.Size = new Size(395, 25);
         lblSubtitle.TabIndex = 1;
         lblSubtitle.Text = "Configure item name, category, price, and status";
         // 
         // lblName
         // 
         lblName.AutoSize = true;
-        lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-        lblName.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        lblName.Location = new System.Drawing.Point(24, 82);
+        lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblName.ForeColor = Color.FromArgb(15, 23, 42);
+        lblName.Location = new Point(30, 102);
+        lblName.Margin = new Padding(4, 0, 4, 0);
         lblName.Name = "lblName";
-        lblName.Size = new System.Drawing.Size(96, 20);
+        lblName.Size = new Size(119, 25);
         lblName.TabIndex = 2;
         lblName.Text = "Item Name *";
         // 
         // txtName
         // 
-        txtName.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        txtName.Location = new System.Drawing.Point(24, 106);
+        txtName.Font = new Font("Segoe UI", 9.5F);
+        txtName.Location = new Point(30, 132);
+        txtName.Margin = new Padding(4, 4, 4, 4);
         txtName.Name = "txtName";
-        txtName.Size = new System.Drawing.Size(412, 29);
+        txtName.Size = new Size(514, 33);
         txtName.TabIndex = 3;
         // 
         // lblCategory
         // 
         lblCategory.AutoSize = true;
-        lblCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-        lblCategory.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        lblCategory.Location = new System.Drawing.Point(24, 148);
+        lblCategory.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblCategory.ForeColor = Color.FromArgb(15, 23, 42);
+        lblCategory.Location = new Point(30, 185);
+        lblCategory.Margin = new Padding(4, 0, 4, 0);
         lblCategory.Name = "lblCategory";
-        lblCategory.Size = new System.Drawing.Size(83, 20);
+        lblCategory.Size = new Size(103, 25);
         lblCategory.TabIndex = 4;
         lblCategory.Text = "Category *";
         // 
         // cboCategory
         // 
-        cboCategory.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        cboCategory.Font = new Font("Segoe UI", 9.5F);
         cboCategory.FormattingEnabled = true;
         cboCategory.Items.AddRange(new object[] { "Beverage", "Drinks", "Main Course", "Traditional", "Fast Food", "Side Dish", "Dessert" });
-        cboCategory.Location = new System.Drawing.Point(24, 172);
+        cboCategory.Location = new Point(30, 215);
+        cboCategory.Margin = new Padding(4, 4, 4, 4);
         cboCategory.Name = "cboCategory";
-        cboCategory.Size = new System.Drawing.Size(412, 29);
+        cboCategory.Size = new Size(514, 33);
         cboCategory.TabIndex = 5;
         // 
         // lblPrice
         // 
         lblPrice.AutoSize = true;
-        lblPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-        lblPrice.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        lblPrice.Location = new System.Drawing.Point(24, 214);
+        lblPrice.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        lblPrice.ForeColor = Color.FromArgb(15, 23, 42);
+        lblPrice.Location = new Point(30, 268);
+        lblPrice.Margin = new Padding(4, 0, 4, 0);
         lblPrice.Name = "lblPrice";
-        lblPrice.Size = new System.Drawing.Size(92, 20);
+        lblPrice.Size = new Size(119, 25);
         lblPrice.TabIndex = 6;
         lblPrice.Text = "Price (ETB) *";
         // 
         // numPrice
         // 
-        numPrice.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        numPrice.Location = new System.Drawing.Point(24, 238);
+        numPrice.Font = new Font("Segoe UI", 9.5F);
+        numPrice.Location = new Point(30, 298);
+        numPrice.Margin = new Padding(4, 4, 4, 4);
         numPrice.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
         numPrice.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numPrice.Name = "numPrice";
-        numPrice.Size = new System.Drawing.Size(180, 29);
+        numPrice.Size = new Size(225, 33);
         numPrice.TabIndex = 7;
         numPrice.Value = new decimal(new int[] { 50, 0, 0, 0 });
         // 
@@ -120,36 +128,40 @@ partial class MenuItemDialog
         // 
         chkAvailable.AutoSize = true;
         chkAvailable.Checked = true;
-        chkAvailable.CheckState = System.Windows.Forms.CheckState.Checked;
-        chkAvailable.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-        chkAvailable.ForeColor = System.Drawing.Color.FromArgb(15, 23, 42);
-        chkAvailable.Location = new System.Drawing.Point(234, 240);
+        chkAvailable.CheckState = CheckState.Checked;
+        chkAvailable.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        chkAvailable.ForeColor = Color.FromArgb(15, 23, 42);
+        chkAvailable.Location = new Point(292, 300);
+        chkAvailable.Margin = new Padding(4, 4, 4, 4);
         chkAvailable.Name = "chkAvailable";
-        chkAvailable.Size = new System.Drawing.Size(183, 24);
+        chkAvailable.Size = new Size(225, 29);
         chkAvailable.TabIndex = 8;
         chkAvailable.Text = "Available for ordering";
         chkAvailable.UseVisualStyleBackColor = true;
+        chkAvailable.CheckedChanged += chkAvailable_CheckedChanged;
         // 
         // lblError
         // 
         lblError.AutoSize = true;
-        lblError.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-        lblError.ForeColor = System.Drawing.Color.Red;
-        lblError.Location = new System.Drawing.Point(24, 276);
+        lblError.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+        lblError.ForeColor = Color.Red;
+        lblError.Location = new Point(30, 345);
+        lblError.Margin = new Padding(4, 0, 4, 0);
         lblError.Name = "lblError";
-        lblError.Size = new System.Drawing.Size(187, 19);
+        lblError.Size = new Size(233, 23);
         lblError.TabIndex = 9;
         lblError.Text = "Please enter valid item data";
         lblError.Visible = false;
         // 
         // btnCancel
         // 
-        btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-        btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        btnCancel.Location = new System.Drawing.Point(218, 308);
+        btnCancel.DialogResult = DialogResult.Cancel;
+        btnCancel.FlatStyle = FlatStyle.System;
+        btnCancel.Font = new Font("Segoe UI", 9F);
+        btnCancel.Location = new Point(272, 385);
+        btnCancel.Margin = new Padding(4, 4, 4, 4);
         btnCancel.Name = "btnCancel";
-        btnCancel.Size = new System.Drawing.Size(100, 36);
+        btnCancel.Size = new Size(125, 45);
         btnCancel.TabIndex = 10;
         btnCancel.Text = "Cancel";
         btnCancel.UseVisualStyleBackColor = true;
@@ -157,11 +169,12 @@ partial class MenuItemDialog
         // 
         // btnSave
         // 
-        btnSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
-        btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        btnSave.Location = new System.Drawing.Point(326, 308);
+        btnSave.FlatStyle = FlatStyle.System;
+        btnSave.Font = new Font("Segoe UI", 9F);
+        btnSave.Location = new Point(408, 385);
+        btnSave.Margin = new Padding(4, 4, 4, 4);
         btnSave.Name = "btnSave";
-        btnSave.Size = new System.Drawing.Size(110, 36);
+        btnSave.Size = new Size(138, 45);
         btnSave.TabIndex = 11;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -170,10 +183,10 @@ partial class MenuItemDialog
         // MenuItemDialog
         // 
         AcceptButton = btnSave;
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        AutoScaleDimensions = new SizeF(10F, 25F);
+        AutoScaleMode = AutoScaleMode.Font;
         CancelButton = btnCancel;
-        ClientSize = new System.Drawing.Size(460, 360);
+        ClientSize = new Size(575, 450);
         Controls.Add(btnSave);
         Controls.Add(btnCancel);
         Controls.Add(lblError);
@@ -186,12 +199,13 @@ partial class MenuItemDialog
         Controls.Add(lblName);
         Controls.Add(lblSubtitle);
         Controls.Add(lblTitle);
-        FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        Margin = new Padding(4, 4, 4, 4);
         MaximizeBox = false;
         MinimizeBox = false;
         Name = "MenuItemDialog";
         ShowInTaskbar = false;
-        StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Menu Item";
         ((System.ComponentModel.ISupportInitialize)numPrice).EndInit();
         ResumeLayout(false);

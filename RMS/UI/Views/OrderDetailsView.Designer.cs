@@ -60,7 +60,7 @@ partial class OrderDetailsView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 100);
+        pnlHeader.Size = new Size(1125, 100);
         pnlHeader.TabIndex = 0;
         // 
         // btnBack
@@ -70,7 +70,7 @@ partial class OrderDetailsView
         btnBack.Cursor = Cursors.Hand;
         btnBack.FlatStyle = FlatStyle.System;
         btnBack.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        btnBack.Location = new Point(804, 15);
+        btnBack.Location = new Point(857, 15);
         btnBack.Name = "btnBack";
         btnBack.Size = new Size(160, 52);
         btnBack.TabIndex = 2;
@@ -109,7 +109,7 @@ partial class OrderDetailsView
         grpOrderInfo.Location = new Point(24, 116);
         grpOrderInfo.Name = "grpOrderInfo";
         grpOrderInfo.Padding = new Padding(16, 12, 16, 12);
-        grpOrderInfo.Size = new Size(1072, 225);
+        grpOrderInfo.Size = new Size(1125, 225);
         grpOrderInfo.TabIndex = 1;
         grpOrderInfo.TabStop = false;
         // 
@@ -245,7 +245,7 @@ partial class OrderDetailsView
         grpOrderItems.Location = new Point(24, 341);
         grpOrderItems.Name = "grpOrderItems";
         grpOrderItems.Padding = new Padding(16, 12, 16, 12);
-        grpOrderItems.Size = new Size(1072, 239);
+        grpOrderItems.Size = new Size(1125, 314);
         grpOrderItems.TabIndex = 2;
         grpOrderItems.TabStop = false;
         // 
@@ -291,7 +291,7 @@ partial class OrderDetailsView
         dgvItems.RowHeadersWidth = 51;
         dgvItems.RowTemplate.Height = 36;
         dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvItems.Size = new Size(1040, 138);
+        dgvItems.Size = new Size(1093, 213);
         dgvItems.TabIndex = 0;
         // 
         // colItemName
@@ -330,9 +330,9 @@ partial class OrderDetailsView
         // 
         pnlItemsFooter.Controls.Add(lblTotalAmount);
         pnlItemsFooter.Dock = DockStyle.Bottom;
-        pnlItemsFooter.Location = new Point(16, 177);
+        pnlItemsFooter.Location = new Point(16, 252);
         pnlItemsFooter.Name = "pnlItemsFooter";
-        pnlItemsFooter.Size = new Size(1040, 50);
+        pnlItemsFooter.Size = new Size(1093, 50);
         pnlItemsFooter.TabIndex = 1;
         // 
         // lblTotalAmount
@@ -340,7 +340,7 @@ partial class OrderDetailsView
         lblTotalAmount.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblTotalAmount.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
         lblTotalAmount.ForeColor = Color.FromArgb(30, 58, 95);
-        lblTotalAmount.Location = new Point(696, 8);
+        lblTotalAmount.Location = new Point(749, 8);
         lblTotalAmount.Name = "lblTotalAmount";
         lblTotalAmount.Size = new Size(344, 34);
         lblTotalAmount.TabIndex = 1;
@@ -353,9 +353,9 @@ partial class OrderDetailsView
         pnlActions.Controls.Add(btnCancelOrder);
         pnlActions.Controls.Add(btnEditOrder);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(24, 580);
+        pnlActions.Location = new Point(24, 655);
         pnlActions.Name = "pnlActions";
-        pnlActions.Size = new Size(1072, 65);
+        pnlActions.Size = new Size(1125, 65);
         pnlActions.TabIndex = 3;
         // 
         // btnCancelOrder
@@ -398,7 +398,7 @@ partial class OrderDetailsView
         Controls.Add(pnlHeader);
         Name = "OrderDetailsView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 665);
+        Size = new Size(1173, 740);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpOrderInfo.ResumeLayout(false);

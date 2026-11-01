@@ -50,7 +50,7 @@ partial class StaffManagementView
         pnlHeader.Location = new Point(33, 20);
         pnlHeader.Margin = new Padding(4);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1054, 61);
+        pnlHeader.Size = new Size(1107, 61);
         pnlHeader.TabIndex = 0;
         // 
         // lblTitle
@@ -78,7 +78,7 @@ partial class StaffManagementView
         grpFilter.Margin = new Padding(4);
         grpFilter.Name = "grpFilter";
         grpFilter.Padding = new Padding(16, 10, 16, 12);
-        grpFilter.Size = new Size(1054, 134);
+        grpFilter.Size = new Size(1107, 134);
         grpFilter.TabIndex = 1;
         grpFilter.TabStop = false;
         // 
@@ -132,7 +132,7 @@ partial class StaffManagementView
         grpStaffTable.Margin = new Padding(4);
         grpStaffTable.Name = "grpStaffTable";
         grpStaffTable.Padding = new Padding(16, 10, 16, 12);
-        grpStaffTable.Size = new Size(1054, 245);
+        grpStaffTable.Size = new Size(1107, 652);
         grpStaffTable.TabIndex = 2;
         grpStaffTable.TabStop = false;
         // 
@@ -180,8 +180,9 @@ partial class StaffManagementView
         dgvStaff.RowHeadersWidth = 51;
         dgvStaff.RowTemplate.Height = 36;
         dgvStaff.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvStaff.Size = new Size(1022, 87);
+        dgvStaff.Size = new Size(1075, 494);
         dgvStaff.TabIndex = 0;
+        dgvStaff.CellDoubleClick += dgvStaff_CellDoubleClick;
         dgvStaff.SelectionChanged += dgvStaff_SelectionChanged;
         // 
         // colId
@@ -230,10 +231,10 @@ partial class StaffManagementView
         pnlStaffActions.Controls.Add(btnEditStaff);
         pnlStaffActions.Controls.Add(btnAddStaff);
         pnlStaffActions.Dock = DockStyle.Bottom;
-        pnlStaffActions.Location = new Point(16, 123);
+        pnlStaffActions.Location = new Point(16, 530);
         pnlStaffActions.Margin = new Padding(4);
         pnlStaffActions.Name = "pnlStaffActions";
-        pnlStaffActions.Size = new Size(1022, 110);
+        pnlStaffActions.Size = new Size(1075, 110);
         pnlStaffActions.TabIndex = 1;
         // 
         // btnToggleStatus
@@ -244,7 +245,7 @@ partial class StaffManagementView
         btnToggleStatus.Enabled = false;
         btnToggleStatus.FlatStyle = FlatStyle.System;
         btnToggleStatus.Font = new Font("Segoe UI", 9F);
-        btnToggleStatus.Location = new Point(149, 22);
+        btnToggleStatus.Location = new Point(202, 22);
         btnToggleStatus.Margin = new Padding(4);
         btnToggleStatus.Name = "btnToggleStatus";
         btnToggleStatus.Size = new Size(179, 71);
@@ -261,7 +262,7 @@ partial class StaffManagementView
         btnEditStaff.Enabled = false;
         btnEditStaff.FlatStyle = FlatStyle.System;
         btnEditStaff.Font = new Font("Segoe UI", 9F);
-        btnEditStaff.Location = new Point(451, 22);
+        btnEditStaff.Location = new Point(504, 22);
         btnEditStaff.Margin = new Padding(4);
         btnEditStaff.Name = "btnEditStaff";
         btnEditStaff.Size = new Size(151, 71);
@@ -278,7 +279,7 @@ partial class StaffManagementView
         btnAddStaff.FlatStyle = FlatStyle.System;
         btnAddStaff.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
         btnAddStaff.ForeColor = SystemColors.ControlText;
-        btnAddStaff.Location = new Point(792, 22);
+        btnAddStaff.Location = new Point(845, 22);
         btnAddStaff.Margin = new Padding(4);
         btnAddStaff.Name = "btnAddStaff";
         btnAddStaff.Size = new Size(176, 71);
@@ -298,7 +299,7 @@ partial class StaffManagementView
         Margin = new Padding(4);
         Name = "StaffManagementView";
         Padding = new Padding(33, 20, 33, 25);
-        Size = new Size(1120, 485);
+        Size = new Size(1173, 892);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpFilter.ResumeLayout(false);

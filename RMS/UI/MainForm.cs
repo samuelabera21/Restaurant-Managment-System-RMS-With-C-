@@ -67,7 +67,7 @@ public partial class MainForm : Form
         _store.CurrentUser = null;
         pnlContentHost.Controls.Clear();
         Hide();
-
+//call the login form here
         using var login = new LoginDialog();
         if (login.ShowDialog() == DialogResult.OK && _store.CurrentUser != null)
         {
@@ -160,16 +160,43 @@ public partial class MainForm : Form
     public void SetStatus(string message) { }
 
     // Sidebar navigation button clicks
-    private void btnNavDashboard_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Dashboard);
-    private void btnNavMenu_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Menu);
-    private void btnNavNewOrder_Click(object? sender, EventArgs e) => NavigateTo(ViewType.NewOrder);
-    private void btnNavOrders_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Orders);
-    private void btnNavReports_Click(object? sender, EventArgs e) => NavigateTo(ViewType.Reports);
-    private void btnNavManageMenu_Click(object? sender, EventArgs e) => NavigateTo(ViewType.MenuManagement);
-    private void btnNavManageStaff_Click(object? sender, EventArgs e) => NavigateTo(ViewType.StaffManagement);
+    private void btnNavDashboard_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.Dashboard);
+    }
+
+    private void btnNavMenu_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.Menu);
+    }
+
+    private void btnNavNewOrder_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.NewOrder);
+    }
+
+    private void btnNavOrders_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.Orders);
+    }
+
+    private void btnNavReports_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.Reports);
+    }
+
+    private void btnNavManageMenu_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.MenuManagement);
+    }
+
+    private void btnNavManageStaff_Click(object sender, EventArgs e)
+    {
+        NavigateTo(ViewType.StaffManagement);
+    }
 
     // Sign out button click
-    private void btnLogout_Click(object? sender, EventArgs e)
+    private void btnLogout_Click(object sender, EventArgs e)
     {
         if (MessageBox.Show("Are you sure you want to sign out?", "Sign Out",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -179,7 +206,7 @@ public partial class MainForm : Form
     }
 
     // Exit application button click
-    private void btnExit_Click(object? sender, EventArgs e)
+    private void btnExit_Click(object sender, EventArgs e)
     {
         if (MessageBox.Show("Are you sure you want to exit ዉለታ Restaurant RMS?", "Exit Application",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

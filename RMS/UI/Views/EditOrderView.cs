@@ -132,7 +132,7 @@ public partial class EditOrderView : BaseView, INavigationAware
     }
 
     // Remove item from edited order
-    private void dgvItems_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+    private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0 && !_isOrderCompleted && e.ColumnIndex == colAction.Index && dgvItems.Rows[e.RowIndex].Tag is OrderItem item)
         {
@@ -195,19 +195,31 @@ public partial class EditOrderView : BaseView, INavigationAware
     }
 
     // Input changed handler
-    private void Input_Changed(object? sender, EventArgs e) => MarkDirty();
+    private void Input_Changed(object sender, EventArgs e)
+    {
+        MarkDirty();
+    }
 
     // Add item button click
-    private void btnAddItem_Click(object? sender, EventArgs e) => AddSelectedItem();
+    private void btnAddItem_Click(object sender, EventArgs e)
+    {
+        AddSelectedItem();
+    }
 
     // Save changes button click
-    private void btnSaveChanges_Click(object? sender, EventArgs e) => SaveChanges();
+    private void btnSaveChanges_Click(object sender, EventArgs e)
+    {
+        SaveChanges();
+    }
 
     // Cancel changes button click
-    private void btnCancelChanges_Click(object? sender, EventArgs e) => CancelChanges();
+    private void btnCancelChanges_Click(object sender, EventArgs e)
+    {
+        CancelChanges();
+    }
 
     // Return to order details button click
-    private void btnBackToDetails_Click(object? sender, EventArgs e)
+    private void btnBackToDetails_Click(object sender, EventArgs e)
     {
         if (_originalOrder != null) Navigate(ViewType.OrderDetails, _originalOrder.OrderNumber);
     }

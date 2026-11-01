@@ -15,9 +15,9 @@ partial class EditOrderView
 
     private void InitializeComponent()
     {
-        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-        DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
         pnlHeader = new Panel();
         lblSubheaderContext = new Label();
         lblTitle = new Label();
@@ -70,7 +70,7 @@ partial class EditOrderView
         pnlHeader.Dock = DockStyle.Top;
         pnlHeader.Location = new Point(24, 16);
         pnlHeader.Name = "pnlHeader";
-        pnlHeader.Size = new Size(1072, 67);
+        pnlHeader.Size = new Size(1125, 67);
         pnlHeader.TabIndex = 0;
         // 
         // lblSubheaderContext
@@ -78,7 +78,7 @@ partial class EditOrderView
         lblSubheaderContext.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblSubheaderContext.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
         lblSubheaderContext.ForeColor = Color.FromArgb(71, 85, 105);
-        lblSubheaderContext.Location = new Point(463, 10);
+        lblSubheaderContext.Location = new Point(516, 10);
         lblSubheaderContext.Name = "lblSubheaderContext";
         lblSubheaderContext.Size = new Size(450, 44);
         lblSubheaderContext.TabIndex = 2;
@@ -115,7 +115,7 @@ partial class EditOrderView
         grpOrderInfo.Location = new Point(24, 83);
         grpOrderInfo.Name = "grpOrderInfo";
         grpOrderInfo.Padding = new Padding(16, 10, 16, 12);
-        grpOrderInfo.Size = new Size(1072, 157);
+        grpOrderInfo.Size = new Size(1125, 157);
         grpOrderInfo.TabIndex = 2;
         grpOrderInfo.TabStop = false;
         // 
@@ -244,7 +244,7 @@ partial class EditOrderView
         grpAddItems.Location = new Point(24, 240);
         grpAddItems.Name = "grpAddItems";
         grpAddItems.Padding = new Padding(16, 10, 16, 12);
-        grpAddItems.Size = new Size(1072, 126);
+        grpAddItems.Size = new Size(1125, 126);
         grpAddItems.TabIndex = 3;
         grpAddItems.TabStop = false;
         // 
@@ -314,7 +314,7 @@ partial class EditOrderView
         grpOrderItems.Location = new Point(24, 366);
         grpOrderItems.Name = "grpOrderItems";
         grpOrderItems.Padding = new Padding(16, 10, 16, 12);
-        grpOrderItems.Size = new Size(1072, 61);
+        grpOrderItems.Size = new Size(1125, 294);
         grpOrderItems.TabIndex = 4;
         grpOrderItems.TabStop = false;
         grpOrderItems.Text = "Order Items";
@@ -324,32 +324,32 @@ partial class EditOrderView
         dgvItems.AllowUserToAddRows = false;
         dgvItems.AllowUserToDeleteRows = false;
         dgvItems.AllowUserToResizeRows = false;
-        dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
-        dgvItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+        dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 250, 252);
+        dgvItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
         dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvItems.BackgroundColor = Color.White;
         dgvItems.BorderStyle = BorderStyle.Fixed3D;
         dgvItems.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle2.BackColor = Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        dataGridViewCellStyle2.ForeColor = Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.Padding = new Padding(4, 6, 4, 6);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(241, 245, 249);
-        dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(30, 41, 59);
-        dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-        dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+        dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle5.BackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        dataGridViewCellStyle5.ForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle5.Padding = new Padding(4, 6, 4, 6);
+        dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(241, 245, 249);
+        dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(30, 41, 59);
+        dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+        dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
         dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dgvItems.Columns.AddRange(new DataGridViewColumn[] { colItemName, colUnitPrice, colQuantity, colSubtotal, colAction });
-        dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-        dataGridViewCellStyle3.BackColor = Color.White;
-        dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
-        dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.Padding = new Padding(4);
-        dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(219, 234, 254);
-        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(15, 23, 42);
-        dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-        dgvItems.DefaultCellStyle = dataGridViewCellStyle3;
+        dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle6.BackColor = Color.White;
+        dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F);
+        dataGridViewCellStyle6.ForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle6.Padding = new Padding(4);
+        dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(219, 234, 254);
+        dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(15, 23, 42);
+        dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+        dgvItems.DefaultCellStyle = dataGridViewCellStyle6;
         dgvItems.Dock = DockStyle.Fill;
         dgvItems.EnableHeadersVisualStyles = false;
         dgvItems.GridColor = Color.FromArgb(226, 232, 240);
@@ -361,7 +361,7 @@ partial class EditOrderView
         dgvItems.RowHeadersWidth = 51;
         dgvItems.RowTemplate.Height = 36;
         dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvItems.Size = new Size(1040, 0);
+        dgvItems.Size = new Size(1093, 200);
         dgvItems.TabIndex = 0;
         dgvItems.CellContentClick += dgvItems_CellContentClick;
         // 
@@ -411,9 +411,9 @@ partial class EditOrderView
         // 
         pnlItemsFooter.Controls.Add(lblTotalAmount);
         pnlItemsFooter.Dock = DockStyle.Bottom;
-        pnlItemsFooter.Location = new Point(16, 4);
+        pnlItemsFooter.Location = new Point(16, 237);
         pnlItemsFooter.Name = "pnlItemsFooter";
-        pnlItemsFooter.Size = new Size(1040, 45);
+        pnlItemsFooter.Size = new Size(1093, 45);
         pnlItemsFooter.TabIndex = 1;
         // 
         // lblTotalAmount
@@ -421,7 +421,7 @@ partial class EditOrderView
         lblTotalAmount.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblTotalAmount.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
         lblTotalAmount.ForeColor = Color.FromArgb(30, 58, 95);
-        lblTotalAmount.Location = new Point(696, 6);
+        lblTotalAmount.Location = new Point(749, 6);
         lblTotalAmount.Name = "lblTotalAmount";
         lblTotalAmount.Size = new Size(344, 34);
         lblTotalAmount.TabIndex = 1;
@@ -435,9 +435,9 @@ partial class EditOrderView
         pnlActions.Controls.Add(btnCancelChanges);
         pnlActions.Controls.Add(btnSaveChanges);
         pnlActions.Dock = DockStyle.Bottom;
-        pnlActions.Location = new Point(24, 427);
+        pnlActions.Location = new Point(24, 660);
         pnlActions.Name = "pnlActions";
-        pnlActions.Size = new Size(1072, 60);
+        pnlActions.Size = new Size(1125, 60);
         pnlActions.TabIndex = 5;
         // 
         // btnBackToDetails
@@ -447,7 +447,7 @@ partial class EditOrderView
         btnBackToDetails.Cursor = Cursors.Hand;
         btnBackToDetails.FlatStyle = FlatStyle.System;
         btnBackToDetails.Font = new Font("Segoe UI", 9.5F);
-        btnBackToDetails.Location = new Point(779, 12);
+        btnBackToDetails.Location = new Point(832, 12);
         btnBackToDetails.Name = "btnBackToDetails";
         btnBackToDetails.Size = new Size(240, 36);
         btnBackToDetails.TabIndex = 2;
@@ -495,7 +495,7 @@ partial class EditOrderView
         Controls.Add(pnlHeader);
         Name = "EditOrderView";
         Padding = new Padding(24, 16, 24, 20);
-        Size = new Size(1120, 507);
+        Size = new Size(1173, 740);
         pnlHeader.ResumeLayout(false);
         pnlHeader.PerformLayout();
         grpOrderInfo.ResumeLayout(false);

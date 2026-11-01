@@ -57,7 +57,7 @@ public class StaffPersistenceService
             {
                 Directory.CreateDirectory(directory);
             }
-
+//save staff in json here
             string json = JsonSerializer.Serialize(staff, JsonOptions);
             File.WriteAllText(_filePath, json);
         }

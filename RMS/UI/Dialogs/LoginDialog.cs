@@ -31,6 +31,7 @@ public partial class LoginDialog : Form
 
         var staff = _store.AuthenticateStaff(staffId);
         if (staff == null)
+        //
         {
             ShowError("Invalid Staff ID. Account not found or inactive.");
             return;

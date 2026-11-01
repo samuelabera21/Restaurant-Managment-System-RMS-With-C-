@@ -39,7 +39,7 @@ public partial class StaffMemberDialog : Form
     }
 
     // Validate inputs and save waiter details
-    private void btnSave_Click(object? sender, EventArgs e)
+    private void btnSave_Click(object sender, EventArgs e)
     {
         string name = txtFullName.Text.Trim();
         if (string.IsNullOrWhiteSpace(name))
@@ -68,8 +68,15 @@ public partial class StaffMemberDialog : Form
         Close();
     }
 
+    // Cancel dialog
+    private void btnCancel_Click(object sender, EventArgs e)
+    {
+        DialogResult = DialogResult.Cancel;
+        Close();
+    }
+
     // Reset error styling on name input changed
-    private void txtFullName_TextChanged(object? sender, EventArgs e)
+    private void txtFullName_TextChanged(object sender, EventArgs e)
     {
         txtFullName.BackColor = Color.White;
         if (lblError.Visible) lblError.Visible = false;

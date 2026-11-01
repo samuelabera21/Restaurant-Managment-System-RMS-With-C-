@@ -244,7 +244,10 @@ public partial class NewOrderView : BaseView
     }
 
     // Navigate to orders list
-    private void btnViewOrders_Click(object sender, EventArgs e) => Navigate(ViewType.Orders);
+    private void btnViewOrders_Click(object sender, EventArgs e)
+    {
+        Navigate(ViewType.Orders);
+    }
 
     // Clear alert on name text changed
     private void txtCustomerName_TextChanged(object sender, EventArgs e)

@@ -31,7 +31,7 @@ public partial class ChangeStatusDialog : Form
     }
 
     // Confirm status transition
-    private void btnConfirm_Click(object? sender, EventArgs e)
+    private void btnConfirm_Click(object sender, EventArgs e)
     {
         IsConfirmed = true;
         DialogResult = DialogResult.OK;
@@ -39,7 +39,7 @@ public partial class ChangeStatusDialog : Form
     }
 
     // Cancel status transition
-    private void btnCancel_Click(object? sender, EventArgs e)
+    private void btnCancel_Click(object sender, EventArgs e)
     {
         IsConfirmed = false;
         DialogResult = DialogResult.Cancel;
